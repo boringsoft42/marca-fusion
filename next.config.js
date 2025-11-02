@@ -7,7 +7,13 @@ const nextConfig = {
       "xqakfzhkeiongvzgbhji.supabase.co",
     ],
   },
-  output: "standalone",
+  // output: "standalone", // Commented out for Vercel deployment
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals.push('_http_common');
+    }
+    return config;
+  },
   // Security headers configuration
   async headers() {
     return [
