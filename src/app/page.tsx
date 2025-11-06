@@ -4,6 +4,7 @@ import { CorporateGroupSection } from '@/components/home/CorporateGroupSection';
 import { MissionSection } from '@/components/home/MissionSection';
 import { SectorsCarousel } from '@/components/home/SectorsCarousel';
 import { ClientShowcase } from '@/components/home/ClientShowcase';
+import { BlurFade } from '@/components/magicui/blur-fade';
 
 /**
  * Marca Fusión Home Page
@@ -31,23 +32,33 @@ export const metadata = {
 export default function HomePage() {
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
+      {/* Hero Section - No animation for immediate impact */}
       <HeroSection />
 
-      {/* Representations Block */}
-      <RepresentacionesBlock />
+      {/* Representations Block - Animated */}
+      <BlurFade delay={0.2} inView>
+        <RepresentacionesBlock />
+      </BlurFade>
 
-      {/* Corporate Group Section */}
-      <CorporateGroupSection />
+      {/* Corporate Group Section - Animated */}
+      <BlurFade delay={0.4} inView>
+        <CorporateGroupSection />
+      </BlurFade>
 
-      {/* Mission Section */}
-      <MissionSection />
+      {/* Mission Section - Animated */}
+      <BlurFade delay={0.6} inView>
+        <MissionSection />
+      </BlurFade>
 
-      {/* Sectors Carousel */}
-      <SectorsCarousel />
+      {/* Sectors Carousel - Animated */}
+      <BlurFade delay={0.8} inView>
+        <SectorsCarousel />
+      </BlurFade>
 
-      {/* Client Showcase */}
-      <ClientShowcase />
+      {/* Client Showcase - Animated */}
+      <BlurFade delay={1.0} inView>
+        <ClientShowcase />
+      </BlurFade>
     </div>
   );
 }
