@@ -199,62 +199,62 @@
   - [x] 1.9 Create `.env.local` file with placeholder environment variables (RESEND_API_KEY, GOOGLE_MAPS_API_KEY)
   - [x] 1.10 Set up folder structure for components: `marca-fusion/`, `home/`, `about/`, `capstone/`, `tablu/`, `sectors/`, `partnerships/`, `contact/`
 
-- [ ] 2.0 Shared Layout & Navigation Components
+- [x] 2.0 Shared Layout & Navigation Components
   - [x] 2.1 Create `src/components/layout/Header.tsx` with sticky header behavior and brand logo
-  - [ ] 2.2 Build `src/components/layout/Navigation.tsx` with dropdown for "Representaciones" (non-clickable parent, opens Capstone/Tablú sub-items)
-  - [ ] 2.3 Implement `src/components/layout/LanguageSwitcher.tsx` with Spanish/English toggle, localStorage persistence
-  - [ ] 2.4 Create `src/components/layout/MobileMenu.tsx` with hamburger icon, slide-in drawer, touch-swipeable
-  - [ ] 2.5 Build `src/components/layout/Footer.tsx` with contact info, social media icons, copyright notice (Marca Fusión + Altrix)
-  - [ ] 2.6 Add "Contáctanos ahora" CTA button in footer that opens contact modal or scrolls to contact section
-  - [ ] 2.7 Create `src/app/[locale]/layout.tsx` as root layout with Header, Footer, and i18n provider
+  - [x] 2.2 Build `src/components/layout/Navigation.tsx` with dropdown for "Representaciones" (non-clickable parent, opens Capstone/Tablú sub-items)
+  - [x] 2.3 Implement `src/components/layout/LanguageSwitcher.tsx` with Spanish/English toggle, localStorage persistence (Note: Changed to Spanish-only by user)
+  - [x] 2.4 Create `src/components/layout/MobileMenu.tsx` with hamburger icon, slide-in drawer, touch-swipeable
+  - [x] 2.5 Build `src/components/layout/Footer.tsx` with contact info, social media icons, copyright notice (Marca Fusión + Altrix)
+  - [x] 2.6 Add "Contáctanos ahora" CTA button in footer that opens contact modal or scrolls to contact section
+  - [x] 2.7 Create `src/app/[locale]/layout.tsx` as root layout with Header, Footer, and i18n provider (Note: Changed to /layout.tsx Spanish-only)
   - [ ] 2.8 Implement breadcrumbs component for internal pages (optional, if design requires)
-  - [ ] 2.9 Add keyboard navigation support for header menu (Tab, Enter, Escape)
-  - [ ] 2.10 Style all layout components following STYLE-GUIDE.md (colors, shadows, transitions)
+  - [x] 2.9 Add keyboard navigation support for header menu (Tab, Enter, Escape)
+  - [x] 2.10 Style all layout components following STYLE-GUIDE.md (colors, shadows, transitions)
 
-- [ ] 3.0 Home & About Us Pages
-  - [ ] 3.1 Create `src/app/[locale]/page.tsx` for Home page with metadata
-  - [ ] 3.2 Build `src/components/home/HeroSection.tsx` with gradient headline, subtitle, industrial background with green overlay (40%)
-  - [ ] 3.3 Implement `src/components/home/RepresentacionesBlock.tsx` with split visual (Capstone left, Tablú right), two CTAs
-  - [ ] 3.4 Create `src/components/home/CorporateGroupSection.tsx` with animated USA-Bolivia connection line, Altrix logo, metallic gray background
-  - [ ] 3.5 Build `src/components/home/MissionSection.tsx` with three icons (Technology, Trust, Sustainability), blurred map background
-  - [ ] 3.6 Implement `src/components/home/SectorsCarousel.tsx` with 5 sectors, auto-rotate with pause on hover, touch-swipe support
-  - [ ] 3.7 Create `src/components/home/ClientShowcase.tsx` with split layout (Capstone clients left, Tablú clients right), auto-scrolling logos
-  - [ ] 3.8 Add BlurFade animations (from existing codebase) to all Home sections with staggered delays
-  - [ ] 3.9 Create `src/app/[locale]/nosotros/page.tsx` for About Us page
-  - [ ] 3.10 Build `src/components/about/AboutHero.tsx` with blurred Santa Cruz cityscape background
-  - [ ] 3.11 Create `src/components/about/InstitutionalText.tsx` with company origin and belief statements
-  - [ ] 3.12 Implement `src/components/about/MissionVisionValues.tsx` with 5 value cards (icons: Trust, Innovation, Transparency, Adaptability, Commitment)
-  - [ ] 3.13 Build `src/components/about/TeamSection.tsx` with team photo and caption
-  - [ ] 3.14 Create `src/components/about/CorporateGroupDetail.tsx` with world map visual, USA-Bolivia arrows, clickable Altrix logo
-  - [ ] 3.15 Add `src/components/about/PhilosophySection.tsx` with closing philosophical statement
-  - [ ] 3.16 Ensure all About sections have smooth scroll animations and responsive grid layouts
+- [x] 3.0 Home & About Us Pages
+  - [x] 3.1 Create `src/app/[locale]/page.tsx` for Home page with metadata (Changed to /page.tsx Spanish-only)
+  - [x] 3.2 Build `src/components/home/HeroSection.tsx` with gradient headline, subtitle, industrial background with green overlay (40%)
+  - [x] 3.3 Implement `src/components/home/RepresentacionesBlock.tsx` with split visual (Capstone left, Tablú right), two CTAs
+  - [x] 3.4 Create `src/components/home/CorporateGroupSection.tsx` with animated USA-Bolivia connection line, Altrix logo, metallic gray background
+  - [x] 3.5 Build `src/components/home/MissionSection.tsx` with three icons (Technology, Trust, Sustainability), blurred map background
+  - [x] 3.6 Implement `src/components/home/SectorsCarousel.tsx` with 5 sectors, auto-rotate with pause on hover, touch-swipe support
+  - [x] 3.7 Create `src/components/home/ClientShowcase.tsx` with split layout (Capstone clients left, Tablú clients right), auto-scrolling logos
+  - [x] 3.8 Add BlurFade animations (from existing codebase) to all Home sections with staggered delays
+  - [x] 3.9 Create `src/app/[locale]/nosotros/page.tsx` for About Us page (Changed to /nosotros/page.tsx)
+  - [x] 3.10 Build `src/components/about/AboutHero.tsx` with blurred Santa Cruz cityscape background
+  - [x] 3.11 Create `src/components/about/InstitutionalText.tsx` with company origin and belief statements
+  - [x] 3.12 Implement `src/components/about/MissionVisionValues.tsx` with 5 value cards (icons: Trust, Innovation, Transparency, Adaptability, Commitment)
+  - [x] 3.13 Build `src/components/about/TeamSection.tsx` with team photo and caption
+  - [x] 3.14 Create `src/components/about/CorporateGroupDetail.tsx` with world map visual, USA-Bolivia arrows, clickable Altrix logo
+  - [x] 3.15 Add `src/components/about/PhilosophySection.tsx` with closing philosophical statement
+  - [x] 3.16 Ensure all About sections have smooth scroll animations and responsive grid layouts
 
-- [ ] 4.0 Product Pages - Capstone Green Energy & Tablú Bolivia
-  - [ ] 4.1 Create `src/app/[locale]/capstone/page.tsx` for Capstone page
-  - [ ] 4.2 Build `src/components/capstone/CapstoneHero.tsx` with panoramic microturbine installation image
-  - [ ] 4.3 Create `src/components/capstone/MicroturbineExplanation.tsx` with technology description and benefits text
-  - [ ] 4.4 Implement `src/components/capstone/ProductGrid.tsx` with 4 product cards (C65, C200S, C600S, C800S, C1000S models)
-  - [ ] 4.5 Build `src/components/capstone/ProductCard.tsx` with expandable data sheet (Dialog component from Shadcn UI)
-  - [ ] 4.6 Create `src/components/capstone/ComparisonTable.tsx` with responsive table showing Model | Capacity | Applications
-  - [ ] 4.7 Add external link button to https://www.capstonegreenenergy.com (opens in new tab)
-  - [ ] 4.8 Build `src/components/capstone/ServicesSection.tsx` with 6 service items (icons + text)
-  - [ ] 4.9 Implement `src/components/capstone/ImpactCounters.tsx` with AnimatedCounter component (71+ microturbines, 3.5+ MW, 0 emissions)
-  - [ ] 4.10 Create `src/components/capstone/BenefitsSection.tsx` with icon list and WhatsApp CTA
-  - [ ] 4.11 Build `src/components/capstone/CapstoneCTA.tsx` with two CTAs (Quote form + External Capstone website)
-  - [ ] 4.12 Add disclaimer text about Altrix handling international operations
-  - [ ] 4.13 Create `src/app/[locale]/tablu/page.tsx` for Tablú page
-  - [ ] 4.14 Build `src/components/tablu/TabluHero.tsx` with light beige background, acrylic reflection effect, product image, Tablú logo with flags
-  - [ ] 4.15 Create `src/components/tablu/CategoryCards.tsx` with 8 circular icon cards (Home, Habits, Kids, Youth, University, Entrepreneurs, Corporate, Gifts)
-  - [ ] 4.16 Implement `src/components/tablu/PricingTables.tsx` with two tables (Acrylic planners, Magnetic planners) showing sizes and ideal uses
-  - [ ] 4.17 Build `src/components/tablu/ProductCatalog.tsx` with filter buttons (Ver Todo, Home Office, Niños, Hogar, Dark Style, etc.)
-  - [ ] 4.18 Create `src/components/tablu/ProductCard.tsx` with image, sizes, price, WhatsApp CTA with pre-filled message template
-  - [ ] 4.19 Add `src/components/tablu/CorporateSection.tsx` with corporate customization description, gray/beige background
-  - [ ] 4.20 Build `src/components/tablu/IconRibbon.tsx` with 4 feature icons (Secure shipping, Unique designs, Gift Cards, Quality)
-  - [ ] 4.21 Create `src/components/tablu/SocialSection.tsx` with animated social icons (Instagram, Facebook, WhatsApp) and handles
-  - [ ] 4.22 Implement `src/components/tablu/TabluCTA.tsx` with two CTAs (Catalog + WhatsApp), link to https://tablu.com.pe
-  - [ ] 4.23 Add WhatsApp number +591 67710595 for Tablú-specific inquiries
-  - [ ] 4.24 Create `src/data/capstone-products.ts` with product model data (capacities, applications, images)
-  - [ ] 4.25 Create `src/data/tablu-catalog.ts` with product catalog data (designs, sizes, prices, categories)
+- [x] 4.0 Product Pages - Capstone Green Energy & Tablú Bolivia
+  - [x] 4.1 Create `src/app/[locale]/capstone/page.tsx` for Capstone page (Changed to /capstone/page.tsx)
+  - [x] 4.2 Build `src/components/capstone/CapstoneHero.tsx` with panoramic microturbine installation image
+  - [x] 4.3 Create `src/components/capstone/MicroturbineExplanation.tsx` with technology description and benefits text
+  - [x] 4.4 Implement `src/components/capstone/ProductGrid.tsx` with 4 product cards (C65, C200S, C600S, C800S, C1000S models)
+  - [x] 4.5 Build `src/components/capstone/ProductCard.tsx` with expandable data sheet (Dialog component from Shadcn UI)
+  - [x] 4.6 Create `src/components/capstone/ComparisonTable.tsx` with responsive table showing Model | Capacity | Applications
+  - [x] 4.7 Add external link button to https://www.capstonegreenenergy.com (opens in new tab)
+  - [x] 4.8 Build `src/components/capstone/ServicesSection.tsx` with 6 service items (icons + text)
+  - [x] 4.9 Implement `src/components/capstone/ImpactCounters.tsx` with AnimatedCounter component (71+ microturbines, 3.5+ MW, 0 emissions)
+  - [x] 4.10 Create `src/components/capstone/BenefitsSection.tsx` with icon list and WhatsApp CTA
+  - [x] 4.11 Build `src/components/capstone/CapstoneCTA.tsx` with two CTAs (Quote form + External Capstone website)
+  - [x] 4.12 Add disclaimer text about Altrix handling international operations
+  - [x] 4.13 Create `src/app/[locale]/tablu/page.tsx` for Tablú page (Changed to /tablu/page.tsx)
+  - [x] 4.14 Build `src/components/tablu/TabluHero.tsx` with light beige background, acrylic reflection effect, product image, Tablú logo with flags
+  - [x] 4.15 Create `src/components/tablu/CategoryCards.tsx` with 8 circular icon cards (Home, Habits, Kids, Youth, University, Entrepreneurs, Corporate, Gifts)
+  - [x] 4.16 Implement `src/components/tablu/PricingTables.tsx` with two tables (Acrylic planners, Magnetic planners) showing sizes and ideal uses
+  - [x] 4.17 Build `src/components/tablu/ProductCatalog.tsx` with filter buttons (Ver Todo, Home Office, Niños, Hogar, Dark Style, etc.)
+  - [x] 4.18 Create `src/components/tablu/ProductCard.tsx` with image, sizes, price, WhatsApp CTA with pre-filled message template
+  - [x] 4.19 Add `src/components/tablu/CorporateSection.tsx` with corporate customization description, gray/beige background
+  - [x] 4.20 Build `src/components/tablu/IconRibbon.tsx` with 4 feature icons (Secure shipping, Unique designs, Gift Cards, Quality)
+  - [x] 4.21 Create `src/components/tablu/SocialSection.tsx` with animated social icons (Instagram, Facebook, WhatsApp) and handles
+  - [x] 4.22 Implement `src/components/tablu/TabluCTA.tsx` with two CTAs (Catalog + WhatsApp), link to https://tablu.com.pe
+  - [x] 4.23 Add WhatsApp number +591 67710595 for Tablú-specific inquiries
+  - [ ] 4.24 Create `src/data/capstone-products.ts` with product model data (capacities, applications, images) (Skipped - data embedded in components)
+  - [x] 4.25 Create `src/data/tablu-catalog.ts` with product catalog data (designs, sizes, prices, categories)
 
 - [ ] 5.0 Sectors & Partnerships Pages
   - [ ] 5.1 Create `src/app/[locale]/sectores/page.tsx` for Sectors page
