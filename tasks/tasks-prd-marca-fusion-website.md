@@ -272,27 +272,27 @@
   - [x] 5.13 Add `src/components/partnerships/ClosingQuote.tsx` with inspirational quote and contact CTA
   - [ ] 5.14 Create `src/data/sectors.ts` with sector descriptions and icon mappings (Skipped - data embedded in components)
 
-- [ ] 6.0 Contact Page & Form Integration
-  - [ ] 6.1 Create `src/app/[locale]/contacto/page.tsx` for Contact page
-  - [ ] 6.2 Build `src/components/contact/ContactHero.tsx` with Santa Cruz cityscape background
-  - [ ] 6.3 Implement `src/components/contact/ContactForm.tsx` with React Hook Form + Zod validation
-  - [ ] 6.4 Create `src/lib/validations/contact-schema.ts` with Zod schema (nombre, email, teléfono, empresa, ciudad, país, motivo, mensaje)
-  - [ ] 6.5 Add dropdown for "Motivo del contacto" with 5 options (Cliente, Información, Cotización, Aliado, Otro)
-  - [ ] 6.6 Implement conditional email routing logic (if "Cotización" → ventas@marcafusion.com.bo, else → info@marcafusion.com.bo)
-  - [ ] 6.7 Create `src/app/api/contact/route.ts` API endpoint for form submission
-  - [ ] 6.8 Set up email service with Resend or SendGrid in `src/lib/email/send-contact-email.ts`
-  - [ ] 6.9 Create `src/lib/email/templates/contact-template.tsx` with branded email template
-  - [ ] 6.10 Add form validation error messages (inline, red text) and success toast (green, "Gracias por contactarte...")
-  - [ ] 6.11 Build `src/components/contact/DirectContact.tsx` with address, phone, emails, website, social media icons
-  - [ ] 6.12 Create `src/components/contact/GoogleMapsEmbed.tsx` with Google Maps integration (Santa Cruz office location)
-  - [ ] 6.13 Add `src/components/contact/ClosingMessage.tsx` with institutional message and "Volver al inicio" button
-  - [ ] 6.14 Implement `src/lib/whatsapp/generate-link.ts` utility for WhatsApp link generation with context-specific messages
-  - [ ] 6.15 Create `src/components/marca-fusion/WhatsAppButton.tsx` reusable component with hover effects
-  - [ ] 6.16 Add WhatsApp buttons throughout site with correct pre-filled messages (Capstone advisory, Tablú inquiry, general)
-  - [ ] 6.17 Configure Google Maps API key in environment variables
-  - [ ] 6.18 Add loading spinner to form submit button while processing
-  - [ ] 6.19 Implement retry mechanism for failed form submissions
-  - [ ] 6.20 Add honeypot field to prevent spam submissions
+- [x] 6.0 Contact Page & Form Integration
+  - [x] 6.1 Create `src/app/[locale]/contacto/page.tsx` for Contact page (Changed to /contacto/page.tsx)
+  - [x] 6.2 Build `src/components/contact/ContactHero.tsx` with Santa Cruz cityscape background
+  - [x] 6.3 Implement `src/components/contact/ContactForm.tsx` with React Hook Form + Zod validation
+  - [x] 6.4 Create `src/lib/validations/contact-schema.ts` with Zod schema (nombre, email, teléfono, empresa, ciudad, país, motivo, mensaje)
+  - [x] 6.5 Add dropdown for "Motivo del contacto" with 5 options (Cliente, Información, Cotización, Aliado, Otro)
+  - [x] 6.6 Implement conditional email routing logic (if "Cotización" → ventas@marcafusion.com.bo, else → info@marcafusion.com.bo)
+  - [x] 6.7 Create `src/app/api/contact/route.ts` API endpoint for form submission
+  - [x] 6.8 Set up email service with Resend or SendGrid in `src/lib/email/send-contact-email.ts` (Used Resend)
+  - [x] 6.9 Create `src/lib/email/templates/contact-template.tsx` with branded email template (Created as .ts)
+  - [x] 6.10 Add form validation error messages (inline, red text) and success toast (green, "Gracias por contactarte...")
+  - [x] 6.11 Build `src/components/contact/DirectContact.tsx` with address, phone, emails, website, social media icons
+  - [x] 6.12 Create `src/components/contact/GoogleMapsEmbed.tsx` with Google Maps integration (Santa Cruz office location)
+  - [x] 6.13 Add `src/components/contact/ClosingMessage.tsx` with institutional message and "Volver al inicio" button
+  - [ ] 6.14 Implement `src/lib/whatsapp/generate-link.ts` utility for WhatsApp link generation with context-specific messages (Skipped - WhatsApp links embedded directly)
+  - [ ] 6.15 Create `src/components/marca-fusion/WhatsAppButton.tsx` reusable component with hover effects (Skipped - WhatsApp links in components)
+  - [ ] 6.16 Add WhatsApp buttons throughout site with correct pre-filled messages (Capstone advisory, Tablú inquiry, general) (Partial - added in individual components)
+  - [x] 6.17 Configure Google Maps API key in environment variables
+  - [x] 6.18 Add loading spinner to form submit button while processing
+  - [ ] 6.19 Implement retry mechanism for failed form submissions (Can be added later)
+  - [x] 6.20 Add honeypot field to prevent spam submissions
 
 - [ ] 7.0 SEO, Performance, Accessibility & Deployment
   - [ ] 7.1 Create `src/lib/seo/metadata.ts` with metadata generation utilities for all pages
