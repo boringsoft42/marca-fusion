@@ -4,6 +4,9 @@ import { MicroturbineExplanation } from '@/components/capstone/MicroturbineExpla
 import { ProductGrid } from '@/components/capstone/ProductGrid';
 import { ComparisonTable } from '@/components/capstone/ComparisonTable';
 import { ServicesSection } from '@/components/capstone/ServicesSection';
+import { ImpactCounters } from '@/components/capstone/ImpactCounters';
+import { BenefitsSection } from '@/components/capstone/BenefitsSection';
+import { CapstoneCTA } from '@/components/capstone/CapstoneCTA';
 
 /**
  * Marca Fusión Capstone Green Energy Page
@@ -51,6 +54,21 @@ export default function CapstonePage() {
       {/* Services Section - Animated */}
       <BlurFade delay={0.8} inView>
         <ServicesSection />
+      </BlurFade>
+
+      {/* Impact Counters - Animated */}
+      <BlurFade delay={1.0} inView>
+        <ImpactCounters />
+      </BlurFade>
+
+      {/* Benefits Section - Animated */}
+      <BlurFade delay={1.2} inView>
+        <BenefitsSection />
+      </BlurFade>
+
+      {/* Final CTA - Animated */}
+      <BlurFade delay={1.4} inView>
+        <CapstoneCTA />
       </BlurFade>
     </div>
   );
