@@ -1,6 +1,9 @@
 import { BlurFade } from '@/components/magicui/blur-fade';
 import { CapstoneHero } from '@/components/capstone/CapstoneHero';
 import { MicroturbineExplanation } from '@/components/capstone/MicroturbineExplanation';
+import { ProductGrid } from '@/components/capstone/ProductGrid';
+import { ComparisonTable } from '@/components/capstone/ComparisonTable';
+import { ServicesSection } from '@/components/capstone/ServicesSection';
 
 /**
  * Marca Fusión Capstone Green Energy Page
@@ -35,7 +38,20 @@ export default function CapstonePage() {
         <MicroturbineExplanation />
       </BlurFade>
 
-      {/* Additional sections will be added in subsequent tasks */}
+      {/* Product Grid - Animated */}
+      <BlurFade delay={0.4} inView>
+        <ProductGrid />
+      </BlurFade>
+
+      {/* Comparison Table - Animated */}
+      <BlurFade delay={0.6} inView>
+        <ComparisonTable />
+      </BlurFade>
+
+      {/* Services Section - Animated */}
+      <BlurFade delay={0.8} inView>
+        <ServicesSection />
+      </BlurFade>
     </div>
   );
 }
