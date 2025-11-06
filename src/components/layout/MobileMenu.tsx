@@ -2,11 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
-import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
-import { LanguageSwitcher } from './LanguageSwitcher';
 
 /**
  * Marca Fusión Mobile Menu Component
@@ -15,10 +13,9 @@ import { LanguageSwitcher } from './LanguageSwitcher';
  * - Vertical navigation for mobile devices
  * - Accordion-style dropdown for "Representaciones"
  * - Active link highlighting
- * - Language switcher integration
  * - Touch-friendly spacing and targets
  * - Smooth animations
- * - Follows STYLE-GUIDE.md design patterns
+ * - Spanish only (no i18n)
  */
 
 interface MobileMenuProps {
@@ -29,32 +26,28 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onLinkClick, className }: MobileMenuProps) {
   const [isRepresentationsOpen, setIsRepresentationsOpen] = useState(false);
-  const params = useParams();
   const pathname = usePathname();
-  const t = useTranslations('nav');
 
-  const locale = params?.locale as string || 'es';
-
-  // Navigation items configuration
+  // Navigation items configuration (Spanish only)
   const navItems = [
-    { href: `/${locale}`, label: t('home') },
-    { href: `/${locale}/nosotros`, label: t('about') },
+    { href: `/`, label: 'Inicio' },
+    { href: `/nosotros`, label: 'Nosotros' },
     {
-      label: t('representations'),
+      label: 'Representaciones',
       isDropdown: true,
       subItems: [
-        { href: `/${locale}/capstone`, label: t('capstone') },
-        { href: `/${locale}/tablu`, label: t('tablu') },
+        { href: `/capstone`, label: 'Capstone' },
+        { href: `/tablu`, label: 'Tablú' },
       ],
     },
-    { href: `/${locale}/sectores`, label: t('sectors') },
-    { href: `/${locale}/alianzas`, label: t('partnerships') },
-    { href: `/${locale}/contacto`, label: t('contact') },
+    { href: `/sectores`, label: 'Sectores' },
+    { href: `/alianzas`, label: 'Alianzas' },
+    { href: `/contacto`, label: 'Contacto' },
   ];
 
   // Check if current path matches link
   const isActive = (href: string) => {
-    if (href === `/${locale}`) {
+    if (href === `/`) {
       return pathname === href;
     }
     return pathname?.startsWith(href);
@@ -80,7 +73,7 @@ export function MobileMenu({ isOpen, onLinkClick, className }: MobileMenuProps) 
       <div className="space-y-1 px-4 py-4">
         {navItems.map((item, index) => {
           if (item.isDropdown && item.subItems) {
-            const isActive = isDropdownActive(item.subItems);
+            const isDropdownItemActive = isDropdownActive(item.subItems);
 
             return (
               <div key={index} className="space-y-1">
@@ -92,7 +85,7 @@ export function MobileMenu({ isOpen, onLinkClick, className }: MobileMenuProps) 
                     'flex w-full items-center justify-between rounded-md px-3 py-3 text-base font-medium transition-colors',
                     'hover:bg-accent hover:text-accent-foreground',
                     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-                    isActive && 'text-marca-green font-semibold'
+                    isDropdownItemActive && 'text-marca-green font-semibold'
                   )}
                   aria-expanded={isRepresentationsOpen}
                   aria-controls={`mobile-submenu-${index}`}
@@ -155,16 +148,6 @@ export function MobileMenu({ isOpen, onLinkClick, className }: MobileMenuProps) 
             </Link>
           );
         })}
-      </div>
-
-      {/* Language Switcher */}
-      <div className="border-t border-border px-4 py-4">
-        <div className="flex items-center justify-between">
-          <span className="text-sm font-medium text-muted-foreground">
-            {locale === 'es' ? 'Idioma' : 'Language'}
-          </span>
-          <LanguageSwitcher />
-        </div>
       </div>
     </div>
   );

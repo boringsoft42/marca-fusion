@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
-import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
 
@@ -16,7 +15,7 @@ import { ChevronDown } from 'lucide-react';
  * - Active link highlighting
  * - Smooth hover effects
  * - Keyboard navigation support
- * - Follows STYLE-GUIDE.md design patterns
+ * - Spanish only (no i18n)
  */
 
 interface NavigationProps {
@@ -26,32 +25,28 @@ interface NavigationProps {
 
 export function Navigation({ className, onLinkClick }: NavigationProps) {
   const [isRepresentationsOpen, setIsRepresentationsOpen] = useState(false);
-  const params = useParams();
   const pathname = usePathname();
-  const t = useTranslations('nav');
 
-  const locale = params?.locale as string || 'es';
-
-  // Navigation items configuration
+  // Navigation items configuration (Spanish only)
   const navItems = [
-    { href: `/${locale}`, label: t('home') },
-    { href: `/${locale}/nosotros`, label: t('about') },
+    { href: `/`, label: 'Inicio' },
+    { href: `/nosotros`, label: 'Nosotros' },
     {
-      label: t('representations'),
+      label: 'Representaciones',
       isDropdown: true,
       subItems: [
-        { href: `/${locale}/capstone`, label: t('capstone') },
-        { href: `/${locale}/tablu`, label: t('tablu') },
+        { href: `/capstone`, label: 'Capstone' },
+        { href: `/tablu`, label: 'Tablú' },
       ],
     },
-    { href: `/${locale}/sectores`, label: t('sectors') },
-    { href: `/${locale}/alianzas`, label: t('partnerships') },
-    { href: `/${locale}/contacto`, label: t('contact') },
+    { href: `/sectores`, label: 'Sectores' },
+    { href: `/alianzas`, label: 'Alianzas' },
+    { href: `/contacto`, label: 'Contacto' },
   ];
 
   // Check if current path matches link
   const isActive = (href: string) => {
-    if (href === `/${locale}`) {
+    if (href === `/`) {
       return pathname === href;
     }
     return pathname?.startsWith(href);
@@ -66,7 +61,7 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
     <nav className={cn('flex items-center space-x-1', className)} aria-label="Main navigation">
       {navItems.map((item, index) => {
         if (item.isDropdown && item.subItems) {
-          const isActive = isDropdownActive(item.subItems);
+          const isDropdownItemActive = isDropdownActive(item.subItems);
 
           return (
             <div
@@ -82,7 +77,7 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
                   'inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors',
                   'hover:bg-accent hover:text-accent-foreground',
                   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-                  isActive && 'text-marca-green font-semibold'
+                  isDropdownItemActive && 'text-marca-green font-semibold'
                 )}
                 aria-expanded={isRepresentationsOpen}
                 aria-haspopup="true"

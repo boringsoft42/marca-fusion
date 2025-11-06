@@ -1,41 +1,53 @@
-import { PublicHeader } from "@/components/navigation/public-header";
-import { PublicFooter } from "@/components/navigation/public-footer";
-import { HeroSection } from "@/components/landing/hero-section";
-import { FeaturesSection } from "@/components/landing/features-section";
-import { SocialProofSection } from "@/components/landing/social-proof-section";
-import { TestimonialsSection } from "@/components/landing/testimonials-section";
-import { HowItWorksSection } from "@/components/landing/how-it-works-section";
-import { CapabilitiesSection } from "@/components/landing/capabilities-section";
-import { FAQSection } from "@/components/landing/faq-section";
-import { FinalCTASection } from "@/components/landing/final-cta-section";
-import { AnalyticsProvider } from "@/components/analytics-provider";
+import { HeroSection } from '@/components/home/HeroSection';
+import { RepresentacionesBlock } from '@/components/home/RepresentacionesBlock';
+import { CorporateGroupSection } from '@/components/home/CorporateGroupSection';
+import { MissionSection } from '@/components/home/MissionSection';
+import { SectorsCarousel } from '@/components/home/SectorsCarousel';
+import { ClientShowcase } from '@/components/home/ClientShowcase';
+
+/**
+ * Marca Fusión Home Page
+ *
+ * Main landing page showcasing:
+ * - Hero section with company tagline
+ * - Representations block (Capstone & Tablú)
+ * - Corporate group section (Marca Fusión + Altrix)
+ * - Mission and values
+ * - Sectors carousel
+ * - Client showcase
+ */
 
 export const metadata = {
-  title: "Boring Automation - The Fastest Way to Automate with AI",
-  description:
-    "Empower your sales, marketing, and operations teams with AI agents that work 24/7. Setup in 7 days, trusted by 50,000+ companies.",
+  title: 'Inicio | Marca Fusión - Representaciones en Bolivia',
+  description: 'Representantes exclusivos de Capstone Green Energy y Tablú en Bolivia. Conectamos Bolivia con marcas internacionales que impulsan innovación, sostenibilidad y confianza.',
+  openGraph: {
+    title: 'Marca Fusión SRL - Representaciones Capstone y Tablú en Bolivia',
+    description: 'Representantes exclusivos de Capstone Green Energy y Tablú en Bolivia',
+    type: 'website',
+    locale: 'es_BO',
+  },
 };
 
-export default function Home() {
-
+export default function HomePage() {
   return (
-    <AnalyticsProvider>
-      <div className="flex flex-col min-h-screen">
-        <PublicHeader />
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <HeroSection />
 
-        <main className="flex-grow">
-          <HeroSection />
-          <FeaturesSection />
-          <SocialProofSection />
-          <TestimonialsSection />
-          <HowItWorksSection />
-          <CapabilitiesSection />
-          <FAQSection />
-          <FinalCTASection />
-        </main>
+      {/* Representations Block */}
+      <RepresentacionesBlock />
 
-        <PublicFooter />
-      </div>
-    </AnalyticsProvider>
+      {/* Corporate Group Section */}
+      <CorporateGroupSection />
+
+      {/* Mission Section */}
+      <MissionSection />
+
+      {/* Sectors Carousel */}
+      <SectorsCarousel />
+
+      {/* Client Showcase */}
+      <ClientShowcase />
+    </div>
   );
 }

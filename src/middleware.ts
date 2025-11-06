@@ -1,24 +1,13 @@
-import createMiddleware from 'next-intl/middleware';
-import { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
-// Marca Fusion i18n configuration
-const intlMiddleware = createMiddleware({
-  // Supported locales
-  locales: ['es', 'en'],
-
-  // Default locale (Spanish for Bolivia)
-  defaultLocale: 'es',
-
-  // Always show locale prefix in URL (e.g., /es/nosotros, /en/about)
-  localePrefix: 'always',
-
-  // Locale detection strategy
-  localeDetection: true,
-});
-
-export default function middleware(request: NextRequest) {
-  // Apply i18n middleware for all requests
-  return intlMiddleware(request);
+/**
+ * Marca Fusión Middleware
+ *
+ * Basic middleware for handling requests.
+ * No i18n - site is Spanish only.
+ */
+export default function middleware() {
+  return NextResponse.next();
 }
 
 export const config = {

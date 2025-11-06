@@ -2,10 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Navigation } from './Navigation';
-import { LanguageSwitcher } from './LanguageSwitcher';
 import { MobileMenu } from './MobileMenu';
 
 /**
@@ -15,9 +13,8 @@ import { MobileMenu } from './MobileMenu';
  * - Sticky header with scroll behavior
  * - Brand logo
  * - Navigation integration
- * - Language switcher
  * - Mobile responsive with hamburger menu
- * - Follows STYLE-GUIDE.md design patterns
+ * - Spanish only (no i18n)
  */
 
 interface HeaderProps {
@@ -27,8 +24,6 @@ interface HeaderProps {
 export function Header({ className }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const params = useParams();
-  const locale = params?.locale as string || 'es';
 
   // Handle scroll behavior for sticky header shadow
   useEffect(() => {
@@ -77,7 +72,7 @@ export function Header({ className }: HeaderProps) {
           {/* Logo */}
           <div className="flex items-center">
             <Link
-              href={`/${locale}`}
+              href="/"
               className="flex items-center space-x-2 transition-opacity hover:opacity-80"
             >
               {/* Logo placeholder - replace with actual logo */}
@@ -96,13 +91,8 @@ export function Header({ className }: HeaderProps) {
           {/* Desktop Navigation */}
           <Navigation className="hidden md:flex" onLinkClick={() => setIsMobileMenuOpen(false)} />
 
-          {/* Right side: Language switcher + Mobile menu button */}
+          {/* Right side: Mobile menu button */}
           <div className="flex items-center space-x-4">
-            {/* Language Switcher */}
-            <div className="hidden sm:block">
-              <LanguageSwitcher />
-            </div>
-
             {/* Mobile menu button */}
             <button
               type="button"

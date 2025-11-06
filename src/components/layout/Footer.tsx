@@ -1,8 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 
@@ -24,31 +22,27 @@ interface FooterProps {
 }
 
 export function Footer({ className }: FooterProps) {
-  const params = useParams();
-  const t = useTranslations('nav');
-  const locale = params?.locale as string || 'es';
-
   const currentYear = new Date().getFullYear();
 
   // Contact information
   const contactInfo = [
     {
       icon: Phone,
-      label: locale === 'es' ? 'Teléfono General' : 'General Phone',
+      label: 'Teléfono General',
       value: process.env.NEXT_PUBLIC_PHONE_GENERAL || '+591 72136767',
       href: `tel:${process.env.NEXT_PUBLIC_PHONE_GENERAL?.replace(/\s/g, '') || '+59172136767'}`,
     },
     {
       icon: Mail,
-      label: locale === 'es' ? 'Correo Electrónico' : 'Email',
+      label: 'Correo Electrónico',
       value: process.env.NEXT_PUBLIC_EMAIL_INFO || 'info@marcafusion.com.bo',
       href: `mailto:${process.env.NEXT_PUBLIC_EMAIL_INFO || 'info@marcafusion.com.bo'}`,
     },
     {
       icon: MapPin,
-      label: locale === 'es' ? 'Ubicación' : 'Location',
+      label: 'Ubicación',
       value: 'Santa Cruz, Bolivia',
-      href: `/${locale}/contacto`,
+      href: '/contacto',
     },
   ];
 
@@ -58,30 +52,30 @@ export function Footer({ className }: FooterProps) {
       icon: Facebook,
       label: 'Facebook',
       href: process.env.NEXT_PUBLIC_FACEBOOK_URL || '#',
-      ariaLabel: locale === 'es' ? 'Visitar Facebook' : 'Visit Facebook',
+      ariaLabel: 'Visitar Facebook',
     },
     {
       icon: Instagram,
       label: 'Instagram',
       href: process.env.NEXT_PUBLIC_INSTAGRAM_URL || '#',
-      ariaLabel: locale === 'es' ? 'Visitar Instagram' : 'Visit Instagram',
+      ariaLabel: 'Visitar Instagram',
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       href: process.env.NEXT_PUBLIC_LINKEDIN_URL || '#',
-      ariaLabel: locale === 'es' ? 'Visitar LinkedIn' : 'Visit LinkedIn',
+      ariaLabel: 'Visitar LinkedIn',
     },
   ];
 
   // Quick links
   const quickLinks = [
-    { href: `/${locale}`, label: t('home') },
-    { href: `/${locale}/nosotros`, label: t('about') },
-    { href: `/${locale}/capstone`, label: t('capstone') },
-    { href: `/${locale}/tablu`, label: t('tablu') },
-    { href: `/${locale}/sectores`, label: t('sectors') },
-    { href: `/${locale}/contacto`, label: t('contact') },
+    { href: '/', label: 'Inicio' },
+    { href: '/nosotros', label: 'Nosotros' },
+    { href: '/capstone', label: 'Capstone' },
+    { href: '/tablu', label: 'Tablú' },
+    { href: '/sectores', label: 'Sectores' },
+    { href: '/contacto', label: 'Contacto' },
   ];
 
   return (
@@ -106,16 +100,14 @@ export function Footer({ className }: FooterProps) {
               </div>
             </div>
             <p className="text-sm text-muted-foreground">
-              {locale === 'es'
-                ? 'Representantes exclusivos de Capstone Green Energy y Tablú en Bolivia.'
-                : 'Exclusive representatives of Capstone Green Energy and Tablú in Bolivia.'}
+              Representantes exclusivos de Capstone Green Energy y Tablú en Bolivia.
             </p>
           </div>
 
           {/* Quick links */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              {locale === 'es' ? 'Enlaces Rápidos' : 'Quick Links'}
+              Enlaces Rápidos
             </h3>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
@@ -134,7 +126,7 @@ export function Footer({ className }: FooterProps) {
           {/* Contact info */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              {locale === 'es' ? 'Contacto' : 'Contact'}
+              Contacto
             </h3>
             <ul className="space-y-3">
               {contactInfo.map((item, index) => (
@@ -157,7 +149,7 @@ export function Footer({ className }: FooterProps) {
           {/* Social media & CTA */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              {locale === 'es' ? 'Síguenos' : 'Follow Us'}
+              Síguenos
             </h3>
             <div className="flex gap-3">
               {socialLinks.map((social, index) => (
@@ -177,10 +169,10 @@ export function Footer({ className }: FooterProps) {
             {/* CTA Button */}
             <div className="pt-4">
               <Link
-                href={`/${locale}/contacto`}
+                href="/contacto"
                 className="inline-flex items-center justify-center rounded-md bg-marca-green px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-marca-green/90 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2"
               >
-                {locale === 'es' ? 'Contáctanos ahora' : 'Contact us now'}
+                Contáctanos ahora
               </Link>
             </div>
           </div>
@@ -190,20 +182,20 @@ export function Footer({ className }: FooterProps) {
         <div className="border-t border-border py-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-sm text-muted-foreground">
-              © {currentYear} Marca Fusión SRL. {locale === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
+              © {currentYear} Marca Fusión SRL. Todos los derechos reservados.
             </p>
             <div className="flex gap-6 text-sm text-muted-foreground">
               <Link
-                href={`/${locale}/nosotros`}
+                href="/nosotros"
                 className="transition-colors hover:text-marca-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
               >
-                {locale === 'es' ? 'Sobre Nosotros' : 'About Us'}
+                Sobre Nosotros
               </Link>
               <Link
-                href={`/${locale}/contacto`}
+                href="/contacto"
                 className="transition-colors hover:text-marca-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
               >
-                {locale === 'es' ? 'Contacto' : 'Contact'}
+                Contacto
               </Link>
             </div>
           </div>

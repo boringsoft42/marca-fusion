@@ -187,7 +187,7 @@
 
 ## Tasks
 
-- [ ] 1.0 Project Foundation & Setup
+- [x] 1.0 Project Foundation & Setup
   - [x] 1.1 Install additional dependencies: `next-intl`, `resend` or `@sendgrid/mail`, `@googlemaps/js-api-loader`
   - [x] 1.2 Configure `next.config.js` with i18n settings (locales: es, en; defaultLocale: es)
   - [x] 1.3 Create `middleware.ts` for locale detection and routing
@@ -200,7 +200,7 @@
   - [x] 1.10 Set up folder structure for components: `marca-fusion/`, `home/`, `about/`, `capstone/`, `tablu/`, `sectors/`, `partnerships/`, `contact/`
 
 - [ ] 2.0 Shared Layout & Navigation Components
-  - [ ] 2.1 Create `src/components/layout/Header.tsx` with sticky header behavior and brand logo
+  - [x] 2.1 Create `src/components/layout/Header.tsx` with sticky header behavior and brand logo
   - [ ] 2.2 Build `src/components/layout/Navigation.tsx` with dropdown for "Representaciones" (non-clickable parent, opens Capstone/Tablú sub-items)
   - [ ] 2.3 Implement `src/components/layout/LanguageSwitcher.tsx` with Spanish/English toggle, localStorage persistence
   - [ ] 2.4 Create `src/components/layout/MobileMenu.tsx` with hamburger icon, slide-in drawer, touch-swipeable

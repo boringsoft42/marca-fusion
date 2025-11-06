@@ -4,6 +4,8 @@ import "./globals.css";
 import { QueryProvider } from "@/lib/providers/QueryProvider";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/context/theme-context";
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 
 const APP_NAME = "Marca Fusión SRL";
 const APP_DESCRIPTION = "Representantes exclusivos de Capstone Green Energy y Tablú en Bolivia. Soluciones energéticas sostenibles y tecnología innovadora.";
@@ -66,7 +68,18 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider defaultTheme="light" storageKey="marca-fusion-theme">
           <QueryProvider>
-            {children}
+            <div className="flex min-h-screen flex-col">
+              {/* Header with navigation */}
+              <Header />
+
+              {/* Main content */}
+              <main className="flex-1">
+                {children}
+              </main>
+
+              {/* Footer */}
+              <Footer />
+            </div>
             <Toaster />
           </QueryProvider>
         </ThemeProvider>
