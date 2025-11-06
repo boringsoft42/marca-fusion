@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "title": "Connecting Bolivia with national and international brands that drive innovation, sustainability and trust.",
+    "subtitle": "Exclusive representatives of Capstone Green Energy and Tablú for Bolivia"
+  },
+  "representations": {
+    "title": "Our Representations",
+    "capstone": {
+      "description": "Clean and reliable energy generation technology for Bolivian industries.",
+      "button": "Learn About Capstone"
+    },
+    "tablu": {
+      "description": "Customized planners that inspire productivity and organization with style.",
+      "button": "View Tablú Catalog"
+    }
+  },
+  "corporateGroup": {
+    "title": "Corporate Group",
+    "subtitle": "Marca Fusión - Altrix Solutions",
+    "description": "Our partnership with Altrix Solutions LLC allows us to offer international operational capacity, ensuring compliance with import and export processes from the United States to Bolivia.",
+    "button": "Learn About Altrix Solutions"
+  },
+  "mission": {
+    "title": "Your bridge to technology and sustainability",
+    "description": "At Marca Fusión, we believe in innovation and trust as pillars of progress. We represent brands that transform industries and improve people's lives.",
+    "values": {
+      "technology": {
+        "title": "Technology",
+        "description": "Cutting-edge innovative solutions"
+      },
+      "trust": {
+        "title": "Trust",
+        "description": "Proven backing in every project"
+      },
+      "sustainability": {
+        "title": "Sustainability",
+        "description": "Commitment to the environment"
+      }
+    },
+    "button": "Learn More About Us"
+  },
+  "sectors": {
+    "title": "Sectors We Serve",
+    "oilGas": {
+      "title": "Oil & Gas",
+      "description": "Continuous energy for plants and compression stations"
+    },
+    "industrial": {
+      "title": "Industrial",
+      "description": "Microturbines for cogeneration processes"
+    },
+    "healthcare": {
+      "title": "Healthcare",
+      "description": "Continuous operation and uninterrupted energy backup"
+    },
+    "commercial": {
+      "title": "Commercial & Corporate",
+      "description": "Energy and organizational solutions for businesses"
+    },
+    "home": {
+      "title": "Home",
+      "description": "Products for personal organization and planning"
+    },
+    "button": "More Information"
+  },
+  "clients": {
+    "title": "Featured Clients",
+    "capstoneClients": "Capstone Clients",
+    "tabluClients": "Tablú Clients"
+  }
+}

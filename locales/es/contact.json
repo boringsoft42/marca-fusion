@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "Estamos aquí para ayudarte",
+    "subtitle": "En Marca Fusión, valoramos cada consulta y cada oportunidad de colaboración. Completa el formulario o escríbenos directamente: nuestro equipo responderá lo antes posible."
+  },
+  "form": {
+    "title": "Formulario de contacto",
+    "fullName": "Nombre completo",
+    "email": "Correo electrónico",
+    "phone": "Teléfono / WhatsApp",
+    "company": "Empresa / Institución",
+    "city": "Ciudad",
+    "country": "País",
+    "reason": "Motivo del contacto",
+    "message": "Mensaje detallado",
+    "reasonOptions": {
+      "customer": "Soy cliente y deseo atención o información",
+      "information": "Deseo información sobre productos",
+      "quote": "Deseo una cotización",
+      "partner": "Deseo ser aliado comercial / distribuidor",
+      "other": "Otro motivo"
+    },
+    "submit": "Enviar mensaje",
+    "sending": "Enviando...",
+    "errorRequired": "Por favor, completa todos los campos requeridos para poder procesar tu solicitud.",
+    "successMessage": "Gracias por contactarte con Marca Fusión. Hemos recibido tu mensaje y un miembro de nuestro equipo se pondrá en contacto contigo en breve."
+  },
+  "directContact": {
+    "title": "También puedes comunicarte con nosotros directamente:",
+    "address": "Dirección",
+    "phoneWhatsApp": "Teléfono / WhatsApp",
+    "emails": "Correos electrónicos",
+    "emailInfo": "información y consultas",
+    "emailSales": "cotizaciones y requerimientos comerciales",
+    "website": "Sitio web"
+  },
+  "social": {
+    "title": "Síguenos en nuestras redes",
+    "description": "Síguenos en nuestras redes y descubrí más sobre nuestras marcas, novedades y proyectos en Bolivia. ¡Sé parte de nuestra comunidad y acompáñanos en este crecimiento!"
+  },
+  "map": {
+    "title": "Encuéntranos",
+    "description": "Nuestras oficinas están ubicadas en Santa Cruz de la Sierra."
+  },
+  "closing": {
+    "message": "En Marca Fusión, cada mensaje representa una oportunidad de conectar innovación, confianza y nuevas alianzas. ¡Gracias por comunicarte con nosotros!"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "title": "Conectamos Bolivia con marcas nacionales e internacionales que impulsan innovación, sostenibilidad y confianza.",
+    "subtitle": "Representantes exclusivos de Capstone Green Energy y Tablú para Bolivia"
+  },
+  "representations": {
+    "title": "Nuestras Representaciones",
+    "capstone": {
+      "description": "Tecnología en generación de energía limpia y confiable para industrias bolivianas.",
+      "button": "Conocer Capstone"
+    },
+    "tablu": {
+      "description": "Planners personalizados que inspiran productividad y organización con estilo.",
+      "button": "Ver Catálogo Tablú"
+    }
+  },
+  "corporateGroup": {
+    "title": "Grupo Corporativo",
+    "subtitle": "Marca Fusión - Altrix Solutions",
+    "description": "Nuestra alianza con Altrix Solutions LLC nos permite ofrecer capacidad operativa internacional, asegurando el cumplimiento de procesos de importación y exportación desde Estados Unidos hacia Bolivia.",
+    "button": "Conocer Altrix Solutions"
+  },
+  "mission": {
+    "title": "Tu puente hacia la tecnología y la sostenibilidad",
+    "description": "En Marca Fusión, creemos en la innovación y la confianza como pilares del progreso. Representamos marcas que transforman industrias y mejoran la vida de las personas.",
+    "values": {
+      "technology": {
+        "title": "Tecnología",
+        "description": "Soluciones innovadoras de vanguardia"
+      },
+      "trust": {
+        "title": "Confianza",
+        "description": "Respaldo comprobado en cada proyecto"
+      },
+      "sustainability": {
+        "title": "Sostenibilidad",
+        "description": "Compromiso con el medio ambiente"
+      }
+    },
+    "button": "Conócenos más"
+  },
+  "sectors": {
+    "title": "Sectores que atendemos",
+    "oilGas": {
+      "title": "Oil & Gas",
+      "description": "Energía continua para plantas y estaciones de compresión"
+    },
+    "industrial": {
+      "title": "Industrial",
+      "description": "Microturbinas para procesos de cogeneración"
+    },
+    "healthcare": {
+      "title": "Hospitalario",
+      "description": "Operación continua y respaldo energético ininterrumpido"
+    },
+    "commercial": {
+      "title": "Comercial y Corporativo",
+      "description": "Soluciones energéticas y organizacionales para empresas"
+    },
+    "home": {
+      "title": "Hogar",
+      "description": "Productos para organización y planificación personal"
+    },
+    "button": "Más Información"
+  },
+  "clients": {
+    "title": "Clientes destacados",
+    "capstoneClients": "Clientes Capstone",
+    "tabluClients": "Clientes Tablú"
+  }
+}

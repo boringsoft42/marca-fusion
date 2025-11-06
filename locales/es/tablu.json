@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "title": "Tablú Bolivia - Planners Personalizados - Marca Fusión",
+    "description": "Planners personalizados que inspiran productividad y organización con estilo. Distribuidor oficial de Tablú en Bolivia."
+  },
+  "hero": {
+    "title": "Planners personalizados que inspiran productividad y organización con estilo.",
+    "description": "Tablú llega a Bolivia de la mano de Marca Fusión. Planners acrílicos y magnéticos en múltiples formatos: To Do List, semanal, mensual, anual y Kanban."
+  },
+  "categories": {
+    "title": "Encuentra tu planner ideal según tu estilo de vida",
+    "home": "Hogar",
+    "habits": "Hábitos",
+    "kids": "Niños",
+    "youth": "Jóvenes y Estudiantes",
+    "university": "Universitarios",
+    "entrepreneurs": "Emprendedores",
+    "corporate": "Corporativos",
+    "gifts": "Regalos / Familiares"
+  },
+  "products": {
+    "title": "Planificá con estilo: nuestros tamaños y formatos",
+    "subtitle": "Disponibles en versión acrílica o imantada",
+    "customSizes": "Tamaños personalizados son cotizados según la medida solicitada"
+  },
+  "catalog": {
+    "title": "Diseños disponibles en Bolivia",
+    "description": "Seleccioná tu diseño favorito y consultá disponibilidad vía WhatsApp",
+    "filters": {
+      "all": "Ver Todo",
+      "homeOffice": "Home Office",
+      "kids": "Niños y Jóvenes",
+      "home": "Hogar",
+      "darkStyle": "Dark Style",
+      "todoList": "To Do List",
+      "special": "Colecciones Especiales",
+      "accessories": "Accesorios"
+    },
+    "consultButton": "Consultar este modelo",
+    "viewAll": "Ver todos los diseños"
+  },
+  "corporate": {
+    "title": "Planners personalizados para empresas y equipos",
+    "description": "Personalización corporativa con logo, colores y diseño exclusivo para tu empresa.",
+    "idealFor": "Ideal para regalos corporativos, branding interno, eventos y equipos de trabajo."
+  },
+  "features": {
+    "shipping": "Envío seguro a todos los departamentos",
+    "uniqueDesigns": "Diseños únicos",
+    "giftCards": "Gift Cards",
+    "quality": "Excelente calidad"
+  },
+  "social": {
+    "title": "Seguinos en nuestras redes",
+    "description": "Diseños semanales, promociones y tips de organización.",
+    "instagram": "@tablubolivia",
+    "facebook": "Tablú Bolivia",
+    "whatsapp": "67710595"
+  },
+  "finalCta": {
+    "title": "Organizá tu vida con estilo",
+    "description": "Los productos Tablú Bolivia mantienen los mismos estándares de fabricación y garantía que en Perú y México. Distribuido oficialmente por Marca Fusión SRL – Representante exclusivo en Bolivia.",
+    "visitTabluPeru": "Visitar Tablú Perú"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "hero": {
+    "title": "Who we are?",
+    "subtitle": "We build partnerships that drive innovation, trust and sustainable development in Bolivia."
+  },
+  "institutional": {
+    "text": "We are a Bolivian company based in Santa Cruz de la Sierra, specialized in representing national and international brands that drive innovation and sustainability. We believe innovation plus trust is the formula for progress. Our approach is transparent, adaptable and committed to the success of our clients and partners."
+  },
+  "mission": {
+    "title": "Mission",
+    "text": "To be the strategic bridge that connects innovative brands with the Bolivian market, offering reliable, sustainable and high value-added solutions for our clients."
+  },
+  "vision": {
+    "title": "Vision",
+    "text": "To consolidate ourselves as the leading company in commercial representations in Bolivia, recognized for our integrity, innovation and commitment to the country's development."
+  },
+  "values": {
+    "title": "Values",
+    "trust": {
+      "title": "Trust",
+      "description": "We build lasting relationships based on transparency and proven results"
+    },
+    "innovation": {
+      "title": "Innovation",
+      "description": "We constantly seek cutting-edge technological solutions"
+    },
+    "transparency": {
+      "title": "Transparency",
+      "description": "We operate with honesty and clarity in all our transactions"
+    },
+    "adaptability": {
+      "title": "Adaptability",
+      "description": "We adjust to the specific needs of each client and market"
+    },
+    "commitment": {
+      "title": "Commitment",
+      "description": "We are dedicated to our clients' success and Bolivia's development"
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Behind every brand we represent, there is a committed team.",
+    "description": "We have professionals specialized in international trade, engineering, project management and customer service. Our team combines local experience with international vision.",
+    "caption": "Management team – Marca Fusión SRL, Santa Cruz de la Sierra, Bolivia"
+  },
+  "corporateGroup": {
+    "title": "Marca Fusión – Altrix Solutions Corporate Group",
+    "subtitle": "Local presence, international capacity",
+    "description": "Marca Fusión SRL (Bolivia) works in close collaboration with Altrix Solutions LLC (United States) to ensure efficient import and export operations. This synergy allows us to offer international products under the EXW (Ex Works) modality, ensuring secure logistics, technical compliance and international backing in every operation.",
+    "button": "Visit Altrix Solutions"
+  },
+  "philosophy": {
+    "title": "Our Philosophy",
+    "text": "At Marca Fusión, each partnership represents an opportunity to build together the future of innovation in Bolivia. We believe that progress is achieved when technology, trust and human commitment come together to create solutions that truly transform."
+  }
+}

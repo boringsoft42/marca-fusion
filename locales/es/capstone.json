@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "title": "Capstone Green Energy en Bolivia - Marca Fusión",
+    "description": "Tecnología en generación de energía limpia y confiable. Representantes oficiales de Capstone microturbinas en Bolivia."
+  },
+  "hero": {
+    "title": "Capstone Green Energy en Bolivia",
+    "subtitle": "Tecnología en generación de energía limpia y confiable.",
+    "description": "Marca Fusión es representante oficial de Capstone Green Energy en Bolivia, ofreciendo microturbinas de alta eficiencia para aplicaciones industriales y comerciales."
+  },
+  "microturbines": {
+    "title": "Las microturbinas Capstone",
+    "description": "Tecnología de vanguardia en generación de energía distribuida con máxima eficiencia y mínimas emisiones."
+  },
+  "products": {
+    "title": "Modelos disponibles",
+    "viewDatasheet": "Ver ficha técnica"
+  },
+  "services": {
+    "title": "Capstone Bolivia – Servicios locales",
+    "subtitle": "Soluciones integrales de energía limpia en Bolivia"
+  },
+  "impact": {
+    "title": "Capstone en Bolivia – Impacto y trayectoria",
+    "microturbines": "+71 microturbinas instaladas en Bolivia",
+    "capacity": "+3.5 MW capacidad instalada",
+    "emissions": "0 lubricantes, 0 refrigerantes, 100% energía limpia"
+  },
+  "benefits": {
+    "title": "Beneficios"
+  },
+  "cta": {
+    "title": "¿Quieres conocer cómo implementar tecnología Capstone en tu empresa?",
+    "description": "Nuestro equipo técnico está listo para asesorarte.",
+    "disclaimer": "Todas las operaciones internacionales se gestionan a través de Altrix Solutions LLC (USA)"
+  }
+}

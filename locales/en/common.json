@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "representations": "Representations",
+    "capstone": "Capstone Green Energy",
+    "tablu": "Tablú Bolivia",
+    "sectors": "Sectors",
+    "partnerships": "Partnerships",
+    "contact": "Contact"
+  },
+  "footer": {
+    "contactTitle": "Contact",
+    "address": "Santa Cruz de la Sierra - Bolivia",
+    "phone": "+591 72136767",
+    "email": "info@marcafusion.com.bo",
+    "salesEmail": "ventas@marcafusion.com.bo",
+    "website": "www.marcafusion.com.bo",
+    "socialTitle": "Follow Us",
+    "copyrightMarcaFusion": "© 2024 Marca Fusión SRL - Bolivia",
+    "copyrightAltrix": "Altrix Solutions LLC - USA",
+    "ctaButton": "Contact us now"
+  },
+  "buttons": {
+    "learnMore": "Learn more",
+    "viewCatalog": "View catalog",
+    "requestQuote": "Request quote",
+    "contactUs": "Contact us",
+    "bookDemo": "Book demo",
+    "sendMessage": "Send message",
+    "viewProducts": "View products",
+    "consultWhatsApp": "Consult via WhatsApp",
+    "backToHome": "Back to home"
+  },
+  "whatsapp": {
+    "generalInquiry": "Hello, I would like more information about Marca Fusión.",
+    "capstoneAdvisory": "Hello, I would like technical advisory about Capstone microturbines.",
+    "capstoneQuote": "Hello, I would like to request a quote for Capstone Green Energy equipment.",
+    "tabluInquiry": "Hello, I'm interested in Tablú planners. Could you provide more information?",
+    "tabluCorporate": "Hello, I would like to inquire about customized corporate planners."
+  },
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp"
+  },
+  "languages": {
+    "spanish": "Español",
+    "english": "English"
+  },
+  "meta": {
+    "defaultTitle": "Marca Fusión SRL - Capstone and Tablú Representatives in Bolivia",
+    "defaultDescription": "Connecting Bolivia with national and international brands. Exclusive representatives of Capstone Green Energy and Tablú for Bolivia."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "title": "Alianzas - Por qué elegirnos - Marca Fusión",
+    "description": "Construimos alianzas estratégicas que impulsan crecimiento. Socio confiable en Bolivia con conexión internacional."
+  },
+  "hero": {
+    "title": "Alianzas que impulsan crecimiento",
+    "subtitle": "Creemos en las alianzas estratégicas como el motor del progreso. En Marca Fusión, unimos la solidez empresarial boliviana con la innovación de marcas nacionales e internacionales."
+  },
+  "whyChooseUs": {
+    "title": "¿Por qué elegir a Marca Fusión como tu socio en Bolivia?",
+    "trust": {
+      "title": "Confianza comprobada",
+      "description": "Años de experiencia representando marcas líderes"
+    },
+    "international": {
+      "title": "Conexión internacional",
+      "description": "Colaboración con Altrix Solutions LLC (USA)"
+    },
+    "management": {
+      "title": "Gestión integral",
+      "description": "Soluciones completas de importación y distribución"
+    },
+    "innovation": {
+      "title": "Visión innovadora",
+      "description": "Enfoque en tecnologías de vanguardia"
+    },
+    "results": {
+      "title": "Enfoque a resultados",
+      "description": "Comprometidos con el éxito de nuestros socios"
+    }
+  },
+  "whatWeSeek": {
+    "title": "Lo que buscamos en una alianza",
+    "subtitle": "Construimos relaciones que impulsan el crecimiento",
+    "description": "Estamos abiertos a colaborar con emprendedores, fabricantes y distribuidores que compartan nuestra visión de innovación y sostenibilidad."
+  },
+  "backing": {
+    "title": "Respaldo que genera confianza",
+    "description": "Representamos marcas internacionales reconocidas en sus respectivos sectores."
+  },
+  "altrix": {
+    "description": "Nuestra alianza con Altrix Solutions LLC fortalece nuestra capacidad operativa, asegurando el cumplimiento de los procesos de importación y exportación desde Estados Unidos hacia Bolivia. Juntos garantizamos logística segura, cumplimiento técnico y respaldo internacional en cada operación."
+  },
+  "closing": {
+    "quote": "En Marca Fusión, cada alianza representa una oportunidad para construir juntos el futuro de la innovación en Bolivia.",
+    "button": "Conversemos sobre tu marca"
+  }
+}

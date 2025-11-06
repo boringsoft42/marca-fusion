@@ -1,10 +1,20 @@
 /** @type {import('next').NextConfig} */
+// i18n Configuration Note:
+// next-intl uses middleware-based routing for internationalization
+// Locales: es (Spanish - default), en (English)
+// i18n config is handled in middleware.ts and src/i18n/ directory
 const nextConfig = {
   images: {
     domains: [
-      // Add your Supabase project domain
+      // Supabase domains
       "swfgvfhpmicwptupjyko.supabase.co",
       "xqakfzhkeiongvzgbhji.supabase.co",
+      // Google Maps for location images
+      "maps.googleapis.com",
+      "maps.gstatic.com",
+      // Stock image providers for placeholders
+      "images.unsplash.com",
+      "via.placeholder.com",
     ],
   },
   // output: "standalone", // Commented out for Vercel deployment
@@ -53,7 +63,7 @@ const nextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://*.supabase.co; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.stripe.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.supabase.co https://* blob:; font-src 'self' data:; frame-src 'self' https://js.stripe.com; object-src 'none'",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://*.supabase.co https://maps.googleapis.com https://*.google.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.stripe.com https://maps.googleapis.com https://*.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://*.supabase.co https://* blob:; font-src 'self' data: https://fonts.gstatic.com; frame-src 'self' https://js.stripe.com https://www.google.com; object-src 'none'",
           },
         ],
       },

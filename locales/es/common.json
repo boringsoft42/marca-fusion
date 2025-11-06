@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "representations": "Representaciones",
+    "capstone": "Capstone Green Energy",
+    "tablu": "Tablú Bolivia",
+    "sectors": "Sectores",
+    "partnerships": "Alianzas",
+    "contact": "Contacto"
+  },
+  "footer": {
+    "contactTitle": "Contacto",
+    "address": "Santa Cruz de la Sierra - Bolivia",
+    "phone": "+591 72136767",
+    "email": "info@marcafusion.com.bo",
+    "salesEmail": "ventas@marcafusion.com.bo",
+    "website": "www.marcafusion.com.bo",
+    "socialTitle": "Síguenos",
+    "copyrightMarcaFusion": "© 2024 Marca Fusión SRL - Bolivia",
+    "copyrightAltrix": "Altrix Solutions LLC - USA",
+    "ctaButton": "Contáctanos ahora"
+  },
+  "buttons": {
+    "learnMore": "Conocer más",
+    "viewCatalog": "Ver catálogo",
+    "requestQuote": "Solicitar cotización",
+    "contactUs": "Contáctanos",
+    "bookDemo": "Agendar demo",
+    "sendMessage": "Enviar mensaje",
+    "viewProducts": "Ver productos",
+    "consultWhatsApp": "Consultar vía WhatsApp",
+    "backToHome": "Volver al inicio"
+  },
+  "whatsapp": {
+    "generalInquiry": "Hola, deseo más información sobre Marca Fusión.",
+    "capstoneAdvisory": "Hola, deseo asesoramiento técnico sobre microturbinas Capstone.",
+    "capstoneQuote": "Hola, deseo solicitar una cotización para equipos Capstone Green Energy.",
+    "tabluInquiry": "Hola, estoy interesado en los planners Tablú. ¿Podrían brindarme más información?",
+    "tabluCorporate": "Hola, deseo consultar sobre planners corporativos personalizados."
+  },
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp"
+  },
+  "languages": {
+    "spanish": "Español",
+    "english": "English"
+  },
+  "meta": {
+    "defaultTitle": "Marca Fusión SRL - Representantes de Capstone y Tablú en Bolivia",
+    "defaultDescription": "Conectamos Bolivia con marcas nacionales e internacionales. Representantes exclusivos de Capstone Green Energy y Tablú para Bolivia."
+  }
+}

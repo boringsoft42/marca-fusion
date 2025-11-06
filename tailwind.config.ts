@@ -10,6 +10,47 @@ export default {
   theme: {
   	extend: {
   		colors: {
+  			// Marca Fusión Brand Colors
+  			'marca-green': {
+  				50: '#f0fdf4',
+  				100: '#dcfce7',
+  				200: '#bbf7d0',
+  				300: '#86efac',
+  				400: '#4ade80',
+  				500: '#22c55e',   // Primary institutional green
+  				600: '#16a34a',
+  				700: '#15803d',
+  				800: '#166534',
+  				900: '#14532d',
+  				950: '#052e16',
+  			},
+  			'marca-steel': {
+  				50: '#f8fafc',
+  				100: '#f1f5f9',
+  				200: '#e2e8f0',
+  				300: '#cbd5e1',
+  				400: '#94a3b8',
+  				500: '#64748b',   // Steel blue for Altrix sections
+  				600: '#475569',
+  				700: '#334155',
+  				800: '#1e293b',
+  				900: '#0f172a',
+  				950: '#020617',
+  			},
+  			'marca-beige': {
+  				50: '#fafaf9',
+  				100: '#f5f5f4',
+  				200: '#e7e5e4',
+  				300: '#d6d3d1',
+  				400: '#a8a29e',
+  				500: '#78716c',   // Beige for Tablú sections
+  				600: '#57534e',
+  				700: '#44403c',
+  				800: '#292524',
+  				900: '#1c1917',
+  				950: '#0c0a09',
+  			},
+  			// Shadcn UI System Colors
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -65,6 +106,15 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		spacing: {
+  			'18': '4.5rem',   // 72px - Custom spacing for sections
+  			'88': '22rem',    // 352px - Large section spacing
+  			'128': '32rem',   // 512px - Extra large spacing
+  		},
+  		maxWidth: {
+  			'8xl': '88rem',   // 1408px - Extra wide container
+  			'9xl': '96rem',   // 1536px - Ultra wide container
   		},
   		animation: {
   			'shiny-text': 'shiny-text 8s infinite',

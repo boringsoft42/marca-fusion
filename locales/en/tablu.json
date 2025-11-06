@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "title": "Tablú Bolivia - Customized Planners - Marca Fusión",
+    "description": "Customized planners that inspire productivity and organization with style. Official distributor of Tablú in Bolivia."
+  },
+  "hero": {
+    "title": "Customized planners that inspire productivity and organization with style.",
+    "description": "Tablú arrives in Bolivia through Marca Fusión. Acrylic and magnetic planners in multiple formats: To Do List, weekly, monthly, annual and Kanban."
+  },
+  "categories": {
+    "title": "Find your ideal planner according to your lifestyle",
+    "home": "Home",
+    "habits": "Habits",
+    "kids": "Kids",
+    "youth": "Youth and Students",
+    "university": "University Students",
+    "entrepreneurs": "Entrepreneurs",
+    "corporate": "Corporate",
+    "gifts": "Gifts / Family"
+  },
+  "products": {
+    "title": "Plan with style: our sizes and formats",
+    "subtitle": "Available in acrylic or magnetic version",
+    "customSizes": "Custom sizes are quoted based on requested measurements"
+  },
+  "catalog": {
+    "title": "Available designs in Bolivia",
+    "description": "Select your favorite design and check availability via WhatsApp",
+    "filters": {
+      "all": "View All",
+      "homeOffice": "Home Office",
+      "kids": "Kids and Youth",
+      "home": "Home",
+      "darkStyle": "Dark Style",
+      "todoList": "To Do List",
+      "special": "Special Collections",
+      "accessories": "Accessories"
+    },
+    "consultButton": "Inquire about this model",
+    "viewAll": "View all designs"
+  },
+  "corporate": {
+    "title": "Customized planners for companies and teams",
+    "description": "Corporate customization with logo, colors and exclusive design for your company.",
+    "idealFor": "Ideal for corporate gifts, internal branding, events and work teams."
+  },
+  "features": {
+    "shipping": "Secure shipping to all departments",
+    "uniqueDesigns": "Unique designs",
+    "giftCards": "Gift Cards",
+    "quality": "Excellent quality"
+  },
+  "social": {
+    "title": "Follow us",
+    "description": "Weekly designs, promotions and organization tips.",
+    "instagram": "@tablubolivia",
+    "facebook": "Tablú Bolivia",
+    "whatsapp": "67710595"
+  },
+  "finalCta": {
+    "title": "Organize your life with style",
+    "description": "Tablú Bolivia products maintain the same manufacturing and warranty standards as in Peru and Mexico. Officially distributed by Marca Fusión SRL – Exclusive representative in Bolivia.",
+    "visitTabluPeru": "Visit Tablú Peru"
+  }
+}

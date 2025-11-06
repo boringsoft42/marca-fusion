@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "We're here to help",
+    "subtitle": "At Marca Fusión, we value every inquiry and every collaboration opportunity. Complete the form or write to us directly: our team will respond as soon as possible."
+  },
+  "form": {
+    "title": "Contact form",
+    "fullName": "Full name",
+    "email": "Email",
+    "phone": "Phone / WhatsApp",
+    "company": "Company / Institution",
+    "city": "City",
+    "country": "Country",
+    "reason": "Contact reason",
+    "message": "Detailed message",
+    "reasonOptions": {
+      "customer": "I am a customer and need assistance or information",
+      "information": "I want product information",
+      "quote": "I want a quote",
+      "partner": "I want to be a commercial partner / distributor",
+      "other": "Other reason"
+    },
+    "submit": "Send message",
+    "sending": "Sending...",
+    "errorRequired": "Please complete all required fields to process your request.",
+    "successMessage": "Thank you for contacting Marca Fusión. We have received your message and a member of our team will contact you shortly."
+  },
+  "directContact": {
+    "title": "You can also reach us directly:",
+    "address": "Address",
+    "phoneWhatsApp": "Phone / WhatsApp",
+    "emails": "Emails",
+    "emailInfo": "information and inquiries",
+    "emailSales": "quotes and commercial requirements",
+    "website": "Website"
+  },
+  "social": {
+    "title": "Follow us",
+    "description": "Follow us on social media and discover more about our brands, news and projects in Bolivia. Be part of our community and join us in this growth!"
+  },
+  "map": {
+    "title": "Find us",
+    "description": "Our offices are located in Santa Cruz de la Sierra."
+  },
+  "closing": {
+    "message": "At Marca Fusión, every message represents an opportunity to connect innovation, trust and new partnerships. Thank you for contacting us!"
+  }
+}
