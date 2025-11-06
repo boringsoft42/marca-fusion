@@ -4,6 +4,8 @@ import { ContactForm } from '@/components/contact/ContactForm';
 import { DirectContact } from '@/components/contact/DirectContact';
 import { GoogleMapsEmbed } from '@/components/contact/GoogleMapsEmbed';
 import { ClosingMessage } from '@/components/contact/ClosingMessage';
+import { metadata as metadataUtils } from '@/lib/seo/metadata';
+import { structuredData } from '@/lib/seo/structured-data';
 
 /**
  * Marca Fusión Contacto (Contact) Page
@@ -16,24 +18,25 @@ import { ClosingMessage } from '@/components/contact/ClosingMessage';
  * - Closing message with CTAs
  */
 
-export const metadata = {
-  title: 'Contacto | Marca Fusión - Conversemos',
-  description:
-    'Contáctanos para asesoría técnica, cotizaciones o propuestas de alianza. Representantes de Capstone Green Energy y Tablú Bolivia en Santa Cruz. Email: info@marcafusion.com.bo, Tel: +591 72136767',
-  openGraph: {
-    title: 'Contacto - Conversemos | Marca Fusión',
-    description:
-      'Estamos aquí para responder tus preguntas y ayudarte a encontrar la solución perfecta. Múltiples canales de contacto disponibles.',
-    type: 'website',
-    locale: 'es_BO',
-  },
-};
+export const metadata = metadataUtils.contact();
 
 export default function ContactoPage() {
+  // Generate LocalBusiness structured data for local SEO
+  const localBusinessSchema = structuredData.localBusiness();
+
   return (
-    <div className="flex flex-col">
-      {/* Hero Section - No animation for immediate impact */}
-      <ContactHero />
+    <>
+      {/* LocalBusiness Structured Data (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: structuredData.toScript(localBusinessSchema),
+        }}
+      />
+
+      <div className="flex flex-col">
+        {/* Hero Section - No animation for immediate impact */}
+        <ContactHero />
 
       {/* Contact Form Section - Animated */}
       <section className="py-16 md:py-24 bg-background">
@@ -71,6 +74,7 @@ export default function ContactoPage() {
       <BlurFade delay={1.0} inView>
         <ClosingMessage />
       </BlurFade>
-    </div>
+      </div>
+    </>
   );
 }

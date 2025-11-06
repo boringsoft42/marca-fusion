@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/context/theme-context";
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { structuredData } from '@/lib/seo/structured-data';
 
 const APP_NAME = "Marca Fusión SRL";
 const APP_DESCRIPTION = "Representantes exclusivos de Capstone Green Energy y Tablú en Bolivia. Soluciones energéticas sostenibles y tecnología innovadora.";
@@ -63,8 +64,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Generate Organization structured data for SEO
+  const organizationSchema = structuredData.organization();
+
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        {/* Organization Structured Data (JSON-LD) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: structuredData.toScript(organizationSchema),
+          }}
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider defaultTheme="light" storageKey="marca-fusion-theme">
           <QueryProvider>

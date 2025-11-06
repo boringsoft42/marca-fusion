@@ -3,6 +3,7 @@ import { SectorsHero } from '@/components/sectors/SectorsHero';
 import { IndustrialBlock } from '@/components/sectors/IndustrialBlock';
 import { PersonalBlock } from '@/components/sectors/PersonalBlock';
 import { UnifyingMessage } from '@/components/sectors/UnifyingMessage';
+import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
  * Marca Fusión Sectores Page
@@ -14,18 +15,7 @@ import { UnifyingMessage } from '@/components/sectors/UnifyingMessage';
  * - CTAs to both product pages
  */
 
-export const metadata = {
-  title: 'Sectores | Marca Fusión - Soluciones Industriales y Personales',
-  description:
-    'Soluciones para cada sector. Energía industrial con Capstone Green Energy (Oil & Gas, Industrial, Hospitalario, Comercial) y organización personal con Tablú Bolivia (Corporativo, Profesionales, Hogares, Emprendedores).',
-  openGraph: {
-    title: 'Sectores - Soluciones Industriales y Personales | Marca Fusión',
-    description:
-      'Desde grandes industrias hasta espacios personales. Conectamos tecnología y organización para impulsar el éxito en cada ámbito.',
-    type: 'website',
-    locale: 'es_BO',
-  },
-};
+export const metadata = metadataUtils.sectors();
 
 export default function SectoresPage() {
   return (

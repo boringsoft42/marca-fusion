@@ -7,6 +7,7 @@ import { ServicesSection } from '@/components/capstone/ServicesSection';
 import { ImpactCounters } from '@/components/capstone/ImpactCounters';
 import { BenefitsSection } from '@/components/capstone/BenefitsSection';
 import { CapstoneCTA } from '@/components/capstone/CapstoneCTA';
+import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
  * Marca Fusión Capstone Green Energy Page
@@ -19,16 +20,7 @@ import { CapstoneCTA } from '@/components/capstone/CapstoneCTA';
  * - Benefits and call-to-action
  */
 
-export const metadata = {
-  title: 'Capstone Green Energy | Marca Fusión - Microturbinas en Bolivia',
-  description: 'Representantes exclusivos de Capstone Green Energy en Bolivia. Microturbinas de alta eficiencia para generación de energía limpia, cogeneración y respaldo energético. 71+ instalaciones, 3.5+ MW de capacidad.',
-  openGraph: {
-    title: 'Capstone Green Energy | Microturbinas - Marca Fusión Bolivia',
-    description: 'Tecnología de microturbinas para energía limpia y eficiente. Soluciones para Oil & Gas, Industrial, Hospitalario y más.',
-    type: 'website',
-    locale: 'es_BO',
-  },
-};
+export const metadata = metadataUtils.capstone();
 
 export default function CapstonePage() {
   return (

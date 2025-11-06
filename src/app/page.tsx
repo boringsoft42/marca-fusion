@@ -5,6 +5,7 @@ import { MissionSection } from '@/components/home/MissionSection';
 import { SectorsCarousel } from '@/components/home/SectorsCarousel';
 import { ClientShowcase } from '@/components/home/ClientShowcase';
 import { BlurFade } from '@/components/magicui/blur-fade';
+import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
  * Marca Fusión Home Page
@@ -18,16 +19,7 @@ import { BlurFade } from '@/components/magicui/blur-fade';
  * - Client showcase
  */
 
-export const metadata = {
-  title: 'Inicio | Marca Fusión - Representaciones en Bolivia',
-  description: 'Representantes exclusivos de Capstone Green Energy y Tablú en Bolivia. Conectamos Bolivia con marcas internacionales que impulsan innovación, sostenibilidad y confianza.',
-  openGraph: {
-    title: 'Marca Fusión SRL - Representaciones Capstone y Tablú en Bolivia',
-    description: 'Representantes exclusivos de Capstone Green Energy y Tablú en Bolivia',
-    type: 'website',
-    locale: 'es_BO',
-  },
-};
+export const metadata = metadataUtils.home();
 
 export default function HomePage() {
   return (

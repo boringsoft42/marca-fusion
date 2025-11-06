@@ -7,6 +7,9 @@ import { CorporateSection } from '@/components/tablu/CorporateSection';
 import { IconRibbon } from '@/components/tablu/IconRibbon';
 import { SocialSection } from '@/components/tablu/SocialSection';
 import { TabluCTA } from '@/components/tablu/TabluCTA';
+import { metadata as metadataUtils } from '@/lib/seo/metadata';
+import { structuredData } from '@/lib/seo/structured-data';
+import { tabluCatalog } from '@/data/tablu-catalog';
 
 /**
  * Marca Fusión Tablú Bolivia Page
@@ -20,22 +23,25 @@ import { TabluCTA } from '@/components/tablu/TabluCTA';
  * - Social media integration
  */
 
-export const metadata = {
-  title: 'Tablú Bolivia | Marca Fusión - Planificadores Digitales',
-  description: 'Representantes oficiales de Tablú en Bolivia. Planificadores digitales en acrílico y magnéticos. 8 categorías: Home, Hábitos, Niños, Jóvenes, Universidad, Emprendedores, Corporativo, Regalos. Diseños únicos para organizar tu vida con estilo.',
-  openGraph: {
-    title: 'Tablú Bolivia | Planificadores Digitales - Marca Fusión',
-    description: 'Organiza tu vida con estilo. Planificadores en acrílico y magnéticos con diseños únicos. Envíos a todo Bolivia.',
-    type: 'website',
-    locale: 'es_BO',
-  },
-};
+export const metadata = metadataUtils.tablu();
 
 export default function TabluPage() {
+  // Generate Product Catalog structured data for SEO
+  const productCatalogSchema = structuredData.productCatalog(tabluCatalog);
+
   return (
-    <div className="flex flex-col">
-      {/* Hero Section - No animation for immediate impact */}
-      <TabluHero />
+    <>
+      {/* Product Catalog Structured Data (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: structuredData.toScript(productCatalogSchema),
+        }}
+      />
+
+      <div className="flex flex-col">
+        {/* Hero Section - No animation for immediate impact */}
+        <TabluHero />
 
       {/* Category Cards - Animated */}
       <BlurFade delay={0.2} inView>
@@ -71,6 +77,7 @@ export default function TabluPage() {
       <BlurFade delay={1.4} inView>
         <TabluCTA />
       </BlurFade>
-    </div>
+      </div>
+    </>
   );
 }

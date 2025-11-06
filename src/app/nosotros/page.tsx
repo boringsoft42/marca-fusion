@@ -5,6 +5,7 @@ import { MissionVisionValues } from '@/components/about/MissionVisionValues';
 import { TeamSection } from '@/components/about/TeamSection';
 import { CorporateGroupDetail } from '@/components/about/CorporateGroupDetail';
 import { PhilosophySection } from '@/components/about/PhilosophySection';
+import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
  * Marca Fusión About Us Page
@@ -17,16 +18,7 @@ import { PhilosophySection } from '@/components/about/PhilosophySection';
  * - Company philosophy
  */
 
-export const metadata = {
-  title: 'Nosotros | Marca Fusión - Quiénes Somos',
-  description: 'Conoce a Marca Fusión SRL, representantes exclusivos de Capstone Green Energy y Tablú en Bolivia. Nuestra misión es conectar Bolivia con innovación y sostenibilidad.',
-  openGraph: {
-    title: 'Sobre Nosotros | Marca Fusión SRL',
-    description: 'Representantes exclusivos de tecnologías innovadoras en Bolivia. Conoce nuestra historia, misión y valores.',
-    type: 'website',
-    locale: 'es_BO',
-  },
-};
+export const metadata = metadataUtils.about();
 
 export default function AboutPage() {
   return (

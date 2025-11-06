@@ -5,6 +5,7 @@ import { WhatWeSeek } from '@/components/partnerships/WhatWeSeek';
 import { BackingSection } from '@/components/partnerships/BackingSection';
 import { AltrixCollaboration } from '@/components/partnerships/AltrixCollaboration';
 import { ClosingQuote } from '@/components/partnerships/ClosingQuote';
+import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
  * Marca Fusión Alianzas (Partnerships) Page
@@ -18,18 +19,7 @@ import { ClosingQuote } from '@/components/partnerships/ClosingQuote';
  * - Inspirational closing quote with CTA
  */
 
-export const metadata = {
-  title: 'Alianzas Estratégicas | Marca Fusión - Crezcamos Juntos',
-  description:
-    'Buscamos alianzas estratégicas con marcas innovadoras. Representamos Capstone Green Energy y Tablú con respaldo de Altrix Solutions LLC. Confianza, innovación y resultados medibles.',
-  openGraph: {
-    title: 'Alianzas Estratégicas - Crezcamos Juntos | Marca Fusión',
-    description:
-      'Alianzas basadas en valores compartidos. Más de una década representando marcas globales en Bolivia con éxito comprobado.',
-    type: 'website',
-    locale: 'es_BO',
-  },
-};
+export const metadata = metadataUtils.partnerships();
 
 export default function AlianzasPage() {
   return (
