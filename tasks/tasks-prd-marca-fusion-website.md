@@ -256,21 +256,21 @@
   - [ ] 4.24 Create `src/data/capstone-products.ts` with product model data (capacities, applications, images) (Skipped - data embedded in components)
   - [x] 4.25 Create `src/data/tablu-catalog.ts` with product catalog data (designs, sizes, prices, categories)
 
-- [ ] 5.0 Sectors & Partnerships Pages
-  - [ ] 5.1 Create `src/app/[locale]/sectores/page.tsx` for Sectors page
-  - [ ] 5.2 Build `src/components/sectors/SectorsHero.tsx` with collage image (industry + home split)
-  - [ ] 5.3 Implement `src/components/sectors/IndustrialBlock.tsx` with 4 sector cards (Oil & Gas, Industrial, Hospitalario, Comercial)
-  - [ ] 5.4 Create `src/components/sectors/PersonalBlock.tsx` with 4 profile cards (Corporativo, Profesionales, Hogares, Emprendedores)
-  - [ ] 5.5 Build `src/components/sectors/UnifyingMessage.tsx` with institutional green background, panoramic Santa Cruz photo
-  - [ ] 5.6 Add CTAs linking back to Capstone and Tablú pages
-  - [ ] 5.7 Create `src/app/[locale]/alianzas/page.tsx` for Partnerships page
-  - [ ] 5.8 Build `src/components/partnerships/PartnershipsHero.tsx` with handshake/collaboration image
-  - [ ] 5.9 Implement `src/components/partnerships/WhyChooseUs.tsx` with 5 icon-based points (Trust, International connection, Management, Innovation, Results)
-  - [ ] 5.10 Create `src/components/partnerships/WhatWeSeek.tsx` with partnership criteria text and diverse collaboration image
-  - [ ] 5.11 Build `src/components/partnerships/BackingSection.tsx` with brand representation logos/icons
-  - [ ] 5.12 Implement `src/components/partnerships/AltrixCollaboration.tsx` with Altrix logo, container/airplane icon
-  - [ ] 5.13 Add `src/components/partnerships/ClosingQuote.tsx` with inspirational quote and contact CTA
-  - [ ] 5.14 Create `src/data/sectors.ts` with sector descriptions and icon mappings
+- [x] 5.0 Sectors & Partnerships Pages
+  - [x] 5.1 Create `src/app/[locale]/sectores/page.tsx` for Sectors page (Changed to /sectores/page.tsx)
+  - [x] 5.2 Build `src/components/sectors/SectorsHero.tsx` with collage image (industry + home split)
+  - [x] 5.3 Implement `src/components/sectors/IndustrialBlock.tsx` with 4 sector cards (Oil & Gas, Industrial, Hospitalario, Comercial)
+  - [x] 5.4 Create `src/components/sectors/PersonalBlock.tsx` with 4 profile cards (Corporativo, Profesionales, Hogares, Emprendedores)
+  - [x] 5.5 Build `src/components/sectors/UnifyingMessage.tsx` with institutional green background, panoramic Santa Cruz photo
+  - [x] 5.6 Add CTAs linking back to Capstone and Tablú pages
+  - [x] 5.7 Create `src/app/[locale]/alianzas/page.tsx` for Partnerships page (Changed to /alianzas/page.tsx)
+  - [x] 5.8 Build `src/components/partnerships/PartnershipsHero.tsx` with handshake/collaboration image
+  - [x] 5.9 Implement `src/components/partnerships/WhyChooseUs.tsx` with 5 icon-based points (Trust, International connection, Management, Innovation, Results)
+  - [x] 5.10 Create `src/components/partnerships/WhatWeSeek.tsx` with partnership criteria text and diverse collaboration image
+  - [x] 5.11 Build `src/components/partnerships/BackingSection.tsx` with brand representation logos/icons
+  - [x] 5.12 Implement `src/components/partnerships/AltrixCollaboration.tsx` with Altrix logo, container/airplane icon
+  - [x] 5.13 Add `src/components/partnerships/ClosingQuote.tsx` with inspirational quote and contact CTA
+  - [ ] 5.14 Create `src/data/sectors.ts` with sector descriptions and icon mappings (Skipped - data embedded in components)
 
 - [ ] 6.0 Contact Page & Form Integration
   - [ ] 6.1 Create `src/app/[locale]/contacto/page.tsx` for Contact page
