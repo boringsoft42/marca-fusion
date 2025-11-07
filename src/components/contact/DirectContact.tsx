@@ -122,7 +122,7 @@ export function DirectContact({ className }: DirectContactProps) {
                             href={`https://wa.me/${phone.number.replace(/\D/g, '')}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[#25D366] hover:text-[#25D366]/80 transition-colors"
+                            className="text-[#128C7E] hover:text-[#128C7E]/80 transition-colors"
                             title="WhatsApp"
                           >
                             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Home, Search, ArrowLeft } from 'lucide-react';
+import { Home, Search } from 'lucide-react';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
 import { cn } from '@/lib/utils';
 

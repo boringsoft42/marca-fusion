@@ -5,15 +5,13 @@ import { cn } from '@/lib/utils';
 import { Cpu, ShieldCheck, Leaf, ArrowRight } from 'lucide-react';
 
 /**
- * Marca Fusión Mission Section
+ * Marca Fusión Mission Section - Sierra Style
  *
  * Features:
- * - Three value cards (Technology, Trust, Sustainability)
- * - Icon-based visual representation
- * - Blurred map background for global context
- * - CTA to About Us page
- * - Responsive grid layout
- * - Follows STYLE-GUIDE.md design patterns
+ * - White background with Sierra styling
+ * - Three value cards with Sierra typography and spacing
+ * - Clean, minimal design
+ * - Follows STYLE-GUIDE-SIERRA.md
  */
 
 interface MissionSectionProps {
@@ -26,119 +24,77 @@ export function MissionSection({ className }: MissionSectionProps) {
       icon: Cpu,
       title: 'Tecnología',
       description: 'Innovamos con soluciones tecnológicas de vanguardia que transforman industrias y generan valor sostenible.',
-      color: 'marca-green',
-      bgColor: 'bg-marca-green-light',
     },
     {
       icon: ShieldCheck,
       title: 'Confianza',
       description: 'Construimos relaciones duraderas basadas en transparencia, integridad y compromiso con nuestros clientes.',
-      color: 'marca-steel',
-      bgColor: 'bg-marca-steel-light',
     },
     {
       icon: Leaf,
       title: 'Sostenibilidad',
       description: 'Promovemos soluciones ambientalmente responsables que cuidan nuestro planeta para las futuras generaciones.',
-      color: 'marca-green',
-      bgColor: 'bg-marca-green-light',
     },
   ];
 
   return (
-    <section className={cn('relative py-16 md:py-24 overflow-hidden', className)}>
-      {/* Blurred map background */}
-      <div className="absolute inset-0 z-0">
-        {/* Placeholder for world map - will be replaced with actual map background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-muted via-background to-muted opacity-50" />
-
-        {/* Map grid pattern */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
-              linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px)
-            `,
-            backgroundSize: '40px 40px',
-          }}
-        />
-
-        {/* Blur overlay */}
-        <div className="absolute inset-0 backdrop-blur-sm" />
-      </div>
-
-      <div className="container relative z-10 mx-auto px-6">
-        {/* Section Header */}
+    <section className={cn('bg-white py-16 md:py-20 lg:py-24', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
+        {/* Section Header - Sierra Style */}
         <div className="text-center mb-12 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary mb-6">
             Nuestra Misión
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="text-[15px] md:text-base text-sierra-text-secondary leading-relaxed">
             En Marca Fusión conectamos Bolivia con el mundo a través de representaciones estratégicas de marcas líderes, impulsando innovación y desarrollo sostenible.
           </p>
         </div>
 
-        {/* Value Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
+        {/* Value Cards Grid - Sierra Style */}
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
           {values.map((value, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-lg bg-background/80 backdrop-blur-sm border border-border shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] p-10 text-center transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
             >
-              {/* Card content */}
-              <div className="p-6 md:p-8 text-center">
-                {/* Icon */}
-                <div className="inline-flex mb-6">
-                  <div
-                    className={cn(
-                      'p-4 rounded-full shadow-md transition-transform duration-300 group-hover:scale-110',
-                      value.bgColor
-                    )}
-                  >
-                    <value.icon
-                      className={cn('h-8 w-8', `text-${value.color}`)}
-                      aria-hidden="true"
-                    />
-                  </div>
+              {/* Icon */}
+              <div className="inline-flex mb-6">
+                <div className="p-4 rounded-2xl bg-sierra-green/10">
+                  <value.icon
+                    className="h-8 w-8 text-sierra-green"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
                 </div>
-
-                {/* Title */}
-                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
-                  {value.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
               </div>
 
-              {/* Decorative gradient on hover */}
-              <div
-                className={cn(
-                  'absolute bottom-0 left-0 right-0 h-1 transition-all duration-300 opacity-0 group-hover:opacity-100',
-                  `bg-${value.color}`
-                )}
-              />
+              {/* Title */}
+              <h3 className="text-xl md:text-2xl font-medium text-sierra-text-primary mb-3">
+                {value.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-[15px] text-sierra-text-secondary leading-relaxed">
+                {value.description}
+              </p>
             </div>
           ))}
         </div>
 
-        {/* CTA Button */}
+        {/* CTA Button - Sierra Style */}
         <div className="flex justify-center">
           <Link
             href="/nosotros"
             className={cn(
-              'inline-flex items-center gap-2 rounded-md px-8 py-3.5 text-base font-semibold',
-              'bg-marca-green text-white shadow-md',
-              'transition-all duration-200',
-              'hover:bg-marca-green/90 hover:shadow-lg hover:scale-105',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2'
+              'inline-flex items-center gap-2 px-7 py-3 rounded-3xl text-[15px] font-medium',
+              'bg-sierra-green text-white',
+              'transition-colors duration-200',
+              'hover:bg-sierra-green-hover',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sierra-green focus-visible:ring-offset-2'
             )}
           >
             Conocer más sobre nosotros
-            <ArrowRight className="h-5 w-5" aria-hidden="true" />
+            <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
           </Link>
         </div>
       </div>

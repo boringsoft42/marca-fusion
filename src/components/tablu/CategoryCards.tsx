@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Home, Target, Baby, Users, GraduationCap, Briefcase, Building2, Gift } from 'lucide-react';
 
@@ -8,11 +9,11 @@ import { Home, Target, Baby, Users, GraduationCap, Briefcase, Building2, Gift } 
  *
  * Features:
  * - 8 circular category cards
- * - Interactive hover effects
+ * - Interactive hover effects with framer-motion
  * - Category icons and labels
- * - Smooth animations
+ * - White background with sierra-green accents
  * - Responsive grid layout
- * - Follows STYLE-GUIDE.md design patterns
+ * - Follows STYLE-GUIDE-SIERRA.md design patterns
  */
 
 interface CategoryCardsProps {
@@ -25,14 +26,14 @@ export function CategoryCards({ className }: CategoryCardsProps) {
       icon: Home,
       label: 'Home',
       description: 'Organiza tu hogar',
-      color: 'from-marca-beige/80 to-marca-beige/60',
+      color: 'from-[#0d6832]/80 to-[#0d6832]/60',
       href: '#catalogo?category=home',
     },
     {
       icon: Target,
       label: 'Hábitos',
       description: 'Seguimiento diario',
-      color: 'from-marca-green/80 to-marca-green/60',
+      color: 'from-[#0d6832]/80 to-[#0d6832]/60',
       href: '#catalogo?category=habits',
     },
     {
@@ -53,7 +54,7 @@ export function CategoryCards({ className }: CategoryCardsProps) {
       icon: GraduationCap,
       label: 'Universidad',
       description: 'Éxito académico',
-      color: 'from-marca-steel/80 to-marca-steel/60',
+      color: 'from-[#6b6b6b]/80 to-[#6b6b6b]/60',
       href: '#catalogo?category=university',
     },
     {
@@ -80,25 +81,41 @@ export function CategoryCards({ className }: CategoryCardsProps) {
   ];
 
   return (
-    <section className={cn('py-16 md:py-24 bg-background', className)}>
-      <div className="container mx-auto px-6">
+    <section className={cn('py-16 md:py-20 lg:py-24 bg-white', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-[48px] font-normal text-[#1a1a1a] mb-4"
+            >
               Encuentra tu Categoría Ideal
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-[15px] text-[#6b6b6b] max-w-3xl mx-auto"
+            >
               Planificadores diseñados específicamente para cada etapa y estilo de vida
-            </p>
+            </motion.p>
           </div>
 
           {/* Categories Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
             {categories.map((category, index) => (
-              <a
+              <motion.a
                 key={index}
                 href={category.href}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative"
               >
                 {/* Circular Card */}
@@ -106,9 +123,9 @@ export function CategoryCards({ className }: CategoryCardsProps) {
                   {/* Circle Background */}
                   <div
                     className={cn(
-                      'aspect-square rounded-full bg-gradient-to-br shadow-lg',
+                      'aspect-square rounded-full bg-gradient-to-br shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
                       'transition-all duration-300',
-                      'group-hover:shadow-2xl group-hover:scale-110',
+                      'group-hover:shadow-lg group-hover:scale-110',
                       category.color
                     )}
                   >
@@ -116,6 +133,7 @@ export function CategoryCards({ className }: CategoryCardsProps) {
                     <div className="absolute inset-0 flex items-center justify-center">
                       <category.icon
                         className="h-12 w-12 md:h-16 md:w-16 text-white drop-shadow-lg"
+                        strokeWidth={1.5}
                         aria-hidden="true"
                       />
                     </div>
@@ -129,53 +147,50 @@ export function CategoryCards({ className }: CategoryCardsProps) {
                         'flex items-center justify-center'
                       )}
                     >
-                      <span className="text-white font-semibold text-sm md:text-base drop-shadow-lg">
+                      <span className="text-white font-medium text-sm md:text-base drop-shadow-lg">
                         Ver más
                       </span>
                     </div>
                   </div>
-
-                  {/* Decorative Ring */}
-                  <div
-                    className={cn(
-                      'absolute inset-0 rounded-full border-4 border-white/50',
-                      'scale-105 opacity-0 group-hover:opacity-100',
-                      'transition-all duration-300'
-                    )}
-                  />
                 </div>
 
                 {/* Label */}
                 <div className="mt-4 text-center">
-                  <h3 className="text-base md:text-lg font-bold text-foreground mb-1 group-hover:text-marca-beige transition-colors">
+                  <h3 className="text-base md:text-xl font-medium text-[#1a1a1a] mb-1 group-hover:text-[#0d6832] transition-colors">
                     {category.label}
                   </h3>
-                  <p className="text-xs md:text-sm text-muted-foreground">
+                  <p className="text-xs md:text-[15px] text-[#6b6b6b]">
                     {category.description}
                   </p>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
 
           {/* Bottom CTA */}
-          <div className="mt-12 text-center">
-            <p className="text-base text-muted-foreground mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="mt-12 text-center"
+          >
+            <p className="text-[15px] text-[#6b6b6b] mb-4">
               ¿No encuentras lo que buscas? Ofrecemos diseños personalizados
             </p>
             <a
               href="#corporativo"
               className={cn(
-                'inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold',
-                'bg-marca-beige/10 text-marca-beige border-2 border-marca-beige/30',
+                'inline-flex items-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium',
+                'bg-white text-[#0d6832] border-2 border-[#0d6832]/30 shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
                 'transition-all duration-200',
-                'hover:bg-marca-beige/20 hover:border-marca-beige/50 hover:scale-105',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-beige focus-visible:ring-offset-2'
+                'hover:bg-[#0d6832]/10 hover:border-[#0d6832]',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0d6832] focus-visible:ring-offset-2'
               )}
             >
               Soluciones Corporativas
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

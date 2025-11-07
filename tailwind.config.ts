@@ -24,6 +24,15 @@ export default {
   				900: '#14532d',
   				950: '#052e16',
   			},
+  			// Sierra Design System Colors
+  			'sierra': {
+  				cream: '#ebe8e3',      // Background beige/cream
+  				green: '#0d6832',      // Primary action green
+  				'green-hover': '#0a5528', // Button hover state
+  				'text-primary': '#1a1a1a', // Primary text
+  				'text-secondary': '#6b6b6b', // Secondary text
+  				'gray-light': '#e0e0e0', // UI elements
+  			},
   			'marca-steel': {
   				50: '#f8fafc',
   				100: '#f1f5f9',
@@ -122,9 +131,14 @@ export default {
   			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
   			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			wave: 'wave 1.2s ease-in-out infinite',
   		},
   		keyframes: {
+  			wave: {
+  				'0%, 100%': { height: '20%' },
+  				'50%': { height: '100%' },
+  			},
   			'shiny-text': {
   				'0%, 90%, 100%': {
   					'background-position': 'calc(-100% - var(--shiny-width)) 0'

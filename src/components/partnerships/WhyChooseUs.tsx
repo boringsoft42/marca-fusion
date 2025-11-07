@@ -2,16 +2,16 @@
 
 import { cn } from '@/lib/utils';
 import { Shield, Globe, Settings, Lightbulb, TrendingUp } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
- * Why Choose Us Section (Partnerships)
+ * Why Choose Us Section (Partnerships) - Sierra Style with Animations
  *
  * Features:
- * - 5 icon-based trust points
- * - Trust, International Connection, Management, Innovation, Results
- * - Circular icon design
- * - Professional tone
- * - Follows STYLE-GUIDE.md design patterns
+ * - 5 icon-based trust points with animations
+ * - Sierra white background with clean cards
+ * - Framer Motion scroll animations
+ * - Follows STYLE-GUIDE-SIERRA.md
  */
 
 interface WhyChooseUsProps {
@@ -25,118 +25,110 @@ export function WhyChooseUs({ className }: WhyChooseUsProps) {
       title: 'Confianza Comprobada',
       description:
         'Más de una década representando marcas globales en Bolivia. Trayectoria sólida con 71+ instalaciones de Capstone y cientos de clientes satisfechos con Tablú.',
-      color: 'from-marca-green to-marca-green/80',
     },
     {
       icon: Globe,
       title: 'Conexión Internacional',
       description:
         'Respaldo de Altrix Solutions LLC (Estados Unidos) para operaciones internacionales. Puente directo entre Bolivia y fabricantes globales.',
-      color: 'from-blue-500 to-blue-400',
     },
     {
       icon: Settings,
       title: 'Gestión Integral',
       description:
         'Soporte técnico local, logística, importación, instalación y mantenimiento. Nos encargamos de todo el ciclo para que tú te enfoques en crecer.',
-      color: 'from-marca-steel to-marca-steel/80',
     },
     {
       icon: Lightbulb,
       title: 'Innovación Constante',
       description:
         'Buscamos y representamos tecnologías disruptivas. Desde microturbinas de última generación hasta planificadores digitales con diseños únicos.',
-      color: 'from-purple-500 to-purple-400',
     },
     {
       icon: TrendingUp,
       title: 'Resultados Medibles',
       description:
         'Enfoque en KPIs y ROI. Nuestros clientes industriales reducen costos hasta 40% y nuestros usuarios Tablú mejoran su productividad notablemente.',
-      color: 'from-orange-500 to-orange-400',
     },
   ];
 
   return (
-    <section id="why-choose-us" className={cn('py-16 md:py-24 bg-background', className)}>
-      <div className="container mx-auto px-6">
+    <section id="why-choose-us" className={cn('py-16 md:py-20 lg:py-24 bg-white', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary mb-4">
               ¿Por Qué Elegirnos como Aliado?
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-[15px] md:text-base text-sierra-text-secondary max-w-3xl mx-auto leading-relaxed">
               Somos más que un intermediario. Somos un partner estratégico comprometido con el éxito mutuo.
             </p>
-          </div>
+          </motion.div>
 
           {/* Trust Points Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {trustPoints.map((point, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={cn(
-                  'group relative p-8 rounded-lg border border-border bg-background',
-                  'transition-all duration-300',
-                  'hover:shadow-2xl hover:-translate-y-1 hover:border-marca-steel/50'
-                )}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+                className="group relative p-10 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-300"
               >
                 {/* Icon */}
-                <div className="mb-6">
-                  <div
-                    className={cn(
-                      'inline-flex p-5 rounded-full bg-gradient-to-br transition-transform duration-300 group-hover:scale-110 shadow-lg',
-                      point.color
-                    )}
-                  >
-                    <point.icon className="h-10 w-10 text-white" aria-hidden="true" />
+                <div className="inline-flex mb-6">
+                  <div className="p-4 rounded-2xl bg-sierra-green/10">
+                    <point.icon
+                      className="h-8 w-8 text-sierra-green"
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">{point.title}</h3>
+                <h3 className="text-xl md:text-2xl font-medium text-sierra-text-primary mb-3">{point.title}</h3>
 
                 {/* Description */}
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{point.description}</p>
-
-                {/* Decorative element */}
-                <div
-                  className={cn(
-                    'absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-gradient-to-br opacity-10 group-hover:opacity-20 transition-opacity duration-300',
-                    point.color
-                  )}
-                />
-              </div>
+                <p className="text-[15px] text-sierra-text-secondary leading-relaxed">{point.description}</p>
+              </motion.div>
             ))}
 
-            {/* Call-out Card (6th item spanning full width on mobile, or taking the remaining space) */}
-            <div className="md:col-span-2 lg:col-span-3 p-8 rounded-lg bg-gradient-to-br from-marca-steel/10 to-background border-2 border-marca-steel/30">
+            {/* Call-out Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="md:col-span-2 lg:col-span-3 p-10 md:p-12 rounded-2xl bg-sierra-cream shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+            >
               <div className="max-w-3xl mx-auto text-center">
-                <h3 className="text-2xl font-bold text-foreground mb-4">
+                <h3 className="text-2xl md:text-3xl font-medium text-sierra-text-primary mb-4">
                   Alianzas Basadas en Valores Compartidos
                 </h3>
-                <p className="text-base text-muted-foreground leading-relaxed mb-6">
+                <p className="text-[15px] md:text-base text-sierra-text-secondary leading-relaxed mb-6">
                   No buscamos simplemente proveedores o distribuidores. Buscamos partners que compartan nuestra
                   pasión por la excelencia, la innovación y el impacto positivo. Si tu organización valora la
                   integridad, la transparencia y el compromiso, conversemos sobre cómo podemos crecer juntos.
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
-                  <span className="px-4 py-2 rounded-full bg-marca-steel/20 text-sm font-semibold text-foreground border border-marca-steel/30">
-                    Integridad
-                  </span>
-                  <span className="px-4 py-2 rounded-full bg-marca-steel/20 text-sm font-semibold text-foreground border border-marca-steel/30">
-                    Transparencia
-                  </span>
-                  <span className="px-4 py-2 rounded-full bg-marca-steel/20 text-sm font-semibold text-foreground border border-marca-steel/30">
-                    Compromiso
-                  </span>
-                  <span className="px-4 py-2 rounded-full bg-marca-steel/20 text-sm font-semibold text-foreground border border-marca-steel/30">
-                    Excelencia
-                  </span>
+                  {['Integridad', 'Transparencia', 'Compromiso', 'Excelencia'].map((value, idx) => (
+                    <span key={idx} className="px-4 py-2 rounded-2xl bg-white text-sm font-medium text-sierra-text-primary shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+                      {value}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -78,7 +78,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-sierra-cream`}>
         <ThemeProvider defaultTheme="light" storageKey="marca-fusion-theme">
           <QueryProvider>
             <div className="flex min-h-screen flex-col">

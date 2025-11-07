@@ -19,12 +19,12 @@ const SITE_NAME = 'Marca Fusión SRL';
 const SITE_LOCALE = 'es_BO';
 const TWITTER_HANDLE = '@MarcaFusion'; // Update if Twitter/X exists
 
-// Default metadata for fallback
-const DEFAULT_METADATA = {
-  title: 'Marca Fusión - Soluciones Energéticas y Planificación',
-  description:
-    'Representantes oficiales de Capstone Green Energy y Tablú Bolivia. Microturbinas de cogeneración y planificadores digitales en Santa Cruz de la Sierra.',
-};
+// Default metadata for fallback (reserved for future use)
+// const DEFAULT_METADATA = {
+//   title: 'Marca Fusión - Soluciones Energéticas y Planificación',
+//   description:
+//     'Representantes oficiales de Capstone Green Energy y Tablú Bolivia. Microturbinas de cogeneración y planificadores digitales en Santa Cruz de la Sierra.',
+// };
 
 // Company contact information
 const CONTACT_INFO = {

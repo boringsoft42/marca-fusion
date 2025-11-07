@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { Target, Users, Rocket, Award } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
  * What We Seek Section (Partnerships)
@@ -11,7 +12,7 @@ import { Target, Users, Rocket, Award } from 'lucide-react';
  * - Types of alliances we're interested in
  * - Visual imagery of diverse collaboration
  * - Professional tone
- * - Follows STYLE-GUIDE.md design patterns
+ * - Follows STYLE-GUIDE-SIERRA.md design patterns
  */
 
 interface WhatWeSeekProps {
@@ -47,48 +48,64 @@ export function WhatWeSeek({ className }: WhatWeSeekProps) {
   ];
 
   return (
-    <section className={cn('py-16 md:py-24 bg-muted/20', className)}>
-      <div className="container mx-auto px-6">
+    <section className={cn('py-16 md:py-20 lg:py-24 bg-sierra-cream', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-[48px] font-normal text-[#1a1a1a] mb-4">
               ¿Qué Buscamos en una Alianza?
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-[15px] text-[#6b6b6b] max-w-3xl mx-auto leading-relaxed">
               No todas las alianzas son iguales. Buscamos partners que compartan nuestra visión de innovación,
               calidad y compromiso con el cliente.
             </p>
-          </div>
+          </motion.div>
 
           {/* Grid Layout */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
             {/* Left Column - Partnership Types */}
             <div className="space-y-6">
               {partnershipTypes.map((type, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="flex items-start gap-4 p-5 rounded-lg bg-background border border-border hover:shadow-lg hover:border-marca-steel/50 transition-all duration-300"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="flex items-start gap-4 p-6 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-all duration-300"
                 >
                   {/* Icon */}
                   <div className="flex-shrink-0">
-                    <div className="p-3 rounded-full bg-marca-steel/10">
-                      <type.icon className="h-6 w-6 text-marca-steel" aria-hidden="true" />
+                    <div className="p-3 rounded-full bg-sierra-green/10">
+                      <type.icon className="h-6 w-6 text-sierra-green" strokeWidth={1.5} aria-hidden="true" />
                     </div>
                   </div>
 
                   {/* Content */}
                   <div>
-                    <h3 className="text-lg font-bold text-foreground mb-2">{type.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{type.description}</p>
+                    <h3 className="text-xl font-medium text-[#1a1a1a] mb-2">{type.title}</h3>
+                    <p className="text-[15px] text-[#6b6b6b] leading-relaxed">{type.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             {/* Right Column - Criteria */}
-            <div className="p-8 md:p-10 rounded-lg bg-gradient-to-br from-background to-muted/50 border-2 border-marca-steel/30 shadow-xl">
-              <h3 className="text-2xl font-bold text-foreground mb-6">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="p-8 md:p-10 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+            >
+              <h3 className="text-xl font-medium text-[#1a1a1a] mb-6">
                 Criterios de Selección
               </h3>
               <ul className="space-y-4">
@@ -103,25 +120,31 @@ export function WhatWeSeek({ className }: WhatWeSeekProps) {
                 ].map((criterion, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="h-6 w-6 rounded-full bg-marca-green/20 flex items-center justify-center">
-                        <span className="text-xs font-bold text-marca-green">✓</span>
+                      <div className="h-6 w-6 rounded-full bg-sierra-green/20 flex items-center justify-center">
+                        <span className="text-xs font-bold text-sierra-green">✓</span>
                       </div>
                     </div>
-                    <span className="text-sm md:text-base text-foreground">{criterion}</span>
+                    <span className="text-[15px] text-[#1a1a1a]">{criterion}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           </div>
 
           {/* Bottom Message */}
-          <div className="text-center p-8 rounded-lg bg-background border-l-4 border-marca-steel shadow-md">
-            <p className="text-base md:text-lg text-foreground leading-relaxed max-w-3xl mx-auto">
-              <span className="font-bold">¿Tu empresa cumple con estos criterios?</span> Nos encantaría conocer tu
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-center p-8 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+          >
+            <p className="text-[15px] text-[#1a1a1a] leading-relaxed max-w-3xl mx-auto">
+              <span className="font-medium">¿Tu empresa cumple con estos criterios?</span> Nos encantaría conocer tu
               propuesta. Envíanos un mensaje detallando tu marca, productos/servicios, y cómo visualizas una alianza
               estratégica con Marca Fusión.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Design System</title>
+    <style>
+        /* CSS Variables */
+        :root {
+            /* Font Variables */
+            --font-gtamerica-mono: "Courier New", monospace;
+            --font-gtamerica: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-sans: var(--font-gtamerica);
+            --font-mono: var(--font-gtamerica-mono);
+
+            /* Spacing */
+            --spacing: .25rem;
+
+            /* Containers */
+            --container-sm: 24rem;
+            --container-md: 28rem;
+            --container-lg: 32rem;
+            --container-xl: 36rem;
+            --container-2xl: 42rem;
+            --container-3xl: 48rem;
+            --container-4xl: 56rem;
+            --container-5xl: 64rem;
+
+            /* Typography */
+            --text-xs: .75rem;
+            --text-xs--line-height: calc(1 / .75);
+            --text-sm: .875rem;
+            --text-sm--line-height: calc(1.25 / .875);
+            --text-base: 1rem;
+            --text-base--line-height: calc(1.5 / 1);
+            --text-lg: 1.125rem;
+            --text-lg--line-height: calc(1.75 / 1.125);
+            --text-xl: 1.25rem;
+            --text-xl--line-height: calc(1.75 / 1.25);
+            --text-2xl: 1.5rem;
+            --text-2xl--line-height: calc(2 / 1.5);
+            --text-3xl: 1.875rem;
+            --text-3xl--line-height: calc(2.25 / 1.875);
+
+            /* Font Weights */
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+
+            /* Letter Spacing */
+            --tracking-widest: .1em;
+
+            /* Border Radius */
+            --radius-xs: .125rem;
+            --radius-sm: .25rem;
+            --radius-md: .375rem;
+            --radius-lg: .5rem;
+            --radius-xl: .75rem;
+            --radius-2xl: 1rem;
+            --radius-3xl: 1.5rem;
+            --radius-4xl: 2rem;
+
+            /* Shadows */
+            --drop-shadow-2xl: 0 25px 25px #00000026;
+
+            /* Transitions */
+            --ease-out: cubic-bezier(0, 0, .2, 1);
+            --ease-in-out: cubic-bezier(.4, 0, .2, 1);
+            --default-transition-duration: .25s;
+            --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+
+            /* Animations */
+            --animate-spin: spin 1s linear infinite;
+            --animate-fade-in: fade-in .5s cubic-bezier(.4, 0, .2, 1);
+            --animate-fade-out: fade-out .3s cubic-bezier(.4, 0, .2, 1);
+            --animate-loader: loader 5s linear infinite;
+
+            /* Effects */
+            --blur-3xl: 64px;
+            --aspect-video: 16 / 9;
+
+            /* Layout Variables */
+            --banner-height: 34px;
+            --mobile-nav-height: env(safe-area-inset-bottom, 0);
+            --thread-width: 1100px;
+            --thread-content-width: 740px;
+            --header-height: 54px;
+            --thread-input-height-with-padding: 130px;
+            --thread-attachments-height-with-padding: 182px;
+            --sidecar-header-height: 54px;
+            --sidecar-url-bar-height: 36px;
+            --page-horizontal-padding: var(--size-md);
+            --page-content-height: calc(100dvh - var(--header-height));
+            --page-content-height-without-header: 100dvh;
+            --toast-v-margin: 60px;
+            --toast-h-margin: 24px;
+            --sidecar-content-height: calc(100vh - var(--sidecar-header-height));
+            --safe-area-inset-bottom: env(safe-area-inset-bottom, 0);
+            --in-app-header-height: 50px;
+            --sidebar-width: 220px;
+            --sidebar-width-collapsed: 90px;
+            --sidebar-pinned-width: calc(200px + var(--sidebar-default-width));
+            --sidebar-default-width: 72px;
+            --min-touch-target: 2.75rem;
+
+            /* Sizes */
+            --size-2xs: 2px;
+            --size-xs: 4px;
+            --size-sm: 8px;
+            --size-md: 16px;
+            --size-ml: 24px;
+            --size-lg: 32px;
+            --size-xl: 48px;
+
+            /* Color Palette - Light Mode */
+            --light-super-color: oklch(100% 0 0);
+            --light-super-bg-color: oklch(98% 0 0);
+            --light-super-active-bg-color: oklch(95% 0 0);
+            --light-max-color: oklch(0% 0 0);
+            --light-offset-color: oklch(95% 0 0);
+            --light-offset-plus-color: oklch(90% 0 0);
+            --light-raised-offset-color: oklch(97% 0 0);
+            --light-caution-color: oklch(60% 0.15 40);
+            --light-attention-color: oklch(70% 0.15 85);
+            --light-positive-color: oklch(60% 0.15 145);
+            --light-negative-color: oklch(60% 0.15 25);
+            --light-background-underlay-color: oklch(20% 0 0);
+            --light-background-base-color: oklch(100% 0 0);
+            --light-background-subtle-color: oklch(98% 0 0);
+            --light-background-subtler-color: oklch(96% 0 0);
+            --light-background-subtlest-color: oklch(94% 0 0);
+            --light-background-raised-color: oklch(100% 0 0);
+            --light-background-elevated-color: oklch(100% 0 0);
+            --light-background-inverse-color: oklch(20% 0 0);
+            --light-foreground-color: oklch(20% 0 0);
+            --light-foreground-quiet-color: oklch(40% 0 0);
+            --light-foreground-quieter-color: oklch(50% 0 0);
+            --light-foreground-quietest-color: oklch(60% 0 0);
+            --light-foreground-subtle-color: oklch(70% 0 0);
+            --light-foreground-subtler-color: oklch(80% 0 0);
+            --light-foreground-subtlest-color: oklch(85% 0 0);
+            --light-foreground-inverse-color: oklch(100% 0 0);
+            --light-border-color: oklch(85% 0 0);
+            --light-backdrop-color: oklch(0% 0 0 / 0.5);
+
+            /* Dark Mode Colors */
+            --dark-super-color: oklch(0% 0 0);
+            --dark-super-bg-color: oklch(15% 0 0);
+            --dark-max-color: oklch(100% 0 0);
+            --dark-offset-color: oklch(20% 0 0);
+            --dark-offset-plus-color: oklch(25% 0 0);
+            --dark-raised-offset-color: oklch(18% 0 0);
+            --dark-caution-color: oklch(70% 0.15 40);
+            --dark-attention-color: oklch(80% 0.15 85);
+            --dark-positive-color: oklch(70% 0.15 145);
+            --dark-negative-color: oklch(70% 0.15 25);
+            --dark-background-underlay-color: oklch(0% 0 0);
+            --dark-background-base-color: oklch(15% 0 0);
+            --dark-background-subtle-color: oklch(18% 0 0);
+            --dark-background-subtler-color: oklch(20% 0 0);
+            --dark-background-subtlest-color: oklch(22% 0 0);
+            --dark-background-raised-color: oklch(17% 0 0);
+            --dark-background-elevated-color: oklch(19% 0 0);
+            --dark-background-inverse-color: oklch(95% 0 0);
+            --dark-foreground-color: oklch(95% 0 0);
+            --dark-foreground-quiet-color: oklch(80% 0 0);
+            --dark-foreground-quieter-color: oklch(70% 0 0);
+            --dark-foreground-quietest-color: oklch(60% 0 0);
+            --dark-foreground-subtle-color: oklch(50% 0 0);
+            --dark-foreground-subtler-color: oklch(40% 0 0);
+            --dark-foreground-subtlest-color: oklch(30% 0 0);
+            --dark-foreground-inverse-color: oklch(15% 0 0);
+            --dark-border-color: oklch(30% 0 0);
+            --dark-backdrop-color: oklch(0% 0 0 / 0.7);
+
+            /* Active Colors */
+            --super-color: var(--light-super-color);
+            --super-bg-color: var(--light-super-bg-color);
+            --super-active-bg-color: var(--light-super-active-bg-color);
+            --max-color: var(--light-max-color);
+            --offset-color: var(--light-offset-color);
+            --offset-plus-color: var(--light-offset-plus-color);
+            --raised-offset-color: var(--light-raised-offset-color);
+            --caution-color: var(--light-caution-color);
+            --attention-color: var(--light-attention-color);
+            --positive-color: var(--light-positive-color);
+            --negative-color: var(--light-negative-color);
+            --background-underlay-color: var(--light-background-underlay-color);
+            --background-base-color: var(--light-background-base-color);
+            --background-subtle-color: var(--light-background-subtle-color);
+            --background-subtler-color: var(--light-background-subtler-color);
+            --background-subtlest-color: var(--light-background-subtlest-color);
+            --background-raised-color: var(--light-background-raised-color);
+            --background-elevated-color: var(--light-background-elevated-color);
+            --background-inverse-color: var(--light-background-inverse-color);
+            --foreground-color: var(--light-foreground-color);
+            --foreground-quiet-color: var(--light-foreground-quiet-color);
+            --foreground-quieter-color: var(--light-foreground-quieter-color);
+            --foreground-quietest-color: var(--light-foreground-quietest-color);
+            --foreground-subtle-color: var(--light-foreground-subtle-color);
+            --foreground-subtler-color: var(--light-foreground-subtler-color);
+            --foreground-subtlest-color: var(--light-foreground-subtlest-color);
+            --foreground-inverse-color: var(--light-foreground-inverse-color);
+            --border-color: var(--light-border-color);
+            --backdrop-color: var(--light-backdrop-color);
+            --shadow-overlay-border: rgba(0, 0, 0, .05);
+
+            /* Special Colors */
+            --border-dynamic: 73.5% .012 85 / .2;
+            --surface-offset-special: 21% .04 200 / .2;
+
+            /* Extended Color Palette */
+            --pale-yellow-50: oklch(99.62% .004 106.47);
+            --pale-yellow-100: oklch(99.02% .004 106.47);
+            --pale-yellow-200: oklch(96.28% .007 106.52);
+            --pale-yellow-300: oklch(92.96% .007 106.53);
+            --pale-yellow-600: oklch(88.28% .012 106.65);
+            --pale-yellow-800: oklch(68.98% .027 109.55);
+            --pale-teal-100: oklch(96.95% .014 196.93);
+            --mint-50: oklch(98.85% .012 170.28);
+            --mint-150: oklch(93.8% .015 171.04);
+            --pale-cyan-50: oklch(49.33% .019 171.99);
+            --pale-cyan-150: oklch(34.26% .003 197.03);
+            --pale-cyan-200: oklch(30.32% .003 197.01);
+            --pale-cyan-300: oklch(24.57% .003 196.96);
+            --pale-cyan-400: oklch(21.67% .002 197.04);
+            --pale-blue-100: oklch(36.61% .003 228.87);
+            --pale-blue-200: oklch(30.39% .04 213.68);
+            --red-100: oklch(53.47% .151 25.99);
+            --red-200: oklch(51.83% .168 21.78);
+            --hydra-150: oklch(94.94% .033 208.37);
+            --hydra-350: oklch(71.92% .112 205.51);
+            --hydra-450: oklch(55.27% .086 208.61);
+            --hydra-550: oklch(39.71% .062 207.67);
+            --astra-450: oklch(77.92% .012 71.87);
+            --astra-750: oklch(27.99% .014 76.29);
+            --astra-800: oklch(20.19% .011 80.54);
+            --umbra-150: oklch(84.32% .008 207.14);
+            --umbra-250: oklch(70.09% .007 197);
+            --umbra-350: oklch(58.21% .006 196.99);
+            --terra-150: oklch(91.23% .05 48.15);
+            --terra-350: oklch(70.73% .133 38.31);
+            --terra-450: oklch(52.75% .13 37.37);
+            --terra-550: oklch(43.01% .108 37.17);
+            --jenova-150: oklch(93.28% .038 357.01);
+            --jenova-250: oklch(84.44% .092 .32);
+            --jenova-450: oklch(49.39% .109 9.38);
+            --jenova-550: oklch(34.35% .079 9.21);
+            --rosa-150: oklch(88.55% .06 28.44);
+            --rosa-350: oklch(68.18% .207 22.93);
+            --rosa-450: oklch(51.72% .199 21.85);
+            --rosa-550: oklch(39.55% .16 22.99);
+            --costa-150: oklch(93.76% .048 72.24);
+            --costa-300: oklch(80.62% .151 67.71);
+            --costa-350: oklch(73.83% .169 62.71);
+            --costa-400: oklch(65.87% .163 54.96);
+            --costa-500: oklch(51.37% .155 42.1);
+            --altana-150: oklch(95% .083 95.76);
+            --altana-350: oklch(80.51% .151 81.42);
+            --altana-400: oklch(71.97% .149 81.37);
+            --altana-450: oklch(61.87% .129 77.72);
+            --altana-500: oklch(51.11% .109 73.59);
+        }
+
+        /* Dark Mode Media Query */
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-color-scheme="light"]) {
+                --super-color: var(--dark-super-color);
+                --super-bg-color: var(--dark-super-bg-color);
+                --max-color: var(--dark-max-color);
+                --offset-color: var(--dark-offset-color);
+                --offset-plus-color: var(--dark-offset-plus-color);
+                --raised-offset-color: var(--dark-raised-offset-color);
+                --caution-color: var(--dark-caution-color);
+                --attention-color: var(--dark-attention-color);
+                --positive-color: var(--dark-positive-color);
+                --negative-color: var(--dark-negative-color);
+                --background-underlay-color: var(--dark-background-underlay-color);
+                --background-base-color: var(--dark-background-base-color);
+                --background-subtle-color: var(--dark-background-subtle-color);
+                --background-subtler-color: var(--dark-background-subtler-color);
+                --background-subtlest-color: var(--dark-background-subtlest-color);
+                --background-raised-color: var(--dark-background-raised-color);
+                --background-elevated-color: var(--dark-background-elevated-color);
+                --background-inverse-color: var(--dark-background-inverse-color);
+                --foreground-color: var(--dark-foreground-color);
+                --foreground-quiet-color: var(--dark-foreground-quiet-color);
+                --foreground-quieter-color: var(--dark-foreground-quieter-color);
+                --foreground-quietest-color: var(--dark-foreground-quietest-color);
+                --foreground-subtle-color: var(--dark-foreground-subtle-color);
+                --foreground-subtler-color: var(--dark-foreground-subtler-color);
+                --foreground-subtlest-color: var(--dark-foreground-subtlest-color);
+                --foreground-inverse-color: var(--dark-foreground-inverse-color);
+                --border-color: var(--dark-border-color);
+                --backdrop-color: var(--dark-backdrop-color);
+                --shadow-overlay-border: rgba(255, 255, 255, .1);
+            }
+        }
+
+        /* Base Styles */
+        *, ::before, ::after {
+            box-sizing: border-box;
+            border: 0 solid;
+            margin: 0;
+            padding: 0;
+            border-color: var(--border-color);
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            tab-size: 4;
+            line-height: 1.5;
+            font-family: var(--font-sans);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--background-base-color);
+            color: var(--foreground-color);
+            font-family: var(--font-sans);
+            font-size: var(--text-base);
+            line-height: var(--text-base--line-height);
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--thread-content-width);
+            margin: 0 auto;
+            padding: var(--size-lg);
+        }
+
+        header {
+            height: var(--header-height);
+            background-color: var(--background-raised-color);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            padding: 0 var(--size-md);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: var(--text-3xl);
+            line-height: var(--text-3xl--line-height);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--size-lg);
+        }
+
+        h2 {
+            font-size: var(--text-2xl);
+            line-height: var(--text-2xl--line-height);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--size-md);
+            margin-top: var(--size-xl);
+        }
+
+        h3 {
+            font-size: var(--text-xl);
+            line-height: var(--text-xl--line-height);
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--size-md);
+            margin-top: var(--size-lg);
+        }
+
+        p {
+            margin-bottom: var(--size-md);
+            color: var(--foreground-quiet-color);
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background-color: var(--background-subtle-color);
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+            font-size: var(--text-sm);
+        }
+
+        /* Components */
+        .card {
+            background-color: var(--background-raised-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--size-lg);
+            margin-bottom: var(--size-md);
+        }
+
+        .button {
+            padding: var(--size-sm) var(--size-md);
+            border-radius: var(--radius-md);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all var(--default-transition-duration) var(--default-transition-timing-function);
+            border: 1px solid var(--border-color);
+            background-color: var(--background-raised-color);
+            color: var(--foreground-color);
+        }
+
+        .button:hover {
+            background-color: var(--background-subtle-color);
+        }
+
+        .button-primary {
+            background-color: var(--foreground-color);
+            color: var(--foreground-inverse-color);
+            border-color: var(--foreground-color);
+        }
+
+        .button-primary:hover {
+            opacity: 0.9;
+        }
+
+        /* Color Swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: var(--size-md);
+            margin-bottom: var(--size-lg);
+        }
+
+        .color-swatch {
+            height: 80px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-end;
+            padding: var(--size-sm);
+        }
+
+        .color-label {
+            font-size: var(--text-xs);
+            font-family: var(--font-mono);
+            background-color: var(--background-base-color);
+            padding: 2px 4px;
+            border-radius: var(--radius-xs);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: absolute;
+            right: var(--size-md);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Utility Classes */
+        .mt-lg { margin-top: var(--size-lg); }
+        .mb-lg { margin-bottom: var(--size-lg); }
+        .text-sm { font-size: var(--text-sm); }
+        .text-quiet { color: var(--foreground-quiet-color); }
+    </style>
+</head>
+<body>
+    <header>
+        <strong>UI Design System</strong>
+        <div class="theme-toggle">
+            <button class="button" onclick="toggleTheme()">Toggle Theme</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Design System Demo</h1>
+        <p>A comprehensive design system with all CSS variables extracted and applied.</p>
+
+        <section>
+            <h2>Typography Scale</h2>
+            <div class="card">
+                <h1>Heading 1 - 3XL</h1>
+                <h2>Heading 2 - 2XL</h2>
+                <h3>Heading 3 - XL</h3>
+                <p style="font-size: var(--text-lg);">Large text - LG</p>
+                <p>Base text - Regular paragraph</p>
+                <p style="font-size: var(--text-sm);">Small text - SM</p>
+                <p style="font-size: var(--text-xs);">Extra small text - XS</p>
+                <code>Monospace code font</code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Color Palette - Hydra</h2>
+            <div class="color-grid">
+                <div class="color-swatch" style="background-color: var(--hydra-150);">
+                    <span class="color-label">hydra-150</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--hydra-350);">
+                    <span class="color-label">hydra-350</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--hydra-450);">
+                    <span class="color-label">hydra-450</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--hydra-550);">
+                    <span class="color-label">hydra-550</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Color Palette - Terra</h2>
+            <div class="color-grid">
+                <div class="color-swatch" style="background-color: var(--terra-150);">
+                    <span class="color-label">terra-150</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--terra-350);">
+                    <span class="color-label">terra-350</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--terra-450);">
+                    <span class="color-label">terra-450</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--terra-550);">
+                    <span class="color-label">terra-550</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Color Palette - Rosa</h2>
+            <div class="color-grid">
+                <div class="color-swatch" style="background-color: var(--rosa-150);">
+                    <span class="color-label">rosa-150</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--rosa-350);">
+                    <span class="color-label">rosa-350</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--rosa-450);">
+                    <span class="color-label">rosa-450</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--rosa-550);">
+                    <span class="color-label">rosa-550</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Color Palette - Costa</h2>
+            <div class="color-grid">
+                <div class="color-swatch" style="background-color: var(--costa-150);">
+                    <span class="color-label">costa-150</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--costa-300);">
+                    <span class="color-label">costa-300</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--costa-350);">
+                    <span class="color-label">costa-350</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--costa-400);">
+                    <span class="color-label">costa-400</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--costa-500);">
+                    <span class="color-label">costa-500</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Semantic Colors</h2>
+            <div class="color-grid">
+                <div class="color-swatch" style="background-color: var(--positive-color);">
+                    <span class="color-label">positive</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--negative-color);">
+                    <span class="color-label">negative</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--caution-color);">
+                    <span class="color-label">caution</span>
+                </div>
+                <div class="color-swatch" style="background-color: var(--attention-color);">
+                    <span class="color-label">attention</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Components</h2>
+            <div class="card">
+                <h3>Card Component</h3>
+                <p>This is a card with raised background and border.</p>
+                <button class="button">Default Button</button>
+                <button class="button button-primary" style="margin-left: var(--size-sm);">Primary Button</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Border Radius Scale</h2>
+            <div class="color-grid">
+                <div class="card" style="border-radius: var(--radius-xs);">
+                    <span class="text-sm">XS</span>
+                </div>
+                <div class="card" style="border-radius: var(--radius-sm);">
+                    <span class="text-sm">SM</span>
+                </div>
+                <div class="card" style="border-radius: var(--radius-md);">
+                    <span class="text-sm">MD</span>
+                </div>
+                <div class="card" style="border-radius: var(--radius-lg);">
+                    <span class="text-sm">LG</span>
+                </div>
+                <div class="card" style="border-radius: var(--radius-xl);">
+                    <span class="text-sm">XL</span>
+                </div>
+                <div class="card" style="border-radius: var(--radius-2xl);">
+                    <span class="text-sm">2XL</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const root = document.documentElement;
+            const currentScheme = root.getAttribute('data-color-scheme');
+
+            if (currentScheme === 'light') {
+                root.removeAttribute('data-color-scheme');
+            } else {
+                root.setAttribute('data-color-scheme', 'light');
+            }
+        }
+    </script>
+</body>
+</html>

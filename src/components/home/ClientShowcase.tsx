@@ -1,19 +1,15 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 
 /**
- * Marca Fusión Client Showcase
+ * Marca Fusión Client Showcase - Sierra Style
  *
  * Features:
- * - Split layout (Capstone left, Tablú right)
+ * - White background with Sierra styling
  * - Auto-scrolling logo ribbons
- * - Infinite loop animation
- * - Pause on hover
- * - Brand-specific styling
- * - Responsive design
- * - Follows STYLE-GUIDE.md design patterns
+ * - Clean, minimal design
+ * - Follows STYLE-GUIDE-SIERRA.md
  */
 
 interface ClientShowcaseProps {
@@ -21,10 +17,7 @@ interface ClientShowcaseProps {
 }
 
 export function ClientShowcase({ className }: ClientShowcaseProps) {
-  const capstoneScrollRef = useRef<HTMLDivElement>(null);
-  const tabluScrollRef = useRef<HTMLDivElement>(null);
-
-  // Placeholder client logos - will be replaced with actual logos
+  // Placeholder client logos
   const capstoneClients = [
     'YPFB',
     'Petrobras',
@@ -51,42 +44,36 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
   const capstoneLogos = [...capstoneClients, ...capstoneClients];
   const tabluLogos = [...tabluClients, ...tabluClients];
 
-  useEffect(() => {
-    // Auto-scroll animation will be handled by CSS
-    // This effect is for future enhancements if needed
-  }, []);
-
   return (
-    <section className={cn('py-16 md:py-24 bg-background', className)}>
-      <div className="container mx-auto px-6">
-        {/* Section Title */}
+    <section className={cn('bg-white py-16 md:py-20 lg:py-24', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
+        {/* Section Title - Sierra Style */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+          <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary">
             Nuestros Clientes
           </h2>
         </div>
 
-        {/* Split Layout */}
+        {/* Split Layout - Sierra Style */}
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Capstone Clients - Left */}
+          {/* Capstone Clients */}
           <div className="space-y-4">
             {/* Label */}
             <div className="text-center">
-              <h3 className="text-xl md:text-2xl font-bold text-marca-green mb-2">
+              <h3 className="text-xl md:text-2xl font-medium text-sierra-green mb-2">
                 Clientes Capstone
               </h3>
-              <div className="w-16 h-1 bg-marca-green mx-auto rounded-full" />
+              <div className="w-16 h-1 bg-sierra-green mx-auto rounded-full" />
             </div>
 
             {/* Scrolling logos container */}
-            <div className="relative overflow-hidden rounded-lg bg-marca-green-light/30 border border-marca-green/20 py-8">
+            <div className="relative overflow-hidden rounded-2xl bg-sierra-green/5 py-8">
               {/* Gradient overlays for fade effect */}
-              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-marca-green-light/30 to-transparent z-10" />
-              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-marca-green-light/30 to-transparent z-10" />
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-sierra-green/5 to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-sierra-green/5 to-transparent z-10" />
 
               {/* Scrolling content */}
               <div
-                ref={capstoneScrollRef}
                 className="flex gap-8 animate-scroll hover:pause-animation"
                 style={{
                   animation: 'scroll 30s linear infinite',
@@ -95,9 +82,9 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
                 {capstoneLogos.map((client, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 flex items-center justify-center px-6 py-4 bg-background rounded-md border border-border shadow-sm min-w-[200px]"
+                    className="flex-shrink-0 flex items-center justify-center px-6 py-4 bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] min-w-[200px]"
                   >
-                    <span className="text-sm font-medium text-foreground text-center">
+                    <span className="text-sm font-medium text-sierra-text-primary text-center">
                       {client}
                     </span>
                   </div>
@@ -106,25 +93,24 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
             </div>
           </div>
 
-          {/* Tablú Clients - Right */}
+          {/* Tablú Clients */}
           <div className="space-y-4">
             {/* Label */}
             <div className="text-center">
-              <h3 className="text-xl md:text-2xl font-bold text-marca-beige mb-2">
+              <h3 className="text-xl md:text-2xl font-medium text-marca-beige-500 mb-2">
                 Clientes Tablú
               </h3>
-              <div className="w-16 h-1 bg-marca-beige mx-auto rounded-full" />
+              <div className="w-16 h-1 bg-marca-beige-500 mx-auto rounded-full" />
             </div>
 
             {/* Scrolling logos container */}
-            <div className="relative overflow-hidden rounded-lg bg-marca-beige-light/30 border border-marca-beige/20 py-8">
+            <div className="relative overflow-hidden rounded-2xl bg-marca-beige-500/5 py-8">
               {/* Gradient overlays for fade effect */}
-              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-marca-beige-light/30 to-transparent z-10" />
-              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-marca-beige-light/30 to-transparent z-10" />
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-marca-beige-500/5 to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-marca-beige-500/5 to-transparent z-10" />
 
               {/* Scrolling content */}
               <div
-                ref={tabluScrollRef}
                 className="flex gap-8 animate-scroll-reverse hover:pause-animation"
                 style={{
                   animation: 'scroll-reverse 35s linear infinite',
@@ -133,9 +119,9 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
                 {tabluLogos.map((client, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 flex items-center justify-center px-6 py-4 bg-background rounded-md border border-border shadow-sm min-w-[200px]"
+                    className="flex-shrink-0 flex items-center justify-center px-6 py-4 bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] min-w-[200px]"
                   >
-                    <span className="text-sm font-medium text-foreground text-center">
+                    <span className="text-sm font-medium text-sierra-text-primary text-center">
                       {client}
                     </span>
                   </div>
@@ -143,13 +129,6 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Note about placeholder logos */}
-        <div className="text-center mt-8">
-          <p className="text-xs text-muted-foreground italic">
-            {/* Placeholder for future client logo images */}
-          </p>
         </div>
       </div>
 

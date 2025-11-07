@@ -2,9 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ShimmerButton } from "@/components/magicui/shimmer-button";
-import { BlurFade } from "@/components/magicui/blur-fade";
-import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { trackCTAClick } from "@/lib/analytics";
 import { Check, ArrowRight, Sparkles } from "lucide-react";
 
@@ -16,74 +13,74 @@ const benefits = [
 ];
 
 export function FinalCTASection() {
-  const prefersReducedMotion = useReducedMotion();
-
   return (
     <section
-      className="relative py-20 sm:py-32 overflow-hidden"
+      className="relative py-16 md:py-20 lg:py-24 overflow-hidden bg-[#ebe8e3]"
       aria-label="Final call to action"
     >
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-pink-600/20" aria-hidden="true" />
-
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2">
-          <div className="h-[600px] w-[600px] rounded-full bg-blue-500/30 blur-3xl" />
-        </div>
-        <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2">
-          <div className="h-[600px] w-[600px] rounded-full bg-purple-500/30 blur-3xl" />
-        </div>
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10 lg:px-20">
         <div className="mx-auto max-w-4xl text-center">
           {/* Badge */}
-          <BlurFade delay={0} duration={0.6}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
-              <Sparkles className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm font-semibold text-foreground">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-3xl bg-[#0d6832]/10 border border-[#0d6832]/20 mb-6">
+              <Sparkles className="w-4 h-4 text-[#0d6832]" strokeWidth={1.5} />
+              <span className="text-sm font-medium text-[#1a1a1a]">
                 Start Your AI Automation Journey
               </span>
             </div>
-          </BlurFade>
+          </motion.div>
 
           {/* Headline */}
-          <BlurFade delay={0.1} duration={0.6}>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-white via-white to-gray-300 bg-clip-text text-transparent leading-tight mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <h2 className="text-[48px] font-normal text-[#1a1a1a] leading-tight mb-6">
               Ready to Transform Your Business?
             </h2>
-          </BlurFade>
+          </motion.div>
 
           {/* Description */}
-          <BlurFade delay={0.2} duration={0.6}>
-            <p className="text-lg sm:text-xl leading-8 text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <p className="text-[15px] leading-relaxed text-[#6b6b6b] mb-12 max-w-2xl mx-auto">
               Join 50,000+ companies automating their operations with AI. Deploy
               intelligent agents in 7 days and start seeing results immediately.
             </p>
-          </BlurFade>
+          </motion.div>
 
           {/* Benefits List */}
           <motion.div
-            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 max-w-2xl mx-auto"
           >
             {benefits.map((benefit, idx) => (
               <motion.div
                 key={idx}
-                initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, x: -10 }}
+                initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.4, delay: 0.4 + idx * 0.1 }}
+                transition={{ duration: 0.4, delay: 0.4 + idx * 0.1 }}
                 className="flex items-center gap-3 text-left"
               >
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
-                  <Check className="w-4 h-4 text-blue-500" aria-hidden="true" />
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0d6832]/20 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
                 </div>
-                <span className="text-sm sm:text-base text-foreground font-medium">
+                <span className="text-sm sm:text-base text-[#1a1a1a] font-medium">
                   {benefit}
                 </span>
               </motion.div>
@@ -92,10 +89,10 @@ export function FinalCTASection() {
 
           {/* CTA Buttons */}
           <motion.div
-            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.6, delay: 0.8 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
           >
             <Link
@@ -106,19 +103,10 @@ export function FinalCTASection() {
                 cta_type: "primary",
                 destination_url: "/sign-up"
               })}
+              className="inline-flex items-center gap-2 bg-[#0d6832] text-white px-7 py-3 rounded-3xl text-[15px] font-medium hover:bg-[#0a5528] transition-colors duration-200"
             >
-              <ShimmerButton
-                className="px-8 py-4 text-base font-semibold shadow-2xl"
-                shimmerColor="#60a5fa"
-                shimmerSize="0.15em"
-                background="linear-gradient(to right, #2563eb, #1d4ed8)"
-                borderRadius="0.5rem"
-              >
-                <span className="flex items-center gap-2">
-                  Get Started Free
-                  <ArrowRight className="w-4 h-4" />
-                </span>
-              </ShimmerButton>
+              Get Started Free
+              <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
             </Link>
 
             <Link
@@ -129,18 +117,23 @@ export function FinalCTASection() {
                 cta_type: "secondary",
                 destination_url: "/contact"
               })}
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-foreground bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-lg hover:bg-white/20 transition-all hover:scale-105 shadow-lg"
+              className="inline-flex items-center justify-center px-7 py-3 text-[15px] font-medium text-[#1a1a1a] bg-white border-2 border-[#e0e0e0] rounded-3xl hover:bg-white hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-200"
             >
               Talk to Sales
             </Link>
           </motion.div>
 
           {/* Trust Badge */}
-          <BlurFade delay={1} duration={0.6}>
-            <p className="mt-8 text-sm text-muted-foreground">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 1 }}
+          >
+            <p className="mt-8 text-sm text-[#6b6b6b]">
               Trusted by 50,000+ businesses worldwide • No credit card required
             </p>
-          </BlurFade>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { Building2, Briefcase, Home, Rocket, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
  * Personal Sectors Block (Tablú)
@@ -12,7 +13,7 @@ import { Building2, Briefcase, Home, Rocket, ArrowRight } from 'lucide-react';
  * - Icon-based visual hierarchy
  * - CTA to Tablú page
  * - Beige branding
- * - Follows STYLE-GUIDE.md design patterns
+ * - Follows STYLE-GUIDE-SIERRA.md design patterns
  */
 
 interface PersonalBlockProps {
@@ -32,7 +33,6 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
         'Tableros para salas de reunión',
         'Gestión visual de proyectos',
       ],
-      color: 'from-marca-steel to-marca-steel/80',
     },
     {
       icon: Briefcase,
@@ -45,7 +45,6 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
         'Seguimiento de objetivos',
         'Diseños profesionales',
       ],
-      color: 'from-purple-500 to-purple-400',
     },
     {
       icon: Home,
@@ -58,7 +57,6 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
         'Tareas para niños',
         'Lista de compras integrada',
       ],
-      color: 'from-marca-beige to-marca-beige/80',
     },
     {
       icon: Rocket,
@@ -71,78 +69,84 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
         'Gestión de proyectos',
         'Seguimiento financiero',
       ],
-      color: 'from-orange-500 to-orange-400',
     },
   ];
 
   return (
-    <section className={cn('py-16 md:py-24 bg-muted/20', className)}>
-      <div className="container mx-auto px-6">
+    <section className={cn('bg-[#ebe8e3] py-16 md:py-20 lg:py-24', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-marca-beige/10 border border-marca-beige/20 mb-4">
-              <Home className="h-5 w-5 text-marca-beige" aria-hidden="true" />
-              <span className="text-sm font-semibold text-marca-beige">Tablú Bolivia</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-3xl bg-white/80 border border-[#6b6b6b]/20 mb-6"
+            >
+              <Home className="h-5 w-5 text-[#6b6b6b]" strokeWidth={1.5} aria-hidden="true" />
+              <span className="text-[15px] font-medium text-[#6b6b6b]">Tablú Bolivia</span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-[48px] font-normal text-[#1a1a1a] mb-4"
+            >
               Perfiles Personales
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-[15px] text-[#6b6b6b] max-w-3xl mx-auto leading-relaxed"
+            >
               Planificadores digitales diseñados para cada estilo de vida. Organiza tu día, tu semana y tus metas
               con herramientas visuales que se adaptan a ti.
-            </p>
+            </motion.p>
           </div>
 
           {/* Profiles Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {personalProfiles.map((profile, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={cn(
-                  'group relative p-6 rounded-lg border border-border bg-background overflow-hidden',
-                  'transition-all duration-300',
-                  'hover:shadow-2xl hover:-translate-y-2 hover:border-marca-beige/50'
-                )}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
+                className="group relative p-6 rounded-2xl border border-[#e0e0e0] bg-white overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:border-[#6b6b6b]/30"
               >
-                {/* Gradient background (visible on hover) */}
-                <div
-                  className={cn(
-                    'absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 transition-opacity duration-300',
-                    profile.color
-                  )}
-                />
-
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className="mb-4">
-                    <div
-                      className={cn(
-                        'inline-flex p-4 rounded-full bg-gradient-to-br transition-transform duration-300 group-hover:scale-110',
-                        profile.color
-                      )}
-                    >
-                      <profile.icon className="h-8 w-8 text-white" aria-hidden="true" />
+                    <div className="inline-flex p-3 rounded-2xl bg-[#6b6b6b]/10 transition-all duration-300 group-hover:bg-[#6b6b6b] group-hover:scale-110">
+                      <profile.icon className="h-6 w-6 text-[#6b6b6b] group-hover:text-white transition-colors duration-300" strokeWidth={1.5} aria-hidden="true" />
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-foreground mb-3">{profile.title}</h3>
+                  <h3 className="text-xl font-medium text-[#1a1a1a] mb-3">{profile.title}</h3>
 
                   {/* Description */}
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{profile.description}</p>
+                  <p className="text-[15px] text-[#6b6b6b] leading-relaxed mb-4">{profile.description}</p>
 
                   {/* Benefits */}
                   <div>
-                    <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">
+                    <p className="text-xs font-medium text-[#6b6b6b] mb-2 uppercase tracking-wider">
                       Beneficios:
                     </p>
                     <ul className="space-y-1.5">
                       {profile.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm">
-                          <span className="text-marca-beige mt-0.5 font-bold">✓</span>
-                          <span className="text-muted-foreground">{benefit}</span>
+                        <li key={idx} className="flex items-start gap-2 text-[15px]">
+                          <span className="text-[#6b6b6b] mt-0.5">✓</span>
+                          <span className="text-[#6b6b6b]">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -151,51 +155,45 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
 
                 {/* Hover indicator */}
                 <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowRight className="h-5 w-5 text-marca-beige" aria-hidden="true" />
+                  <ArrowRight className="h-5 w-5 text-[#6b6b6b]" strokeWidth={1.5} aria-hidden="true" />
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Bottom CTA */}
-          <div className="text-center p-8 md:p-10 rounded-lg bg-gradient-to-br from-marca-beige/10 to-background border border-marca-beige/30">
-            <h3 className="text-2xl font-bold text-foreground mb-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-center p-8 md:p-10 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+          >
+            <h3 className="text-xl font-medium text-[#1a1a1a] mb-3">
               ¿Listo para organizar tu vida con estilo?
             </h3>
-            <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
+            <p className="text-[15px] text-[#6b6b6b] mb-6 max-w-2xl mx-auto">
               Explora nuestro catálogo completo de planificadores digitales en acrílico y magnéticos, diseñados
               específicamente para tu perfil.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/tablu"
-                className={cn(
-                  'inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-base font-semibold',
-                  'bg-marca-beige text-white shadow-lg',
-                  'transition-all duration-200',
-                  'hover:bg-marca-beige/90 hover:shadow-xl hover:scale-105',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-beige focus-visible:ring-offset-2'
-                )}
+                className="inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium bg-[#0d6832] text-white shadow-lg transition-all duration-200 hover:bg-[#0a5528] hover:shadow-xl"
               >
                 Ver Catálogo Tablú
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                <ArrowRight className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
               </a>
               <a
                 href="https://wa.me/59167710595?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20planificadores%20Tablú"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(
-                  'inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-base font-semibold',
-                  'bg-[#25D366] text-white shadow-lg',
-                  'transition-all duration-200',
-                  'hover:bg-[#25D366]/90 hover:shadow-xl hover:scale-105',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2'
-                )}
+                className="inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium bg-[#128C7E] text-white shadow-lg transition-all duration-200 hover:bg-[#128C7E]/90 hover:shadow-xl"
               >
                 Consultar por WhatsApp
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

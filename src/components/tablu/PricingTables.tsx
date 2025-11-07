@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Check, Sparkles, Magnet } from 'lucide-react';
 
@@ -10,9 +11,9 @@ import { Check, Sparkles, Magnet } from 'lucide-react';
  * - Two comparison tables (Acrylic vs Magnetic)
  * - Size options with dimensions
  * - Ideal use cases for each size
- * - Responsive table design
+ * - Responsive table design with Sierra styling
  * - Visual differentiation between types
- * - Follows STYLE-GUIDE.md design patterns
+ * - Follows STYLE-GUIDE-SIERRA.md design patterns
  */
 
 interface PricingTablesProps {
@@ -84,77 +85,105 @@ export function PricingTables({ className }: PricingTablesProps) {
     <div className="space-y-6">
       {/* Table Header */}
       <div className="text-center">
-        <div className="inline-flex items-center gap-3 mb-3">
-          <Icon className={cn('h-8 w-8', accentColor)} aria-hidden="true" />
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground">{title}</h3>
-        </div>
-        <p className="text-sm md:text-base text-muted-foreground">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-3 mb-3"
+        >
+          <Icon className={cn('h-8 w-8', accentColor)} strokeWidth={1.5} aria-hidden="true" />
+          <h3 className="text-xl font-medium text-[#1a1a1a]">{title}</h3>
+        </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-[15px] text-[#6b6b6b]"
+        >
           {title.includes('Acrílico') ? 'Cristalino y elegante, ideal para cualquier espacio' : 'Flexible y práctico, adhiere a cualquier superficie metálica'}
-        </p>
+        </motion.p>
       </div>
 
       {/* Planners Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {planners.map((planner, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
             className={cn(
-              'relative p-6 rounded-lg border-2 bg-background',
+              'relative p-6 rounded-2xl border-2 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
               'transition-all duration-300',
-              'hover:shadow-xl hover:-translate-y-1',
+              'hover:shadow-lg hover:-translate-y-1',
               planner.highlighted
-                ? `border-${accentColor.replace('text-', '')} shadow-lg scale-105`
-                : 'border-border hover:border-marca-beige/50'
+                ? 'border-[#0d6832]'
+                : 'border-[#e0e0e0] hover:border-[#0d6832]/50'
             )}
           >
             {/* Highlighted Badge */}
             {planner.highlighted && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-marca-beige text-white text-xs font-bold shadow-md">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-3xl bg-[#0d6832] text-white text-xs font-bold shadow-md">
                 Más Popular
               </div>
             )}
 
             {/* Size */}
             <div className="text-center mb-4">
-              <h4 className="text-xl font-bold text-foreground mb-1">{planner.size}</h4>
-              <p className="text-sm text-marca-beige font-semibold">{planner.dimensions}</p>
+              <h4 className="text-xl font-medium text-[#1a1a1a] mb-1">{planner.size}</h4>
+              <p className="text-sm text-[#0d6832] font-medium">{planner.dimensions}</p>
             </div>
 
             {/* Ideal For */}
-            <div className="mb-4 p-3 rounded-md bg-muted/50">
-              <p className="text-xs font-semibold text-muted-foreground mb-1 uppercase tracking-wide">
+            <div className="mb-4 p-3 rounded-lg bg-[#ebe8e3]">
+              <p className="text-xs font-medium text-[#6b6b6b] mb-1 uppercase tracking-wide">
                 Ideal para:
               </p>
-              <p className="text-sm text-foreground leading-relaxed">{planner.idealFor}</p>
+              <p className="text-[15px] text-[#1a1a1a] leading-relaxed">{planner.idealFor}</p>
             </div>
 
             {/* Features */}
             <ul className="space-y-2">
               {planner.features.map((feature, idx) => (
                 <li key={idx} className="flex items-start gap-2 text-sm">
-                  <Check className="h-4 w-4 text-marca-green flex-shrink-0 mt-0.5" aria-hidden="true" />
-                  <span className="text-muted-foreground">{feature}</span>
+                  <Check className="h-4 w-4 text-[#0d6832] flex-shrink-0 mt-0.5" strokeWidth={1.5} aria-hidden="true" />
+                  <span className="text-[#6b6b6b]">{feature}</span>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
   );
 
   return (
-    <section className={cn('py-16 md:py-24 bg-muted/20', className)}>
-      <div className="container mx-auto px-6">
+    <section className={cn('py-16 md:py-20 lg:py-24 bg-[#ebe8e3]', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto space-y-16">
           {/* Section Header */}
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-[48px] font-normal text-[#1a1a1a] mb-4"
+            >
               Encuentra tu Tamaño Ideal
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-[15px] text-[#6b6b6b] max-w-3xl mx-auto"
+            >
               Ofrecemos planificadores en acrílico y magnéticos en diversos tamaños para adaptarse a tus necesidades
-            </p>
+            </motion.p>
           </div>
 
           {/* Acrylic Planners Table */}
@@ -162,7 +191,7 @@ export function PricingTables({ className }: PricingTablesProps) {
             title="Planificadores de Acrílico"
             icon={Sparkles}
             planners={acrylicPlanners}
-            accentColor="text-marca-beige"
+            accentColor="text-[#0d6832]"
           />
 
           {/* Magnetic Planners Table */}
@@ -170,15 +199,21 @@ export function PricingTables({ className }: PricingTablesProps) {
             title="Planificadores Magnéticos"
             icon={Magnet}
             planners={magneticPlanners}
-            accentColor="text-marca-steel"
+            accentColor="text-[#6b6b6b]"
           />
 
           {/* Additional Info */}
-          <div className="mt-12 p-6 md:p-8 rounded-lg bg-background border-l-4 border-marca-beige shadow-md">
-            <h3 className="text-xl font-bold text-foreground mb-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-12 p-6 md:p-8 rounded-2xl bg-white border-l-4 border-[#0d6832] shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+          >
+            <h3 className="text-xl font-medium text-[#1a1a1a] mb-3">
               ¿Necesitas un tamaño personalizado?
             </h3>
-            <p className="text-sm md:text-base text-muted-foreground mb-4 leading-relaxed">
+            <p className="text-[15px] text-[#6b6b6b] mb-4 leading-relaxed">
               Ofrecemos planificadores en medidas personalizadas para proyectos corporativos o necesidades específicas.
               Contáctanos para cotizaciones especiales.
             </p>
@@ -187,16 +222,16 @@ export function PricingTables({ className }: PricingTablesProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                'inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold',
-                'bg-marca-beige text-white shadow-lg',
+                'inline-flex items-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium',
+                'bg-[#0d6832] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
                 'transition-all duration-200',
-                'hover:bg-marca-beige/90 hover:shadow-xl hover:scale-105',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-beige focus-visible:ring-offset-2'
+                'hover:bg-[#0a5528]',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0d6832] focus-visible:ring-offset-2'
               )}
             >
               Solicitar Cotización Personalizada
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

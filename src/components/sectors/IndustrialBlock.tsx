@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { Fuel, Factory, Heart, Building2, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
  * Industrial Sectors Block (Capstone)
@@ -12,7 +13,7 @@ import { Fuel, Factory, Heart, Building2, ArrowRight } from 'lucide-react';
  * - Icon-based visual hierarchy
  * - CTA to Capstone page
  * - Green branding
- * - Follows STYLE-GUIDE.md design patterns
+ * - Follows STYLE-GUIDE-SIERRA.md design patterns
  */
 
 interface IndustrialBlockProps {
@@ -27,7 +28,6 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
       description:
         'Generación de energía eficiente en sitios de extracción y procesamiento. Soluciones para operaciones remotas y ambientes exigentes.',
       applications: ['Extracción petrolera', 'Procesamiento de gas', 'Operaciones offshore', 'Compresión de gas'],
-      color: 'from-orange-500 to-orange-400',
     },
     {
       icon: Factory,
@@ -35,7 +35,6 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
       description:
         'Energía confiable para manufactura y procesos industriales. Cogeneración para maximizar eficiencia energética.',
       applications: ['Manufactura', 'Procesamiento de alimentos', 'Plantas químicas', 'Cogeneración CHP'],
-      color: 'from-marca-steel to-marca-steel/80',
     },
     {
       icon: Heart,
@@ -43,7 +42,6 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
       description:
         'Respaldo energético crítico para hospitales y centros médicos. Operación silenciosa y emisiones ultra bajas.',
       applications: ['Hospitales', 'Clínicas', 'Centros médicos', 'Laboratorios'],
-      color: 'from-red-500 to-red-400',
     },
     {
       icon: Building2,
@@ -51,78 +49,84 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
       description:
         'Soluciones energéticas para edificios comerciales, hoteles y centros de datos. Eficiencia operativa y reducción de costos.',
       applications: ['Centros comerciales', 'Hoteles', 'Data centers', 'Edificios corporativos'],
-      color: 'from-blue-500 to-blue-400',
     },
   ];
 
   return (
-    <section className={cn('py-16 md:py-24 bg-background', className)}>
-      <div className="container mx-auto px-6">
+    <section id="sectors" className={cn('bg-white py-16 md:py-20 lg:py-24', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-marca-green/10 border border-marca-green/20 mb-4">
-              <Factory className="h-5 w-5 text-marca-green" aria-hidden="true" />
-              <span className="text-sm font-semibold text-marca-green">Capstone Green Energy</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-3xl bg-[#0d6832]/10 border border-[#0d6832]/20 mb-6"
+            >
+              <Factory className="h-5 w-5 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
+              <span className="text-[15px] font-medium text-[#0d6832]">Capstone Green Energy</span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-[48px] font-normal text-[#1a1a1a] mb-4"
+            >
               Sectores Industriales
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-[15px] text-[#6b6b6b] max-w-3xl mx-auto leading-relaxed"
+            >
               Microturbinas de alta eficiencia para generación de energía distribuida, cogeneración y respaldo crítico
               en los sectores más exigentes.
-            </p>
+            </motion.p>
           </div>
 
           {/* Sectors Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {industrialSectors.map((sector, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={cn(
-                  'group relative p-6 rounded-lg border border-border bg-background overflow-hidden',
-                  'transition-all duration-300',
-                  'hover:shadow-2xl hover:-translate-y-2 hover:border-marca-green/50'
-                )}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
+                className="group relative p-6 rounded-2xl border border-[#e0e0e0] bg-white overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:border-[#0d6832]/30"
               >
-                {/* Gradient background (visible on hover) */}
-                <div
-                  className={cn(
-                    'absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 transition-opacity duration-300',
-                    sector.color
-                  )}
-                />
-
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className="mb-4">
-                    <div
-                      className={cn(
-                        'inline-flex p-4 rounded-full bg-gradient-to-br transition-transform duration-300 group-hover:scale-110',
-                        sector.color
-                      )}
-                    >
-                      <sector.icon className="h-8 w-8 text-white" aria-hidden="true" />
+                    <div className="inline-flex p-3 rounded-2xl bg-[#0d6832]/10 transition-all duration-300 group-hover:bg-[#0d6832] group-hover:scale-110">
+                      <sector.icon className="h-6 w-6 text-[#0d6832] group-hover:text-white transition-colors duration-300" strokeWidth={1.5} aria-hidden="true" />
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-foreground mb-3">{sector.title}</h3>
+                  <h3 className="text-xl font-medium text-[#1a1a1a] mb-3">{sector.title}</h3>
 
                   {/* Description */}
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{sector.description}</p>
+                  <p className="text-[15px] text-[#6b6b6b] leading-relaxed mb-4">{sector.description}</p>
 
                   {/* Applications */}
                   <div>
-                    <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">
+                    <p className="text-xs font-medium text-[#6b6b6b] mb-2 uppercase tracking-wider">
                       Aplicaciones:
                     </p>
                     <ul className="space-y-1.5">
                       {sector.applications.map((app, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm">
-                          <span className="text-marca-green mt-0.5 font-bold">✓</span>
-                          <span className="text-muted-foreground">{app}</span>
+                        <li key={idx} className="flex items-start gap-2 text-[15px]">
+                          <span className="text-[#0d6832] mt-0.5">✓</span>
+                          <span className="text-[#6b6b6b]">{app}</span>
                         </li>
                       ))}
                     </ul>
@@ -131,49 +135,43 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
 
                 {/* Hover indicator */}
                 <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowRight className="h-5 w-5 text-marca-green" aria-hidden="true" />
+                  <ArrowRight className="h-5 w-5 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Bottom CTA */}
-          <div className="text-center p-8 md:p-10 rounded-lg bg-gradient-to-br from-marca-green/10 to-background border border-marca-green/30">
-            <h3 className="text-2xl font-bold text-foreground mb-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-center p-8 md:p-10 rounded-2xl bg-[#ebe8e3] shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+          >
+            <h3 className="text-xl font-medium text-[#1a1a1a] mb-3">
               ¿Tu sector requiere soluciones energéticas confiables?
             </h3>
-            <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
+            <p className="text-[15px] text-[#6b6b6b] mb-6 max-w-2xl mx-auto">
               Descubre cómo las microturbinas Capstone pueden transformar la eficiencia energética de tu operación
               industrial.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/capstone"
-                className={cn(
-                  'inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-base font-semibold',
-                  'bg-marca-green text-white shadow-lg',
-                  'transition-all duration-200',
-                  'hover:bg-marca-green/90 hover:shadow-xl hover:scale-105',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2'
-                )}
+                className="inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium bg-[#0d6832] text-white shadow-lg transition-all duration-200 hover:bg-[#0a5528] hover:shadow-xl"
               >
                 Explorar Soluciones Capstone
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                <ArrowRight className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
               </a>
               <a
                 href="/contacto"
-                className={cn(
-                  'inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-base font-semibold',
-                  'bg-background text-foreground border-2 border-marca-green/30',
-                  'transition-all duration-200',
-                  'hover:bg-marca-green/5 hover:border-marca-green/50 hover:scale-105',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2'
-                )}
+                className="inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium bg-white text-[#1a1a1a] border-2 border-[#0d6832]/30 transition-all duration-200 hover:bg-[#0d6832]/5 hover:border-[#0d6832]/50"
               >
                 Solicitar Asesoría Técnica
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

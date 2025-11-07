@@ -2,6 +2,8 @@
 
 import { cn } from '@/lib/utils';
 import { Factory, Home } from 'lucide-react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 /**
  * Sectors Hero Section
@@ -9,9 +11,9 @@ import { Factory, Home } from 'lucide-react';
  * Features:
  * - Split collage visual (Industry left, Home right)
  * - Dual focus: Industrial energy solutions + Personal organization
- * - Gradient overlays
+ * - Professional Unsplash split image
  * - Responsive split layout
- * - Follows STYLE-GUIDE.md design patterns
+ * - Follows STYLE-GUIDE-SIERRA.md design patterns
  */
 
 interface SectorsHeroProps {
@@ -20,113 +22,106 @@ interface SectorsHeroProps {
 
 export function SectorsHero({ className }: SectorsHeroProps) {
   return (
-    <section className={cn('relative min-h-[60vh] md:min-h-[70vh] overflow-hidden', className)}>
-      {/* Split Background */}
-      <div className="absolute inset-0 grid md:grid-cols-2">
-        {/* Left Side - Industrial (Capstone) */}
-        <div className="relative bg-gradient-to-br from-marca-green/90 via-marca-green/80 to-marca-green/70">
-          {/* Pattern overlay */}
-          <div className="absolute inset-0 opacity-10">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage:
-                  'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)',
-                backgroundSize: '48px 48px',
-              }}
-            />
-          </div>
-
-          {/* Icon decoration */}
-          <div className="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 opacity-10">
-            <Factory className="h-48 w-48 text-white" aria-hidden="true" />
-          </div>
-        </div>
-
-        {/* Right Side - Personal (Tablú) */}
-        <div className="relative bg-gradient-to-br from-marca-beige/90 via-marca-beige/80 to-marca-beige/70">
-          {/* Pattern overlay */}
-          <div className="absolute inset-0 opacity-10">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: 'linear-gradient(45deg, currentColor 25%, transparent 25%), linear-gradient(-45deg, currentColor 25%, transparent 25%), linear-gradient(45deg, transparent 75%, currentColor 75%), linear-gradient(-45deg, transparent 75%, currentColor 75%)',
-                backgroundSize: '32px 32px',
-                backgroundPosition: '0 0, 0 16px, 16px -16px, -16px 0px',
-              }}
-            />
-          </div>
-
-          {/* Icon decoration */}
-          <div className="absolute bottom-1/4 right-1/4 transform translate-x-1/2 translate-y-1/2 opacity-10">
-            <Home className="h-48 w-48 text-white" aria-hidden="true" />
-          </div>
-        </div>
-      </div>
-
-      {/* Content Overlay */}
-      <div className="relative z-10 container mx-auto px-6 h-full min-h-[60vh] md:min-h-[70vh] flex items-center">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
-            Soluciones para Cada Sector
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-            Desde grandes industrias hasta espacios personales, conectamos tecnología y organización
-            para impulsar el éxito en cada ámbito.
-          </p>
-
-          {/* Dual Badges */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            {/* Industrial Badge */}
-            <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/40 shadow-xl">
-              <Factory className="h-6 w-6 text-white" aria-hidden="true" />
-              <div className="text-left">
-                <div className="text-sm font-bold text-white">Capstone</div>
-                <div className="text-xs text-white/90">Energía Industrial</div>
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="hidden sm:block text-3xl text-white/50 font-light">+</div>
-
-            {/* Personal Badge */}
-            <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/40 shadow-xl">
-              <Home className="h-6 w-6 text-white" aria-hidden="true" />
-              <div className="text-left">
-                <div className="text-sm font-bold text-white">Tablú</div>
-                <div className="text-xs text-white/90">Organización Personal</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="mt-16 animate-bounce">
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-sm text-white/80 font-medium">Explorar sectores</span>
-              <svg
-                className="h-6 w-6 text-white/80"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
+    <section className={cn('relative bg-[#ebe8e3] py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          {/* Main Content Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] overflow-hidden"
+          >
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Left Side - Split Image (Industry) */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="relative h-64 lg:h-auto min-h-[400px] overflow-hidden"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                <Image
+                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop&auto=format"
+                  alt="Industrial energy solutions"
+                  fill
+                  className="object-cover"
                 />
-              </svg>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0d6832]/80 to-[#0d6832]/60" />
+
+                {/* Industrial Badge */}
+                <div className="absolute top-6 left-6 flex items-center gap-3 px-5 py-2.5 rounded-3xl bg-white/95 backdrop-blur-sm shadow-lg">
+                  <Factory className="h-5 w-5 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
+                  <div className="text-left">
+                    <div className="text-[15px] font-medium text-[#1a1a1a]">Capstone</div>
+                    <div className="text-xs text-[#6b6b6b]">Energía Industrial</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Right Side - Split Image (Personal) */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="relative h-64 lg:h-auto min-h-[400px] overflow-hidden"
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop&auto=format"
+                  alt="Personal organization solutions"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#ebe8e3]/80 to-[#ebe8e3]/60" />
+
+                {/* Personal Badge */}
+                <div className="absolute top-6 right-6 flex items-center gap-3 px-5 py-2.5 rounded-3xl bg-white/95 backdrop-blur-sm shadow-lg">
+                  <Home className="h-5 w-5 text-[#6b6b6b]" strokeWidth={1.5} aria-hidden="true" />
+                  <div className="text-left">
+                    <div className="text-[15px] font-medium text-[#1a1a1a]">Tablú</div>
+                    <div className="text-xs text-[#6b6b6b]">Organización Personal</div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-          </div>
+
+            {/* Content Section */}
+            <div className="px-6 md:px-10 lg:px-20 py-12 md:py-16 text-center">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-[48px] font-normal text-[#1a1a1a] mb-4 leading-tight"
+              >
+                Soluciones para Cada Sector
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-[15px] text-[#6b6b6b] max-w-2xl mx-auto leading-relaxed mb-8"
+              >
+                Desde grandes industrias hasta espacios personales, conectamos tecnología y organización
+                para impulsar el éxito en cada ámbito.
+              </motion.p>
+
+              {/* CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <a
+                  href="#sectors"
+                  className="inline-block px-7 py-3 rounded-3xl bg-[#0d6832] text-white text-[15px] font-medium transition-all duration-200 hover:bg-[#0a5528] shadow-lg hover:shadow-xl"
+                >
+                  Explorar Sectores
+                </a>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </div>
-
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-5" />
     </section>
   );
 }

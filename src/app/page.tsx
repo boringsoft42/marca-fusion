@@ -8,15 +8,17 @@ import { BlurFade } from '@/components/magicui/blur-fade';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
- * Marca Fusión Home Page
+ * Marca Fusión Home Page - Sierra Style
  *
  * Main landing page showcasing:
- * - Hero section with company tagline
+ * - Hero section with company tagline (Sierra style)
  * - Representations block (Capstone & Tablú)
  * - Corporate group section (Marca Fusión + Altrix)
  * - Mission and values
  * - Sectors carousel
  * - Client showcase
+ *
+ * All components follow STYLE-GUIDE-SIERRA.md design system
  */
 
 export const metadata = metadataUtils.home();
@@ -24,7 +26,7 @@ export const metadata = metadataUtils.home();
 export default function HomePage() {
   return (
     <div className="flex flex-col">
-      {/* Hero Section - No animation for immediate impact */}
+      {/* Hero Section - Sierra Style */}
       <HeroSection />
 
       {/* Representations Block - Animated */}

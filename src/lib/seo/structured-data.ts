@@ -236,7 +236,7 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
  */
 export function generateFAQSchema(
   faqs: Array<{ question: string; answer: string }>
-): WithContext<{ '@type': 'FAQPage' }> {
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',

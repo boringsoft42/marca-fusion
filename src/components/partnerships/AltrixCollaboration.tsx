@@ -2,6 +2,8 @@
 
 import { cn } from '@/lib/utils';
 import { Plane, Package } from 'lucide-react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 /**
  * Altrix Collaboration Section (Partnerships)
@@ -11,7 +13,7 @@ import { Plane, Package } from 'lucide-react';
  * - International operations explanation
  * - Container/airplane icons
  * - Metallic/gray professional background
- * - Follows STYLE-GUIDE.md design patterns
+ * - Follows STYLE-GUIDE-SIERRA.md design patterns
  */
 
 interface AltrixCollaborationProps {
@@ -20,26 +22,31 @@ interface AltrixCollaborationProps {
 
 export function AltrixCollaboration({ className }: AltrixCollaborationProps) {
   return (
-    <section className={cn('py-16 md:py-24 bg-gradient-to-br from-marca-steel/10 via-muted/20 to-marca-steel/10', className)}>
-      <div className="container mx-auto px-6">
+    <section className={cn('py-16 md:py-20 lg:py-24 bg-sierra-cream', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-marca-steel/10 border border-marca-steel/20 mb-6">
-                <Plane className="h-4 w-4 text-marca-steel" aria-hidden="true" />
-                <span className="text-sm font-semibold text-marca-steel">Grupo Corporativo</span>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 px-7 py-3 rounded-3xl bg-[#6b6b6b]/10 mb-6">
+                <Plane className="h-4 w-4 text-[#6b6b6b]" strokeWidth={1.5} aria-hidden="true" />
+                <span className="text-[15px] font-medium text-[#6b6b6b]">Grupo Corporativo</span>
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              <h2 className="text-[48px] font-normal text-[#1a1a1a] mb-6">
                 Altrix Solutions LLC
               </h2>
 
-              <div className="space-y-4 text-base text-muted-foreground leading-relaxed mb-8">
+              <div className="space-y-4 text-[15px] text-[#6b6b6b] leading-relaxed mb-8">
                 <p>
-                  <span className="font-bold text-foreground">Altrix Solutions LLC</span> (Estados Unidos) es nuestra
+                  <span className="font-medium text-[#1a1a1a]">Altrix Solutions LLC</span> (Estados Unidos) es nuestra
                   empresa hermana que facilita todas las operaciones internacionales de{' '}
-                  <span className="font-semibold text-foreground">Marca Fusión</span> en Bolivia.
+                  <span className="font-medium text-[#1a1a1a]">Marca Fusión</span> en Bolivia.
                 </p>
 
                 <p>
@@ -62,64 +69,89 @@ export function AltrixCollaboration({ className }: AltrixCollaborationProps) {
                   'Cumplimiento normativo internacional',
                   'Soporte técnico desde Estados Unidos',
                 ].map((point, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 + idx * 0.1 }}
+                    className="flex items-start gap-3"
+                  >
                     <div className="flex-shrink-0 mt-1">
-                      <div className="h-6 w-6 rounded-full bg-marca-steel/20 flex items-center justify-center">
-                        <span className="text-xs font-bold text-marca-steel">✓</span>
+                      <div className="h-6 w-6 rounded-full bg-sierra-green/20 flex items-center justify-center">
+                        <span className="text-xs font-bold text-sierra-green">✓</span>
                       </div>
                     </div>
-                    <span className="text-sm text-foreground font-medium">{point}</span>
-                  </div>
+                    <span className="text-[15px] text-[#1a1a1a] font-medium">{point}</span>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Column - Visual */}
-            <div className="relative">
-              <div className="p-10 md:p-12 rounded-lg bg-gradient-to-br from-marca-steel/20 to-marca-steel/10 border-2 border-marca-steel/30 shadow-xl">
-                {/* Icons */}
-                <div className="flex justify-center gap-12 mb-8">
-                  <div className="p-6 rounded-full bg-marca-steel/20">
-                    <Package className="h-16 w-16 text-marca-steel" aria-hidden="true" />
-                  </div>
-                  <div className="p-6 rounded-full bg-marca-steel/20">
-                    <Plane className="h-16 w-16 text-marca-steel" aria-hidden="true" />
-                  </div>
-                </div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative"
+            >
+              {/* Background Image */}
+              <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+                <Image
+                  src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop"
+                  alt="International logistics"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/80 via-[#1a1a1a]/40 to-transparent" />
 
-                {/* Logo Placeholder */}
-                <div className="text-center mb-6">
-                  <div className="text-3xl font-bold text-marca-steel mb-2">
-                    Altrix Solutions LLC
+                {/* Content Overlay */}
+                <div className="absolute inset-0 p-10 flex flex-col justify-end">
+                  {/* Icons */}
+                  <div className="flex justify-center gap-8 mb-8">
+                    <div className="p-4 rounded-full bg-white/20 backdrop-blur-sm">
+                      <Package className="h-12 w-12 text-white" strokeWidth={1.5} aria-hidden="true" />
+                    </div>
+                    <div className="p-4 rounded-full bg-white/20 backdrop-blur-sm">
+                      <Plane className="h-12 w-12 text-white" strokeWidth={1.5} aria-hidden="true" />
+                    </div>
                   </div>
-                  <div className="text-sm text-muted-foreground">International Operations Partner</div>
-                  {/* Replace with actual logo: */}
-                  {/* <Image src="/images/logos/altrix-logo.svg" alt="Altrix Solutions LLC" width={250} height={80} /> */}
-                </div>
 
-                {/* Connection */}
-                <div className="flex items-center justify-center gap-4 text-sm font-semibold text-muted-foreground">
-                  <span>🇺🇸 USA</span>
-                  <span className="text-2xl">↔</span>
-                  <span>🇧🇴 Bolivia</span>
+                  {/* Logo Placeholder */}
+                  <div className="text-center">
+                    <div className="text-2xl font-normal text-white mb-2">
+                      Altrix Solutions LLC
+                    </div>
+                    <div className="text-[15px] text-white/80">International Operations Partner</div>
+                  </div>
+
+                  {/* Connection */}
+                  <div className="flex items-center justify-center gap-4 text-[15px] font-medium text-white mt-6">
+                    <span>🇺🇸 USA</span>
+                    <span className="text-2xl">↔</span>
+                    <span>🇧🇴 Bolivia</span>
+                  </div>
                 </div>
               </div>
-
-              {/* Decorative elements */}
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-marca-steel/10 rounded-full blur-2xl" />
-              <div className="absolute -top-4 -left-4 w-40 h-40 bg-marca-steel/10 rounded-full blur-2xl" />
-            </div>
+            </motion.div>
           </div>
 
           {/* Bottom Note */}
-          <div className="mt-12 p-6 rounded-lg bg-background border-l-4 border-marca-steel shadow-md">
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              <span className="font-bold text-foreground">Nota para potenciales aliados:</span> La estructura
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-12 p-8 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+          >
+            <p className="text-[15px] text-[#6b6b6b] leading-relaxed">
+              <span className="font-medium text-[#1a1a1a]">Nota para potenciales aliados:</span> La estructura
               Marca Fusión + Altrix Solutions nos permite ofrecer un soporte integral tanto en territorio boliviano
               como en operaciones internacionales. Si tu alianza requiere coordinación transfronteriza, contamos con
               la capacidad operativa para hacerlo posible.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

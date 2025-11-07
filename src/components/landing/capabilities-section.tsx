@@ -65,19 +65,19 @@ const capabilities = [
 
 export function CapabilitiesSection() {
   return (
-    <section className="py-20 sm:py-32 bg-gradient-to-b from-background to-muted/20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="py-16 md:py-20 lg:py-24 bg-white">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-20">
         <div className="mx-auto max-w-2xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-[48px] font-normal text-[#1a1a1a]">
               Platform Capabilities
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-[15px] text-[#6b6b6b] leading-relaxed">
               Everything you need to automate your business processes with AI
             </p>
           </motion.div>
@@ -93,14 +93,12 @@ export function CapabilitiesSection() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.05 }}
-                  className="group relative overflow-hidden rounded-lg border border-border bg-card p-6 hover:border-blue-500/50 transition-all"
+                  transition={{ duration: 0.6, delay: idx * 0.05 }}
+                  className="group relative overflow-hidden rounded-2xl border border-[#e0e0e0] bg-white p-6 hover:shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                  <Icon className="h-10 w-10 text-blue-500 mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="text-lg font-semibold mb-2">{capability.title}</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <Icon className="h-10 w-10 text-[#0d6832] mb-4" strokeWidth={1.5} />
+                  <h3 className="text-xl font-medium mb-2 text-[#1a1a1a]">{capability.title}</h3>
+                  <p className="text-[15px] text-[#6b6b6b] leading-relaxed">
                     {capability.description}
                   </p>
                 </motion.div>

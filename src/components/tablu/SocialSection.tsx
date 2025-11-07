@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Instagram, Facebook, MessageCircle } from 'lucide-react';
 
@@ -12,7 +13,7 @@ import { Instagram, Facebook, MessageCircle } from 'lucide-react';
  * - Social handles display
  * - Hover animations
  * - Call to follow
- * - Follows STYLE-GUIDE.md design patterns
+ * - Follows Sierra style guide
  */
 
 interface SocialSectionProps {
@@ -58,36 +59,47 @@ export function SocialSection({ className }: SocialSectionProps) {
   ];
 
   return (
-    <section className={cn('py-16 md:py-24 bg-gradient-to-br from-marca-beige/5 via-background to-marca-beige/10', className)}>
-      <div className="container mx-auto px-6">
+    <section className={cn('py-16 md:py-20 lg:py-24 bg-white', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-[48px] font-normal text-[#1a1a1a] mb-4">
               Síguenos en Redes Sociales
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-[15px] text-[#6b6b6b] max-w-2xl mx-auto leading-relaxed">
               Mantente al día con nuestros nuevos diseños, promociones especiales y contenido inspirador
               para organizar tu vida con estilo.
             </p>
-          </div>
+          </motion.div>
 
           {/* Social Links Grid */}
           <div className="grid sm:grid-cols-3 gap-6 mb-12">
             {socialLinks.map((social, index) => (
-              <a
+              <motion.a
                 key={index}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
                 className="group relative"
               >
                 {/* Card */}
                 <div
                   className={cn(
-                    'relative p-8 rounded-lg border-2 border-border bg-background overflow-hidden',
+                    'relative p-8 rounded-2xl bg-white overflow-hidden',
+                    'shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
                     'transition-all duration-300',
-                    'hover:border-transparent hover:shadow-2xl hover:-translate-y-2'
+                    'hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] hover:-translate-y-2'
                   )}
                 >
                   {/* Gradient Background (visible on hover) */}
@@ -108,22 +120,22 @@ export function SocialSection({ className }: SocialSectionProps) {
                           social.color
                         )}
                       >
-                        <social.icon className="h-10 w-10 text-white" aria-hidden="true" />
+                        <social.icon className="h-10 w-10 text-white" strokeWidth={1.5} aria-hidden="true" />
                       </div>
                     </div>
 
                     {/* Name */}
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-white transition-colors duration-300">
+                    <h3 className="text-xl font-medium text-[#1a1a1a] group-hover:text-white transition-colors duration-300">
                       {social.name}
                     </h3>
 
                     {/* Handle */}
-                    <p className="text-sm font-medium text-muted-foreground group-hover:text-white/90 transition-colors duration-300">
+                    <p className="text-[15px] font-normal text-[#6b6b6b] group-hover:text-white/90 transition-colors duration-300">
                       {social.handle}
                     </p>
 
                     {/* CTA Text */}
-                    <p className="text-xs font-semibold text-marca-beige group-hover:text-white transition-colors duration-300 uppercase tracking-wider">
+                    <p className="text-[15px] font-medium text-[#0d6832] group-hover:text-white transition-colors duration-300 uppercase tracking-wider">
                       Síguenos →
                     </p>
                   </div>
@@ -136,16 +148,22 @@ export function SocialSection({ className }: SocialSectionProps) {
                     )}
                   />
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
 
           {/* Additional CTA */}
-          <div className="text-center p-8 rounded-lg bg-muted/50 border border-border">
-            <h3 className="text-xl font-bold text-foreground mb-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-center p-8 rounded-2xl bg-[#ebe8e3] shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+          >
+            <h3 className="text-xl font-medium text-[#1a1a1a] mb-3">
               ¿Tienes preguntas?
             </h3>
-            <p className="text-sm md:text-base text-muted-foreground mb-5 max-w-xl mx-auto">
+            <p className="text-[15px] text-[#6b6b6b] mb-6 max-w-xl mx-auto leading-relaxed">
               Nuestro equipo está disponible para ayudarte a elegir el planificador perfecto
               o resolver cualquier consulta sobre nuestros productos.
             </p>
@@ -154,28 +172,34 @@ export function SocialSection({ className }: SocialSectionProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                'inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-base font-semibold',
-                'bg-[#25D366] text-white shadow-lg',
+                'inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium',
+                'bg-[#0d6832] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
                 'transition-all duration-200',
-                'hover:bg-[#25D366]/90 hover:shadow-xl hover:scale-105',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2'
+                'hover:bg-[#0a5528]',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0d6832] focus-visible:ring-offset-2'
               )}
             >
-              <MessageCircle className="h-5 w-5" aria-hidden="true" />
+              <MessageCircle className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
               Chatea con Nosotros
             </a>
-          </div>
+          </motion.div>
 
           {/* Testimonial or Social Proof */}
-          <div className="mt-12 text-center">
-            <p className="text-sm text-muted-foreground mb-4">
-              Únete a nuestra comunidad de más de <span className="font-bold text-foreground">5,000+</span> personas organizadas
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="mt-12 text-center"
+          >
+            <p className="text-[15px] text-[#6b6b6b] mb-4">
+              Únete a nuestra comunidad de más de <span className="font-medium text-[#1a1a1a]">5,000+</span> personas organizadas
             </p>
             <div className="flex justify-center gap-1">
               {[...Array(5)].map((_, i) => (
                 <svg
                   key={i}
-                  className="h-5 w-5 text-yellow-400"
+                  className="h-5 w-5 text-[#0d6832]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   aria-hidden="true"
@@ -184,10 +208,10 @@ export function SocialSection({ className }: SocialSectionProps) {
                 </svg>
               ))}
             </div>
-            <p className="text-xs text-muted-foreground mt-2">
+            <p className="text-[15px] text-[#6b6b6b] mt-2">
               Basado en reseñas de nuestros clientes
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

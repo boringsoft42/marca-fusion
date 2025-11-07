@@ -85,10 +85,10 @@ export function BenefitsSection({ className }: BenefitsSectionProps) {
                   rel="noopener noreferrer"
                   className={cn(
                     'inline-flex items-center gap-2 rounded-md px-8 py-3.5 text-base font-semibold',
-                    'bg-[#25D366] text-white shadow-lg',
+                    'bg-[#128C7E] text-white shadow-lg',
                     'transition-all duration-200',
-                    'hover:bg-[#25D366]/90 hover:shadow-xl hover:scale-105',
-                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2'
+                    'hover:bg-[#128C7E]/90 hover:shadow-xl hover:scale-105',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#128C7E] focus-visible:ring-offset-2'
                   )}
                 >
                   <MessageCircle className="h-5 w-5" aria-hidden="true" />

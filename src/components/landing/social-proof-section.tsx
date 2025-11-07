@@ -35,11 +35,11 @@ const logos = [
 
 export function SocialProofSection() {
   return (
-    <section className="py-20 border-y border-border/40">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="py-16 md:py-20 lg:py-24 border-y border-[#e0e0e0] bg-[#ebe8e3]">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-20">
         {/* Trusted by banner */}
         <div className="text-center mb-12">
-          <p className="text-sm font-semibold text-muted-foreground mb-8">
+          <p className="text-sm font-medium text-[#6b6b6b] mb-8">
             TRUSTED BY 50,000+ COMPANIES
           </p>
 
@@ -48,7 +48,7 @@ export function SocialProofSection() {
             {logos.map((logo, idx) => (
               <div
                 key={idx}
-                className="h-12 bg-muted rounded"
+                className="h-12 bg-[#e0e0e0] rounded"
                 style={{ width: logo.width }}
               />
             ))}
@@ -65,14 +65,13 @@ export function SocialProofSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="relative overflow-hidden rounded-lg border border-border bg-card p-8 text-center"
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="relative overflow-hidden rounded-2xl border border-[#e0e0e0] bg-white p-8 text-center shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-transparent" />
-                <Icon className="mx-auto h-12 w-12 text-blue-500 mb-4" />
-                <div className="text-4xl font-bold mb-2">{stat.value}</div>
-                <div className="text-lg font-semibold mb-1">{stat.label}</div>
-                <p className="text-sm text-muted-foreground">{stat.description}</p>
+                <Icon className="mx-auto h-12 w-12 text-[#0d6832] mb-4" strokeWidth={1.5} />
+                <div className="text-4xl font-normal text-[#1a1a1a] mb-2">{stat.value}</div>
+                <div className="text-xl font-medium text-[#1a1a1a] mb-1">{stat.label}</div>
+                <p className="text-[15px] text-[#6b6b6b] leading-relaxed">{stat.description}</p>
               </motion.div>
             );
           })}

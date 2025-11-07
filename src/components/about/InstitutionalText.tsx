@@ -2,16 +2,17 @@
 
 import { cn } from '@/lib/utils';
 import { Lightbulb, Target, Heart } from 'lucide-react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 /**
- * Marca Fusión Institutional Text Section
+ * Marca Fusión Institutional Text Section - Sierra Style with Animations
  *
  * Features:
- * - Company origin story
- * - Belief statements
- * - Three-column layout with icons
- * - Responsive design
- * - Follows STYLE-GUIDE.md design patterns
+ * - Sierra white background with professional business image
+ * - Company origin story with animations
+ * - Belief statements with animated cards
+ * - Follows STYLE-GUIDE-SIERRA.md
  */
 
 interface InstitutionalTextProps {
@@ -38,66 +39,102 @@ export function InstitutionalText({ className }: InstitutionalTextProps) {
   ];
 
   return (
-    <section className={cn('py-16 md:py-24 bg-background', className)}>
-      <div className="container mx-auto px-6">
-        {/* Origin Story */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Nuestra Historia
-            </h2>
-          </div>
+    <section className={cn('py-16 md:py-20 lg:py-24 bg-white', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
+        {/* Origin Story with Image */}
+        <div className="max-w-6xl mx-auto mb-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary mb-6">
+                Nuestra Historia
+              </h2>
 
-          <div className="prose prose-lg max-w-none text-muted-foreground">
-            <p className="text-base md:text-lg leading-relaxed mb-6">
-              Marca Fusión SRL nace con la visión de transformar el panorama empresarial boliviano, conectando industrias locales con tecnologías innovadoras de clase mundial. Nuestra historia comienza con el reconocimiento de una oportunidad única: servir como puente entre Bolivia y marcas internacionales líderes en sus respectivos sectores.
-            </p>
+              <div className="space-y-6 text-[15px] md:text-base text-sierra-text-secondary leading-relaxed">
+                <p>
+                  Marca Fusión SRL nace con la visión de transformar el panorama empresarial boliviano, conectando industrias locales con tecnologías innovadoras de clase mundial. Nuestra historia comienza con el reconocimiento de una oportunidad única: servir como puente entre Bolivia y marcas internacionales líderes en sus respectivos sectores.
+                </p>
 
-            <p className="text-base md:text-lg leading-relaxed mb-6">
-              Como representantes exclusivos de <span className="font-semibold text-marca-green">Capstone Green Energy</span> y <span className="font-semibold text-marca-beige">Tablú</span>, nos posicionamos en la intersección entre la sostenibilidad energética y la organización profesional, dos pilares fundamentales para el desarrollo empresarial moderno.
-            </p>
+                <p>
+                  Como representantes exclusivos de <span className="font-medium text-sierra-green">Capstone Green Energy</span> y <span className="font-medium text-marca-beige-500">Tablú</span>, nos posicionamos en la intersección entre la sostenibilidad energética y la organización profesional, dos pilares fundamentales para el desarrollo empresarial moderno.
+                </p>
 
-            <p className="text-base md:text-lg leading-relaxed">
-              Formamos parte de un grupo corporativo internacional que nos permite combinar experiencia local con alcance global, garantizando el soporte técnico, logístico y comercial que nuestros clientes necesitan para tener éxito.
-            </p>
+                <p>
+                  Formamos parte de un grupo corporativo internacional que nos permite combinar experiencia local con alcance global, garantizando el soporte técnico, logístico y comercial que nuestros clientes necesitan para tener éxito.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Professional Business Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+                alt="Professional business workspace"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
           </div>
         </div>
 
         {/* Belief Statements */}
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h3 className="text-2xl md:text-3xl font-medium text-sierra-text-primary mb-4">
               En Qué Creemos
             </h3>
-            <div className="w-20 h-1 bg-marca-green mx-auto rounded-full" />
-          </div>
+            <div className="w-20 h-1 bg-sierra-green mx-auto rounded-full" />
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {beliefs.map((belief, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="group text-center p-6 rounded-lg bg-muted/30 border border-border hover:border-marca-green/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                whileHover={{ y: -8 }}
+                className="text-center p-10 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-300"
               >
                 {/* Icon */}
-                <div className="inline-flex mb-4">
-                  <div className="p-4 rounded-full bg-marca-green-light group-hover:bg-marca-green transition-colors duration-300">
+                <div className="inline-flex mb-6">
+                  <div className="p-4 rounded-2xl bg-sierra-green/10">
                     <belief.icon
-                      className="h-8 w-8 text-marca-green group-hover:text-white transition-colors duration-300"
+                      className="h-8 w-8 text-sierra-green"
+                      strokeWidth={1.5}
                       aria-hidden="true"
                     />
                   </div>
                 </div>
 
                 {/* Title */}
-                <h4 className="text-xl font-bold text-foreground mb-3">
+                <h4 className="text-xl font-medium text-sierra-text-primary mb-3">
                   {belief.title}
                 </h4>
 
                 {/* Description */}
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                <p className="text-[15px] text-sierra-text-secondary leading-relaxed">
                   {belief.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
