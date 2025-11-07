@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { ArrowRight, Zap, PenTool } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
  * Marca Fusión Representations Block
@@ -23,19 +24,31 @@ interface RepresentacionesBlockProps {
 
 export function RepresentacionesBlock({ className }: RepresentacionesBlockProps) {
   return (
-    <section className={cn('bg-white py-16 md:py-20 lg:py-24', className)}>
+    <section className={cn('bg-white py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
         {/* Section Title - Sierra Style */}
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary">
             Nuestras Representaciones
           </h2>
-        </div>
+        </motion.div>
 
         {/* Split Layout - Sierra Style Cards */}
         <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {/* Capstone Block - Left - Sierra Style */}
-          <div className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] p-10 md:p-12 lg:p-16 flex flex-col justify-between min-h-[400px] transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] p-10 md:p-12 lg:p-16 flex flex-col justify-between min-h-[400px] transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+          >
             {/* Icon */}
             <div className="flex items-start justify-between mb-6">
               <div className="p-4 rounded-2xl bg-sierra-green/10">
@@ -76,10 +89,16 @@ export function RepresentacionesBlock({ className }: RepresentacionesBlockProps)
               Explorar Capstone
               <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
             </Link>
-          </div>
+          </motion.div>
 
           {/* Tablú Block - Right - Sierra Style */}
-          <div className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] p-10 md:p-12 lg:p-16 flex flex-col justify-between min-h-[400px] transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] p-10 md:p-12 lg:p-16 flex flex-col justify-between min-h-[400px] transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+          >
             {/* Icon */}
             <div className="flex items-start justify-between mb-6">
               <div className="p-4 rounded-2xl bg-marca-beige-500/10">
@@ -120,7 +139,7 @@ export function RepresentacionesBlock({ className }: RepresentacionesBlockProps)
               Explorar Tablú
               <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { Headphones, Globe, TrendingUp } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
  * Sierra Feature List Component
@@ -50,7 +51,14 @@ export function SierraFeatureList({ className }: SierraFeatureListProps) {
   return (
     <div className={cn('flex flex-col gap-12', className)}>
       {features.map((feature, index) => (
-        <div key={index} className="flex flex-col gap-3">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: index * 0.15 }}
+          className="flex flex-col gap-3"
+        >
           {/* Icon + Title Row */}
           <div className="flex items-center gap-3">
             <span className="text-sierra-text-primary flex-shrink-0">
@@ -65,7 +73,7 @@ export function SierraFeatureList({ className }: SierraFeatureListProps) {
           <p className="text-[15px] leading-relaxed text-sierra-text-secondary pl-8">
             {feature.description}
           </p>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

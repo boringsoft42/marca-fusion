@@ -62,8 +62,8 @@ export function Header({ className }: HeaderProps) {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60',
-        isScrolled && 'shadow-sm',
+        'sticky top-0 z-50 w-full border-b border-[#e0e0e0] bg-white',
+        isScrolled && 'shadow-[0_1px_3px_rgba(0,0,0,0.04)]',
         className
       )}
     >
@@ -73,17 +73,17 @@ export function Header({ className }: HeaderProps) {
           <div className="flex items-center">
             <Link
               href="/"
-              className="flex items-center space-x-2 transition-opacity hover:opacity-80"
+              className="flex items-center space-x-2.5 transition-opacity hover:opacity-80"
             >
               {/* Logo placeholder - replace with actual logo */}
-              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-marca-green-500 text-white font-bold text-lg">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-marca-green text-white font-semibold text-base">
                 MF
               </div>
               <div className="hidden sm:block">
-                <span className="text-lg font-bold tracking-tight text-foreground">
+                <span className="text-[15px] font-medium tracking-tight text-[#1a1a1a]">
                   Marca Fusión
                 </span>
-                <p className="text-xs text-muted-foreground">Bolivia</p>
+                <p className="text-[11px] text-[#716F6C] -mt-0.5">Bolivia</p>
               </div>
             </Link>
           </div>
@@ -96,14 +96,14 @@ export function Header({ className }: HeaderProps) {
             {/* Mobile menu button */}
             <button
               type="button"
-              className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-[#716F6C] hover:text-[#1a1a1a] hover:bg-[#f5f5f5] focus:outline-none focus:ring-2 focus:ring-marca-green focus:ring-offset-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
               aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             >
               {/* Hamburger icon */}
               <svg
-                className="h-6 w-6"
+                className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"

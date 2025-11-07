@@ -58,7 +58,7 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
   };
 
   return (
-    <nav className={cn('flex items-center space-x-1', className)} aria-label="Main navigation">
+    <nav className={cn('flex items-center space-x-2', className)} aria-label="Main navigation">
       {navItems.map((item, index) => {
         if (item.isDropdown && item.subItems) {
           const isDropdownItemActive = isDropdownActive(item.subItems);
@@ -74,10 +74,10 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
               <button
                 type="button"
                 className={cn(
-                  'inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors',
-                  'hover:bg-accent hover:text-accent-foreground',
+                  'inline-flex items-center gap-1 px-4 py-2 text-[14px] font-normal transition-colors',
+                  'hover:text-[#1a1a1a]',
                   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-                  isDropdownItemActive && 'text-marca-green font-semibold'
+                  isDropdownItemActive ? 'text-[#1a1a1a] font-medium' : 'text-[#716F6C]'
                 )}
                 aria-expanded={isRepresentationsOpen}
                 aria-haspopup="true"
@@ -85,9 +85,10 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
                 {item.label}
                 <ChevronDown
                   className={cn(
-                    'h-4 w-4 transition-transform duration-200',
+                    'h-3.5 w-3.5 transition-transform duration-200',
                     isRepresentationsOpen && 'rotate-180'
                   )}
+                  strokeWidth={1.5}
                   aria-hidden="true"
                 />
               </button>
@@ -95,7 +96,7 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
               {/* Dropdown menu */}
               {isRepresentationsOpen && (
                 <div
-                  className="absolute left-0 top-full z-50 mt-1 w-56 rounded-md border border-border bg-popover shadow-lg animate-in fade-in-0 zoom-in-95 slide-in-from-top-2"
+                  className="absolute left-0 top-full z-50 mt-1 w-48 rounded-lg border border-[#e0e0e0] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] animate-in fade-in-0 zoom-in-95 slide-in-from-top-2"
                   role="menu"
                 >
                   <div className="p-1">
@@ -104,10 +105,10 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
                         key={subIndex}
                         href={subItem.href}
                         className={cn(
-                          'block rounded-sm px-3 py-2 text-sm transition-colors',
-                          'hover:bg-accent hover:text-accent-foreground',
+                          'block rounded-md px-4 py-2 text-[14px] transition-colors',
+                          'hover:bg-[#f5f5f5] hover:text-[#1a1a1a]',
                           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-                          isActive(subItem.href) && 'bg-accent text-accent-foreground font-medium'
+                          isActive(subItem.href) ? 'bg-[#f5f5f5] text-[#1a1a1a] font-medium' : 'text-[#716F6C]'
                         )}
                         onClick={onLinkClick}
                         role="menuitem"
@@ -128,10 +129,10 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
             key={index}
             href={item.href!}
             className={cn(
-              'inline-flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors',
-              'hover:bg-accent hover:text-accent-foreground',
+              'inline-flex items-center px-4 py-2 text-[14px] font-normal transition-colors',
+              'hover:text-[#1a1a1a]',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-              isActive(item.href!) ? 'text-marca-green font-semibold' : 'text-foreground'
+              isActive(item.href!) ? 'text-[#1a1a1a] font-medium' : 'text-[#716F6C]'
             )}
             onClick={onLinkClick}
           >

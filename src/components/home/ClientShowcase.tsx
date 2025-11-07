@@ -1,174 +1,176 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { PlusIcon } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
- * Marca Fusión Client Showcase - Sierra Style
+ * Marca Fusión Client Showcase - Logo Cloud Style
  *
  * Features:
- * - White background with Sierra styling
- * - Auto-scrolling logo ribbons
- * - Clean, minimal design
- * - Follows STYLE-GUIDE-SIERRA.md
+ * - Logo Cloud grid layout with 21st.dev style
+ * - Split sections for Capstone and Tablú clients
+ * - Clean,minimal design with borders and grid
+ * - Framer Motion animations
  */
 
 interface ClientShowcaseProps {
   className?: string;
 }
 
+type Logo = {
+  name: string;
+  type: 'capstone' | 'tablu';
+};
+
 export function ClientShowcase({ className }: ClientShowcaseProps) {
-  // Placeholder client logos
-  const capstoneClients = [
-    'YPFB',
-    'Petrobras',
-    'Repsol',
-    'Total Energies',
-    'Shell',
-    'Chaco',
-    'Vintage Petroleum',
-    'BG Bolivia',
+  const capstoneClients: Logo[] = [
+    { name: 'YPFB', type: 'capstone' },
+    { name: 'Petrobras', type: 'capstone' },
+    { name: 'Repsol', type: 'capstone' },
+    { name: 'Total Energies', type: 'capstone' },
   ];
 
-  const tabluClients = [
-    'Universidad Privada de Santa Cruz',
-    'Colegio Alemán',
-    'Empresa Constructora',
-    'Estudio Jurídico',
-    'Consultora Empresarial',
-    'Agencia de Marketing',
-    'Centro Médico',
-    'Oficina Corporativa',
+  const tabluClients: Logo[] = [
+    { name: 'Colegio Alemán', type: 'tablu' },
+    { name: 'Empresa Constructora', type: 'tablu' },
+    { name: 'Consultora', type: 'tablu' },
+    { name: 'Centro Médico', type: 'tablu' },
   ];
-
-  // Duplicate arrays for infinite scroll effect
-  const capstoneLogos = [...capstoneClients, ...capstoneClients];
-  const tabluLogos = [...tabluClients, ...tabluClients];
 
   return (
-    <section className={cn('bg-white py-16 md:py-20 lg:py-24', className)}>
+    <section className={cn('bg-white py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
-        {/* Section Title - Sierra Style */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary">
+        {/* Section Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-[#1a1a1a] mb-3">
             Nuestros Clientes
           </h2>
-        </div>
+          <p className="text-sm md:text-[15px] text-[#716F6C] max-w-2xl mx-auto">
+            Empresas líderes que confían en nuestras soluciones
+          </p>
+        </motion.div>
 
-        {/* Split Layout - Sierra Style */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Capstone Clients */}
-          <div className="space-y-4">
-            {/* Label */}
-            <div className="text-center">
-              <h3 className="text-xl md:text-2xl font-medium text-sierra-green mb-2">
-                Clientes Capstone
-              </h3>
-              <div className="w-16 h-1 bg-sierra-green mx-auto rounded-full" />
-            </div>
-
-            {/* Scrolling logos container */}
-            <div className="relative overflow-hidden rounded-2xl bg-sierra-green/5 py-8">
-              {/* Gradient overlays for fade effect */}
-              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-sierra-green/5 to-transparent z-10" />
-              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-sierra-green/5 to-transparent z-10" />
-
-              {/* Scrolling content */}
-              <div
-                className="flex gap-8 animate-scroll hover:pause-animation"
-                style={{
-                  animation: 'scroll 30s linear infinite',
-                }}
-              >
-                {capstoneLogos.map((client, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 flex items-center justify-center px-6 py-4 bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] min-w-[200px]"
-                  >
-                    <span className="text-sm font-medium text-sierra-text-primary text-center">
-                      {client}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* Capstone Clients Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-16"
+        >
+          <div className="text-center mb-6">
+            <h3 className="text-xl md:text-2xl font-medium text-marca-green mb-2">
+              Clientes Capstone
+            </h3>
+            <div className="w-16 h-1 bg-marca-green mx-auto rounded-full" />
           </div>
 
-          {/* Tablú Clients */}
-          <div className="space-y-4">
-            {/* Label */}
-            <div className="text-center">
-              <h3 className="text-xl md:text-2xl font-medium text-marca-beige-500 mb-2">
-                Clientes Tablú
-              </h3>
-              <div className="w-16 h-1 bg-marca-beige-500 mx-auto rounded-full" />
-            </div>
+          <div className="relative grid grid-cols-2 border-x md:grid-cols-4 max-w-5xl mx-auto rounded-lg overflow-hidden">
+            <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t border-[#e0e0e0]" />
 
-            {/* Scrolling logos container */}
-            <div className="relative overflow-hidden rounded-2xl bg-marca-beige-500/5 py-8">
-              {/* Gradient overlays for fade effect */}
-              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-marca-beige-500/5 to-transparent z-10" />
-              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-marca-beige-500/5 to-transparent z-10" />
-
-              {/* Scrolling content */}
-              <div
-                className="flex gap-8 animate-scroll-reverse hover:pause-animation"
-                style={{
-                  animation: 'scroll-reverse 35s linear infinite',
-                }}
+            {capstoneClients.map((client, index) => (
+              <LogoCard
+                key={index}
+                className={cn(
+                  'border-b border-r last:border-r-0 md:last:border-r',
+                  index === 0 && 'bg-[#f9f9f9]',
+                  index === 2 && 'md:bg-[#f9f9f9]'
+                )}
+                logo={client}
+                index={index}
               >
-                {tabluLogos.map((client, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 flex items-center justify-center px-6 py-4 bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] min-w-[200px]"
-                  >
-                    <span className="text-sm font-medium text-sierra-text-primary text-center">
-                      {client}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+                {index === 0 && (
+                  <PlusIcon
+                    className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 text-[#e0e0e0]"
+                    strokeWidth={1}
+                  />
+                )}
+                {index === 2 && (
+                  <>
+                    <PlusIcon
+                      className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 text-[#e0e0e0]"
+                      strokeWidth={1}
+                    />
+                    <PlusIcon
+                      className="-bottom-[12.5px] -left-[12.5px] absolute z-10 hidden size-6 md:block text-[#e0e0e0]"
+                      strokeWidth={1}
+                    />
+                  </>
+                )}
+              </LogoCard>
+            ))}
+
+            <div className="-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b border-[#e0e0e0]" />
           </div>
-        </div>
+        </motion.div>
+
+        {/* Tablú Clients Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <div className="text-center mb-6">
+            <h3 className="text-xl md:text-2xl font-medium text-[#716F6C] mb-2">
+              Clientes Tablú
+            </h3>
+            <div className="w-16 h-1 bg-[#716F6C] mx-auto rounded-full" />
+          </div>
+
+          <div className="relative grid grid-cols-2 border-x md:grid-cols-4 max-w-5xl mx-auto rounded-lg overflow-hidden">
+            <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t border-[#e0e0e0]" />
+
+            {tabluClients.map((client, index) => (
+              <LogoCard
+                key={index}
+                className={cn(
+                  'border-b border-r last:border-r-0 md:last:border-r',
+                  index === 1 && 'bg-[#f9f9f9]',
+                  index === 3 && 'md:bg-[#f9f9f9]'
+                )}
+                logo={client}
+                index={index}
+              />
+            ))}
+
+            <div className="-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b border-[#e0e0e0]" />
+          </div>
+        </motion.div>
       </div>
-
-      {/* CSS animations defined inline for component isolation */}
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        @keyframes scroll-reverse {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
-        }
-
-        .animate-scroll-reverse {
-          animation: scroll-reverse 35s linear infinite;
-        }
-
-        .animate-scroll:hover,
-        .animate-scroll-reverse:hover {
-          animation-play-state: paused;
-        }
-
-        .pause-animation:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
+  );
+}
+
+type LogoCardProps = React.ComponentProps<'div'> & {
+  logo: Logo;
+  index: number;
+};
+
+function LogoCard({ logo, className, children, index, ...props }: LogoCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      className={cn(
+        'flex items-center justify-center bg-white px-4 py-8 md:p-10 relative',
+        className
+      )}
+      {...props}
+    >
+      <span className="text-sm md:text-base font-medium text-[#1a1a1a] text-center">
+        {logo.name}
+      </span>
+      {children}
+    </motion.div>
   );
 }

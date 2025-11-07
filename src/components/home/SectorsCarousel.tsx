@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { ArrowRight, Factory, Building2, Heart, Briefcase, Home, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
  * Marca Fusión Sectors Carousel - Sierra Style
@@ -90,17 +91,27 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
   const currentSector = sectors[currentIndex];
 
   return (
-    <section className={cn('bg-sierra-cream py-16 md:py-20 lg:py-24', className)}>
+    <section className={cn('bg-sierra-cream py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
         {/* Section Title - Sierra Style */}
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary">
             Sectores que Servimos
           </h2>
-        </div>
+        </motion.div>
 
         {/* Carousel Container - Sierra Style */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="relative max-w-4xl mx-auto"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -165,10 +176,16 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* CTA Button - Sierra Style */}
-        <div className="flex justify-center mt-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex justify-center mt-12"
+        >
           <Link
             href="/sectores"
             className={cn(
@@ -182,7 +199,7 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
             Ver todos los sectores
             <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

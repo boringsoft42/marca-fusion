@@ -81,7 +81,7 @@ export function Footer({ className }: FooterProps) {
   return (
     <footer
       className={cn(
-        'w-full border-t border-border bg-muted/30',
+        'w-full bg-[#1a1a1a] text-white',
         className
       )}
     >
@@ -95,18 +95,18 @@ export function Footer({ className }: FooterProps) {
                 MF
               </div>
               <div>
-                <div className="text-lg font-bold tracking-tight">Marca Fusión</div>
-                <p className="text-xs text-muted-foreground">Bolivia</p>
+                <div className="text-lg font-bold tracking-tight text-white">Marca Fusión</div>
+                <p className="text-xs text-[#a0a0a0]">Bolivia</p>
               </div>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-[#a0a0a0]">
               Representantes exclusivos de Capstone Green Energy y Tablú en Bolivia.
             </p>
           </div>
 
           {/* Quick links */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
               Enlaces Rápidos
             </h3>
             <ul className="space-y-2">
@@ -114,7 +114,7 @@ export function Footer({ className }: FooterProps) {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-marca-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                    className="text-sm text-[#a0a0a0] transition-colors hover:text-marca-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a] rounded-sm"
                   >
                     {link.label}
                   </Link>
@@ -125,7 +125,7 @@ export function Footer({ className }: FooterProps) {
 
           {/* Contact info */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
               Contacto
             </h3>
             <ul className="space-y-3">
@@ -133,11 +133,11 @@ export function Footer({ className }: FooterProps) {
                 <li key={index}>
                   <a
                     href={item.href}
-                    className="flex items-start gap-2 text-sm text-muted-foreground transition-colors hover:text-marca-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                    className="flex items-start gap-2 text-sm text-[#a0a0a0] transition-colors hover:text-marca-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a] rounded-sm"
                   >
                     <item.icon className="h-4 w-4 mt-0.5 flex-shrink-0" aria-hidden="true" />
                     <div>
-                      <div className="font-medium text-foreground">{item.label}</div>
+                      <div className="font-medium text-white">{item.label}</div>
                       <div>{item.value}</div>
                     </div>
                   </a>
@@ -148,7 +148,7 @@ export function Footer({ className }: FooterProps) {
 
           {/* Social media & CTA */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
               Síguenos
             </h3>
             <div className="flex gap-3">
@@ -158,7 +158,7 @@ export function Footer({ className }: FooterProps) {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background text-muted-foreground transition-colors hover:bg-marca-green hover:text-white hover:border-marca-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className="flex h-10 w-10 items-center justify-center rounded-md border border-[#333] bg-[#2a2a2a] text-[#a0a0a0] transition-colors hover:bg-marca-green hover:text-white hover:border-marca-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a]"
                   aria-label={social.ariaLabel}
                 >
                   <social.icon className="h-5 w-5" aria-hidden="true" />
@@ -170,7 +170,7 @@ export function Footer({ className }: FooterProps) {
             <div className="pt-4">
               <Link
                 href="/contacto"
-                className="inline-flex items-center justify-center rounded-md bg-marca-green px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-marca-green/90 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center rounded-md bg-marca-green px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-marca-green/90 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a]"
               >
                 Contáctanos ahora
               </Link>
@@ -179,21 +179,21 @@ export function Footer({ className }: FooterProps) {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-border py-6">
+        <div className="border-t border-[#333] py-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-[#a0a0a0]">
               © {currentYear} Marca Fusión SRL. Todos los derechos reservados.
             </p>
-            <div className="flex gap-6 text-sm text-muted-foreground">
+            <div className="flex gap-6 text-sm text-[#a0a0a0]">
               <Link
                 href="/nosotros"
-                className="transition-colors hover:text-marca-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+                className="transition-colors hover:text-marca-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a] rounded-sm"
               >
                 Sobre Nosotros
               </Link>
               <Link
                 href="/contacto"
-                className="transition-colors hover:text-marca-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+                className="transition-colors hover:text-marca-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a] rounded-sm"
               >
                 Contacto
               </Link>
