@@ -56,11 +56,7 @@ export function TeamSection({ className }: TeamSectionProps) {
 
           {/* Team Description */}
           <div className="text-center max-w-3xl mx-auto">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
-              Nuestro equipo está conformado por profesionales comprometidos con la excelencia, cada uno aportando experiencia y conocimiento especializado en sus respectivas áreas. Trabajamos unidos por una visión común: conectar Bolivia con las mejores soluciones tecnológicas del mundo.
-            </p>
-
-            <div className="grid sm:grid-cols-3 gap-6 mt-8">
+            <div className="grid sm:grid-cols-3 gap-6">
               <div className="text-center p-4 rounded-lg bg-muted/30 border border-border">
                 <div className="text-2xl md:text-3xl font-bold text-marca-green mb-1">
                   10+

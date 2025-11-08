@@ -1,7 +1,8 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Globe, ArrowRight, Building2 } from 'lucide-react';
+import { Globe, Building2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
  * Marca Fusión Corporate Group Detail Section
@@ -87,29 +88,93 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                   </a>
                 </div>
 
-                {/* Connection Visual */}
-                <div className="flex items-center justify-center">
-                  <div className="relative w-full flex flex-col items-center gap-4">
-                    {/* Top arrow - Export/Import */}
-                    <div className="flex items-center w-full">
-                      <div className="flex-1 border-t-2 border-dashed border-marca-steel/40" />
-                      <ArrowRight className="h-6 w-6 text-marca-steel mx-2" aria-hidden="true" />
-                      <div className="flex-1 border-t-2 border-dashed border-marca-steel/40" />
+                {/* Animated Connection Line - Data Transfer Visual */}
+                <div className="flex items-center justify-center relative">
+                  <div className="relative w-full h-16 flex items-center">
+                    {/* Base Line */}
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full h-[2px] bg-gradient-to-r from-marca-steel via-marca-green to-marca-green opacity-30" />
                     </div>
 
-                    {/* Connection label */}
-                    <div className="px-4 py-2 bg-background rounded-full border border-border shadow-md">
-                      <Building2 className="h-5 w-5 text-marca-steel mx-auto mb-1" aria-hidden="true" />
-                      <p className="text-xs font-semibold text-muted-foreground text-center whitespace-nowrap">
-                        Grupo Corporativo
-                      </p>
-                    </div>
+                    {/* Animated Light Bits - Going Right (USA -> Bolivia) */}
+                    <motion.div
+                      className="absolute h-3 w-3 rounded-full bg-marca-green shadow-[0_0_10px_2px_rgba(16,185,129,0.8)]"
+                      initial={{ left: '0%', opacity: 0 }}
+                      animate={{
+                        left: ['0%', '100%'],
+                        opacity: [0, 1, 1, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: 'linear',
+                        delay: 0,
+                      }}
+                    />
+                    <motion.div
+                      className="absolute h-3 w-3 rounded-full bg-marca-green shadow-[0_0_10px_2px_rgba(16,185,129,0.8)]"
+                      initial={{ left: '0%', opacity: 0 }}
+                      animate={{
+                        left: ['0%', '100%'],
+                        opacity: [0, 1, 1, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: 'linear',
+                        delay: 0.7,
+                      }}
+                    />
 
-                    {/* Bottom arrow - Support/Logistics */}
-                    <div className="flex items-center w-full">
-                      <div className="flex-1 border-t-2 border-dashed border-marca-green/40" />
-                      <ArrowRight className="h-6 w-6 text-marca-green mx-2 rotate-180" aria-hidden="true" />
-                      <div className="flex-1 border-t-2 border-dashed border-marca-green/40" />
+                    {/* Animated Light Bits - Going Left (Bolivia -> USA) */}
+                    <motion.div
+                      className="absolute h-3 w-3 rounded-full bg-marca-steel shadow-[0_0_10px_2px_rgba(100,116,139,0.8)]"
+                      initial={{ left: '100%', opacity: 0 }}
+                      animate={{
+                        left: ['100%', '0%'],
+                        opacity: [0, 1, 1, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: 'linear',
+                        delay: 0.35,
+                      }}
+                    />
+                    <motion.div
+                      className="absolute h-3 w-3 rounded-full bg-marca-steel shadow-[0_0_10px_2px_rgba(100,116,139,0.8)]"
+                      initial={{ left: '100%', opacity: 0 }}
+                      animate={{
+                        left: ['100%', '0%'],
+                        opacity: [0, 1, 1, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: 'linear',
+                        delay: 1.05,
+                      }}
+                    />
+
+                    {/* Center Icon - Data Transfer */}
+                    <div className="relative flex justify-center w-full">
+                      <motion.div
+                        className="px-4 py-2 bg-background rounded-full border border-border shadow-md"
+                        animate={{
+                          boxShadow: [
+                            '0 2px 8px rgba(0,0,0,0.1)',
+                            '0 2px 12px rgba(16,185,129,0.3)',
+                            '0 2px 8px rgba(0,0,0,0.1)',
+                          ],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: 'easeInOut',
+                        }}
+                      >
+                        <Building2 className="h-5 w-5 text-marca-green" aria-hidden="true" />
+                      </motion.div>
                     </div>
                   </div>
                 </div>
@@ -134,51 +199,6 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Benefits Grid */}
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-lg bg-background border border-border">
-              <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-marca-green" />
-                Ventajas del Grupo Corporativo
-              </h3>
-              <ul className="space-y-2 text-sm md:text-base text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <span className="text-marca-green mt-1">✓</span>
-                  Capacidad operativa internacional para importación y exportación
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-marca-green mt-1">✓</span>
-                  Soporte técnico especializado desde Estados Unidos
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-marca-green mt-1">✓</span>
-                  Cumplimiento garantizado de procesos logísticos internacionales
-                </li>
-              </ul>
-            </div>
-
-            <div className="p-6 rounded-lg bg-background border border-border">
-              <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-marca-steel" />
-                Compromiso Local
-              </h3>
-              <ul className="space-y-2 text-sm md:text-base text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <span className="text-marca-steel mt-1">✓</span>
-                  Equipo local con conocimiento profundo del mercado boliviano
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-marca-steel mt-1">✓</span>
-                  Atención personalizada y soporte en español
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-marca-steel mt-1">✓</span>
-                  Compromiso con el desarrollo sostenible de Bolivia
-                </li>
-              </ul>
             </div>
           </div>
         </div>

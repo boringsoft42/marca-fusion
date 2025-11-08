@@ -4,7 +4,6 @@ import { InstitutionalText } from '@/components/about/InstitutionalText';
 import { MissionVisionValues } from '@/components/about/MissionVisionValues';
 import { TeamSection } from '@/components/about/TeamSection';
 import { CorporateGroupDetail } from '@/components/about/CorporateGroupDetail';
-import { PhilosophySection } from '@/components/about/PhilosophySection';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
@@ -44,11 +43,6 @@ export default function AboutPage() {
       {/* Corporate Group Detail - Animated */}
       <BlurFade delay={0.8} inView>
         <CorporateGroupDetail />
-      </BlurFade>
-
-      {/* Philosophy Section - Animated */}
-      <BlurFade delay={1.0} inView>
-        <PhilosophySection />
       </BlurFade>
     </div>
   );

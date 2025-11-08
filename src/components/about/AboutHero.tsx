@@ -28,17 +28,19 @@ export function AboutHero({ className }: AboutHeroProps) {
         className
       )}
     >
-      {/* Background Image - Santa Cruz cityscape */}
+      {/* Background Image - Business partnership and energy */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2070&auto=format&fit=crop"
-          alt="Santa Cruz de la Sierra cityscape"
+          src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?q=80&w=2070&auto=format&fit=crop&sharpen=50"
+          alt="Colaboración empresarial y tecnología"
           fill
-          className="object-cover opacity-20"
+          className="object-cover opacity-50 brightness-110 contrast-110"
           priority
         />
+        {/* Green tinted overlay for brand color */}
+        <div className="absolute inset-0 bg-sierra-green/5" />
         {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-sierra-cream/90 via-sierra-cream/70 to-sierra-cream/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-sierra-cream/80 via-sierra-cream/50 to-sierra-cream/80" />
       </div>
 
       {/* Content */}
@@ -76,18 +78,6 @@ export function AboutHero({ className }: AboutHeroProps) {
           >
             Conectamos Bolivia con el mundo a través de representaciones estratégicas que impulsan innovación, sostenibilidad y desarrollo.
           </motion.p>
-
-          {/* Decorative elements - Animated */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-8 flex items-center justify-center gap-2"
-          >
-            <div className="h-1 w-16 bg-sierra-green rounded-full" />
-            <div className="h-1 w-16 bg-marca-steel-500 rounded-full" />
-            <div className="h-1 w-16 bg-marca-beige-500 rounded-full" />
-          </motion.div>
         </div>
       </div>
     </section>
