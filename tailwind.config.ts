@@ -10,56 +10,53 @@ export default {
   theme: {
   	extend: {
   		colors: {
-  			// Marca Fusión Brand Colors
   			'marca-green': {
-  				50: '#f0fdf4',
-  				100: '#dcfce7',
-  				200: '#bbf7d0',
-  				300: '#86efac',
-  				400: '#4ade80',
-  				500: '#22c55e',   // Primary institutional green
-  				600: '#16a34a',
-  				700: '#15803d',
-  				800: '#166534',
-  				900: '#14532d',
-  				950: '#052e16',
+  				'50': '#f0fdf4',
+  				'100': '#dcfce7',
+  				'200': '#bbf7d0',
+  				'300': '#86efac',
+  				'400': '#4ade80',
+  				'500': '#22c55e',
+  				'600': '#16a34a',
+  				'700': '#15803d',
+  				'800': '#166534',
+  				'900': '#14532d',
+  				'950': '#052e16'
   			},
-  			// Sierra Design System Colors
-  			'sierra': {
-  				cream: '#ebe8e3',      // Background beige/cream
-  				green: '#0d6832',      // Primary action green
-  				'green-hover': '#0a5528', // Button hover state
-  				'text-primary': '#1a1a1a', // Primary text
-  				'text-secondary': '#6b6b6b', // Secondary text
-  				'gray-light': '#e0e0e0', // UI elements
+  			sierra: {
+  				cream: '#ebe8e3',
+  				green: '#0d6832',
+  				'green-hover': '#0a5528',
+  				'text-primary': '#1a1a1a',
+  				'text-secondary': '#6b6b6b',
+  				'gray-light': '#e0e0e0'
   			},
   			'marca-steel': {
-  				50: '#f8fafc',
-  				100: '#f1f5f9',
-  				200: '#e2e8f0',
-  				300: '#cbd5e1',
-  				400: '#94a3b8',
-  				500: '#64748b',   // Steel blue for Altrix sections
-  				600: '#475569',
-  				700: '#334155',
-  				800: '#1e293b',
-  				900: '#0f172a',
-  				950: '#020617',
+  				'50': '#f8fafc',
+  				'100': '#f1f5f9',
+  				'200': '#e2e8f0',
+  				'300': '#cbd5e1',
+  				'400': '#94a3b8',
+  				'500': '#64748b',
+  				'600': '#475569',
+  				'700': '#334155',
+  				'800': '#1e293b',
+  				'900': '#0f172a',
+  				'950': '#020617'
   			},
   			'marca-beige': {
-  				50: '#fafaf9',
-  				100: '#f5f5f4',
-  				200: '#e7e5e4',
-  				300: '#d6d3d1',
-  				400: '#a8a29e',
-  				500: '#78716c',   // Beige for Tablú sections
-  				600: '#57534e',
-  				700: '#44403c',
-  				800: '#292524',
-  				900: '#1c1917',
-  				950: '#0c0a09',
+  				'50': '#fafaf9',
+  				'100': '#f5f5f4',
+  				'200': '#e7e5e4',
+  				'300': '#d6d3d1',
+  				'400': '#a8a29e',
+  				'500': '#78716c',
+  				'600': '#57534e',
+  				'700': '#44403c',
+  				'800': '#292524',
+  				'900': '#1c1917',
+  				'950': '#0c0a09'
   			},
-  			// Shadcn UI System Colors
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -117,13 +114,13 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		spacing: {
-  			'18': '4.5rem',   // 72px - Custom spacing for sections
-  			'88': '22rem',    // 352px - Large section spacing
-  			'128': '32rem',   // 512px - Extra large spacing
+  			'18': '4.5rem',
+  			'88': '22rem',
+  			'128': '32rem'
   		},
   		maxWidth: {
-  			'8xl': '88rem',   // 1408px - Extra wide container
-  			'9xl': '96rem',   // 1536px - Ultra wide container
+  			'8xl': '88rem',
+  			'9xl': '96rem'
   		},
   		animation: {
   			'shiny-text': 'shiny-text 8s infinite',
@@ -132,12 +129,16 @@ export default {
   			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-  			wave: 'wave 1.2s ease-in-out infinite',
+  			wave: 'wave 1.2s ease-in-out infinite'
   		},
   		keyframes: {
   			wave: {
-  				'0%, 100%': { height: '20%' },
-  				'50%': { height: '100%' },
+  				'0%, 100%': {
+  					height: '20%'
+  				},
+  				'50%': {
+  					height: '100%'
+  				}
   			},
   			'shiny-text': {
   				'0%, 90%, 100%': {
@@ -178,12 +179,20 @@ export default {
   				}
   			},
   			'accordion-down': {
-  				from: { height: '0' },
-  				to: { height: 'var(--radix-accordion-content-height)' }
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
   			},
   			'accordion-up': {
-  				from: { height: 'var(--radix-accordion-content-height)' },
-  				to: { height: '0' }
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
   			}
   		}
   	}

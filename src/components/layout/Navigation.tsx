@@ -96,9 +96,10 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
               {/* Dropdown menu */}
               {isRepresentationsOpen && (
                 <div
-                  className="absolute left-0 top-full z-50 mt-1 w-48 rounded-lg border border-[#e0e0e0] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] animate-in fade-in-0 zoom-in-95 slide-in-from-top-2"
+                  className="absolute left-0 top-full z-50 pt-2 w-48"
                   role="menu"
                 >
+                  <div className="rounded-lg border border-[#e0e0e0] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] animate-in fade-in-0 zoom-in-95 slide-in-from-top-2">
                   <div className="p-1">
                     {item.subItems.map((subItem, subIndex) => (
                       <Link
@@ -116,6 +117,7 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
                         {subItem.label}
                       </Link>
                     ))}
+                  </div>
                   </div>
                 </div>
               )}

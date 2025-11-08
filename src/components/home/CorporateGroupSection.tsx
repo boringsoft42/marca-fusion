@@ -74,16 +74,93 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
               </div>
             </div>
 
-            {/* Connection Arrow */}
-            <div className="flex items-center justify-center">
-              <div className="relative w-full">
+            {/* Animated Connection Line - Data Transfer Visual */}
+            <div className="flex items-center justify-center relative">
+              <div className="relative w-full h-16 flex items-center">
+                {/* Base Line */}
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t-2 border-dashed border-[#333]" />
+                  <div className="w-full h-[2px] bg-gradient-to-r from-sierra-green via-white to-marca-steel-500 opacity-30" />
                 </div>
-                <div className="relative flex justify-center">
-                  <div className="px-4 py-2 bg-[#2a2a2a] rounded-full border border-[#333] shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
+
+                {/* Animated Light Bits - Going Right (Bolivia -> USA) */}
+                <motion.div
+                  className="absolute h-3 w-3 rounded-full bg-white shadow-[0_0_10px_2px_rgba(255,255,255,0.8)]"
+                  initial={{ left: '0%', opacity: 0 }}
+                  animate={{
+                    left: ['0%', '100%'],
+                    opacity: [0, 1, 1, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: 'linear',
+                    delay: 0,
+                  }}
+                />
+                <motion.div
+                  className="absolute h-3 w-3 rounded-full bg-white shadow-[0_0_10px_2px_rgba(255,255,255,0.8)]"
+                  initial={{ left: '0%', opacity: 0 }}
+                  animate={{
+                    left: ['0%', '100%'],
+                    opacity: [0, 1, 1, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: 'linear',
+                    delay: 0.7,
+                  }}
+                />
+
+                {/* Animated Light Bits - Going Left (USA -> Bolivia) */}
+                <motion.div
+                  className="absolute h-3 w-3 rounded-full bg-marca-green shadow-[0_0_10px_2px_rgba(16,185,129,0.8)]"
+                  initial={{ left: '100%', opacity: 0 }}
+                  animate={{
+                    left: ['100%', '0%'],
+                    opacity: [0, 1, 1, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: 'linear',
+                    delay: 0.35,
+                  }}
+                />
+                <motion.div
+                  className="absolute h-3 w-3 rounded-full bg-marca-green shadow-[0_0_10px_2px_rgba(16,185,129,0.8)]"
+                  initial={{ left: '100%', opacity: 0 }}
+                  animate={{
+                    left: ['100%', '0%'],
+                    opacity: [0, 1, 1, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: 'linear',
+                    delay: 1.05,
+                  }}
+                />
+
+                {/* Center Icon - Data Transfer */}
+                <div className="relative flex justify-center w-full">
+                  <motion.div
+                    className="px-4 py-2 bg-[#2a2a2a] rounded-full border border-[#333] shadow-[0_2px_8px_rgba(0,0,0,0.1)]"
+                    animate={{
+                      boxShadow: [
+                        '0 2px 8px rgba(0,0,0,0.1)',
+                        '0 2px 12px rgba(16,185,129,0.3)',
+                        '0 2px 8px rgba(0,0,0,0.1)',
+                      ],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                    }}
+                  >
                     <ArrowRight className="h-6 w-6 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -115,7 +192,7 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
           className="max-w-3xl mx-auto text-center mb-8"
         >
           <p className="text-[15px] md:text-base text-[#a0a0a0] leading-relaxed">
-            Marca Fusión es parte de un grupo corporativo internacional que conecta Bolivia con Estados Unidos, combinando experiencia local con alcance global para ofrecer soluciones innovadoras.
+            Marca Fusión trabaja en colaboración con <span className="text-white font-medium">Altrix Solutions LLC</span> en Estados Unidos para la <span className="text-marca-green font-medium">importación y distribución de equipos Capstone</span> hacia Bolivia.
           </p>
         </motion.div>
 
