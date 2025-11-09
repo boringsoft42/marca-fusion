@@ -1,8 +1,9 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Factory, Home } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 /**
@@ -21,6 +22,58 @@ interface SectorsHeroProps {
 }
 
 export function SectorsHero({ className }: SectorsHeroProps) {
+  const [industrialIndex, setIndustrialIndex] = useState(0);
+  const [personalIndex, setPersonalIndex] = useState(0);
+
+  // Industrial sector images
+  const industrialImages = [
+    {
+      src: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop&auto=format',
+      alt: 'Planta industrial de manufactura',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1518709414768-a88981a4515d?w=800&h=600&fit=crop&auto=format',
+      alt: 'Infraestructura petrolera y gas',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop&auto=format',
+      alt: 'Sector de salud y hospitales',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop&auto=format',
+      alt: 'Edificios comerciales modernos',
+    },
+  ];
+
+  // Personal/home sector images
+  const personalImages = [
+    {
+      src: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop&auto=format',
+      alt: 'Espacio de trabajo personal organizado',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&h=600&fit=crop&auto=format',
+      alt: 'Planificación y organización personal',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop&auto=format',
+      alt: 'Hogar moderno y acogedor',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop&auto=format',
+      alt: 'Oficina profesional y productiva',
+    },
+  ];
+
+  // Auto-rotate images every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndustrialIndex((prev) => (prev + 1) % industrialImages.length);
+      setPersonalIndex((prev) => (prev + 1) % personalImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [industrialImages.length, personalImages.length]);
+
   return (
     <section className={cn('relative bg-[#ebe8e3] py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
@@ -33,19 +86,31 @@ export function SectorsHero({ className }: SectorsHeroProps) {
             className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] overflow-hidden"
           >
             <div className="grid lg:grid-cols-2 gap-0">
-              {/* Left Side - Split Image (Industry) */}
+              {/* Left Side - Industrial Images Carousel */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="relative h-64 lg:h-auto min-h-[400px] overflow-hidden"
               >
-                <Image
-                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop&auto=format"
-                  alt="Industrial energy solutions"
-                  fill
-                  className="object-cover"
-                />
+                <AnimatePresence initial={false}>
+                  <motion.div
+                    key={industrialIndex}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: 'easeInOut' }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={industrialImages[industrialIndex].src}
+                      alt={industrialImages[industrialIndex].alt}
+                      fill
+                      className="object-cover"
+                      priority={industrialIndex === 0}
+                    />
+                  </motion.div>
+                </AnimatePresence>
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0d6832]/80 to-[#0d6832]/60" />
 
                 {/* Industrial Badge */}
@@ -58,19 +123,31 @@ export function SectorsHero({ className }: SectorsHeroProps) {
                 </div>
               </motion.div>
 
-              {/* Right Side - Split Image (Personal) */}
+              {/* Right Side - Personal Images Carousel */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="relative h-64 lg:h-auto min-h-[400px] overflow-hidden"
               >
-                <Image
-                  src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop&auto=format"
-                  alt="Personal organization solutions"
-                  fill
-                  className="object-cover"
-                />
+                <AnimatePresence initial={false}>
+                  <motion.div
+                    key={personalIndex}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: 'easeInOut' }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={personalImages[personalIndex].src}
+                      alt={personalImages[personalIndex].alt}
+                      fill
+                      className="object-cover"
+                      priority={personalIndex === 0}
+                    />
+                  </motion.div>
+                </AnimatePresence>
                 <div className="absolute inset-0 bg-gradient-to-br from-[#ebe8e3]/80 to-[#ebe8e3]/60" />
 
                 {/* Personal Badge */}

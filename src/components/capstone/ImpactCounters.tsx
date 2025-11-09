@@ -109,7 +109,7 @@ export function ImpactCounters({ className }: ImpactCountersProps) {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-white mb-6">
               Nuestro Impacto en Bolivia
             </h2>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">

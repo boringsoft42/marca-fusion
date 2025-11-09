@@ -1,8 +1,9 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { MapPin } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 /**
@@ -21,6 +22,36 @@ interface AboutHeroProps {
 }
 
 export function AboutHero({ className }: AboutHeroProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Background images related to business, collaboration, and team
+  const backgroundImages = [
+    {
+      src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Equipo de negocios colaborando',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Reunión de equipo profesional',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colaboración empresarial moderna',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Oficina de negocios y tecnología',
+    },
+  ];
+
+  // Auto-rotate images every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
+
   return (
     <section
       className={cn(
@@ -28,15 +59,26 @@ export function AboutHero({ className }: AboutHeroProps) {
         className
       )}
     >
-      {/* Background Image - Business partnership and energy */}
+      {/* Background Image Carousel */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?q=80&w=2070&auto=format&fit=crop&sharpen=50"
-          alt="Colaboración empresarial y tecnología"
-          fill
-          className="object-cover opacity-60 brightness-110 contrast-110 blur-sm"
-          priority
-        />
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={backgroundImages[currentImageIndex].src}
+              alt={backgroundImages[currentImageIndex].alt}
+              fill
+              className="object-cover opacity-60 brightness-110 contrast-110 blur-sm"
+              priority={currentImageIndex === 0}
+            />
+          </motion.div>
+        </AnimatePresence>
         {/* Green tinted overlay for brand color and design harmony */}
         <div className="absolute inset-0 bg-sierra-green/20" />
         {/* Gradient overlay for better text readability */}

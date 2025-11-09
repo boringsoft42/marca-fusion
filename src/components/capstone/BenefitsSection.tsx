@@ -41,7 +41,7 @@ export function BenefitsSection({ className }: BenefitsSectionProps) {
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary mb-6">
               ¿Por Qué Elegir Microturbinas Capstone?
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">

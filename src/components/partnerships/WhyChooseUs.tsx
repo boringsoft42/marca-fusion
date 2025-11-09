@@ -102,33 +102,6 @@ export function WhyChooseUs({ className }: WhyChooseUsProps) {
                 <p className="text-[15px] text-sierra-text-secondary leading-relaxed">{point.description}</p>
               </motion.div>
             ))}
-
-            {/* Call-out Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="md:col-span-2 lg:col-span-3 p-10 md:p-12 rounded-2xl bg-sierra-cream shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
-            >
-              <div className="max-w-3xl mx-auto text-center">
-                <h3 className="text-2xl md:text-3xl font-medium text-sierra-text-primary mb-4">
-                  Alianzas Basadas en Valores Compartidos
-                </h3>
-                <p className="text-[15px] md:text-base text-sierra-text-secondary leading-relaxed mb-6">
-                  No buscamos simplemente proveedores o distribuidores. Buscamos partners que compartan nuestra
-                  pasión por la excelencia, la innovación y el impacto positivo. Si tu organización valora la
-                  integridad, la transparencia y el compromiso, conversemos sobre cómo podemos crecer juntos.
-                </p>
-                <div className="flex flex-wrap justify-center gap-3">
-                  {['Integridad', 'Transparencia', 'Compromiso', 'Excelencia'].map((value, idx) => (
-                    <span key={idx} className="px-4 py-2 rounded-2xl bg-white text-sm font-medium text-sierra-text-primary shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-                      {value}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </div>

@@ -28,7 +28,7 @@ export function CapstoneCTA({ className }: CapstoneCTAProps) {
           {/* Main CTA Card */}
           <div className="p-8 md:p-12 rounded-lg bg-gradient-to-br from-marca-green to-marca-green/80 text-white shadow-2xl mb-8">
             <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-white mb-6">
                 Transforme su Operación Energética Hoy
               </h2>
               <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">

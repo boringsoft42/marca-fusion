@@ -1,8 +1,9 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Handshake } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 /**
@@ -20,7 +21,36 @@ interface PartnershipsHeroProps {
 }
 
 export function PartnershipsHero({ className }: PartnershipsHeroProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const valuePills = ['Confianza', 'Innovación', 'Resultados', 'Crecimiento Mutuo'];
+
+  // Background images related to partnerships and collaboration
+  const backgroundImages = [
+    {
+      src: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Apretón de manos - alianza estratégica',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colaboración empresarial y trabajo en equipo',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Partnership y acuerdos de negocios',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Reunión estratégica de negocios',
+    },
+  ];
+
+  // Auto-rotate images every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
 
   return (
     <section
@@ -29,16 +59,30 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
         className
       )}
     >
-      {/* Background Image - Business partnership handshake */}
+      {/* Background Image Carousel */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2069&auto=format&fit=crop"
-          alt="Business partnership collaboration"
-          fill
-          className="object-cover opacity-15"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-sierra-cream/90 via-sierra-cream/85 to-sierra-cream/95" />
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={backgroundImages[currentImageIndex].src}
+              alt={backgroundImages[currentImageIndex].alt}
+              fill
+              className="object-cover brightness-110 contrast-110"
+              priority={currentImageIndex === 0}
+            />
+          </motion.div>
+        </AnimatePresence>
+        {/* Green tinted overlay for brand color */}
+        <div className="absolute inset-0 bg-sierra-green/15" />
+        {/* Gradient overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-sierra-cream/85 via-sierra-cream/70 to-sierra-cream/85" />
       </div>
 
       {/* Content */}

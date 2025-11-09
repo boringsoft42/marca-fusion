@@ -48,7 +48,7 @@ export function MicroturbineExplanation({ className }: MicroturbineExplanationPr
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary mb-6">
               ¿Qué son las Microturbinas?
             </h2>
             <div className="w-20 h-1 bg-marca-green mx-auto rounded-full mb-8" />

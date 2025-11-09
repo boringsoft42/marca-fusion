@@ -1,8 +1,9 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Mail, Phone, MapPin } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 /**
@@ -20,11 +21,40 @@ interface ContactHeroProps {
 }
 
 export function ContactHero({ className }: ContactHeroProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const contactInfo = [
     { icon: Phone, text: '+591 72136767', href: 'tel:+59172136767' },
     { icon: Mail, text: 'info@marcafusion.com.bo', href: 'mailto:info@marcafusion.com.bo' },
     { icon: MapPin, text: 'Santa Cruz, Bolivia', href: null },
   ];
+
+  // Background images related to contact and communication
+  const backgroundImages = [
+    {
+      src: 'https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Servicio al cliente y comunicación',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Atención al cliente profesional',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Oficina de contacto y atención',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Comunicación empresarial efectiva',
+    },
+  ];
+
+  // Auto-rotate images every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
 
   return (
     <section
@@ -33,16 +63,30 @@ export function ContactHero({ className }: ContactHeroProps) {
         className
       )}
     >
-      {/* Background Image */}
+      {/* Background Image Carousel */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=2074&auto=format&fit=crop"
-          alt="Contact us"
-          fill
-          className="object-cover opacity-15"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-sierra-cream/90 via-sierra-cream/85 to-sierra-cream/95" />
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={backgroundImages[currentImageIndex].src}
+              alt={backgroundImages[currentImageIndex].alt}
+              fill
+              className="object-cover brightness-110 contrast-110"
+              priority={currentImageIndex === 0}
+            />
+          </motion.div>
+        </AnimatePresence>
+        {/* Green tinted overlay for brand color */}
+        <div className="absolute inset-0 bg-sierra-green/15" />
+        {/* Gradient overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-sierra-cream/85 via-sierra-cream/70 to-sierra-cream/85" />
       </div>
 
       {/* Content */}
