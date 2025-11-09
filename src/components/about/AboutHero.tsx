@@ -34,13 +34,13 @@ export function AboutHero({ className }: AboutHeroProps) {
           src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?q=80&w=2070&auto=format&fit=crop&sharpen=50"
           alt="Colaboración empresarial y tecnología"
           fill
-          className="object-cover opacity-50 brightness-110 contrast-110"
+          className="object-cover opacity-60 brightness-110 contrast-110 blur-sm"
           priority
         />
-        {/* Green tinted overlay for brand color */}
-        <div className="absolute inset-0 bg-sierra-green/5" />
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-sierra-cream/80 via-sierra-cream/50 to-sierra-cream/80" />
+        {/* Green tinted overlay for brand color and design harmony */}
+        <div className="absolute inset-0 bg-sierra-green/20" />
+        {/* Gradient overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-sierra-cream/70 via-sierra-cream/40 to-sierra-cream/70" />
       </div>
 
       {/* Content */}
