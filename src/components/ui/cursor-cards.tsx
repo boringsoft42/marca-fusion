@@ -105,6 +105,7 @@ function useCardActivation(
       localMouseY.set(-illuminationRadius)
     }
   }, [
+    elementRef,
     globalMouseX,
     globalMouseY,
     isWithinRange,

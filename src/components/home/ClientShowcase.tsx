@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { PlusIcon } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, type HTMLMotionProps } from 'framer-motion';
 
 /**
  * Marca Fusión Client Showcase - Logo Cloud Style
@@ -149,9 +149,10 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
   );
 }
 
-type LogoCardProps = React.ComponentProps<'div'> & {
+type LogoCardProps = Omit<HTMLMotionProps<'div'>, 'ref' | 'children'> & {
   logo: Logo;
   index: number;
+  children?: React.ReactNode;
 };
 
 function LogoCard({ logo, className, children, index, ...props }: LogoCardProps) {
