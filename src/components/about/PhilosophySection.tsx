@@ -34,7 +34,7 @@ export function PhilosophySection({ className }: PhilosophySectionProps) {
 
           {/* Main Philosophy */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-[#1A1A1A] mb-6 leading-tight">
               Más que Representantes, Somos Aliados Estratégicos
             </h2>
 

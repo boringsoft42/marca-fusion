@@ -31,7 +31,7 @@ export function TeamSection({ className }: TeamSectionProps) {
                 Nuestro Equipo
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-[#1A1A1A] mb-4">
               El Talento Detrás de Marca Fusión
             </h2>
           </div>

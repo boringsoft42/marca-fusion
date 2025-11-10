@@ -26,14 +26,13 @@ export function CapstoneCTA({ className }: CapstoneCTAProps) {
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto">
           {/* Main CTA Card */}
-          <div className="p-8 md:p-12 rounded-lg bg-gradient-to-br from-marca-green to-marca-green/80 text-white shadow-2xl mb-8">
+          <div className="p-8 md:p-12 rounded-lg bg-[#1a1a1a] text-white shadow-2xl mb-8">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-white mb-6">
                 Transforme su Operación Energética Hoy
               </h2>
               <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-                Descubra cómo las microturbinas Capstone pueden reducir sus costos operativos,
-                disminuir su huella de carbono y garantizar suministro energético confiable 24/7.
+                Reduzca costos operativos, disminuya su huella de carbono y garantice suministro energético confiable 24/7.
               </p>
             </div>
 
@@ -44,10 +43,10 @@ export function CapstoneCTA({ className }: CapstoneCTAProps) {
                 href="/contacto"
                 className={cn(
                   'inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold',
-                  'bg-white text-marca-green shadow-lg',
+                  'bg-marca-green text-white shadow-lg',
                   'transition-all duration-200',
-                  'hover:bg-white/95 hover:shadow-xl hover:scale-105',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-marca-green'
+                  'hover:bg-marca-green/90 hover:shadow-xl hover:scale-105',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a]'
                 )}
               >
                 <FileText className="h-5 w-5" aria-hidden="true" />
@@ -62,47 +61,16 @@ export function CapstoneCTA({ className }: CapstoneCTAProps) {
                 rel="noopener noreferrer"
                 className={cn(
                   'inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold',
-                  'bg-white/10 text-white border-2 border-white/30 backdrop-blur-sm shadow-lg',
+                  'bg-transparent text-white border-2 border-white/40 shadow-lg',
                   'transition-all duration-200',
-                  'hover:bg-white/20 hover:border-white/50 hover:shadow-xl hover:scale-105',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2'
+                  'hover:bg-white/10 hover:border-white/60 hover:shadow-xl hover:scale-105',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a]'
                 )}
               >
                 Explorar Sitio Oficial Capstone
                 <ExternalLink className="h-5 w-5" aria-hidden="true" />
               </a>
             </div>
-          </div>
-
-          {/* Altrix Disclaimer */}
-          <div className="p-6 rounded-lg bg-background border-l-4 border-marca-steel shadow-md">
-            <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 mt-1">
-                <div className="h-8 w-8 rounded-full bg-marca-steel-light flex items-center justify-center">
-                  <span className="text-xs font-bold text-marca-steel">ℹ</span>
-                </div>
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-foreground mb-2 uppercase tracking-wider">
-                  Operaciones Internacionales
-                </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  <span className="font-semibold text-foreground">Marca Fusión SRL</span> es el representante comercial
-                  y técnico de Capstone Green Energy en Bolivia.{' '}
-                  <span className="font-semibold text-foreground">Altrix Solutions LLC</span> (Estados Unidos) maneja
-                  todas las operaciones de importación, logística internacional y coordinación directa con Capstone,
-                  garantizando cumplimiento normativo y soporte técnico especializado.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Additional Information */}
-          <div className="mt-8 text-center">
-            <p className="text-sm text-muted-foreground">
-              ¿Tiene preguntas técnicas específicas? Nuestro equipo de ingenieros está disponible para
-              asistirle en la evaluación técnico-económica de su proyecto.
-            </p>
           </div>
         </div>
       </div>

@@ -106,7 +106,7 @@ export function AboutHero({ className }: AboutHeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-normal text-sierra-text-primary leading-tight tracking-tight mb-6"
+            className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary leading-tight tracking-tight mb-6"
           >
             Sobre Nosotros
           </motion.h1>

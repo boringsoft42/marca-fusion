@@ -4,7 +4,6 @@ import { MicroturbineExplanation } from '@/components/capstone/MicroturbineExpla
 import { ProductGrid } from '@/components/capstone/ProductGrid';
 import { ComparisonTable } from '@/components/capstone/ComparisonTable';
 import { ServicesSection } from '@/components/capstone/ServicesSection';
-import { ImpactCounters } from '@/components/capstone/ImpactCounters';
 import { BenefitsSection } from '@/components/capstone/BenefitsSection';
 import { CapstoneCTA } from '@/components/capstone/CapstoneCTA';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
@@ -16,7 +15,6 @@ import { metadata as metadataUtils } from '@/lib/seo/metadata';
  * - Microturbine technology and benefits
  * - Product lineup (C65, C200S, C600S, C800S, C1000S)
  * - Services and support
- * - Impact statistics
  * - Benefits and call-to-action
  */
 
@@ -48,18 +46,13 @@ export default function CapstonePage() {
         <ServicesSection />
       </BlurFade>
 
-      {/* Impact Counters - Animated */}
-      <BlurFade delay={1.0} inView>
-        <ImpactCounters />
-      </BlurFade>
-
       {/* Benefits Section - Animated */}
-      <BlurFade delay={1.2} inView>
+      <BlurFade delay={1.0} inView>
         <BenefitsSection />
       </BlurFade>
 
       {/* Final CTA - Animated */}
-      <BlurFade delay={1.4} inView>
+      <BlurFade delay={1.2} inView>
         <CapstoneCTA />
       </BlurFade>
     </div>

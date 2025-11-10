@@ -35,7 +35,7 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                 Alcance Global
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-[#1A1A1A] mb-4">
               Parte de un Grupo Corporativo Internacional
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
