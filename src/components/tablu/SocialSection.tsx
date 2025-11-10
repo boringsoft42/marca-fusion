@@ -55,7 +55,7 @@ export function SocialSection({ className }: SocialSectionProps) {
                 NOSOTROS
               </h2>
               <p className="text-base md:text-lg text-white/90 leading-relaxed">
-                "Tablú le ha dado un giro emocionante a nuestras vidas, nos esforzamos cada día por mejorar la calidad de nuestros productos, por innovar, por escuchar las necesidades de los clientes y crear soluciones. Somos fieles creyentes de que la organización es clave para lograr nuestras metas y creemos que nuestros Tablús son un gran aliado en ese camino"
+                &ldquo;Tablú le ha dado un giro emocionante a nuestras vidas, nos esforzamos cada día por mejorar la calidad de nuestros productos, por innovar, por escuchar las necesidades de los clientes y crear soluciones. Somos fieles creyentes de que la organización es clave para lograr nuestras metas y creemos que nuestros Tablús son un gran aliado en ese camino&rdquo;
               </p>
               <motion.a
                 href="/sobre-nosotros"

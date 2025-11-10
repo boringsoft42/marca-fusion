@@ -55,7 +55,7 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
   return (
     <section
       className={cn(
-        'relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden bg-sierra-cream',
+        'relative min-h-[500px] sm:min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden bg-sierra-cream',
         className
       )}
     >
@@ -86,17 +86,17 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20 py-24 md:py-32">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 md:px-10 lg:px-20 py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge - Animated */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-3xl bg-sierra-green text-white shadow-[0_2px_8px_rgba(0,0,0,0.1)]"
+            className="inline-flex items-center gap-2 mb-4 sm:mb-6 px-3 sm:px-4 py-2 rounded-3xl bg-sierra-green text-white shadow-[0_2px_8px_rgba(0,0,0,0.1)]"
           >
-            <Handshake className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-            <span className="text-sm font-medium uppercase tracking-wider">
+            <Handshake className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.5} aria-hidden="true" />
+            <span className="text-xs sm:text-sm font-medium uppercase tracking-wider">
               Alianzas Estratégicas
             </span>
           </motion.div>
@@ -106,7 +106,7 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-normal text-sierra-text-primary leading-tight tracking-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-sierra-text-primary leading-tight tracking-tight mb-4 sm:mb-6"
           >
             Crezcamos Juntos
           </motion.h1>
@@ -116,7 +116,7 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base md:text-lg text-sierra-text-secondary leading-relaxed max-w-3xl mx-auto mb-8"
+            className="text-sm sm:text-base md:text-lg text-sierra-text-secondary leading-relaxed max-w-3xl mx-auto mb-6 sm:mb-8 px-2"
           >
             En Marca Fusión valoramos las alianzas estratégicas que generan valor mutuo.
             Si compartes nuestra visión de innovación y excelencia, conversemos.
@@ -127,11 +127,11 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-3 mb-10"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 px-2"
           >
             {valuePills.map((value, index) => (
-              <div key={index} className="px-4 py-2 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-                <span className="text-sm font-medium text-sierra-text-primary">{value}</span>
+              <div key={index} className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+                <span className="text-xs sm:text-sm font-medium text-sierra-text-primary">{value}</span>
               </div>
             ))}
           </motion.div>
@@ -141,12 +141,12 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
           >
             <a
               href="/contacto"
               className={cn(
-                'inline-flex items-center justify-center gap-2 px-7 py-3 rounded-3xl text-[15px] font-medium',
+                'inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-3xl text-sm sm:text-[15px] font-medium',
                 'bg-sierra-green text-white',
                 'transition-colors duration-200',
                 'hover:bg-sierra-green-hover',
@@ -159,7 +159,7 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
             <a
               href="#why-choose-us"
               className={cn(
-                'inline-flex items-center justify-center gap-2 px-7 py-3 rounded-3xl text-[15px] font-medium',
+                'inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-3xl text-sm sm:text-[15px] font-medium',
                 'bg-white text-sierra-green border-2 border-sierra-green',
                 'transition-all duration-200',
                 'hover:bg-sierra-green hover:text-white',

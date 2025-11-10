@@ -1,17 +1,16 @@
 'use client';
 
-import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Target, Users, Rocket, Award } from 'lucide-react';
+import { Target, Users, Rocket, Award, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 /**
- * What We Seek Section (Partnerships) - Radial Orbital Design
+ * What We Seek Section (Partnerships) - Simple Card Layout
  *
  * Features:
- * - Radial/orbital layout for partnership types
- * - Interactive hover states
- * - Center focal point with criteria
+ * - Clean card grid layout
+ * - Partnership types in single row
+ * - Criteria list below
  * - Professional tone
  * - Follows STYLE-GUIDE-SIERRA.md design patterns
  */
@@ -21,36 +20,30 @@ interface WhatWeSeekProps {
 }
 
 export function WhatWeSeek({ className }: WhatWeSeekProps) {
-  const [activeType, setActiveType] = useState<number | null>(null);
-
   const partnershipTypes = [
     {
       icon: Target,
       title: 'Representaciones Exclusivas',
       description:
         'Buscamos marcas innovadoras de tecnología energética, equipamiento industrial o productos de organización personal que busquen entrar al mercado boliviano.',
-      position: 'top',
     },
     {
       icon: Users,
       title: 'Alianzas Comerciales',
       description:
         'Distribuidores, integradores y consultores que complementen nuestro portafolio y amplíen nuestro alcance en sectores estratégicos.',
-      position: 'right',
     },
     {
       icon: Rocket,
       title: 'Joint Ventures',
       description:
         'Proyectos conjuntos para desarrollar soluciones específicas, especialmente en energía renovable y eficiencia operacional.',
-      position: 'bottom',
     },
     {
       icon: Award,
       title: 'Partners Estratégicos',
       description:
         'Empresas con visión a largo plazo que compartan nuestros valores y quieran co-crear valor en el mercado boliviano y regional.',
-      position: 'left',
     },
   ];
 
@@ -64,24 +57,9 @@ export function WhatWeSeek({ className }: WhatWeSeekProps) {
     'Respaldo técnico y capacitación continua',
   ];
 
-  const getPositionClasses = (position: string) => {
-    switch (position) {
-      case 'top':
-        return 'lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2';
-      case 'right':
-        return 'lg:absolute lg:top-1/2 lg:right-0 lg:translate-x-1/2 lg:-translate-y-1/2';
-      case 'bottom':
-        return 'lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2';
-      case 'left':
-        return 'lg:absolute lg:top-1/2 lg:left-0 lg:-translate-x-1/2 lg:-translate-y-1/2';
-      default:
-        return '';
-    }
-  };
-
   return (
-    <section className={cn('py-16 md:py-20 lg:py-24 bg-sierra-cream', className)}>
-      <div className="container mx-auto px-6 md:px-10 lg:px-20">
+    <section className={cn('py-12 sm:py-16 md:py-20 lg:py-24 bg-sierra-cream', className)}>
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <motion.div
@@ -89,99 +67,73 @@ export function WhatWeSeek({ className }: WhatWeSeekProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-12 px-2"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary mb-4 sm:mb-6">
               ¿Qué Buscamos en una Alianza?
             </h2>
-            <p className="text-[15px] text-sierra-text-secondary max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-[15px] md:text-base text-sierra-text-secondary max-w-3xl mx-auto leading-relaxed">
               No todas las alianzas son iguales. Buscamos partners que compartan nuestra visión de innovación,
               calidad y compromiso con el cliente.
             </p>
           </motion.div>
 
-          {/* Radial Orbital Layout */}
-          <div className="relative max-w-5xl mx-auto mb-16">
-            <div className="lg:relative lg:h-[600px] flex flex-col lg:block gap-6 lg:gap-0">
-              {/* Center Circle - Criteria */}
+          {/* Partnership Types - Cards in Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+            {partnershipTypes.map((type, index) => (
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 w-full lg:w-96 p-8 md:p-10 rounded-2xl bg-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] z-10"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300"
               >
-                <h3 className="text-xl font-medium text-sierra-text-primary mb-6 text-center">
-                  Criterios de Selección
-                </h3>
-                <ul className="space-y-3">
-                  {criteria.map((criterion, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="h-5 w-5 rounded-full bg-sierra-green/20 flex items-center justify-center">
-                          <span className="text-xs font-bold text-sierra-green">✓</span>
-                        </div>
-                      </div>
-                      <span className="text-sm text-sierra-text-primary leading-relaxed">{criterion}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-
-              {/* Orbital Partnership Types */}
-              {partnershipTypes.map((type, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  onMouseEnter={() => setActiveType(index)}
-                  onMouseLeave={() => setActiveType(null)}
-                  className={cn(
-                    'w-full lg:w-72 p-6 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition-all duration-300 cursor-pointer',
-                    getPositionClasses(type.position),
-                    activeType === index && 'ring-2 ring-sierra-green'
-                  )}
-                >
-                  {/* Icon */}
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className={cn(
-                      'p-3 rounded-full transition-colors duration-300',
-                      activeType === index ? 'bg-sierra-green' : 'bg-sierra-green/10'
-                    )}>
-                      <type.icon
-                        className={cn(
-                          'h-6 w-6 transition-colors duration-300',
-                          activeType === index ? 'text-white' : 'text-sierra-green'
-                        )}
-                        strokeWidth={1.5}
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <h3 className="text-lg font-medium text-sierra-text-primary">{type.title}</h3>
+                {/* Icon */}
+                <div className="mb-3 sm:mb-4">
+                  <div className="inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-sierra-green/10 group-hover:bg-sierra-green transition-colors duration-300">
+                    <type.icon
+                      className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-sierra-green group-hover:text-white transition-colors duration-300"
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
                   </div>
+                </div>
 
-                  {/* Description */}
-                  <p className="text-sm text-sierra-text-secondary leading-relaxed">{type.description}</p>
-                </motion.div>
-              ))}
-            </div>
+                {/* Title */}
+                <h3 className="text-base sm:text-lg font-medium text-sierra-text-primary mb-2 sm:mb-3">
+                  {type.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm sm:text-[15px] text-sierra-text-secondary leading-relaxed">
+                  {type.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
 
-          {/* Bottom Message */}
+          {/* Criteria Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-center p-8 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="p-6 sm:p-8 md:p-10 rounded-xl sm:rounded-2xl bg-white shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
           >
-            <p className="text-[15px] text-sierra-text-primary leading-relaxed max-w-3xl mx-auto">
-              <span className="font-medium">¿Tu empresa cumple con estos criterios?</span> Nos encantaría conocer tu
-              propuesta. Envíanos un mensaje detallando tu marca, productos/servicios, y cómo visualizas una alianza
-              estratégica con Marca Fusión.
-            </p>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-medium text-sierra-text-primary mb-4 sm:mb-6 text-center">
+              Criterios de Selección
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 max-w-4xl mx-auto">
+              {criteria.map((criterion, idx) => (
+                <div key={idx} className="flex items-start gap-2 sm:gap-3">
+                  <div className="flex-shrink-0 mt-0.5 sm:mt-1">
+                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-sierra-green" strokeWidth={1.5} aria-hidden="true" />
+                  </div>
+                  <span className="text-sm sm:text-[15px] text-sierra-text-primary leading-relaxed">{criterion}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

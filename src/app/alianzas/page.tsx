@@ -2,7 +2,6 @@ import { BlurFade } from '@/components/magicui/blur-fade';
 import { PartnershipsHero } from '@/components/partnerships/PartnershipsHero';
 import { WhyChooseUs } from '@/components/partnerships/WhyChooseUs';
 import { WhatWeSeek } from '@/components/partnerships/WhatWeSeek';
-import { BackingSection } from '@/components/partnerships/BackingSection';
 import { AltrixCollaboration } from '@/components/partnerships/AltrixCollaboration';
 import { ClosingQuote } from '@/components/partnerships/ClosingQuote';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
@@ -37,18 +36,13 @@ export default function AlianzasPage() {
         <WhatWeSeek />
       </BlurFade>
 
-      {/* Backing/Brand Representations - Animated */}
-      <BlurFade delay={0.6} inView>
-        <BackingSection />
-      </BlurFade>
-
       {/* Altrix Collaboration - Animated */}
-      <BlurFade delay={0.8} inView>
+      <BlurFade delay={0.6} inView>
         <AltrixCollaboration />
       </BlurFade>
 
       {/* Closing Quote - Animated */}
-      <BlurFade delay={1.0} inView>
+      <BlurFade delay={0.8} inView>
         <ClosingQuote />
       </BlurFade>
     </div>
