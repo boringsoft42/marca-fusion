@@ -3,7 +3,6 @@ import { CapstoneHero } from '@/components/capstone/CapstoneHero';
 import { MicroturbineExplanation } from '@/components/capstone/MicroturbineExplanation';
 import { ProductGrid } from '@/components/capstone/ProductGrid';
 import { ComparisonTable } from '@/components/capstone/ComparisonTable';
-import { ServicesSection } from '@/components/capstone/ServicesSection';
 import { BenefitsSection } from '@/components/capstone/BenefitsSection';
 import { CapstoneCTA } from '@/components/capstone/CapstoneCTA';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
@@ -14,8 +13,8 @@ import { metadata as metadataUtils } from '@/lib/seo/metadata';
  * Showcases:
  * - Microturbine technology and benefits
  * - Product lineup (C65, C200S, C600S, C800S, C1000S)
- * - Services and support
- * - Benefits and call-to-action
+ * - Combined services and benefits section
+ * - Call-to-action
  */
 
 export const metadata = metadataUtils.capstone();
@@ -41,18 +40,13 @@ export default function CapstonePage() {
         <ComparisonTable />
       </BlurFade>
 
-      {/* Services Section - Animated */}
+      {/* Combined Services & Benefits Section - Animated */}
       <BlurFade delay={0.8} inView>
-        <ServicesSection />
-      </BlurFade>
-
-      {/* Benefits Section - Animated */}
-      <BlurFade delay={1.0} inView>
         <BenefitsSection />
       </BlurFade>
 
       {/* Final CTA - Animated */}
-      <BlurFade delay={1.2} inView>
+      <BlurFade delay={1.0} inView>
         <CapstoneCTA />
       </BlurFade>
     </div>

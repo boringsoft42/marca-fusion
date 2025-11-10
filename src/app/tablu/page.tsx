@@ -1,10 +1,7 @@
 import { BlurFade } from '@/components/magicui/blur-fade';
 import { TabluHero } from '@/components/tablu/TabluHero';
-import { CategoryCards } from '@/components/tablu/CategoryCards';
 import { PricingTables } from '@/components/tablu/PricingTables';
 import { ProductCatalog } from '@/components/tablu/ProductCatalog';
-import { CorporateSection } from '@/components/tablu/CorporateSection';
-import { IconRibbon } from '@/components/tablu/IconRibbon';
 import { SocialSection } from '@/components/tablu/SocialSection';
 import { TabluCTA } from '@/components/tablu/TabluCTA';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
@@ -16,7 +13,6 @@ import { tabluCatalog } from '@/data/tablu-catalog';
  *
  * Showcases:
  * - Digital planners (acrylic and magnetic)
- * - 8 product categories (Home, Habits, Kids, Youth, University, Entrepreneurs, Corporate, Gifts)
  * - Product catalog with filtering
  * - Pricing tables for different sizes
  * - Corporate customization solutions
@@ -43,38 +39,23 @@ export default function TabluPage() {
         {/* Hero Section - No animation for immediate impact */}
         <TabluHero />
 
-      {/* Category Cards - Animated */}
-      <BlurFade delay={0.2} inView>
-        <CategoryCards />
-      </BlurFade>
-
       {/* Pricing Tables - Animated */}
-      <BlurFade delay={0.4} inView>
+      <BlurFade delay={0.2} inView>
         <PricingTables />
       </BlurFade>
 
       {/* Product Catalog - Animated */}
-      <BlurFade delay={0.6} inView>
+      <BlurFade delay={0.4} inView>
         <ProductCatalog />
       </BlurFade>
 
-      {/* Icon Ribbon - Animated */}
-      <BlurFade delay={0.8} inView>
-        <IconRibbon />
-      </BlurFade>
-
-      {/* Corporate Section - Animated */}
-      <BlurFade delay={1.0} inView>
-        <CorporateSection />
-      </BlurFade>
-
       {/* Social Section - Animated */}
-      <BlurFade delay={1.2} inView>
+      <BlurFade delay={0.6} inView>
         <SocialSection />
       </BlurFade>
 
       {/* Final CTA - Animated */}
-      <BlurFade delay={1.4} inView>
+      <BlurFade delay={0.8} inView>
         <TabluCTA />
       </BlurFade>
       </div>

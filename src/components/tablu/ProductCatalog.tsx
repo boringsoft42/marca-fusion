@@ -165,51 +165,6 @@ export function ProductCatalog({ className }: ProductCatalogProps) {
               </button>
             </motion.div>
           )}
-
-          {/* Bottom Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-16 p-8 md:p-10 rounded-2xl bg-[#ebe8e3] text-center shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
-          >
-            <h3 className="text-xl font-medium text-[#1a1a1a] mb-3">
-              ¿No encuentras el diseño perfecto?
-            </h3>
-            <p className="text-[15px] text-[#6b6b6b] mb-6 max-w-2xl mx-auto leading-relaxed">
-              Ofrecemos diseños 100% personalizados para individuos, emprendedores y empresas.
-              Trabajamos contigo para crear el planificador ideal que se adapte a tus necesidades específicas.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href="https://wa.me/59167710595?text=Hola!%20Necesito%20un%20diseño%20personalizado%20de%20planificador"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  'inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium',
-                  'bg-[#0d6832] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
-                  'transition-all duration-200',
-                  'hover:bg-[#0a5528]',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0d6832] focus-visible:ring-offset-2'
-                )}
-              >
-                Solicitar Diseño Personalizado
-              </a>
-              <a
-                href="#corporativo"
-                className={cn(
-                  'inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium',
-                  'bg-[#0d6832] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
-                  'transition-all duration-200',
-                  'hover:bg-[#0a5528]',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0d6832] focus-visible:ring-offset-2'
-                )}
-              >
-                Ver Soluciones Corporativas
-              </a>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
