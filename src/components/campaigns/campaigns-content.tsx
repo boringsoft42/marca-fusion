@@ -235,7 +235,7 @@ export function CampaignsContent() {
               <TableHead>Open Rate</TableHead>
               <TableHead>Conversion</TableHead>
               <TableHead className="text-right">Actions</TableHead>
-            </TableRow>
+            </TableRow>1
           </TableHeader>
           <TableBody>
             {filteredCampaigns.length === 0 ? (
