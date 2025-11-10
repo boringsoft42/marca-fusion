@@ -13,8 +13,6 @@ import { contactEmailTemplate } from './templates/contact-template';
  * - Environment variable configuration
  */
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export interface SendContactEmailOptions {
   data: ContactFormData;
 }
@@ -37,6 +35,9 @@ export async function sendContactEmail({
         error: 'Email service not configured. Please contact support.',
       };
     }
+
+    // Initialize Resend client (lazy initialization to avoid build-time errors)
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // Determine recipient based on motivo
     const recipient = getEmailRecipient(data.motivo);

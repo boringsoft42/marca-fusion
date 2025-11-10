@@ -17,6 +17,10 @@ import type { ContactFormResponse } from '@/types/contact';
  * - Rate limiting (TODO: implement)
  */
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 export async function POST(request: NextRequest): Promise<NextResponse<ContactFormResponse>> {
   try {
     // Parse request body
