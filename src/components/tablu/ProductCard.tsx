@@ -50,20 +50,20 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
       <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm shadow-md">
         {product.material === 'acrylic' && (
           <>
-            <Sparkles className="h-3.5 w-3.5 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
+            <Sparkles className="h-3.5 w-3.5 text-[#5762A2]" strokeWidth={1.5} aria-hidden="true" />
             <span className="text-xs font-medium text-[#1a1a1a]">Acrílico</span>
           </>
         )}
         {product.material === 'magnetic' && (
           <>
-            <Magnet className="h-3.5 w-3.5 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
+            <Magnet className="h-3.5 w-3.5 text-[#5762A2]" strokeWidth={1.5} aria-hidden="true" />
             <span className="text-xs font-medium text-[#1a1a1a]">Magnético</span>
           </>
         )}
         {product.material === 'both' && (
           <>
-            <Sparkles className="h-3.5 w-3.5 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
-            <Magnet className="h-3.5 w-3.5 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
+            <Sparkles className="h-3.5 w-3.5 text-[#5762A2]" strokeWidth={1.5} aria-hidden="true" />
+            <Magnet className="h-3.5 w-3.5 text-[#5762A2]" strokeWidth={1.5} aria-hidden="true" />
             <span className="text-xs font-medium text-[#1a1a1a]">Ambos</span>
           </>
         )}
@@ -74,8 +74,8 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
         {/* Placeholder gradient with icon */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center space-y-3 p-6">
-            <div className="inline-flex p-4 rounded-full bg-[#0d6832]/10">
-              <Sparkles className="h-12 w-12 text-[#0d6832]/60" strokeWidth={1.5} aria-hidden="true" />
+            <div className="inline-flex p-4 rounded-full bg-[#5762A2]/10">
+              <Sparkles className="h-12 w-12 text-[#5762A2]/60" strokeWidth={1.5} aria-hidden="true" />
             </div>
             <p className="text-[15px] font-medium text-[#6b6b6b]">{product.name}</p>
           </div>
@@ -92,14 +92,14 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
         )} */}
 
         {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-[#0d6832]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-[#5762A2]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       {/* Product Info */}
       <div className="flex flex-col flex-1 p-6 space-y-4">
         {/* Name and Description */}
         <div>
-          <h3 className="text-xl font-medium text-[#1a1a1a] mb-2 line-clamp-2 group-hover:text-[#0d6832] transition-colors">
+          <h3 className="text-xl font-medium text-[#1a1a1a] mb-2 line-clamp-2 group-hover:text-[#5762A2] transition-colors">
             {product.name}
           </h3>
           <p className="text-[15px] text-[#6b6b6b] leading-relaxed line-clamp-2">
@@ -110,7 +110,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
         {/* Price Range */}
         <div className="pt-3 border-t border-[#e0e0e0]">
           <p className="text-[15px] font-medium text-[#6b6b6b] mb-1">Precio:</p>
-          <p className="text-xl font-medium text-[#0d6832]">{product.priceRange}</p>
+          <p className="text-xl font-medium text-[#5762A2]">{product.priceRange}</p>
         </div>
 
         {/* Available Sizes */}
@@ -134,7 +134,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
           <ul className="space-y-2">
             {product.features.slice(0, 3).map((feature, index) => (
               <li key={index} className="flex items-start gap-2 text-[15px]">
-                <Check className="h-4 w-4 text-[#0d6832] flex-shrink-0 mt-0.5" strokeWidth={1.5} aria-hidden="true" />
+                <Check className="h-4 w-4 text-[#5762A2] flex-shrink-0 mt-0.5" strokeWidth={1.5} aria-hidden="true" />
                 <span className="text-[#6b6b6b]">{feature}</span>
               </li>
             ))}
@@ -154,10 +154,10 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
             rel="noopener noreferrer"
             className={cn(
               'flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium w-full',
-              'bg-[#0d6832] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
+              'bg-[#5762A2] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
               'transition-all duration-200',
-              'hover:bg-[#0a5528] hover:shadow-lg',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0d6832] focus-visible:ring-offset-2'
+              'hover:bg-[#4A5BA8] hover:shadow-lg',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5762A2] focus-visible:ring-offset-2'
             )}
           >
             <MessageCircle className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
@@ -171,7 +171,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
             {product.tags.slice(0, 3).map((tag, index) => (
               <span
                 key={index}
-                className="px-2 py-0.5 text-xs font-medium rounded-full bg-[#0d6832]/10 text-[#0d6832]"
+                className="px-2 py-0.5 text-xs font-medium rounded-full bg-[#5762A2]/10 text-[#5762A2]"
               >
                 #{tag}
               </span>

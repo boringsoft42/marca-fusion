@@ -36,7 +36,7 @@ export function TabluCTA({ className }: TabluCTAProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="p-8 md:p-12 rounded-2xl bg-[#0d6832] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] mb-8"
+            className="p-8 md:p-12 rounded-2xl bg-[#2ECC71] text-white shadow-2xl mb-8"
           >
             <div className="text-center mb-8">
               {/* Icon Badge */}

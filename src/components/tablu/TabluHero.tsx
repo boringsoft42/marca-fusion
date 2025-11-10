@@ -2,20 +2,18 @@
 
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { Calendar, Sparkles, Heart } from 'lucide-react';
 import Image from 'next/image';
 
 /**
- * Tablú Hero Section
+ * Tablú Hero Section - Peru Style
  *
  * Features:
- * - Sierra-style clean design with warm beige background
- * - Professional Unsplash image of organized workspace
- * - Smooth framer-motion animations
- * - Tablú branding (Bolivia & Perú)
- * - Key value propositions
- * - Responsive design
- * - Follows STYLE-GUIDE-SIERRA.md design patterns
+ * - Vibrant coral/pink background (#FF7777)
+ * - Colorful decorative elements (organic shapes, leaves)
+ * - Bold typography
+ * - Playful design with floating elements
+ * - Discount bubble
+ * - Inspired by tablu.com.pe design
  */
 
 interface TabluHeroProps {
@@ -24,8 +22,57 @@ interface TabluHeroProps {
 
 export function TabluHero({ className }: TabluHeroProps) {
   return (
-    <section className={cn('relative py-16 md:py-20 lg:py-24 bg-[#ebe8e3] overflow-hidden', className)}>
-      <div className="container mx-auto px-6 md:px-10 lg:px-20 relative z-10">
+    <section className={cn('relative py-0 bg-[#FF7777] overflow-hidden min-h-[600px]', className)}>
+      {/* Decorative Elements - Top Left */}
+      <div className="absolute top-0 left-0 w-64 h-64 opacity-60">
+        <svg viewBox="0 0 200 200" className="w-full h-full">
+          <circle cx="0" cy="0" r="100" fill="#FFD166" />
+          <path d="M0,0 Q50,-50 100,0 T200,0" fill="#4A5BA8" opacity="0.7" />
+        </svg>
+      </div>
+
+      {/* Decorative Elements - Bottom Right */}
+      <div className="absolute bottom-0 right-0 w-96 h-96 opacity-40">
+        <svg viewBox="0 0 400 400" className="w-full h-full">
+          <circle cx="350" cy="350" r="150" fill="#FFD166" />
+          <path d="M300,400 Q320,350 350,330 L400,400" fill="#4A5BA8" opacity="0.8" />
+        </svg>
+      </div>
+
+      {/* Decorative Leaves - Top Right */}
+      <div className="absolute top-10 right-20 opacity-70">
+        <svg width="120" height="120" viewBox="0 0 100 100">
+          <path d="M50,10 Q70,30 60,50 Q50,70 30,60 Q10,50 20,30 Q30,10 50,10" fill="#2ECC71" />
+          <path d="M55,15 Q65,25 60,40 Q55,55 40,50 Q25,45 30,30 Q35,15 55,15" fill="#27AE60" opacity="0.8" />
+        </svg>
+      </div>
+
+      {/* Decorative Leaves - Bottom Left */}
+      <div className="absolute bottom-20 left-10 opacity-60">
+        <svg width="100" height="100" viewBox="0 0 100 100">
+          <path d="M20,80 Q40,70 50,50 Q60,30 70,20" stroke="#2ECC71" strokeWidth="8" fill="none" strokeLinecap="round" />
+          <ellipse cx="70" cy="20" rx="15" ry="25" fill="#27AE60" transform="rotate(-30 70 20)" />
+        </svg>
+      </div>
+
+      {/* Discount Floating Bubble */}
+      <motion.div
+        initial={{ y: 10, rotate: -5 }}
+        animate={{ y: [10, -10, 10], rotate: [-5, 5, -5] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-32 right-[15%] z-20"
+      >
+        <div className="relative">
+          <div className="bg-[#FFD166] text-[#1a1a1a] rounded-full px-6 py-4 shadow-2xl transform -rotate-12">
+            <div className="text-center">
+              <div className="text-sm font-bold">Obtén 10%</div>
+              <div className="text-xs">dscto 🎁</div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      <div className="container mx-auto px-6 md:px-10 lg:px-20 relative z-10 py-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
@@ -33,96 +80,29 @@ export function TabluHero({ className }: TabluHeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-8"
+              className="space-y-6"
             >
-              {/* Brand Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="inline-flex items-center gap-3 px-4 py-2 rounded-3xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
-              >
-                <Sparkles className="h-4 w-4 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
-                <span className="text-sm font-medium text-[#1a1a1a]">
-                  Tablú Bolivia & Perú
-                </span>
-              </motion.div>
-
-              {/* Main Heading */}
+              {/* Main Heading with Blue Color */}
               <div>
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-[48px] font-normal text-[#1a1a1a] mb-4 leading-tight"
+                  className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#4A5BA8] mb-6 leading-tight"
                 >
-                  Organiza tu Vida con Estilo
+                  Elige el formato que más necesites
                 </motion.h1>
-                <motion.p
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="text-[15px] text-[#6b6b6b] leading-relaxed"
+                  className="inline-block bg-[#4A5BA8] text-white px-6 py-3 rounded-full"
                 >
-                  Planificadores digitales en acrílico y magnéticos. Diseños únicos para cada momento de tu vida.
-                </motion.p>
+                  <p className="text-sm md:text-base">
+                    Nuestros imantados se encuentran en la categoría Home y Rutina
+                  </p>
+                </motion.div>
               </div>
-
-              {/* Value Props Pills */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-wrap gap-3"
-              >
-                <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-                  <Calendar className="h-4 w-4 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
-                  <span className="text-[15px] font-medium text-[#1a1a1a]">8 Categorías</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-                  <Heart className="h-4 w-4 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
-                  <span className="text-[15px] font-medium text-[#1a1a1a]">Diseños Únicos</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-                  <Sparkles className="h-4 w-4 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
-                  <span className="text-[15px] font-medium text-[#1a1a1a]">Personalizable</span>
-                </div>
-              </motion.div>
-
-              {/* CTAs */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="flex flex-col sm:flex-row gap-4"
-              >
-                <a
-                  href="#catalogo"
-                  className={cn(
-                    'inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium',
-                    'bg-[#0d6832] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
-                    'transition-all duration-200',
-                    'hover:bg-[#0a5528]',
-                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0d6832] focus-visible:ring-offset-2'
-                  )}
-                >
-                  Ver Catálogo Completo
-                </a>
-                <a
-                  href="https://wa.me/59167710595?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20planificadores%20Tablú"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    'inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium',
-                    'bg-white text-[#1a1a1a] border-2 border-[#e0e0e0] shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
-                    'transition-all duration-200',
-                    'hover:border-[#0d6832]',
-                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0d6832] focus-visible:ring-offset-2'
-                  )}
-                >
-                  Consultar por WhatsApp
-                </a>
-              </motion.div>
             </motion.div>
 
             {/* Right Column - Product Showcase */}
@@ -132,54 +112,18 @@ export function TabluHero({ className }: TabluHeroProps) {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="relative"
             >
-              {/* Main Image Card */}
-              <div className="relative rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] p-8 transform hover:scale-105 transition-transform duration-300">
-                {/* Professional Unsplash Image */}
-                <div className="relative aspect-square rounded-xl bg-gradient-to-br from-[#ebe8e3] to-white overflow-hidden">
-                  {/* Professional workspace image from Unsplash */}
-                  <Image
-                    src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80"
-                    alt="Planificador Digital Tablú - Espacio de trabajo organizado"
-                    fill
-                    className="object-cover rounded-xl"
-                  />
-                </div>
-
-                {/* Floating feature badge */}
-                <div className="absolute -top-4 -right-4 bg-[#0d6832] text-white rounded-full px-4 py-2 shadow-lg transform rotate-12">
-                  <span className="text-sm font-bold">¡Nuevo!</span>
-                </div>
+              {/* Product Image */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80"
+                  alt="Planificador Digital Tablú"
+                  width={600}
+                  height={600}
+                  className="w-full h-auto"
+                />
               </div>
             </motion.div>
           </div>
-
-          {/* Trust indicators */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-16 pt-8 border-t border-[#e0e0e0]"
-          >
-            <div className="flex flex-wrap justify-center gap-8 text-center">
-              <div>
-                <div className="text-3xl font-normal text-[#1a1a1a]">8</div>
-                <div className="text-[15px] text-[#6b6b6b]">Categorías</div>
-              </div>
-              <div>
-                <div className="text-3xl font-normal text-[#1a1a1a]">100+</div>
-                <div className="text-[15px] text-[#6b6b6b]">Diseños</div>
-              </div>
-              <div>
-                <div className="text-3xl font-normal text-[#1a1a1a]">5⭐</div>
-                <div className="text-[15px] text-[#6b6b6b]">Calificación</div>
-              </div>
-              <div>
-                <div className="text-3xl font-normal text-[#1a1a1a]">2</div>
-                <div className="text-[15px] text-[#6b6b6b]">Países</div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

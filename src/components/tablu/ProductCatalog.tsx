@@ -78,10 +78,10 @@ export function ProductCatalog({ className }: ProductCatalogProps) {
                   className={cn(
                     'px-7 py-3 rounded-3xl text-[15px] font-medium',
                     'transition-all duration-200',
-                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0d6832] focus-visible:ring-offset-2',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5762A2] focus-visible:ring-offset-2',
                     activeFilter === filter.id
-                      ? 'bg-[#0d6832] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]'
-                      : 'bg-[#ebe8e3] text-[#1a1a1a] hover:bg-[#0d6832] hover:text-white'
+                      ? 'bg-[#5762A2] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]'
+                      : 'bg-[#ebe8e3] text-[#1a1a1a] hover:bg-[#5762A2] hover:text-white'
                   )}
                 >
                   {filter.label}
@@ -105,7 +105,7 @@ export function ProductCatalog({ className }: ProductCatalogProps) {
               {activeFilter !== 'all' && (
                 <>
                   {' '}en{' '}
-                  <span className="font-medium text-[#0d6832]">
+                  <span className="font-medium text-[#5762A2]">
                     {filterCategories.find((f) => f.id === activeFilter)?.label}
                   </span>
                 </>
@@ -155,10 +155,10 @@ export function ProductCatalog({ className }: ProductCatalogProps) {
                 onClick={() => setActiveFilter('all')}
                 className={cn(
                   'inline-flex items-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium',
-                  'bg-[#0d6832] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
+                  'bg-[#5762A2] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
                   'transition-all duration-200',
-                  'hover:bg-[#0a5528]',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0d6832] focus-visible:ring-offset-2'
+                  'hover:bg-[#4A5BA8]',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5762A2] focus-visible:ring-offset-2'
                 )}
               >
                 Ver Todos los Productos
