@@ -1,18 +1,19 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { Cpu, ShieldCheck, Leaf, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 /**
- * Marca Fusión Mission Section - Sierra Style
+ * Marca Fusión Mission Section - New Version
  *
  * Features:
- * - White background with Sierra styling
- * - Three value cards with Sierra typography and spacing
- * - Clean, minimal design
- * - Follows STYLE-GUIDE-SIERRA.md
+ * - Background image of Santa Cruz with blur
+ * - Green and gray tones overlay
+ * - B2B and B2C focus messaging
+ * - Clean, modern design
  */
 
 interface MissionSectionProps {
@@ -20,98 +21,134 @@ interface MissionSectionProps {
 }
 
 export function MissionSection({ className }: MissionSectionProps) {
-  const values = [
-    {
-      icon: Cpu,
-      title: 'Tecnología',
-      description: 'Innovamos con soluciones tecnológicas de vanguardia que transforman industrias y generan valor sostenible.',
-    },
-    {
-      icon: ShieldCheck,
-      title: 'Confianza',
-      description: 'Construimos relaciones duraderas basadas en transparencia, integridad y compromiso con nuestros clientes.',
-    },
-    {
-      icon: Leaf,
-      title: 'Sostenibilidad',
-      description: 'Promovemos soluciones ambientalmente responsables que cuidan nuestro planeta para las futuras generaciones.',
-    },
-  ];
-
   return (
-    <section className={cn('bg-white py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
-      <div className="container mx-auto px-6 md:px-10 lg:px-20">
-        {/* Section Header - Sierra Style */}
+    <section className={cn('relative py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
+      {/* Background Image with Blur */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/Santa Cruz (1).jpg"
+          alt="Santa Cruz, Bolivia"
+          fill
+          className="object-cover brightness-75 blur-sm"
+          priority={false}
+        />
+        {/* Green and Gray Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a]/70 via-marca-green/20 to-[#2a2a2a]/75" />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12 max-w-3xl mx-auto"
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-white mb-6">
+            Tu puente hacia la <span className="text-marca-green">tecnología</span> y la <span className="text-marca-green">sostenibilidad</span>
+          </h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-base md:text-lg text-white/95 leading-relaxed"
+          >
+            Conectamos personas, empresas e industrias con marcas líderes nacionales e internacionales.
+          </motion.p>
+        </motion.div>
+
+        {/* Two Focus Areas - Glassmorphism Cards */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 max-w-3xl mx-auto"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary mb-6">
-            Nuestra Misión
-          </h2>
-          <p className="text-[15px] md:text-base text-sierra-text-secondary leading-relaxed">
-            En Marca Fusión conectamos Bolivia con el mundo a través de representaciones estratégicas de marcas líderes, impulsando innovación y desarrollo sostenible.
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* B2B Card - Glassmorphism */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+              <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300">
+                <div className="inline-block px-5 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-5 shadow-lg border border-white/30">
+                  <span className="text-white font-bold text-base tracking-wide">B2B</span>
+                </div>
+                <h4 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+                  Empresas e Industrias
+                </h4>
+                <p className="text-base text-white/80 leading-relaxed">
+                  Tecnología confiable y soluciones energéticas sostenibles.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* B2C Card - Glassmorphism */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="relative group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+              <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300">
+                <div className="inline-block px-5 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-5 shadow-lg border border-white/30">
+                  <span className="text-white font-bold text-base tracking-wide">B2C</span>
+                </div>
+                <h4 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+                  Personas y Hogares
+                </h4>
+                <p className="text-base text-white/80 leading-relaxed">
+                  Productos que inspiran organización y bienestar.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Essence Statement - Simplified */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="max-w-2xl mx-auto text-center mb-10"
+        >
+          <p className="text-base md:text-lg text-white/90 leading-relaxed">
+            Creamos puentes entre innovación y vida cotidiana con <span className="text-marca-green font-semibold">compromiso</span> y <span className="text-marca-green font-semibold">calidad</span>.
           </p>
         </motion.div>
 
-        {/* Value Cards Grid - Sierra Style */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-          {values.map((value, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
-              className="rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] p-10 text-center transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
-            >
-              {/* Icon */}
-              <div className="inline-flex mb-6">
-                <div className="p-4 rounded-2xl bg-sierra-green/10">
-                  <value.icon
-                    className="h-8 w-8 text-sierra-green"
-                    strokeWidth={1.5}
-                    aria-hidden="true"
-                  />
-                </div>
-              </div>
-
-              {/* Title */}
-              <h3 className="text-xl md:text-2xl font-medium text-sierra-text-primary mb-3">
-                {value.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-[15px] text-sierra-text-secondary leading-relaxed">
-                {value.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* CTA Button - Sierra Style */}
+        {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
           className="flex justify-center"
         >
           <Link
             href="/nosotros"
             className={cn(
-              'inline-flex items-center gap-2 px-7 py-3 rounded-3xl text-[15px] font-medium',
-              'bg-sierra-green text-white',
-              'transition-colors duration-200',
-              'hover:bg-sierra-green-hover',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sierra-green focus-visible:ring-offset-2'
+              'inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold',
+              'bg-marca-green text-white',
+              'shadow-[0_4px_14px_rgba(45,95,63,0.4)]',
+              'transition-all duration-200',
+              'hover:bg-marca-green/90 hover:shadow-[0_6px_20px_rgba(45,95,63,0.6)] hover:scale-105',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2 focus-visible:ring-offset-transparent'
             )}
           >
-            Conocer más sobre nosotros
-            <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
+            Conócenos más
+            <ArrowRight className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
           </Link>
         </motion.div>
       </div>

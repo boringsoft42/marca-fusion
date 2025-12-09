@@ -36,40 +36,40 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
       key: 'oilGas',
       icon: Factory,
       title: 'Petróleo y Gas',
-      description: 'Soluciones energéticas eficientes y confiables para operaciones en el sector de hidrocarburos, reduciendo costos y emisiones.',
-      image: 'https://images.unsplash.com/photo-1518709414768-a88981a4515d?auto=format&fit=crop&w=800&q=80',
+      description: 'Soluciones energéticas de alta eficiencia.',
+      image: '/images/Petroleo y gas.JPG',
       alt: 'Plataforma petrolera y equipos de gas natural',
     },
     {
       key: 'industrial',
       icon: Building2,
       title: 'Industrial',
-      description: 'Sistemas de cogeneración y energía de respaldo para manufactura, procesamiento y producción continua.',
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
+      description: 'Generación limpia y continua.',
+      image: '/images/Industrial.jpg',
       alt: 'Planta industrial de manufactura moderna',
     },
     {
       key: 'healthcare',
       icon: Heart,
-      title: 'Salud',
-      description: 'Energía confiable 24/7 para hospitales y centros médicos que requieren suministro eléctrico ininterrumpido.',
-      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80',
-      alt: 'Pasillo de hospital moderno con iluminación profesional',
+      title: 'Hospitalario',
+      description: 'Respaldo energético confiable.',
+      image: '/images/Hospital.jpg',
+      alt: 'Hospital moderno con tecnología de punta',
     },
     {
       key: 'commercial',
       icon: Briefcase,
-      title: 'Comercial',
-      description: 'Organización profesional con planificadores y agendas diseñadas para empresas y profesionales modernos.',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+      title: 'Comercial y Corporativo',
+      description: 'Tecnología aplicada al día a día.',
+      image: '/images/comercial.jpg',
       alt: 'Oficina comercial moderna con ambiente profesional',
     },
     {
       key: 'home',
       icon: Home,
       title: 'Hogar',
-      description: 'Planificadores personales que te ayudan a organizar tu vida diaria con estilo y funcionalidad.',
-      image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80',
+      description: 'Organización y planificación personal.',
+      image: '/images/Hogar.jpg',
       alt: 'Casa residencial moderna y acogedora',
     },
   ];
@@ -88,7 +88,7 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary">
-            Sectores que Servimos
+            Sectores que Atendemos
           </h2>
         </motion.div>
 
@@ -202,7 +202,7 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
           <Link
             href="/sectores"
             className={cn(
-              'inline-flex items-center gap-2 px-7 py-3 rounded-3xl text-[15px] font-medium',
+              'inline-flex items-center gap-2 px-7 py-3 rounded-xl text-[15px] font-medium',
               'bg-sierra-green text-white',
               'transition-colors duration-200',
               'hover:bg-sierra-green-hover',

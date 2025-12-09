@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Navigation } from './Navigation';
 import { MobileMenu } from './MobileMenu';
@@ -75,11 +76,15 @@ export function Header({ className }: HeaderProps) {
               href="/"
               className="flex items-center space-x-2.5 transition-opacity hover:opacity-80"
             >
-              {/* Logo placeholder - replace with actual logo */}
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-marca-green text-white font-semibold text-base">
-                MF
-              </div>
-              <div className="hidden sm:block">
+              <Image
+                src="/images/Logo_Marca_Fusión_Transparente.png"
+                alt="Marca Fusión Logo"
+                width={40}
+                height={40}
+                className="h-10 w-auto"
+                priority
+              />
+              <div className="flex flex-col">
                 <span className="text-[15px] font-medium tracking-tight text-[#1a1a1a]">
                   Marca Fusión
                 </span>

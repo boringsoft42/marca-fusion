@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { PlusIcon } from 'lucide-react';
 import { motion, type HTMLMotionProps } from 'framer-motion';
@@ -20,22 +21,27 @@ interface ClientShowcaseProps {
 
 type Logo = {
   name: string;
+  image: string;
   type: 'capstone' | 'tablu';
 };
 
 export function ClientShowcase({ className }: ClientShowcaseProps) {
   const capstoneClients: Logo[] = [
-    { name: 'YPFB', type: 'capstone' },
-    { name: 'Petrobras', type: 'capstone' },
-    { name: 'Repsol', type: 'capstone' },
-    { name: 'Total Energies', type: 'capstone' },
+    { name: 'YPFB', image: '/images/1.png', type: 'capstone' },
+    { name: 'Petrobras', image: '/images/2.png', type: 'capstone' },
+    { name: 'Repsol', image: '/images/3.png', type: 'capstone' },
+    { name: 'Total Energies', image: '/images/4.png', type: 'capstone' },
+    { name: 'Cliente 5', image: '/images/5.png', type: 'capstone' },
+    { name: 'Cliente 6', image: '/images/6.png', type: 'capstone' },
   ];
 
   const tabluClients: Logo[] = [
-    { name: 'Colegio Alemán', type: 'tablu' },
-    { name: 'Empresa Constructora', type: 'tablu' },
-    { name: 'Consultora', type: 'tablu' },
-    { name: 'Centro Médico', type: 'tablu' },
+    { name: 'Cliente Tablú 1', image: '/images/a.png', type: 'tablu' },
+    { name: 'Cliente Tablú 2', image: '/images/b.png', type: 'tablu' },
+    { name: 'Cliente Tablú 3', image: '/images/c.png', type: 'tablu' },
+    { name: 'Cliente Tablú 4', image: '/images/d.jpg', type: 'tablu' },
+    { name: 'Cliente Tablú 5', image: '/images/e.png', type: 'tablu' },
+    { name: 'Cliente Tablú 6', image: '/images/f.jpg', type: 'tablu' },
   ];
 
   return (
@@ -72,16 +78,20 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
             <div className="w-16 h-1 bg-marca-green mx-auto rounded-full" />
           </div>
 
-          <div className="relative grid grid-cols-2 border-x md:grid-cols-4 max-w-5xl mx-auto rounded-lg overflow-hidden">
+          <div className="relative grid grid-cols-2 border-x md:grid-cols-3 max-w-5xl mx-auto rounded-lg overflow-hidden">
             <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t border-[#e0e0e0]" />
 
             {capstoneClients.map((client, index) => (
               <LogoCard
                 key={index}
                 className={cn(
-                  'border-b border-r last:border-r-0 md:last:border-r',
+                  'border-b border-r',
+                  (index + 1) % 2 === 0 && 'md:border-r',
+                  (index + 1) % 3 === 0 && 'md:border-r-0',
+                  index % 2 === 1 && 'border-r-0 md:border-r',
                   index === 0 && 'bg-[#f9f9f9]',
-                  index === 2 && 'md:bg-[#f9f9f9]'
+                  index === 2 && 'md:bg-[#f9f9f9]',
+                  index === 4 && 'md:bg-[#f9f9f9]'
                 )}
                 logo={client}
                 index={index}
@@ -93,6 +103,18 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
                   />
                 )}
                 {index === 2 && (
+                  <>
+                    <PlusIcon
+                      className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 text-[#e0e0e0]"
+                      strokeWidth={1}
+                    />
+                    <PlusIcon
+                      className="-bottom-[12.5px] -left-[12.5px] absolute z-10 hidden size-6 md:block text-[#e0e0e0]"
+                      strokeWidth={1}
+                    />
+                  </>
+                )}
+                {index === 4 && (
                   <>
                     <PlusIcon
                       className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 text-[#e0e0e0]"
@@ -125,16 +147,20 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
             <div className="w-16 h-1 bg-[#716F6C] mx-auto rounded-full" />
           </div>
 
-          <div className="relative grid grid-cols-2 border-x md:grid-cols-4 max-w-5xl mx-auto rounded-lg overflow-hidden">
+          <div className="relative grid grid-cols-2 border-x md:grid-cols-3 max-w-5xl mx-auto rounded-lg overflow-hidden">
             <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t border-[#e0e0e0]" />
 
             {tabluClients.map((client, index) => (
               <LogoCard
                 key={index}
                 className={cn(
-                  'border-b border-r last:border-r-0 md:last:border-r',
+                  'border-b border-r',
+                  (index + 1) % 2 === 0 && 'md:border-r',
+                  (index + 1) % 3 === 0 && 'md:border-r-0',
+                  index % 2 === 1 && 'border-r-0 md:border-r',
                   index === 1 && 'bg-[#f9f9f9]',
-                  index === 3 && 'md:bg-[#f9f9f9]'
+                  index === 3 && 'md:bg-[#f9f9f9]',
+                  index === 5 && 'md:bg-[#f9f9f9]'
                 )}
                 logo={client}
                 index={index}
@@ -168,9 +194,21 @@ function LogoCard({ logo, className, children, index, ...props }: LogoCardProps)
       )}
       {...props}
     >
-      <span className="text-sm md:text-base font-medium text-[#1a1a1a] text-center">
-        {logo.name}
-      </span>
+      {logo.image ? (
+        <div className="relative w-full h-20 md:h-24">
+          <Image
+            src={logo.image}
+            alt={logo.name}
+            fill
+            className="object-contain"
+            sizes="(max-width: 768px) 50vw, 33vw"
+          />
+        </div>
+      ) : (
+        <span className="text-sm md:text-base font-medium text-[#1a1a1a] text-center">
+          {logo.name}
+        </span>
+      )}
       {children}
     </motion.div>
   );

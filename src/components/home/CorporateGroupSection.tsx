@@ -1,7 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Globe } from 'lucide-react';
+import { ArrowLeftRight, ArrowRight, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 /**
@@ -44,8 +45,8 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
               Conexión Global
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-white">
-            Parte del Grupo Corporativo
+          <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-white mb-4">
+            Un grupo, una visión: conectar Bolivia con el mundo
           </h2>
         </motion.div>
 
@@ -61,8 +62,13 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
             {/* Marca Fusión - Bolivia */}
             <div className="text-center">
               <div className="inline-flex flex-col items-center p-8 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-sierra-green text-white font-medium text-2xl mb-4">
-                  MF
+                <div className="relative h-16 w-32 mb-4">
+                  <Image
+                    src="/images/Logo_Marca_Fusión_Transparente.png"
+                    alt="Marca Fusión"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
                 <h3 className="text-lg font-medium text-sierra-text-primary mb-1">
                   Marca Fusión
@@ -142,7 +148,7 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
                   }}
                 />
 
-                {/* Center Icon - Data Transfer */}
+                {/* Center Icon - Bidirectional Transfer */}
                 <div className="relative flex justify-center w-full">
                   <motion.div
                     className="px-4 py-2 bg-[#2a2a2a] rounded-full border border-[#333] shadow-[0_2px_8px_rgba(0,0,0,0.1)]"
@@ -159,7 +165,7 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
                       ease: 'easeInOut',
                     }}
                   >
-                    <ArrowRight className="h-6 w-6 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
+                    <ArrowLeftRight className="h-6 w-6 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
                   </motion.div>
                 </div>
               </div>
@@ -168,8 +174,13 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
             {/* Altrix Solutions - USA */}
             <div className="text-center">
               <div className="inline-flex flex-col items-center p-8 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-marca-steel-500 text-white font-medium text-xl mb-4">
-                  AS
+                <div className="relative h-16 w-32 mb-4">
+                  <Image
+                    src="/images/Imagotipo_color.png"
+                    alt="Altrix Solutions"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
                 <h3 className="text-lg font-medium text-sierra-text-primary mb-1">
                   Altrix Solutions
@@ -189,10 +200,10 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="max-w-3xl mx-auto text-center mb-8"
+          className="max-w-4xl mx-auto text-center mb-8"
         >
           <p className="text-[15px] md:text-base text-[#a0a0a0] leading-relaxed">
-            Marca Fusión trabaja en colaboración con <span className="text-white font-medium">Altrix Solutions LLC</span> en Estados Unidos para la <span className="text-marca-green font-medium">importación y distribución de equipos Capstone</span> hacia Bolivia.
+            <span className="text-white font-medium">Marca Fusión (Bolivia)</span> forma parte del grupo corporativo junto a empresa especializada en comercio internacional y representación técnica de equipos energéticos bajo modalidad <span className="text-marca-green font-medium">EXW USA</span> con destino final a Bolivia.
           </p>
         </motion.div>
 
@@ -209,11 +220,11 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              'inline-flex items-center gap-2 px-7 py-3 rounded-3xl text-[15px] font-medium',
-              'bg-marca-steel-500 text-white',
+              'inline-flex items-center gap-2 px-7 py-3 rounded-xl text-[15px] font-medium',
+              'bg-marca-green text-white',
               'transition-colors duration-200',
-              'hover:bg-marca-steel-600',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-steel-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a]'
+              'hover:bg-marca-green/90',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a]'
             )}
           >
             Conocer Altrix Solutions

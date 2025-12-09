@@ -41,7 +41,6 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
     },
     { href: `/sectores`, label: 'Sectores' },
     { href: `/alianzas`, label: 'Alianzas' },
-    { href: `/contacto`, label: 'Contacto' },
   ];
 
   // Check if current path matches link
@@ -75,9 +74,9 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
                 type="button"
                 className={cn(
                   'inline-flex items-center gap-1 px-4 py-2 text-[14px] font-normal transition-colors',
-                  'hover:text-[#1a1a1a]',
+                  'hover:text-marca-green',
                   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-                  isDropdownItemActive ? 'text-[#1a1a1a] font-medium' : 'text-[#716F6C]'
+                  isDropdownItemActive ? 'text-marca-green font-medium' : 'text-marca-green/80'
                 )}
                 aria-expanded={isRepresentationsOpen}
                 aria-haspopup="true"
@@ -132,9 +131,9 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
             href={item.href!}
             className={cn(
               'inline-flex items-center px-4 py-2 text-[14px] font-normal transition-colors',
-              'hover:text-[#1a1a1a]',
+              'hover:text-marca-green',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-              isActive(item.href!) ? 'text-[#1a1a1a] font-medium' : 'text-[#716F6C]'
+              isActive(item.href!) ? 'text-marca-green font-medium' : 'text-marca-green/80'
             )}
             onClick={onLinkClick}
           >
@@ -142,6 +141,22 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
           </Link>
         );
       })}
+
+      {/* CTA Button */}
+      <Link
+        href="/contacto"
+        className={cn(
+          'inline-flex items-center justify-center px-6 py-2 ml-2',
+          'text-[14px] font-medium text-white',
+          'bg-[#2D5F3F] rounded-lg',
+          'transition-all duration-200',
+          'hover:bg-[#234830] hover:shadow-md',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2'
+        )}
+        onClick={onLinkClick}
+      >
+        Contacto
+      </Link>
     </nav>
   );
 }
