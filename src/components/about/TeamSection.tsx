@@ -36,53 +36,66 @@ export function TeamSection({ className }: TeamSectionProps) {
             </h2>
           </div>
 
-          {/* Team Photo Container */}
-          <div className="mb-8">
-            <div className="relative overflow-hidden rounded-lg shadow-xl border border-border bg-muted/30">
-              {/* Placeholder for team photo - will be replaced with actual image */}
-              <div className="aspect-video md:aspect-[21/9] flex items-center justify-center bg-gradient-to-br from-marca-green-light via-marca-steel-light to-marca-beige-light">
-                <div className="text-center p-8">
-                  <Users className="h-16 w-16 md:h-24 md:w-24 text-muted-foreground/40 mx-auto mb-4" aria-hidden="true" />
-                  <p className="text-sm md:text-base text-muted-foreground font-medium">
-                    Foto del Equipo Marca Fusión
-                  </p>
-                </div>
+          {/* Team Photo and Description - Two Columns */}
+          <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
+            {/* Left: Team Photo - Square */}
+            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-border">
+              <div className="relative aspect-square">
+                <img
+                  src="/images/Equipo Marca Fusión.jpg"
+                  alt="Equipo Marca Fusión"
+                  className="w-full h-full object-cover"
+                />
               </div>
+            </div>
 
-              {/* Decorative overlay */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/80 to-transparent" />
+            {/* Right: Team Description Text */}
+            <div className="space-y-6">
+              <p className="text-[15px] md:text-base text-sierra-text-secondary leading-relaxed">
+                En Marca Fusión creemos que las marcas no se representan solo con contratos, sino con personas que comparten una misma visión de crecimiento y excelencia.
+              </p>
+              <p className="text-[15px] md:text-base text-sierra-text-secondary leading-relaxed">
+                Nuestro equipo directivo y operativo combina experiencia en gestión de negocios internacionales, conocimiento del mercado boliviano, y un profundo sentido de responsabilidad profesional.
+              </p>
+              <p className="text-[15px] md:text-base text-sierra-text-secondary leading-relaxed">
+                Cada proyecto es una oportunidad para demostrar que la confianza se construye con resultados.
+              </p>
             </div>
           </div>
 
-          {/* Team Description */}
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="grid sm:grid-cols-3 gap-6">
-              <div className="text-center p-4 rounded-lg bg-muted/30 border border-border">
-                <div className="text-2xl md:text-3xl font-bold text-marca-green mb-1">
-                  10+
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Años de Experiencia
-                </p>
+          {/* Team Metrics - Minimalist Design */}
+          <div className="flex flex-wrap justify-center gap-12 md:gap-16">
+            {/* Metric 1 */}
+            <div className="flex flex-col items-center gap-2">
+              <div className="p-3 rounded-full bg-gray-100">
+                <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
+              <div className="text-3xl font-bold text-[#1a1a1a]">10+</div>
+              <p className="text-sm text-sierra-text-secondary">Años de Experiencia</p>
+            </div>
 
-              <div className="text-center p-4 rounded-lg bg-muted/30 border border-border">
-                <div className="text-2xl md:text-3xl font-bold text-marca-steel mb-1">
-                  100%
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Compromiso con el Cliente
-                </p>
+            {/* Metric 2 */}
+            <div className="flex flex-col items-center gap-2">
+              <div className="p-3 rounded-full bg-gray-100">
+                <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
+              <div className="text-3xl font-bold text-[#1a1a1a]">100%</div>
+              <p className="text-sm text-sierra-text-secondary">Compromiso con el Cliente</p>
+            </div>
 
-              <div className="text-center p-4 rounded-lg bg-muted/30 border border-border">
-                <div className="text-2xl md:text-3xl font-bold text-marca-beige mb-1">
-                  24/7
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Soporte Técnico
-                </p>
+            {/* Metric 3 */}
+            <div className="flex flex-col items-center gap-2">
+              <div className="p-3 rounded-full bg-gray-100">
+                <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
               </div>
+              <div className="text-3xl font-bold text-[#1a1a1a]">24/7</div>
+              <p className="text-sm text-sierra-text-secondary">Soporte Técnico</p>
             </div>
           </div>
         </div>

@@ -1,8 +1,8 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Globe, Building2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 /**
  * Marca Fusión Corporate Group Detail Section
@@ -24,42 +24,22 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
   const altrixUrl = process.env.NEXT_PUBLIC_ALTRIX_URL || 'https://altrixsolutionsllc.com/';
 
   return (
-    <section className={cn('py-16 md:py-24 bg-muted/20', className)}>
+    <section className={cn('py-16 md:py-24 bg-[#1a1a1a]', className)}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Title */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-marca-steel-light border border-marca-steel/30">
-              <Globe className="h-4 w-4 text-marca-steel" aria-hidden="true" />
-              <span className="text-sm font-semibold text-marca-steel uppercase tracking-wider">
-                Alcance Global
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-[#1A1A1A] mb-4">
-              Parte de un Grupo Corporativo Internacional
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-white mb-6">
+              Grupo Corporativo <span className="font-bold">Marca Fusión – Altrix Solutions</span>
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Nuestra alianza estratégica con Altrix Solutions LLC nos permite combinar experiencia local con capacidad operativa internacional.
+            <p className="text-base md:text-lg text-white/90 max-w-3xl mx-auto font-medium">
+              Unimos <span className="text-marca-green font-bold">presencia local</span> y <span className="text-marca-green font-bold">capacidad internacional</span> para brindar soluciones energéticas con <span className="text-marca-green font-bold">respaldo global</span>.
             </p>
           </div>
 
-          {/* World Map Visual */}
+          {/* Connection Visual - Dark Theme */}
           <div className="mb-12">
-            <div className="relative overflow-hidden rounded-lg bg-background border border-border shadow-lg p-8 md:p-12">
-              {/* Map background pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
-                      linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px)
-                    `,
-                    backgroundSize: '40px 40px',
-                  }}
-                />
-              </div>
-
+            <div className="relative overflow-hidden rounded-2xl bg-[#0a0a0a] border border-white/10 shadow-2xl p-8 md:p-12">
               <div className="relative z-10 grid md:grid-cols-3 gap-8 items-center">
                 {/* USA - Altrix Solutions */}
                 <div className="text-center">
@@ -69,36 +49,38 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                     rel="noopener noreferrer"
                     className="group inline-block"
                   >
-                    <div className="p-6 rounded-lg bg-marca-steel-light border-2 border-marca-steel/30 hover:border-marca-steel transition-all duration-300 hover:shadow-lg">
-                      {/* Altrix logo placeholder */}
-                      <div className="flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-md bg-marca-steel text-white font-bold text-xl md:text-2xl mx-auto mb-4">
-                        AS
+                    <div className="transition-all duration-300 hover:scale-105">
+                      {/* Altrix logo - White Background */}
+                      <div className="relative h-24 w-48 mx-auto mb-4 p-6 rounded-xl bg-white shadow-lg group-hover:shadow-xl transition-all">
+                        <Image
+                          src="/images/Imagotipo_color.png"
+                          alt="Altrix Solutions"
+                          fill
+                          className="object-contain p-2"
+                        />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">
+                      <h3 className="text-base md:text-lg font-bold text-white mb-2">
                         Altrix Solutions LLC
                       </h3>
-                      <p className="text-sm text-muted-foreground mb-2 flex items-center justify-center gap-1">
+                      <p className="text-sm text-white/60 flex items-center justify-center gap-1">
                         <span className="text-lg">🇺🇸</span>
                         Estados Unidos
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Operaciones Internacionales
                       </p>
                     </div>
                   </a>
                 </div>
 
-                {/* Animated Connection Line - Data Transfer Visual */}
+                {/* Animated Connection Line - Bidirectional Arrows */}
                 <div className="flex items-center justify-center relative">
                   <div className="relative w-full h-16 flex items-center">
                     {/* Base Line */}
                     <div className="absolute inset-0 flex items-center">
-                      <div className="w-full h-[2px] bg-gradient-to-r from-marca-steel via-marca-green to-marca-green opacity-30" />
+                      <div className="w-full h-[2px] bg-white/20" />
                     </div>
 
-                    {/* Animated Light Bits - Going Right (USA -> Bolivia) */}
+                    {/* Animated Light Bits - Going Right (USA -> Bolivia) - White */}
                     <motion.div
-                      className="absolute h-3 w-3 rounded-full bg-marca-green shadow-[0_0_10px_2px_rgba(16,185,129,0.8)]"
+                      className="absolute h-3 w-3 rounded-full bg-white shadow-[0_0_12px_3px_rgba(255,255,255,0.8)]"
                       initial={{ left: '0%', opacity: 0 }}
                       animate={{
                         left: ['0%', '100%'],
@@ -112,7 +94,7 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                       }}
                     />
                     <motion.div
-                      className="absolute h-3 w-3 rounded-full bg-marca-green shadow-[0_0_10px_2px_rgba(16,185,129,0.8)]"
+                      className="absolute h-3 w-3 rounded-full bg-white shadow-[0_0_12px_3px_rgba(255,255,255,0.8)]"
                       initial={{ left: '0%', opacity: 0 }}
                       animate={{
                         left: ['0%', '100%'],
@@ -126,9 +108,9 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                       }}
                     />
 
-                    {/* Animated Light Bits - Going Left (Bolivia -> USA) */}
+                    {/* Animated Light Bits - Going Left (Bolivia -> USA) - White */}
                     <motion.div
-                      className="absolute h-3 w-3 rounded-full bg-marca-steel shadow-[0_0_10px_2px_rgba(100,116,139,0.8)]"
+                      className="absolute h-3 w-3 rounded-full bg-white shadow-[0_0_12px_3px_rgba(255,255,255,0.8)]"
                       initial={{ left: '100%', opacity: 0 }}
                       animate={{
                         left: ['100%', '0%'],
@@ -142,7 +124,7 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                       }}
                     />
                     <motion.div
-                      className="absolute h-3 w-3 rounded-full bg-marca-steel shadow-[0_0_10px_2px_rgba(100,116,139,0.8)]"
+                      className="absolute h-3 w-3 rounded-full bg-white shadow-[0_0_12px_3px_rgba(255,255,255,0.8)]"
                       initial={{ left: '100%', opacity: 0 }}
                       animate={{
                         left: ['100%', '0%'],
@@ -156,15 +138,15 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                       }}
                     />
 
-                    {/* Center Icon - Data Transfer */}
+                    {/* Center Icon - Bidirectional Arrows */}
                     <div className="relative flex justify-center w-full">
                       <motion.div
-                        className="px-4 py-2 bg-background rounded-full border border-border shadow-md"
+                        className="px-4 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 shadow-lg"
                         animate={{
                           boxShadow: [
-                            '0 2px 8px rgba(0,0,0,0.1)',
-                            '0 2px 12px rgba(16,185,129,0.3)',
-                            '0 2px 8px rgba(0,0,0,0.1)',
+                            '0 4px 12px rgba(255,255,255,0.1)',
+                            '0 4px 20px rgba(255,255,255,0.3)',
+                            '0 4px 12px rgba(255,255,255,0.1)',
                           ],
                         }}
                         transition={{
@@ -173,7 +155,9 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                           ease: 'easeInOut',
                         }}
                       >
-                        <Building2 className="h-5 w-5 text-marca-green" aria-hidden="true" />
+                        <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
                       </motion.div>
                     </div>
                   </div>
@@ -181,20 +165,22 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
 
                 {/* Bolivia - Marca Fusión */}
                 <div className="text-center">
-                  <div className="p-6 rounded-lg bg-marca-green-light border-2 border-marca-green/30">
-                    {/* Marca Fusión logo */}
-                    <div className="flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-md bg-marca-green text-white font-bold text-xl md:text-2xl mx-auto mb-4">
-                      MF
+                  <div className="transition-all duration-300 hover:scale-105">
+                    {/* Marca Fusión logo - White Background */}
+                    <div className="relative h-24 w-48 mx-auto mb-4 p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all">
+                      <Image
+                        src="/images/Logo_Marca_Fusión_Transparente.png"
+                        alt="Marca Fusión"
+                        fill
+                        className="object-contain p-2"
+                      />
                     </div>
-                    <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">
+                    <h3 className="text-base md:text-lg font-bold text-white mb-2">
                       Marca Fusión SRL
                     </h3>
-                    <p className="text-sm text-muted-foreground mb-2 flex items-center justify-center gap-1">
+                    <p className="text-sm text-white/60 flex items-center justify-center gap-1">
                       <span className="text-lg">🇧🇴</span>
                       Bolivia
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      Representaciones Locales
                     </p>
                   </div>
                 </div>

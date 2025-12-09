@@ -92,7 +92,7 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
           </h2>
         </motion.div>
 
-        {/* Accordion + Image Grid - Sierra Style */}
+        {/* Accordion + Image Grid - Glassmorphism Apple Style */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -115,21 +115,24 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
                   <AccordionItem
                     key={sector.key}
                     value={sector.key}
-                    className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] border-0 overflow-hidden transition-shadow hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+                    className="relative group bg-white/60 backdrop-blur-xl rounded-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.06)] overflow-hidden transition-all duration-300 hover:shadow-[0_12px_48px_rgba(0,0,0,0.1)] hover:border-white/60"
                   >
-                    <AccordionTrigger className="px-6 py-4 hover:no-underline group">
+                    {/* Subtle gradient background */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-white/10 pointer-events-none" />
+
+                    <AccordionTrigger className="relative px-6 py-4 hover:no-underline group">
                       <div className="flex items-center gap-4 text-left">
                         <div
                           className={cn(
-                            'p-3 rounded-xl transition-colors',
+                            'p-3 rounded-xl transition-all duration-300 backdrop-blur-sm',
                             activeSector === sector.key
-                              ? 'bg-sierra-green/10'
-                              : 'bg-sierra-gray-light group-hover:bg-sierra-green/5'
+                              ? 'bg-sierra-green/20 shadow-[0_4px_12px_rgba(13,104,50,0.2)]'
+                              : 'bg-white/40 group-hover:bg-sierra-green/10'
                           )}
                         >
                           <Icon
                             className={cn(
-                              'h-6 w-6 transition-colors',
+                              'h-6 w-6 transition-colors duration-300',
                               activeSector === sector.key
                                 ? 'text-sierra-green'
                                 : 'text-sierra-text-secondary group-hover:text-sierra-green'
@@ -140,7 +143,7 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
                         </div>
                         <span
                           className={cn(
-                            'text-lg font-medium transition-colors',
+                            'text-lg font-medium transition-colors duration-300',
                             activeSector === sector.key
                               ? 'text-sierra-green'
                               : 'text-sierra-text-primary group-hover:text-sierra-green'
@@ -150,13 +153,13 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
                         </span>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-4 pt-0">
+                    <AccordionContent className="relative px-6 pb-4 pt-0">
                       <p className="text-[15px] text-sierra-text-secondary leading-relaxed pl-[52px]">
                         {sector.description}
                       </p>
                       {/* Mobile Image - Shown only on small screens */}
                       <div className="mt-4 lg:hidden pl-[52px]">
-                        <div className="relative aspect-video rounded-xl overflow-hidden">
+                        <div className="relative aspect-video rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.1)]">
                           <Image
                             src={sector.image}
                             alt={sector.alt}
