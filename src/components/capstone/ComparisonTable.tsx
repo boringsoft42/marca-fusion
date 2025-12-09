@@ -68,7 +68,7 @@ export function ComparisonTable({ className }: ComparisonTableProps) {
           {/* Section Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary mb-6">
-              Comparación de Modelos
+              Comparación de <span className="text-[#2D5F3F] font-semibold">Modelos Capstone</span>
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
               Encuentra el modelo ideal para tu aplicación

@@ -3,14 +3,16 @@
 import { cn } from '@/lib/utils';
 import { Fuel, Factory, Heart, Building2, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 /**
  * Industrial Sectors Block (Capstone)
  *
  * Features:
- * - 4 industrial sector cards
+ * - 4 industrial sector cards with hover-expand functionality
  * - Oil & Gas, Industrial, Hospitalario, Comercial
  * - Icon-based visual hierarchy
+ * - Expandable applications on hover
  * - CTA to Capstone page
  * - Green branding
  * - Follows STYLE-GUIDE-SIERRA.md design patterns
@@ -21,6 +23,7 @@ interface IndustrialBlockProps {
 }
 
 export function IndustrialBlock({ className }: IndustrialBlockProps) {
+  const [hoveredSector, setHoveredSector] = useState<number | null>(null);
   const industrialSectors = [
     {
       icon: Fuel,
@@ -93,52 +96,90 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
 
           {/* Sectors Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {industrialSectors.map((sector, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
-                className="group relative p-6 rounded-2xl border border-[#e0e0e0] bg-white overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:border-[#0d6832]/30"
-              >
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className="mb-4">
-                    <div className="inline-flex p-3 rounded-2xl bg-[#0d6832]/10 transition-all duration-300 group-hover:bg-[#0d6832] group-hover:scale-110">
-                      <sector.icon className="h-6 w-6 text-[#0d6832] group-hover:text-white transition-colors duration-300" strokeWidth={1.5} aria-hidden="true" />
+            {industrialSectors.map((sector, index) => {
+              const Icon = sector.icon;
+              const isHovered = hoveredSector === index;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
+                  onMouseEnter={() => setHoveredSector(index)}
+                  onMouseLeave={() => setHoveredSector(null)}
+                  className="relative cursor-pointer"
+                >
+                  <div className="pb-6">
+                    {/* Icon */}
+                    <div className="mb-4">
+                      <div
+                        className={cn(
+                          'inline-flex p-4 rounded-full transition-all duration-300',
+                          isHovered ? 'bg-[#0d6832]' : 'bg-[#0d6832]/10'
+                        )}
+                      >
+                        <Icon
+                          className={cn(
+                            'h-7 w-7 transition-colors duration-300',
+                            isHovered ? 'text-white' : 'text-[#0d6832]'
+                          )}
+                          strokeWidth={1.5}
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h4
+                      className={cn(
+                        'text-lg font-bold mb-3 transition-colors duration-300',
+                        isHovered ? 'text-[#0d6832]' : 'text-sierra-text-primary'
+                      )}
+                    >
+                      {sector.title}
+                    </h4>
+
+                    {/* Bottom Line Indicator */}
+                    <div
+                      className={cn(
+                        'h-1 w-full mb-4 transition-all duration-300',
+                        isHovered ? 'bg-[#0d6832]' : 'bg-gray-200'
+                      )}
+                    />
+
+                    {/* Expandable Content */}
+                    <div
+                      className={cn(
+                        'overflow-hidden transition-all duration-500 ease-in-out',
+                        isHovered ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                      )}
+                    >
+                      {/* Description */}
+                      <p className="text-sm text-sierra-text-secondary leading-relaxed mb-4">
+                        {sector.description}
+                      </p>
+
+                      {/* Applications */}
+                      <div>
+                        <p className="text-xs font-medium text-[#6b6b6b] mb-2 uppercase tracking-wider">
+                          Aplicaciones:
+                        </p>
+                        <ul className="space-y-1.5">
+                          {sector.applications.map((app, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-sm">
+                              <span className="text-[#0d6832] mt-0.5">✓</span>
+                              <span className="text-[#6b6b6b]">{app}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="text-xl font-medium text-[#1a1a1a] mb-3">{sector.title}</h3>
-
-                  {/* Description */}
-                  <p className="text-[15px] text-[#6b6b6b] leading-relaxed mb-4">{sector.description}</p>
-
-                  {/* Applications */}
-                  <div>
-                    <p className="text-xs font-medium text-[#6b6b6b] mb-2 uppercase tracking-wider">
-                      Aplicaciones:
-                    </p>
-                    <ul className="space-y-1.5">
-                      {sector.applications.map((app, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-[15px]">
-                          <span className="text-[#0d6832] mt-0.5">✓</span>
-                          <span className="text-[#6b6b6b]">{app}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Hover indicator */}
-                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowRight className="h-5 w-5 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Bottom CTA */}
@@ -159,14 +200,14 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/capstone"
-                className="inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium bg-[#0d6832] text-white shadow-lg transition-all duration-200 hover:bg-[#0a5528] hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3 text-[15px] font-medium bg-[#0d6832] text-white shadow-lg transition-all duration-200 hover:bg-[#0a5528] hover:shadow-xl"
               >
                 Explorar Soluciones Capstone
                 <ArrowRight className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
               </a>
               <a
                 href="/contacto"
-                className="inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium bg-white text-[#1a1a1a] border-2 border-[#0d6832]/30 transition-all duration-200 hover:bg-[#0d6832]/5 hover:border-[#0d6832]/50"
+                className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3 text-[15px] font-medium bg-white text-[#1a1a1a] border-2 border-[#0d6832]/30 transition-all duration-200 hover:bg-[#0d6832]/5 hover:border-[#0d6832]/50"
               >
                 Solicitar Asesoría Técnica
               </a>

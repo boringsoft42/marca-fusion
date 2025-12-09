@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 /**
  * Tablú Hero Section - Peru Style
@@ -13,11 +14,76 @@ import Image from 'next/image';
  * - Bold typography
  * - Playful design with floating elements
  * - Discount bubble
+ * - Image carousel showcase
  * - Inspired by tablu.com.pe design
  */
 
 interface TabluHeroProps {
   className?: string;
+}
+
+// Image Carousel Component
+function TabluImageCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const images = [
+    'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80',
+    'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80',
+    'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
+      className="relative"
+    >
+      {/* Product Image Carousel */}
+      <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-square">
+        {images.map((image, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: currentIndex === index ? 1 : 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={image}
+              alt={`Planificador Tablú ${index + 1}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Carousel Indicators */}
+      <div className="flex justify-center gap-2 mt-4">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={cn(
+              'h-2 rounded-full transition-all duration-300',
+              currentIndex === index ? 'w-8 bg-[#4A5BA8]' : 'w-2 bg-white/50'
+            )}
+            aria-label={`Go to image ${index + 1}`}
+          />
+        ))}
+      </div>
+    </motion.div>
+  );
 }
 
 export function TabluHero({ className }: TabluHeroProps) {
@@ -82,47 +148,59 @@ export function TabluHero({ className }: TabluHeroProps) {
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              {/* Main Heading with Blue Color */}
+              {/* Main Heading */}
               <div>
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#4A5BA8] mb-6 leading-tight"
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#4A5BA8] mb-6 leading-tight"
                 >
-                  Elige el formato que más necesites
+                  Planners personalizados que inspiran productividad y organización con estilo
                 </motion.h1>
+
+                {/* Description Text */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="inline-block bg-[#4A5BA8] text-white px-6 py-3 rounded-full"
+                  className="text-white/95 text-lg md:text-xl leading-relaxed"
                 >
-                  <p className="text-sm md:text-base">
-                    Nuestros imantados se encuentran en la categoría Home y Rutina
+                  <p>
+                    <span className="font-bold">Tablú</span> llega a Bolivia de la mano de <span className="font-bold">Marca Fusión</span>. Planners de acrílico de alta calidad en formatos To Do List, semanales, mensuales, anuales y Kanban para uso personal y corporativo.
                   </p>
+                </motion.div>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="flex flex-col sm:flex-row gap-4 mt-8"
+                >
+                  {/* Ver Catálogo */}
+                  <a
+                    href="#catalogo"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-[#4A5BA8] text-white shadow-lg hover:bg-[#3d4a8f] hover:shadow-xl transition-all duration-200 hover:scale-105"
+                  >
+                    📋 Ver catálogo de planners
+                  </a>
+
+                  {/* WhatsApp */}
+                  <a
+                    href={process.env.NEXT_PUBLIC_WHATSAPP_TABLU || 'https://wa.me/59178885533'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-[#25D366] text-white shadow-lg hover:bg-[#20ba5a] hover:shadow-xl transition-all duration-200 hover:scale-105"
+                  >
+                    💬 Consultar vía WhatsApp
+                  </a>
                 </motion.div>
               </div>
             </motion.div>
 
-            {/* Right Column - Product Showcase */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="relative"
-            >
-              {/* Product Image */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80"
-                  alt="Planificador Digital Tablú"
-                  width={600}
-                  height={600}
-                  className="w-full h-auto"
-                />
-              </div>
-            </motion.div>
+            {/* Right Column - Product Showcase Carousel */}
+            <TabluImageCarousel />
           </div>
         </div>
       </div>

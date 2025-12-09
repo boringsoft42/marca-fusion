@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Factory, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
@@ -12,7 +11,8 @@ import Image from 'next/image';
  * Features:
  * - Split collage visual (Industry left, Home right)
  * - Dual focus: Industrial energy solutions + Personal organization
- * - Professional Unsplash split image
+ * - Real product images carousel
+ * - Brand logos (Capstone & Tablú)
  * - Responsive split layout
  * - Follows STYLE-GUIDE-SIERRA.md design patterns
  */
@@ -25,44 +25,18 @@ export function SectorsHero({ className }: SectorsHeroProps) {
   const [industrialIndex, setIndustrialIndex] = useState(0);
   const [personalIndex, setPersonalIndex] = useState(0);
 
-  // Industrial sector images
+  // Industrial sector images - Capstone microturbines
   const industrialImages = [
-    {
-      src: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop&auto=format',
-      alt: 'Planta industrial de manufactura',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1518709414768-a88981a4515d?w=800&h=600&fit=crop&auto=format',
-      alt: 'Infraestructura petrolera y gas',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop&auto=format',
-      alt: 'Sector de salud y hospitales',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop&auto=format',
-      alt: 'Edificios comerciales modernos',
-    },
+    '/images/C800S (6).png',
+    '/images/C600S (4).png',
+    '/images/C200S (7).png',
   ];
 
-  // Personal/home sector images
+  // Personal/home sector images - Tablú planners
   const personalImages = [
-    {
-      src: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop&auto=format',
-      alt: 'Espacio de trabajo personal organizado',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&h=600&fit=crop&auto=format',
-      alt: 'Planificación y organización personal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop&auto=format',
-      alt: 'Hogar moderno y acogedor',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop&auto=format',
-      alt: 'Oficina profesional y productiva',
-    },
+    '/images/ta1.jpg',
+    '/images/ta2.jpg',
+    '/images/ta3.png',
   ];
 
   // Auto-rotate images every 3 seconds
@@ -86,77 +60,85 @@ export function SectorsHero({ className }: SectorsHeroProps) {
             className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] overflow-hidden"
           >
             <div className="grid lg:grid-cols-2 gap-0">
-              {/* Left Side - Industrial Images Carousel */}
+              {/* Left Side - Industrial Images Carousel (Capstone) */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="relative h-64 lg:h-auto min-h-[400px] overflow-hidden"
+                className="relative h-64 lg:h-auto min-h-[500px] overflow-hidden bg-white"
               >
-                <AnimatePresence initial={false}>
+                <AnimatePresence initial={false} mode="wait">
                   <motion.div
                     key={industrialIndex}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5, ease: 'easeInOut' }}
-                    className="absolute inset-0"
+                    className="absolute inset-0 flex items-center justify-center p-8"
                   >
                     <Image
-                      src={industrialImages[industrialIndex].src}
-                      alt={industrialImages[industrialIndex].alt}
+                      src={industrialImages[industrialIndex]}
+                      alt={`Capstone Microturbine ${industrialIndex + 1}`}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       priority={industrialIndex === 0}
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                   </motion.div>
                 </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0d6832]/80 to-[#0d6832]/60" />
 
-                {/* Industrial Badge */}
-                <div className="absolute top-6 left-6 flex items-center gap-3 px-5 py-2.5 rounded-3xl bg-white/95 backdrop-blur-sm shadow-lg">
-                  <Factory className="h-5 w-5 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
-                  <div className="text-left">
-                    <div className="text-[15px] font-medium text-[#1a1a1a]">Capstone</div>
-                    <div className="text-xs text-[#6b6b6b]">Energía Industrial</div>
+                {/* Capstone Logo Badge */}
+                <div className="absolute top-6 left-6 px-6 py-3 rounded-xl bg-white shadow-xl border-2 border-[#2D5F3F]">
+                  <div className="relative h-8 w-32">
+                    <Image
+                      src="/images/color_image.png"
+                      alt="Capstone Green Energy"
+                      fill
+                      className="object-contain"
+                    />
                   </div>
+                  <div className="text-xs text-[#2D5F3F] font-bold mt-1">Energía Industrial</div>
                 </div>
               </motion.div>
 
-              {/* Right Side - Personal Images Carousel */}
+              {/* Right Side - Personal Images Carousel (Tablú) */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative h-64 lg:h-auto min-h-[400px] overflow-hidden"
+                className="relative h-64 lg:h-auto min-h-[500px] overflow-hidden bg-white"
               >
-                <AnimatePresence initial={false}>
+                <AnimatePresence initial={false} mode="wait">
                   <motion.div
                     key={personalIndex}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5, ease: 'easeInOut' }}
-                    className="absolute inset-0"
+                    className="absolute inset-0 flex items-center justify-center p-8"
                   >
                     <Image
-                      src={personalImages[personalIndex].src}
-                      alt={personalImages[personalIndex].alt}
+                      src={personalImages[personalIndex]}
+                      alt={`Tablú Planner ${personalIndex + 1}`}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       priority={personalIndex === 0}
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                   </motion.div>
                 </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-br from-[#ebe8e3]/80 to-[#ebe8e3]/60" />
 
-                {/* Personal Badge */}
-                <div className="absolute top-6 right-6 flex items-center gap-3 px-5 py-2.5 rounded-3xl bg-white/95 backdrop-blur-sm shadow-lg">
-                  <Home className="h-5 w-5 text-[#6b6b6b]" strokeWidth={1.5} aria-hidden="true" />
-                  <div className="text-left">
-                    <div className="text-[15px] font-medium text-[#1a1a1a]">Tablú</div>
-                    <div className="text-xs text-[#6b6b6b]">Organización Personal</div>
+                {/* Tablú Logo Badge */}
+                <div className="absolute top-6 right-6 px-6 py-3 rounded-xl bg-white shadow-xl border-2 border-[#4A5BA8]">
+                  <div className="relative h-8 w-32">
+                    <Image
+                      src="/images/Logo Tablu.png"
+                      alt="Tablú"
+                      fill
+                      className="object-contain"
+                    />
                   </div>
+                  <div className="text-xs text-[#4A5BA8] font-bold mt-1">Organización Personal</div>
                 </div>
               </motion.div>
             </div>
@@ -182,7 +164,7 @@ export function SectorsHero({ className }: SectorsHeroProps) {
                 para impulsar el éxito en cada ámbito.
               </motion.p>
 
-              {/* CTA Button */}
+              {/* CTA Button - Less curved */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -190,7 +172,7 @@ export function SectorsHero({ className }: SectorsHeroProps) {
               >
                 <a
                   href="#sectors"
-                  className="inline-block px-7 py-3 rounded-3xl bg-[#0d6832] text-white text-[15px] font-medium transition-all duration-200 hover:bg-[#0a5528] shadow-lg hover:shadow-xl"
+                  className="inline-block px-7 py-3 rounded-xl bg-[#0d6832] text-white text-[15px] font-medium transition-all duration-200 hover:bg-[#0a5528] shadow-lg hover:shadow-xl hover:scale-105"
                 >
                   Explorar Sectores
                 </a>

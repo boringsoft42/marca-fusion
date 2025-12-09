@@ -1,14 +1,14 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Wrench, FileSearch, Truck, Headphones, GraduationCap, TrendingUp } from 'lucide-react';
+import { ShoppingCart, Package, Wrench, GraduationCap, Lightbulb, Headphones } from 'lucide-react';
 
 /**
- * Capstone Services Section
+ * Capstone Services Section - Soluciones Integrales
  *
  * Features:
- * - 6 service items with icons
- * - Service descriptions
+ * - 6 service items in 2 columns (3 left, 3 right)
+ * - Service descriptions with icons
  * - Responsive grid layout
  * - Follows STYLE-GUIDE.md design patterns
  */
@@ -20,104 +20,82 @@ interface ServicesSectionProps {
 export function ServicesSection({ className }: ServicesSectionProps) {
   const services = [
     {
-      icon: FileSearch,
-      title: 'Evaluación y Dimensionamiento',
-      description: 'Análisis técnico de su necesidad energética para determinar la solución óptima de microturbinas.',
+      icon: ShoppingCart,
+      title: 'Venta de microturbinas Capstone',
+      description: 'Desde 65 kW hasta 1 MW.',
     },
     {
-      icon: Truck,
-      title: 'Importación y Logística',
-      description: 'Gestión completa de importación desde Estados Unidos con soporte de Altrix Solutions LLC.',
+      icon: Package,
+      title: 'Provisión de repuestos originales',
+      description: 'Stock directo y pedidos especiales.',
     },
     {
       icon: Wrench,
-      title: 'Instalación y Puesta en Marcha',
-      description: 'Instalación profesional y puesta en marcha supervisada por técnicos certificados.',
-    },
-    {
-      icon: Headphones,
-      title: 'Soporte Técnico',
-      description: 'Asistencia técnica local en español y conexión directa con ingenieros de Capstone.',
+      title: 'Mantenimiento preventivo y correctivo',
+      description: 'Técnicos capacitados bajo estándares internacionales.',
     },
     {
       icon: GraduationCap,
-      title: 'Capacitación',
-      description: 'Entrenamiento para personal operativo y de mantenimiento de su organización.',
+      title: 'Capacitación técnica y certificaciones',
+      description: 'En nuevas tecnologías y mantenimiento de microturbinas.',
     },
     {
-      icon: TrendingUp,
-      title: 'Mantenimiento Preventivo',
-      description: 'Programas de mantenimiento programado para maximizar la disponibilidad y vida útil del equipo.',
+      icon: Lightbulb,
+      title: 'Consultoría técnica',
+      description: 'Resolución de fallas y optimización de sistemas existentes.',
+    },
+    {
+      icon: Headphones,
+      title: 'Asistencia postventa y soporte remoto',
+      description: 'Acompañamiento continuo al cliente.',
     },
   ];
 
   return (
-    <section className={cn('py-16 md:py-24 bg-muted/20', className)}>
-      <div className="container mx-auto px-6">
+    <section className={cn('py-16 md:py-24 bg-white', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary mb-6">
-              Nuestros Servicios
+              Soluciones integrales de energía limpia en Bolivia
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Soporte integral desde la evaluación inicial hasta el mantenimiento continuo
+            <p className="text-base md:text-lg text-sierra-text-secondary max-w-3xl mx-auto leading-relaxed">
+              En Marca Fusión, representamos a Capstone en Bolivia ofreciendo un servicio integral que cubre todo el ciclo de vida de sus equipos:
             </p>
           </div>
 
-          {/* Services Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="group p-6 rounded-lg bg-background border border-border hover:border-marca-green/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-              >
-                {/* Icon */}
-                <div className="inline-flex mb-4">
-                  <div className="p-4 rounded-full bg-marca-green-light group-hover:bg-marca-green transition-colors duration-300">
-                    <service.icon
-                      className="h-7 w-7 text-marca-green group-hover:text-white transition-colors duration-300"
-                      aria-hidden="true"
-                    />
+          {/* Services Grid - 2 Columns */}
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={index}
+                  className="flex items-start gap-4 group"
+                >
+                  {/* Icon */}
+                  <div className="flex-shrink-0">
+                    <div className="p-3 rounded-full bg-[#2D5F3F]/10 group-hover:bg-[#2D5F3F] transition-all duration-300">
+                      <Icon
+                        className="h-6 w-6 text-[#2D5F3F] group-hover:text-white transition-colors duration-300"
+                        aria-hidden="true"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1">
+                    <h3 className="text-base md:text-lg font-bold text-sierra-text-primary mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm md:text-base text-sierra-text-secondary leading-relaxed">
+                      {service.description}
+                    </p>
                   </div>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-lg md:text-xl font-bold text-foreground mb-3">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Additional Info */}
-          <div className="mt-12 p-6 md:p-8 rounded-lg bg-background border-l-4 border-marca-green shadow-md">
-            <h3 className="text-xl font-bold text-foreground mb-3">
-              ¿Por qué elegirnos como su partner Capstone?
-            </h3>
-            <ul className="space-y-2 text-sm md:text-base text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <span className="text-marca-green mt-0.5 font-bold">✓</span>
-                Únicos representantes autorizados de Capstone Green Energy en Bolivia
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-marca-green mt-0.5 font-bold">✓</span>
-                Respaldo de Altrix Solutions LLC para operaciones internacionales
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-marca-green mt-0.5 font-bold">✓</span>
-                Experiencia comprobada en más de 71 instalaciones de microturbinas
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-marca-green mt-0.5 font-bold">✓</span>
-                Soporte técnico local y conexión directa con ingenieros de fábrica
-              </li>
-            </ul>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -1,75 +1,125 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { ArrowRight, ExternalLink, FileText } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 /**
- * Capstone Final CTA Section
+ * Capstone Impact Counters Section
  *
  * Features:
- * - Dual CTAs (Quote form + External Capstone website)
- * - Altrix disclaimer
- * - Professional presentation
+ * - Animated counters that count up on scroll
+ * - Impact statistics for Bolivia
+ * - Dark card design
  * - Responsive design
- * - Follows STYLE-GUIDE.MD design patterns
+ * - Follows STYLE-GUIDE.md design patterns
  */
 
 interface CapstoneCTAProps {
   className?: string;
 }
 
+// Hook para animar números
+function useCountUp(end: number, duration: number = 2000, shouldStart: boolean = false) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!shouldStart) return;
+
+    let startTime: number | null = null;
+    const startValue = 0;
+
+    const animate = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+
+      setCount(Math.floor(progress * (end - startValue) + startValue));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [end, duration, shouldStart]);
+
+  return count;
+}
+
 export function CapstoneCTA({ className }: CapstoneCTAProps) {
-  const capstoneUrl = process.env.NEXT_PUBLIC_CAPSTONE_URL || 'https://www.capstonegreenenergy.com';
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const count1 = useCountUp(71, 2000, isVisible);
+  const count2 = useCountUp(3.5, 2000, isVisible);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [isVisible]);
 
   return (
-    <section className={cn('py-16 md:py-24 bg-muted/20', className)}>
+    <section ref={sectionRef} className={cn('py-16 md:py-24 bg-[#F5F5F0]', className)}>
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto">
-          {/* Main CTA Card */}
-          <div className="p-8 md:p-12 rounded-lg bg-[#1a1a1a] text-white shadow-2xl mb-8">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-white mb-6">
-                Transforme su Operación Energética Hoy
+          {/* Main Card - Dark Background */}
+          <div className="p-8 md:p-12 rounded-2xl bg-[#1a1a1a] shadow-2xl">
+            {/* Title */}
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-white leading-tight">
+                La tecnología <span className="text-[#2D5F3F] font-semibold">Capstone</span> está presente en Bolivia impulsando la eficiencia energética
               </h2>
-              <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-                Reduzca costos operativos, disminuya su huella de carbono y garantice suministro energético confiable 24/7.
-              </p>
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* Primary CTA - Contact Form */}
-              <a
-                href="/contacto"
-                className={cn(
-                  'inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold',
-                  'bg-marca-green text-white shadow-lg',
-                  'transition-all duration-200',
-                  'hover:bg-marca-green/90 hover:shadow-xl hover:scale-105',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a]'
-                )}
-              >
-                <FileText className="h-5 w-5" aria-hidden="true" />
-                Solicitar Cotización Detallada
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
-              </a>
+            {/* Animated Counters Grid */}
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Counter 1 - Microturbinas */}
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-[#2D5F3F] mb-3">
+                  +{count1}
+                </div>
+                <p className="text-sm md:text-base text-white/90 font-medium">
+                  Microturbinas instaladas en Bolivia
+                </p>
+              </div>
 
-              {/* Secondary CTA - External Capstone */}
-              <a
-                href={capstoneUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  'inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold',
-                  'bg-transparent text-white border-2 border-white/40 shadow-lg',
-                  'transition-all duration-200',
-                  'hover:bg-white/10 hover:border-white/60 hover:shadow-xl hover:scale-105',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a]'
-                )}
-              >
-                Explorar Sitio Oficial Capstone
-                <ExternalLink className="h-5 w-5" aria-hidden="true" />
-              </a>
+              {/* Counter 2 - Capacidad */}
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-[#2D5F3F] mb-3">
+                  +{count2.toFixed(1)} MW
+                </div>
+                <p className="text-sm md:text-base text-white/90 font-medium">
+                  De capacidad instalada
+                </p>
+              </div>
+
+              {/* Counter 3 - Energía Limpia */}
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-[#2D5F3F] mb-3">
+                  100%
+                </div>
+                <p className="text-sm md:text-base text-white/90 font-medium">
+                  Energía limpia
+                </p>
+                <p className="text-xs md:text-sm text-white/70 mt-1">
+                  0 lubricantes, 0 refrigerantes
+                </p>
+              </div>
             </div>
           </div>
         </div>

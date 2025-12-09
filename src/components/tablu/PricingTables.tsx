@@ -25,27 +25,27 @@ export function PricingTables({ className }: PricingTablesProps) {
     {
       size: 'Mini',
       dimensions: '21 x 29.7 cm (A4)',
-      idealFor: 'Escritorio, mochila, uso personal diario',
-      features: ['Portátil', 'Perfecto para estudiantes', 'Incluye marcador'],
+      idealFor: 'Uso personal diario',
+      features: ['Portátil', 'Ideal estudiantes'],
     },
     {
       size: 'Mediano',
       dimensions: '30 x 40 cm',
-      idealFor: 'Home office, dormitorio, planificación semanal',
-      features: ['Ideal para hogar', 'Mayor visibilidad', '2 marcadores incluidos'],
+      idealFor: 'Home office',
+      features: ['Ideal hogar', 'Mayor visibilidad'],
     },
     {
       size: 'Grande',
       dimensions: '40 x 60 cm',
-      idealFor: 'Oficina, sala de reuniones, planificación mensual',
-      features: ['Alta visibilidad', 'Perfecto para equipos', '3 marcadores incluidos'],
+      idealFor: 'Oficinas y reuniones',
+      features: ['Alta visibilidad', 'Para equipos'],
       highlighted: true,
     },
     {
       size: 'Extra Grande',
       dimensions: '60 x 90 cm',
-      idealFor: 'Corporativo, salas de planificación, proyectos',
-      features: ['Máxima visibilidad', 'Uso corporativo', 'Kit completo de marcadores'],
+      idealFor: 'Uso corporativo',
+      features: ['Máxima visibilidad', 'Proyectos grandes'],
     },
   ];
 
@@ -53,21 +53,21 @@ export function PricingTables({ className }: PricingTablesProps) {
     {
       size: 'Pequeño',
       dimensions: '20 x 30 cm',
-      idealFor: 'Refrigerador, pizarra metálica, recordatorios',
-      features: ['Magnético fuerte', 'Fácil reposicionamiento', 'Marcador incluido'],
+      idealFor: 'Refrigerador, recordatorios',
+      features: ['Magnético fuerte', 'Fácil reposición'],
     },
     {
       size: 'Mediano',
       dimensions: '30 x 45 cm',
-      idealFor: 'Cocina, oficina en casa, planificación familiar',
-      features: ['Versátil', 'Ideal para espacios pequeños', '2 marcadores incluidos'],
+      idealFor: 'Cocina, hogar',
+      features: ['Versátil', 'Espacios pequeños'],
       highlighted: true,
     },
     {
       size: 'Grande',
       dimensions: '45 x 60 cm',
-      idealFor: 'Oficina, espacios de trabajo colaborativo',
-      features: ['Gran área de trabajo', 'Perfecto para equipos', '3 marcadores incluidos'],
+      idealFor: 'Oficina colaborativa',
+      features: ['Gran área', 'Para equipos'],
     },
   ];
 
@@ -107,9 +107,9 @@ export function PricingTables({ className }: PricingTablesProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-base text-white/90"
+          className="text-sm text-white/90"
         >
-          {title.includes('Acrílico') ? 'Cristalino y elegante, ideal para cualquier espacio' : 'Flexible y práctico, adhiere a cualquier superficie metálica'}
+          {title.includes('Acrílico') ? 'Elegante para cualquier espacio' : 'Práctico para superficies metálicas'}
         </motion.p>
       </div>
 
@@ -229,28 +229,27 @@ export function PricingTables({ className }: PricingTablesProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-12 p-6 md:p-8 rounded-2xl bg-white/10 backdrop-blur-sm border-2 border-white/20 shadow-2xl"
+            className="mt-12 p-6 md:p-8 rounded-2xl bg-white/10 backdrop-blur-sm border-2 border-white/20 shadow-2xl text-center"
           >
-            <h3 className="text-2xl font-bold text-white mb-3">
+            <h3 className="text-xl font-bold text-white mb-2">
               ¿Necesitas un tamaño personalizado?
             </h3>
-            <p className="text-base text-white/90 mb-4 leading-relaxed">
-              Ofrecemos planificadores en medidas personalizadas para proyectos corporativos o necesidades específicas.
-              Contáctanos para cotizaciones especiales.
+            <p className="text-sm text-white/90 mb-4">
+              Medidas personalizadas para proyectos corporativos.
             </p>
             <a
               href="https://wa.me/59167710595?text=Hola!%20Necesito%20un%20planificador%20en%20medida%20personalizada"
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                'inline-flex items-center gap-2 rounded-full px-8 py-3 text-base font-bold',
+                'inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold',
                 'bg-[#2ECC71] text-white shadow-lg',
                 'transition-all duration-200',
                 'hover:bg-[#27AE60] hover:scale-105',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2'
               )}
             >
-              Solicitar Cotización Personalizada
+              Solicitar Cotización
             </a>
           </motion.div>
         </div>
