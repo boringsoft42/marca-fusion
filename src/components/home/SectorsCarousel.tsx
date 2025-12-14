@@ -1,17 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import type React from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Factory, Building2, Heart, Briefcase, Home } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Factory, Building2, Heart, Briefcase, Home } from 'lucide-react';
 import { motion } from 'framer-motion';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 
 /**
  * Marca Fusión Sectors Accordion - Sierra Style
@@ -29,7 +24,12 @@ interface SectorsCarouselProps {
 }
 
 export function SectorsCarousel({ className }: SectorsCarouselProps) {
-  const [activeSector, setActiveSector] = useState('oilGas');
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number | null>(null);
 
   const sectors = [
     {
@@ -74,10 +74,50 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
     },
   ];
 
-  const currentSector = sectors.find((s) => s.key === activeSector) || sectors[0];
+  useEffect(() => {
+    const lerp = (start: number, end: number, factor: number) => {
+      return start + (end - start) * factor;
+    };
+
+    const animate = () => {
+      setSmoothPosition((prev) => ({
+        x: lerp(prev.x, mousePosition.x, 0.15),
+        y: lerp(prev.y, mousePosition.y, 0.15),
+      }));
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [mousePosition]);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setMousePosition({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    }
+  };
+
+  const handleMouseEnter = (index: number) => {
+    setHoveredIndex(index);
+    setIsVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+    setIsVisible(false);
+  };
 
   return (
-    <section className={cn('bg-sierra-cream py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
+    <section className={cn('bg-white py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
         {/* Section Title - Sierra Style */}
         <motion.div
@@ -88,111 +128,137 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary">
-            Sectores que Atendemos
+            <span className="font-bold">Sectores</span> que Atendemos
           </h2>
         </motion.div>
 
-        {/* Accordion + Image Grid - Glassmorphism Apple Style */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto"
+        {/* Project Showcase Style Layout */}
+        <div
+          ref={containerRef}
+          onMouseMove={handleMouseMove}
+          className="relative w-full max-w-4xl mx-auto"
         >
-          {/* Left: Accordion */}
-          <div className="order-2 lg:order-1">
-            <Accordion
-              type="single"
-              collapsible
-              value={activeSector}
-              onValueChange={(value) => value && setActiveSector(value)}
-              className="space-y-4"
-            >
-              {sectors.map((sector) => {
-                const Icon = sector.icon;
-                return (
-                  <AccordionItem
-                    key={sector.key}
-                    value={sector.key}
-                    className="relative group bg-white/60 backdrop-blur-xl rounded-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.06)] overflow-hidden transition-all duration-300 hover:shadow-[0_12px_48px_rgba(0,0,0,0.1)] hover:border-white/60"
-                  >
-                    {/* Subtle gradient background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-white/10 pointer-events-none" />
+          {/* Floating Image Preview - Hidden on mobile */}
+          <div
+            className="pointer-events-none fixed z-50 overflow-hidden rounded-xl shadow-2xl hidden lg:block"
+            style={{
+              left: containerRef.current?.getBoundingClientRect().left ?? 0,
+              top: containerRef.current?.getBoundingClientRect().top ?? 0,
+              transform: `translate3d(${smoothPosition.x + 20}px, ${smoothPosition.y - 100}px, 0)`,
+              opacity: isVisible ? 1 : 0,
+              scale: isVisible ? 1 : 0.8,
+              transition: 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+            }}
+          >
+            <div className="relative w-[320px] h-[240px] bg-secondary rounded-xl overflow-hidden">
+              {sectors.map((sector, index) => (
+                <Image
+                  key={sector.key}
+                  src={sector.image}
+                  alt={sector.alt}
+                  fill
+                  className="object-cover transition-all duration-500 ease-out"
+                  style={{
+                    opacity: hoveredIndex === index ? 1 : 0,
+                    scale: hoveredIndex === index ? 1 : 1.1,
+                    filter: hoveredIndex === index ? 'none' : 'blur(10px)',
+                  }}
+                />
+              ))}
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+            </div>
+          </div>
 
-                    <AccordionTrigger className="relative px-6 py-4 hover:no-underline group">
-                      <div className="flex items-center gap-4 text-left">
+          {/* Sectors List - Project Showcase Style */}
+          <div className="space-y-0">
+            {sectors.map((sector, index) => {
+              const Icon = sector.icon;
+              return (
+                <div
+                  key={sector.key}
+                  className="group block"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="relative py-5 border-t border-[#e0e0e0] transition-all duration-300 ease-out">
+                    {/* Background highlight on hover */}
+                    <div
+                      className={cn(
+                        'absolute inset-0 -mx-4 px-4 bg-[#f9f9f9]/50 rounded-lg transition-all duration-300 ease-out',
+                        hoveredIndex === index ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                      )}
+                    />
+
+                    <div className="relative flex items-start justify-between gap-4">
+                      <div className="flex items-center gap-4 flex-1 min-w-0">
+                        {/* Icon */}
                         <div
                           className={cn(
-                            'p-3 rounded-xl transition-all duration-300 backdrop-blur-sm',
-                            activeSector === sector.key
+                            'p-3 rounded-sm transition-all duration-300',
+                            hoveredIndex === index
                               ? 'bg-sierra-green/20 shadow-[0_4px_12px_rgba(13,104,50,0.2)]'
-                              : 'bg-white/40 group-hover:bg-sierra-green/10'
+                              : 'bg-white/40'
                           )}
                         >
                           <Icon
                             className={cn(
                               'h-6 w-6 transition-colors duration-300',
-                              activeSector === sector.key
-                                ? 'text-sierra-green'
-                                : 'text-sierra-text-secondary group-hover:text-sierra-green'
+                              hoveredIndex === index ? 'text-sierra-green' : 'text-sierra-text-secondary'
                             )}
                             strokeWidth={1.5}
                             aria-hidden="true"
                           />
                         </div>
-                        <span
-                          className={cn(
-                            'text-lg font-medium transition-colors duration-300',
-                            activeSector === sector.key
-                              ? 'text-sierra-green'
-                              : 'text-sierra-text-primary group-hover:text-sierra-green'
-                          )}
-                        >
-                          {sector.title}
-                        </span>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="relative px-6 pb-4 pt-0">
-                      <p className="text-[15px] text-sierra-text-secondary leading-relaxed pl-[52px]">
-                        {sector.description}
-                      </p>
-                      {/* Mobile Image - Shown only on small screens */}
-                      <div className="mt-4 lg:hidden pl-[52px]">
-                        <div className="relative aspect-video rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.1)]">
-                          <Image
-                            src={sector.image}
-                            alt={sector.alt}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                          />
+
+                        <div className="flex-1 min-w-0">
+                          {/* Title with animated underline */}
+                          <div className="inline-flex items-center gap-2">
+                            <h3 className="text-sierra-text-primary font-medium text-lg tracking-tight">
+                              <span className="relative">
+                                {sector.title}
+                                {/* Animated underline */}
+                                <span
+                                  className={cn(
+                                    'absolute left-0 -bottom-0.5 h-px bg-sierra-green transition-all duration-300 ease-out',
+                                    hoveredIndex === index ? 'w-full' : 'w-0'
+                                  )}
+                                />
+                              </span>
+                            </h3>
+
+                            {/* Arrow that slides in */}
+                            <ArrowUpRight
+                              className={cn(
+                                'w-4 h-4 text-sierra-text-secondary transition-all duration-300 ease-out',
+                                hoveredIndex === index
+                                  ? 'opacity-100 translate-x-0 translate-y-0'
+                                  : 'opacity-0 -translate-x-2 translate-y-2'
+                              )}
+                            />
+                          </div>
+
+                          {/* Description with fade effect */}
+                          <p
+                            className={cn(
+                              'text-sierra-text-secondary text-sm mt-1 leading-relaxed transition-all duration-300 ease-out',
+                              hoveredIndex === index ? 'text-sierra-text-primary/70' : 'text-sierra-text-secondary'
+                            )}
+                          >
+                            {sector.description}
+                          </p>
                         </div>
                       </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                );
-              })}
-            </Accordion>
-          </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
 
-          {/* Right: Image Preview - Hidden on mobile */}
-          <div className="order-1 lg:order-2 hidden lg:block">
-            <div className="sticky top-8">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
-                <Image
-                  key={currentSector.key}
-                  src={currentSector.image}
-                  alt={currentSector.alt}
-                  fill
-                  className="object-cover transition-opacity duration-500"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-            </div>
+            {/* Bottom border for last item */}
+            <div className="border-t border-[#e0e0e0]" />
           </div>
-        </motion.div>
+        </div>
 
         {/* CTA Button - Sierra Style */}
         <motion.div
@@ -205,15 +271,15 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
           <Link
             href="/sectores"
             className={cn(
-              'inline-flex items-center gap-2 px-7 py-3 rounded-xl text-[15px] font-medium',
+              'inline-flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold tracking-wide uppercase',
               'bg-sierra-green text-white',
-              'transition-colors duration-200',
+              'transition-all duration-300',
               'hover:bg-sierra-green-hover',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sierra-green focus-visible:ring-offset-2'
             )}
           >
             Ver todos los sectores
-            <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
+            <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
           </Link>
         </motion.div>
       </div>

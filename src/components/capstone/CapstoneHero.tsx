@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Header } from '@/components/layout/Header';
 
 /**
  * Capstone Green Energy Hero Section - Sierra Style with Animations
@@ -27,6 +28,11 @@ export function CapstoneHero({ className }: CapstoneHeroProps) {
         className
       )}
     >
+      {/* Header positioned absolutely over video */}
+      <div className="absolute top-0 left-0 right-0 z-50">
+        <Header />
+      </div>
+
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -45,7 +51,7 @@ export function CapstoneHero({ className }: CapstoneHeroProps) {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20 py-24 md:py-32">
+      <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20 py-24 md:py-32 pt-24">
         <div className="max-w-5xl mx-auto">
           {/* Main Headline - Animated */}
           <motion.h1

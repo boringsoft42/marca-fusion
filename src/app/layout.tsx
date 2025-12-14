@@ -4,7 +4,7 @@ import "./globals.css";
 import { QueryProvider } from "@/lib/providers/QueryProvider";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/context/theme-context";
-import { Header } from '@/components/layout/Header';
+import { ConditionalHeader } from '@/components/layout/ConditionalHeader';
 import { Footer } from '@/components/layout/Footer';
 import { structuredData } from '@/lib/seo/structured-data';
 
@@ -82,8 +82,8 @@ export default function RootLayout({
         <ThemeProvider defaultTheme="light" storageKey="marca-fusion-theme">
           <QueryProvider>
             <div className="flex min-h-screen flex-col">
-              {/* Header with navigation */}
-              <Header />
+              {/* Header with navigation (only on non-home pages) */}
+              <ConditionalHeader />
 
               {/* Main content */}
               <main className="flex-1">

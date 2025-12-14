@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { ArrowLeftRight, ArrowRight, Globe } from 'lucide-react';
+import { ArrowLeftRight, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 /**
@@ -26,11 +26,13 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
   return (
     <section
       className={cn(
-        'bg-[#1a1a1a] py-16 md:py-20 lg:py-24 overflow-hidden',
+        'bg-[#1a1a1a] py-16 md:py-20 lg:py-24 overflow-hidden relative',
         className
       )}
     >
-      <div className="container mx-auto px-6 md:px-10 lg:px-20">
+      {/* Gradient transition to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-[#1a1a1a] via-[#1a1a1a]/80 to-transparent pointer-events-none z-10" />
+      <div className="container relative z-20 mx-auto px-6 md:px-10 lg:px-20">
         {/* Section Title - Dark Theme */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,14 +41,8 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-3xl bg-[#2a2a2a] border border-[#333] shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
-            <Globe className="h-4 w-4 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
-            <span className="text-sm font-medium text-white uppercase tracking-wider">
-              Conexión Global
-            </span>
-          </div>
           <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-white mb-4">
-            Un grupo, una visión: conectar Bolivia con el mundo
+            Un <span className="font-bold">grupo</span>, una <span className="font-bold">visión</span>: conectar Bolivia con el mundo
           </h2>
         </motion.div>
 
@@ -61,134 +57,135 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
           <div className="grid md:grid-cols-3 gap-8 items-center">
             {/* Marca Fusión - Bolivia */}
             <div className="text-center">
-              <div className="inline-flex flex-col items-center p-8 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-                <div className="relative h-16 w-32 mb-4">
-                  <Image
-                    src="/images/Logo_Marca_Fusión_Transparente.png"
-                    alt="Marca Fusión"
-                    fill
-                    className="object-contain"
-                  />
+              <div className="relative group inline-flex flex-col items-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-sm blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <div className="relative bg-white/10 backdrop-blur-xl rounded-sm p-8 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300">
+                  <div className="relative h-16 w-32 mb-4">
+                    <Image
+                      src="/images/Logo_Marca_Fusión_Transparente.png"
+                      alt="Marca Fusión"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <h3 className="text-lg font-medium text-white mb-1">
+                    Marca Fusión
+                  </h3>
+                  <p className="text-sm text-white/90 flex items-center gap-1">
+                    <span className="text-lg">🇧🇴</span>
+                    Bolivia
+                  </p>
                 </div>
-                <h3 className="text-lg font-medium text-sierra-text-primary mb-1">
-                  Marca Fusión
-                </h3>
-                <p className="text-sm text-sierra-text-secondary flex items-center gap-1">
-                  <span className="text-lg">🇧🇴</span>
-                  Bolivia
-                </p>
               </div>
             </div>
 
-            {/* Animated Connection Line - Data Transfer Visual */}
+            {/* Professional Connection Line - Subtle Data Flow */}
             <div className="flex items-center justify-center relative">
               <div className="relative w-full h-16 flex items-center">
-                {/* Base Line */}
+                {/* Base Connection Line - Subtle */}
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full h-[2px] bg-gradient-to-r from-sierra-green via-white to-marca-steel-500 opacity-30" />
+                  <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                 </div>
 
-                {/* Animated Light Bits - Going Right (Bolivia -> USA) */}
+                {/* Animated Gradient Pulse - Subtle flow effect */}
                 <motion.div
-                  className="absolute h-3 w-3 rounded-full bg-white shadow-[0_0_10px_2px_rgba(255,255,255,0.8)]"
-                  initial={{ left: '0%', opacity: 0 }}
+                  className="absolute h-[2px] w-1/3 bg-gradient-to-r from-transparent via-marca-green/40 to-transparent"
+                  initial={{ left: '-33%', opacity: 0 }}
                   animate={{
-                    left: ['0%', '100%'],
-                    opacity: [0, 1, 1, 0],
+                    left: ['-33%', '133%'],
+                    opacity: [0, 0.6, 0.6, 0],
                   }}
                   transition={{
-                    duration: 2,
+                    duration: 4,
                     repeat: Infinity,
-                    ease: 'linear',
+                    ease: 'easeInOut',
                     delay: 0,
                   }}
                 />
+
+                {/* Second Pulse - Delayed for continuous flow */}
                 <motion.div
-                  className="absolute h-3 w-3 rounded-full bg-white shadow-[0_0_10px_2px_rgba(255,255,255,0.8)]"
-                  initial={{ left: '0%', opacity: 0 }}
+                  className="absolute h-[2px] w-1/3 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  initial={{ left: '-33%', opacity: 0 }}
                   animate={{
-                    left: ['0%', '100%'],
-                    opacity: [0, 1, 1, 0],
+                    left: ['-33%', '133%'],
+                    opacity: [0, 0.5, 0.5, 0],
                   }}
                   transition={{
-                    duration: 2,
+                    duration: 4,
                     repeat: Infinity,
-                    ease: 'linear',
-                    delay: 0.7,
+                    ease: 'easeInOut',
+                    delay: 2,
                   }}
                 />
 
-                {/* Animated Light Bits - Going Left (USA -> Bolivia) */}
-                <motion.div
-                  className="absolute h-3 w-3 rounded-full bg-marca-green shadow-[0_0_10px_2px_rgba(16,185,129,0.8)]"
-                  initial={{ left: '100%', opacity: 0 }}
-                  animate={{
-                    left: ['100%', '0%'],
-                    opacity: [0, 1, 1, 0],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'linear',
-                    delay: 0.35,
-                  }}
-                />
-                <motion.div
-                  className="absolute h-3 w-3 rounded-full bg-marca-green shadow-[0_0_10px_2px_rgba(16,185,129,0.8)]"
-                  initial={{ left: '100%', opacity: 0 }}
-                  animate={{
-                    left: ['100%', '0%'],
-                    opacity: [0, 1, 1, 0],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'linear',
-                    delay: 1.05,
-                  }}
-                />
-
-                {/* Center Icon - Bidirectional Transfer */}
+                {/* Center Connection Node - Professional Design */}
                 <div className="relative flex justify-center w-full">
+                  <div className="relative">
+                    {/* Outer ring - subtle pulse */}
+                    <motion.div
+                      className="absolute inset-0 rounded-full border border-marca-green/30"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.3, 0.5, 0.3],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                      }}
+                    />
+                    {/* Inner node */}
+                    <div className="relative w-12 h-12 flex items-center justify-center rounded-full bg-[#1a1a1a] border border-white/10 shadow-[0_2px_8px_rgba(0,0,0,0.2)]">
+                      <ArrowLeftRight className="h-5 w-5 text-marca-green/80" strokeWidth={1.5} aria-hidden="true" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Subtle connection dots along the line */}
+                {[0, 1, 2, 3, 4].map((index) => (
                   <motion.div
-                    className="px-4 py-2 bg-[#2a2a2a] rounded-full border border-[#333] shadow-[0_2px_8px_rgba(0,0,0,0.1)]"
+                    key={index}
+                    className="absolute h-1 w-1 rounded-full bg-marca-green/40"
+                    style={{
+                      left: `${20 + index * 15}%`,
+                    }}
                     animate={{
-                      boxShadow: [
-                        '0 2px 8px rgba(0,0,0,0.1)',
-                        '0 2px 12px rgba(16,185,129,0.3)',
-                        '0 2px 8px rgba(0,0,0,0.1)',
-                      ],
+                      opacity: [0.2, 0.6, 0.2],
+                      scale: [0.8, 1, 0.8],
                     }}
                     transition={{
                       duration: 2,
                       repeat: Infinity,
                       ease: 'easeInOut',
+                      delay: index * 0.3,
                     }}
-                  >
-                    <ArrowLeftRight className="h-6 w-6 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
-                  </motion.div>
-                </div>
+                  />
+                ))}
               </div>
             </div>
 
             {/* Altrix Solutions - USA */}
             <div className="text-center">
-              <div className="inline-flex flex-col items-center p-8 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-                <div className="relative h-16 w-32 mb-4">
-                  <Image
-                    src="/images/Imagotipo_color.png"
-                    alt="Altrix Solutions"
-                    fill
-                    className="object-contain"
-                  />
+              <div className="relative group inline-flex flex-col items-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-sm blur-xl group-hover:blur-2xl transition-all duration-300" />
+                <div className="relative bg-white/10 backdrop-blur-xl rounded-sm p-8 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300">
+                  <div className="relative h-16 w-32 mb-4">
+                    <Image
+                      src="/images/Imagotipo_color.png"
+                      alt="Altrix Solutions"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <h3 className="text-lg font-medium text-white mb-1">
+                    Altrix Solutions
+                  </h3>
+                  <p className="text-sm text-white/90 flex items-center gap-1">
+                    <span className="text-lg">🇺🇸</span>
+                    USA
+                  </p>
                 </div>
-                <h3 className="text-lg font-medium text-sierra-text-primary mb-1">
-                  Altrix Solutions
-                </h3>
-                <p className="text-sm text-sierra-text-secondary flex items-center gap-1">
-                  <span className="text-lg">🇺🇸</span>
-                  USA
-                </p>
               </div>
             </div>
           </div>

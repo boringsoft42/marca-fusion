@@ -45,6 +45,8 @@
     "cmdk": "1.0.0",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
+    "embla-carousel-auto-scroll": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.475.0",
     "motion": "^12.4.7",

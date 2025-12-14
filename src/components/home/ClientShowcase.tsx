@@ -2,17 +2,16 @@
 
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { PlusIcon } from 'lucide-react';
 import { motion, type HTMLMotionProps } from 'framer-motion';
 
 /**
- * Marca Fusión Client Showcase - Logo Cloud Style
+ * Marca Fusión Client Showcase - Animated Logo Grid
  *
  * Features:
- * - Logo Cloud grid layout with 21st.dev style
+ * - Clean logo grid without borders
+ * - Smooth hover animations (21st.dev logos3 style)
+ * - Larger logos for better visibility
  * - Split sections for Capstone and Tablú clients
- * - Clean,minimal design with borders and grid
- * - Framer Motion animations
  */
 
 interface ClientShowcaseProps {
@@ -45,7 +44,7 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
   ];
 
   return (
-    <section className={cn('bg-white py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
+    <section className={cn('bg-white py-16 md:py-20 lg:py-24 overflow-hidden border-t border-[#e0e0e0]', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
         {/* Section Title */}
         <motion.div
@@ -56,7 +55,7 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-[#1a1a1a] mb-3">
-            Nuestros Clientes
+            Nuestros <span className="font-bold">Clientes</span>
           </h2>
           <p className="text-sm md:text-[15px] text-[#716F6C] max-w-2xl mx-auto">
             Empresas líderes que confían en nuestras soluciones
@@ -69,7 +68,7 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-16"
+          className="mb-8 pb-6 border-b border-[#e0e0e0]"
         >
           <div className="text-center mb-6">
             <h3 className="text-xl md:text-2xl font-medium text-marca-green mb-2">
@@ -78,58 +77,14 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
             <div className="w-16 h-1 bg-marca-green mx-auto rounded-full" />
           </div>
 
-          <div className="relative grid grid-cols-2 border-x md:grid-cols-3 max-w-5xl mx-auto rounded-lg overflow-hidden">
-            <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t border-[#e0e0e0]" />
-
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12 max-w-6xl mx-auto">
             {capstoneClients.map((client, index) => (
               <LogoCard
                 key={index}
-                className={cn(
-                  'border-b border-r',
-                  (index + 1) % 2 === 0 && 'md:border-r',
-                  (index + 1) % 3 === 0 && 'md:border-r-0',
-                  index % 2 === 1 && 'border-r-0 md:border-r',
-                  index === 0 && 'bg-[#f9f9f9]',
-                  index === 2 && 'md:bg-[#f9f9f9]',
-                  index === 4 && 'md:bg-[#f9f9f9]'
-                )}
                 logo={client}
                 index={index}
-              >
-                {index === 0 && (
-                  <PlusIcon
-                    className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 text-[#e0e0e0]"
-                    strokeWidth={1}
-                  />
-                )}
-                {index === 2 && (
-                  <>
-                    <PlusIcon
-                      className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 text-[#e0e0e0]"
-                      strokeWidth={1}
-                    />
-                    <PlusIcon
-                      className="-bottom-[12.5px] -left-[12.5px] absolute z-10 hidden size-6 md:block text-[#e0e0e0]"
-                      strokeWidth={1}
-                    />
-                  </>
-                )}
-                {index === 4 && (
-                  <>
-                    <PlusIcon
-                      className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 text-[#e0e0e0]"
-                      strokeWidth={1}
-                    />
-                    <PlusIcon
-                      className="-bottom-[12.5px] -left-[12.5px] absolute z-10 hidden size-6 md:block text-[#e0e0e0]"
-                      strokeWidth={1}
-                    />
-                  </>
-                )}
-              </LogoCard>
+              />
             ))}
-
-            <div className="-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b border-[#e0e0e0]" />
           </div>
         </motion.div>
 
@@ -147,27 +102,14 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
             <div className="w-16 h-1 bg-[#716F6C] mx-auto rounded-full" />
           </div>
 
-          <div className="relative grid grid-cols-2 border-x md:grid-cols-3 max-w-5xl mx-auto rounded-lg overflow-hidden">
-            <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t border-[#e0e0e0]" />
-
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12 max-w-6xl mx-auto">
             {tabluClients.map((client, index) => (
               <LogoCard
                 key={index}
-                className={cn(
-                  'border-b border-r',
-                  (index + 1) % 2 === 0 && 'md:border-r',
-                  (index + 1) % 3 === 0 && 'md:border-r-0',
-                  index % 2 === 1 && 'border-r-0 md:border-r',
-                  index === 1 && 'bg-[#f9f9f9]',
-                  index === 3 && 'md:bg-[#f9f9f9]',
-                  index === 5 && 'md:bg-[#f9f9f9]'
-                )}
                 logo={client}
                 index={index}
               />
             ))}
-
-            <div className="-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b border-[#e0e0e0]" />
           </div>
         </motion.div>
       </div>
@@ -178,38 +120,38 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
 type LogoCardProps = Omit<HTMLMotionProps<'div'>, 'ref' | 'children'> & {
   logo: Logo;
   index: number;
-  children?: React.ReactNode;
 };
 
-function LogoCard({ logo, className, children, index, ...props }: LogoCardProps) {
+function LogoCard({ logo, index, ...props }: LogoCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
-      className={cn(
-        'flex items-center justify-center bg-white px-4 py-8 md:p-10 relative',
-        className
-      )}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ scale: 1.1, y: -5 }}
+      className="group flex items-center justify-center relative"
       {...props}
     >
       {logo.image ? (
-        <div className="relative w-full h-20 md:h-24">
+        <motion.div
+          className="relative w-full h-40 md:h-48 lg:h-56"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
           <Image
             src={logo.image}
             alt={logo.name}
             fill
-            className="object-contain"
-            sizes="(max-width: 768px) 50vw, 33vw"
+            className="object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
           />
-        </div>
+        </motion.div>
       ) : (
         <span className="text-sm md:text-base font-medium text-[#1a1a1a] text-center">
           {logo.name}
         </span>
       )}
-      {children}
     </motion.div>
   );
 }

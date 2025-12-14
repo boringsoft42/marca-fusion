@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Header } from '@/components/layout/Header';
 
 /**
  * Marca Fusión About Hero Section - Sierra Style with Animations
@@ -29,6 +30,11 @@ export function AboutHero({ className }: AboutHeroProps) {
         className
       )}
     >
+      {/* Header positioned absolutely over background */}
+      <div className="absolute top-0 left-0 right-0 z-50">
+        <Header />
+      </div>
+
       {/* Background Image - Santa Cruz */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -43,7 +49,7 @@ export function AboutHero({ className }: AboutHeroProps) {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20 py-20 md:py-32">
+      <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20 py-20 md:py-32 pt-24">
         <div className="max-w-4xl mx-auto text-center">
           {/* Location Badge - Animated */}
           <motion.div

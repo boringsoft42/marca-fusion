@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { Header } from '@/components/layout/Header';
 
 /**
  * Tablú Hero Section - Peru Style
@@ -89,6 +90,11 @@ function TabluImageCarousel() {
 export function TabluHero({ className }: TabluHeroProps) {
   return (
     <section className={cn('relative py-0 bg-[#FF7777] overflow-hidden min-h-[600px]', className)}>
+      {/* Header positioned absolutely over background */}
+      <div className="absolute top-0 left-0 right-0 z-50">
+        <Header />
+      </div>
+
       {/* Decorative Elements - Top Left */}
       <div className="absolute top-0 left-0 w-64 h-64 opacity-60">
         <svg viewBox="0 0 200 200" className="w-full h-full">
@@ -138,7 +144,7 @@ export function TabluHero({ className }: TabluHeroProps) {
         </div>
       </motion.div>
 
-      <div className="container mx-auto px-6 md:px-10 lg:px-20 relative z-10 py-16">
+      <div className="container mx-auto px-6 md:px-10 lg:px-20 relative z-10 py-16 pt-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}

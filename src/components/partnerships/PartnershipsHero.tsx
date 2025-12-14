@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { Handshake } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { Header } from '@/components/layout/Header';
 
 /**
  * Partnerships Hero Section - Sierra Style with Animations
@@ -59,6 +60,11 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
         className
       )}
     >
+      {/* Header positioned absolutely over background */}
+      <div className="absolute top-0 left-0 right-0 z-50">
+        <Header />
+      </div>
+
       {/* Background Image Carousel */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence initial={false}>
@@ -86,7 +92,7 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 md:px-10 lg:px-20 py-16 sm:py-20 md:py-24 lg:py-32">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 md:px-10 lg:px-20 py-16 sm:py-20 md:py-24 lg:py-32 pt-24">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge - Animated */}
           <motion.div

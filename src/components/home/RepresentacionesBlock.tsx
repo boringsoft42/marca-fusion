@@ -36,7 +36,7 @@ export function RepresentacionesBlock({ className }: RepresentacionesBlockProps)
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary">
-            Nuestras Representaciones
+            Nuestras <span className="font-bold">Representaciones</span>
           </h2>
         </motion.div>
 
@@ -87,15 +87,15 @@ export function RepresentacionesBlock({ className }: RepresentacionesBlockProps)
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                'inline-flex items-center gap-2 px-7 py-3 rounded-xl text-[15px] font-medium w-fit',
+                'inline-flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold tracking-wide uppercase w-fit',
                 'bg-sierra-green text-white',
-                'transition-colors duration-200',
+                'transition-all duration-300',
                 'hover:bg-sierra-green-hover',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sierra-green focus-visible:ring-offset-2'
               )}
             >
               Conocer Capstone
-              <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
+              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
             </Link>
           </motion.div>
 
@@ -144,15 +144,15 @@ export function RepresentacionesBlock({ className }: RepresentacionesBlockProps)
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                'inline-flex items-center gap-2 px-7 py-3 rounded-xl text-[15px] font-medium w-fit',
-                'bg-[#4A5BA8] text-white',
-                'transition-colors duration-200',
-                'hover:bg-[#3d4d8f]',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4A5BA8] focus-visible:ring-offset-2'
+                'inline-flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold tracking-wide uppercase w-fit',
+                'bg-[#DC2626] text-white',
+                'transition-all duration-300',
+                'hover:bg-[#B91C1C]',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#DC2626] focus-visible:ring-offset-2'
               )}
             >
               Ver Catálogo Tablú
-              <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
+              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
             </Link>
           </motion.div>
         </div>

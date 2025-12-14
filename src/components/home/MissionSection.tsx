@@ -23,6 +23,8 @@ interface MissionSectionProps {
 export function MissionSection({ className }: MissionSectionProps) {
   return (
     <section className={cn('relative py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
+      {/* Gradient transition from previous section */}
+      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-[#1a1a1a] via-[#1a1a1a]/80 to-transparent pointer-events-none z-10" />
       {/* Background Image with Blur */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -36,7 +38,7 @@ export function MissionSection({ className }: MissionSectionProps) {
         <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a]/70 via-marca-green/20 to-[#2a2a2a]/75" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20">
+      <div className="container relative z-20 mx-auto px-6 md:px-10 lg:px-20">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -46,7 +48,7 @@ export function MissionSection({ className }: MissionSectionProps) {
           className="text-center mb-12 max-w-3xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-white mb-6">
-            Tu puente hacia la <span className="text-marca-green">tecnología</span> y la <span className="text-marca-green">sostenibilidad</span>
+            Tu puente hacia la <span className="font-bold text-white">tecnología</span> y la <span className="font-bold text-white">sostenibilidad</span>
           </h2>
 
           <motion.p
@@ -77,8 +79,8 @@ export function MissionSection({ className }: MissionSectionProps) {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-              <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-sm blur-xl group-hover:blur-2xl transition-all duration-300" />
+              <div className="relative bg-white/10 backdrop-blur-xl rounded-sm p-8 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300">
                 <div className="inline-block px-5 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-5 shadow-lg border border-white/30">
                   <span className="text-white font-bold text-base tracking-wide">B2B</span>
                 </div>
@@ -99,8 +101,8 @@ export function MissionSection({ className }: MissionSectionProps) {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-              <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-sm blur-xl group-hover:blur-2xl transition-all duration-300" />
+              <div className="relative bg-white/10 backdrop-blur-xl rounded-sm p-8 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300">
                 <div className="inline-block px-5 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-5 shadow-lg border border-white/30">
                   <span className="text-white font-bold text-base tracking-wide">B2C</span>
                 </div>
