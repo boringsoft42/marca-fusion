@@ -39,7 +39,7 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
 
           {/* Connection Visual - Dark Theme */}
           <div className="mb-12">
-            <div className="relative overflow-hidden rounded-2xl bg-[#0a0a0a] border border-white/10 shadow-2xl p-8 md:p-12">
+            <div className="relative overflow-hidden rounded-sm bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] p-8 md:p-12">
               <div className="relative z-10 grid md:grid-cols-3 gap-8 items-center">
                 {/* USA - Altrix Solutions */}
                 <div className="text-center">
@@ -51,7 +51,7 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                   >
                     <div className="transition-all duration-300 hover:scale-105">
                       {/* Altrix logo - White Background */}
-                      <div className="relative h-24 w-48 mx-auto mb-4 p-6 rounded-xl bg-white shadow-lg group-hover:shadow-xl transition-all">
+                      <div className="relative h-24 w-48 mx-auto mb-4 p-6 rounded-sm bg-white shadow-lg group-hover:shadow-xl transition-all">
                         <Image
                           src="/images/Imagotipo_color.png"
                           alt="Altrix Solutions"
@@ -167,7 +167,7 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                 <div className="text-center">
                   <div className="transition-all duration-300 hover:scale-105">
                     {/* Marca Fusión logo - White Background */}
-                    <div className="relative h-24 w-48 mx-auto mb-4 p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all">
+                    <div className="relative h-24 w-48 mx-auto mb-4 p-6 rounded-sm bg-white shadow-lg hover:shadow-xl transition-all">
                       <Image
                         src="/images/Logo_Marca_Fusión_Transparente.png"
                         alt="Marca Fusión"

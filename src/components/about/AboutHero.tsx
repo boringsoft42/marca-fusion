@@ -1,7 +1,6 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Header } from '@/components/layout/Header';
@@ -26,7 +25,7 @@ export function AboutHero({ className }: AboutHeroProps) {
   return (
     <section
       className={cn(
-        'relative min-h-[500px] md:min-h-[600px] flex items-center overflow-hidden bg-sierra-cream',
+        'relative bg-sierra-cream py-20 md:py-32 lg:py-40 overflow-hidden min-h-screen flex items-center',
         className
       )}
     >
@@ -41,45 +40,48 @@ export function AboutHero({ className }: AboutHeroProps) {
           src="/images/Santa Cruz (1).jpg"
           alt="Santa Cruz de la Sierra, Bolivia"
           fill
-          className="object-cover brightness-75"
+          className="object-cover"
           priority
         />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      {/* Content */}
-      <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20 py-20 md:py-32 pt-24">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Location Badge - Animated */}
+      <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20 pt-24">
+        <div className="max-w-3xl">
+          {/* Logo - Above title */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-3xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-12"
           >
-            <MapPin className="h-4 w-4 text-sierra-green" strokeWidth={1.5} aria-hidden="true" />
-            <span className="text-sm font-medium text-sierra-text-primary">
-              Santa Cruz de la Sierra, Bolivia
-            </span>
+            <Image
+              src="/images/Logo_Marca_Fusión_Transparente.png"
+              alt="Marca Fusión Logo"
+              width={60}
+              height={60}
+              className="h-14 w-auto brightness-0 invert"
+              priority
+            />
           </motion.div>
 
-          {/* Main Headline - Animated */}
+          {/* Hero Title - Left aligned */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-3xl md:text-4xl lg:text-[48px] font-normal text-white leading-tight tracking-tight mb-6"
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight tracking-tight text-white mb-8"
           >
             ¿QUIÉNES SOMOS?
           </motion.h1>
 
-          {/* Subtitle - Animated */}
+          {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-base md:text-lg text-white/90 leading-relaxed max-w-3xl mx-auto"
+            transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="text-base md:text-lg text-white/90 leading-relaxed mb-12 font-light"
           >
             Conectamos Bolivia con el mundo a través de representaciones estratégicas que impulsan innovación, sostenibilidad y desarrollo.
           </motion.p>

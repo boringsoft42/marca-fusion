@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/context/theme-context";
 import { ConditionalHeader } from '@/components/layout/ConditionalHeader';
 import { Footer } from '@/components/layout/Footer';
+import { ScrollSmootherProvider } from '@/components/layout/ScrollSmootherProvider';
 import { structuredData } from '@/lib/seo/structured-data';
 
 const APP_NAME = "Marca Fusión SRL";
@@ -81,19 +82,26 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-sierra-cream`}>
         <ThemeProvider defaultTheme="light" storageKey="marca-fusion-theme">
           <QueryProvider>
-            <div className="flex min-h-screen flex-col">
-              {/* Header with navigation (only on non-home pages) */}
-              <ConditionalHeader />
+            <ScrollSmootherProvider>
+              {/* ScrollSmoother wrapper structure */}
+              <div id="smooth-wrapper">
+                <div id="smooth-content">
+                  <div className="flex min-h-screen flex-col">
+                    {/* Header with navigation (only on non-home pages) */}
+                    <ConditionalHeader />
 
-              {/* Main content */}
-              <main className="flex-1">
-                {children}
-              </main>
+                    {/* Main content */}
+                    <main className="flex-1">
+                      {children}
+                    </main>
 
-              {/* Footer */}
-              <Footer />
-            </div>
-            <Toaster />
+                    {/* Footer */}
+                    <Footer />
+                  </div>
+                </div>
+              </div>
+              <Toaster />
+            </ScrollSmootherProvider>
           </QueryProvider>
         </ThemeProvider>
       </body>

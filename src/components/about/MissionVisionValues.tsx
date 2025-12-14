@@ -76,9 +76,9 @@ export function MissionVisionValues({ className }: MissionVisionValuesProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.2 }}
-                  className="relative p-8 md:p-10 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300"
+                  className="relative p-8 md:p-10 rounded-sm bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-marca-green/10 to-transparent rounded-2xl" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-marca-green/10 to-transparent rounded-sm" />
                   <div className="relative">
                     <div className="inline-flex p-3 rounded-xl bg-marca-green/20 mb-4">
                       <Icon className="h-6 w-6 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
@@ -116,7 +116,7 @@ export function MissionVisionValues({ className }: MissionVisionValuesProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-marca-green/50 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(45,95,63,0.2)]"
+                  className="p-6 rounded-sm bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300"
                 >
                   <div className="inline-flex p-2 rounded-lg bg-marca-green/20 mb-3">
                     <Icon className="h-5 w-5 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
