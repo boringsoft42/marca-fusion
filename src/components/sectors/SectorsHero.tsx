@@ -73,7 +73,7 @@ export function SectorsHero({ className }: SectorsHeroProps) {
                 {/* Bottom Black Section */}
                 <div className="bg-[#1a1a1a] p-8 text-white relative z-10 -mt-2">
                   <p className="text-lg font-medium leading-relaxed mb-8 text-white/90 italic">
-                    "Innovación energética y organización personal. Dos mundos, un compromiso de calidad."
+                    &ldquo;Innovación energética y organización personal. Dos mundos, un compromiso de calidad.&rdquo;
                   </p>
                   
                   {/* Logos Row */}

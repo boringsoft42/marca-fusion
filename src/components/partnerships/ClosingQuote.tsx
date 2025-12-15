@@ -82,7 +82,7 @@ export function ClosingQuote({ className }: ClosingQuoteProps) {
               </div>
               
               <h3 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-white leading-tight mb-6">
-                "El éxito de una alianza no se mide solo en términos comerciales, sino en el valor compartido que creamos juntos."
+                &ldquo;El éxito de una alianza no se mide solo en términos comerciales, sino en el valor compartido que creamos juntos.&rdquo;
               </h3>
               
               <p className="text-white/70 text-base leading-relaxed max-w-2xl mt-auto pt-8 border-t border-white/10">

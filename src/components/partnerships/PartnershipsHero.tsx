@@ -102,7 +102,7 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
                 {/* Bottom Black Section */}
                 <div className="bg-[#1a1a1a] p-8 text-white relative z-10 -mt-2">
                   <p className="text-lg font-medium leading-relaxed mb-8 text-white/90 italic">
-                    "El éxito de una alianza no se mide solo en términos comerciales, sino en el valor compartido que creamos juntos."
+                    &ldquo;El éxito de una alianza no se mide solo en términos comerciales, sino en el valor compartido que creamos juntos.&rdquo;
                   </p>
                   
                   <div className="mt-6 text-right border-t border-white/20 pt-6">

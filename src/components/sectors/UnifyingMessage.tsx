@@ -84,7 +84,7 @@ export function UnifyingMessage({ className }: UnifyingMessageProps) {
               </div>
               
               <h3 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-white leading-tight mb-6">
-                "Lo que nos define no es solo lo que vendemos, sino el valor que generamos. Conectamos tecnología y organización para transformar realidades."
+                &ldquo;Lo que nos define no es solo lo que vendemos, sino el valor que generamos. Conectamos tecnología y organización para transformar realidades.&rdquo;
               </h3>
               
               <p className="text-white/70 text-base leading-relaxed max-w-2xl">
