@@ -22,9 +22,10 @@ interface MobileMenuProps {
   isOpen: boolean;
   onLinkClick?: () => void;
   className?: string;
+  textDark?: boolean;
 }
 
-export function MobileMenu({ isOpen, onLinkClick, className }: MobileMenuProps) {
+export function MobileMenu({ isOpen, onLinkClick, className, textDark = false }: MobileMenuProps) {
   const [isRepresentationsOpen, setIsRepresentationsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -63,8 +64,9 @@ export function MobileMenu({ isOpen, onLinkClick, className }: MobileMenuProps) 
   return (
     <div
       className={cn(
-        'md:hidden border-t border-border bg-background',
+        'md:hidden border-t bg-background',
         'animate-in slide-in-from-top-4 fade-in-0 duration-200',
+        textDark ? 'border-[#e0e0e0] bg-white' : 'border-border',
         className
       )}
       role="navigation"

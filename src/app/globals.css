@@ -170,6 +170,11 @@
   :focus-visible {
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
+
+  /* Animation paused utility */
+  .animation-paused {
+    animation-play-state: paused;
+  }
 }
 /*---break---
  */

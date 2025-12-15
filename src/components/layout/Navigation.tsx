@@ -21,11 +21,17 @@ import { ChevronDown } from 'lucide-react';
 interface NavigationProps {
   className?: string;
   onLinkClick?: () => void;
+  textDark?: boolean;
 }
 
-export function Navigation({ className, onLinkClick }: NavigationProps) {
+export function Navigation({ className, onLinkClick, textDark = false }: NavigationProps) {
   const [isRepresentationsOpen, setIsRepresentationsOpen] = useState(false);
   const pathname = usePathname();
+  
+  // Text color classes based on textDark prop
+  const textColorClass = textDark ? 'text-[#1a1a1a]' : 'text-white';
+  const hoverColorClass = textDark ? 'hover:text-[#2D5F3F]' : 'hover:text-[#2D5F3F]';
+  const activeColorClass = 'text-[#2D5F3F] font-bold';
 
   // Navigation items configuration (Spanish only)
   const navItems = [
@@ -74,9 +80,10 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
                 type="button"
                 className={cn(
                   'inline-flex items-center gap-1 px-4 py-2 text-[14px] font-semibold transition-colors duration-300',
-                  'hover:text-marca-green',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2',
-                  isDropdownItemActive ? 'text-marca-green font-bold' : 'text-white'
+                  hoverColorClass,
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+                  textDark ? 'focus-visible:ring-[#1a1a1a]' : 'focus-visible:ring-white',
+                  isDropdownItemActive ? activeColorClass : textColorClass
                 )}
                 aria-expanded={isRepresentationsOpen}
                 aria-haspopup="true"
@@ -108,7 +115,7 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
                           'block rounded-md px-4 py-2 text-[14px] transition-colors',
                           'hover:bg-[#f5f5f5] hover:text-[#1a1a1a]',
                           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-                          isActive(subItem.href) ? 'bg-[#f5f5f5] text-[#1a1a1a] font-medium' : 'text-[#716F6C]'
+                          isActive(subItem.href) ? 'bg-[#f5f5f5] text-[#2D5F3F] font-bold' : 'text-[#716F6C]'
                         )}
                         onClick={onLinkClick}
                         role="menuitem"
@@ -131,9 +138,10 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
             href={item.href!}
             className={cn(
               'inline-flex items-center px-4 py-2 text-[14px] font-semibold transition-colors duration-300',
-              'hover:text-marca-green',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2',
-              isActive(item.href!) ? 'text-marca-green font-bold' : 'text-white'
+              hoverColorClass,
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+              textDark ? 'focus-visible:ring-[#1a1a1a]' : 'focus-visible:ring-white',
+              isActive(item.href!) ? activeColorClass : textColorClass
             )}
             onClick={onLinkClick}
           >
@@ -151,7 +159,8 @@ export function Navigation({ className, onLinkClick }: NavigationProps) {
           'bg-[#2D5F3F] rounded-sm',
           'transition-all duration-200',
           'hover:bg-[#234830]',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2'
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+          textDark ? 'focus-visible:ring-[#1a1a1a]' : 'focus-visible:ring-white'
         )}
         onClick={onLinkClick}
       >

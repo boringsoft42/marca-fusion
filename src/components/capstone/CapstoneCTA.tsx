@@ -2,16 +2,16 @@
 
 import { cn } from '@/lib/utils';
 import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 /**
- * Capstone Impact Counters Section
+ * Capstone Impact Counters Section - Bar Style
  *
  * Features:
- * - Animated counters that count up on scroll
- * - Impact statistics for Bolivia
- * - Dark card design
- * - Responsive design
- * - Follows STYLE-GUIDE.md design patterns
+ * - Visual style matching reference image (black bar with dividers)
+ * - Animated counters
+ * - Clean typography with white text
+ * - Vertical dividers
  */
 
 interface CapstoneCTAProps {
@@ -50,7 +50,10 @@ export function CapstoneCTA({ className }: CapstoneCTAProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const count1 = useCountUp(71, 2000, isVisible);
-  const count2 = useCountUp(3.5, 2000, isVisible);
+  // Para decimales manejamos la animación manualmente o simplificamos a entero en el hook y luego formateamos
+  // Aquí el hook retorna entero, para 3.5 podemos animar hasta 35 y dividir por 10
+  const count2Raw = useCountUp(35, 2000, isVisible);
+  const count2 = (count2Raw / 10).toFixed(1);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -75,53 +78,62 @@ export function CapstoneCTA({ className }: CapstoneCTAProps) {
 
   return (
     <section ref={sectionRef} className={cn('py-16 md:py-24 bg-[#F5F5F0]', className)}>
-      <div className="container mx-auto px-6">
-        <div className="max-w-5xl mx-auto">
-          {/* Main Card - Dark Background */}
-          <div className="p-8 md:p-12 rounded-2xl bg-[#1a1a1a] shadow-2xl">
-            {/* Title */}
-            <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-white leading-tight">
-                La tecnología <span className="text-[#2D5F3F] font-semibold">Capstone</span> está presente en Bolivia impulsando la eficiencia energética
-              </h2>
-            </div>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          
+          {/* Optional Title outside the metric bar */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-normal text-[#1a1a1a] leading-tight max-w-4xl mx-auto">
+              La tecnología <span className="text-[#2D5F3F] font-semibold">Capstone</span> está presente en Bolivia impulsando la eficiencia energética.
+            </h2>
+          </div>
 
-            {/* Animated Counters Grid */}
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Counter 1 - Microturbinas */}
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-[#2D5F3F] mb-3">
-                  +{count1}
+          {/* Metrics Bar - Black Background with Dividers */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full bg-black text-white rounded-[2rem] overflow-hidden shadow-2xl"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
+              
+              {/* Metric 1 */}
+              <div className="p-8 md:py-16 md:px-8 text-center flex flex-col items-center justify-center group hover:bg-white/5 transition-colors duration-300">
+                <div className="text-3xl md:text-4xl lg:text-4xl font-bold text-white mb-4 tracking-tight">
+                  {count1}+
                 </div>
-                <p className="text-sm md:text-base text-white/90 font-medium">
-                  Microturbinas instaladas en Bolivia
+                <p className="text-sm md:text-base text-white/70 max-w-[200px] leading-relaxed">
+                  Microturbinas instaladas operando en Bolivia
                 </p>
               </div>
 
-              {/* Counter 2 - Capacidad */}
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-[#2D5F3F] mb-3">
-                  +{count2.toFixed(1)} MW
+              {/* Metric 2 */}
+              <div className="p-8 md:py-16 md:px-8 text-center flex flex-col items-center justify-center group hover:bg-white/5 transition-colors duration-300">
+                <div className="text-3xl md:text-4xl lg:text-4xl font-bold text-white mb-4 tracking-tight">
+                  {count2} <span className="text-xl md:text-2xl">MW</span>
                 </div>
-                <p className="text-sm md:text-base text-white/90 font-medium">
-                  De capacidad instalada
+                <p className="text-sm md:text-base text-white/70 max-w-[200px] leading-relaxed">
+                  De capacidad instalada y generación continua
                 </p>
               </div>
 
-              {/* Counter 3 - Energía Limpia */}
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-[#2D5F3F] mb-3">
+              {/* Metric 3 */}
+              <div className="p-8 md:py-16 md:px-8 text-center flex flex-col items-center justify-center group hover:bg-white/5 transition-colors duration-300">
+                <div className="text-3xl md:text-4xl lg:text-4xl font-bold text-white mb-4 tracking-tight">
                   100%
                 </div>
-                <p className="text-sm md:text-base text-white/90 font-medium">
-                  Energía limpia
+                <p className="text-sm md:text-base text-white/70 max-w-[200px] leading-relaxed mb-1">
+                  Energía limpia y eficiente
                 </p>
-                <p className="text-xs md:text-sm text-white/70 mt-1">
-                  0 lubricantes, 0 refrigerantes
+                <p className="text-xs text-white/40 uppercase tracking-widest font-medium">
+                  0 lubricantes • 0 refrigerantes
                 </p>
               </div>
+
             </div>
-          </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

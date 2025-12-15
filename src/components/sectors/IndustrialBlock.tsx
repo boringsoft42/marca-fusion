@@ -9,12 +9,13 @@ import { useState } from 'react';
  * Industrial Sectors Block (Capstone)
  *
  * Features:
+ * - Dark theme background for contrast
  * - 4 industrial sector cards with hover-expand functionality
  * - Oil & Gas, Industrial, Hospitalario, Comercial
  * - Icon-based visual hierarchy
  * - Expandable applications on hover
  * - CTA to Capstone page
- * - Green branding
+ * - Green branding adapted for dark mode
  * - Follows STYLE-GUIDE-SIERRA.md design patterns
  */
 
@@ -56,20 +57,21 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
   ];
 
   return (
-    <section id="sectors" className={cn('bg-white py-16 md:py-20 lg:py-24', className)}>
+    <section id="sectors" className={cn('bg-[#1a1a1a] py-16 md:py-20 lg:py-24', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12">
+          <div className="mb-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-3xl bg-[#0d6832]/10 border border-[#0d6832]/20 mb-6"
+              className="mb-6"
             >
-              <Factory className="h-5 w-5 text-[#0d6832]" strokeWidth={1.5} aria-hidden="true" />
-              <span className="text-[15px] font-medium text-[#0d6832]">Capstone Green Energy</span>
+              <span className="text-sm uppercase tracking-wider font-medium text-white/80">
+                ◆ Sectores Industriales
+              </span>
             </motion.div>
 
             <motion.h2
@@ -77,9 +79,9 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-[48px] font-normal text-[#1a1a1a] mb-4"
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
             >
-              Sectores Industriales
+              Sectores Industriales.
             </motion.h2>
 
             <motion.p
@@ -87,7 +89,7 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-[15px] text-[#6b6b6b] max-w-3xl mx-auto leading-relaxed"
+              className="text-base md:text-lg text-white/70 max-w-3xl leading-relaxed"
             >
               Microturbinas de alta eficiencia para generación de energía distribuida, cogeneración y respaldo crítico
               en los sectores más exigentes.
@@ -109,45 +111,30 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
                   transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
                   onMouseEnter={() => setHoveredSector(index)}
                   onMouseLeave={() => setHoveredSector(null)}
-                  className="relative cursor-pointer"
+                  className="relative cursor-pointer group"
                 >
-                  <div className="pb-6">
+                  <div className="pb-6 border-b border-white/10 group-hover:border-marca-green/50 transition-colors duration-300">
                     {/* Icon */}
                     <div className="mb-4">
-                      <div
+                      <Icon
                         className={cn(
-                          'inline-flex p-4 rounded-full transition-all duration-300',
-                          isHovered ? 'bg-[#0d6832]' : 'bg-[#0d6832]/10'
+                          'h-8 w-8 transition-colors duration-300',
+                          isHovered ? 'text-marca-green' : 'text-white'
                         )}
-                      >
-                        <Icon
-                          className={cn(
-                            'h-7 w-7 transition-colors duration-300',
-                            isHovered ? 'text-white' : 'text-[#0d6832]'
-                          )}
-                          strokeWidth={1.5}
-                          aria-hidden="true"
-                        />
-                      </div>
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
                     </div>
 
                     {/* Title */}
                     <h4
                       className={cn(
                         'text-lg font-bold mb-3 transition-colors duration-300',
-                        isHovered ? 'text-[#0d6832]' : 'text-sierra-text-primary'
+                        isHovered ? 'text-marca-green' : 'text-white'
                       )}
                     >
                       {sector.title}
                     </h4>
-
-                    {/* Bottom Line Indicator */}
-                    <div
-                      className={cn(
-                        'h-1 w-full mb-4 transition-all duration-300',
-                        isHovered ? 'bg-[#0d6832]' : 'bg-gray-200'
-                      )}
-                    />
 
                     {/* Expandable Content */}
                     <div
@@ -157,20 +144,20 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
                       )}
                     >
                       {/* Description */}
-                      <p className="text-sm text-sierra-text-secondary leading-relaxed mb-4">
+                      <p className="text-sm text-white/70 leading-relaxed mb-4">
                         {sector.description}
                       </p>
 
                       {/* Applications */}
                       <div>
-                        <p className="text-xs font-medium text-[#6b6b6b] mb-2 uppercase tracking-wider">
+                        <p className="text-xs font-medium text-white/50 mb-2 uppercase tracking-wider">
                           Aplicaciones:
                         </p>
                         <ul className="space-y-1.5">
                           {sector.applications.map((app, idx) => (
                             <li key={idx} className="flex items-start gap-2 text-sm">
-                              <span className="text-[#0d6832] mt-0.5">✓</span>
-                              <span className="text-[#6b6b6b]">{app}</span>
+                              <span className="text-marca-green mt-0.5">✓</span>
+                              <span className="text-white/80">{app}</span>
                             </li>
                           ))}
                         </ul>
@@ -188,12 +175,12 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-center p-8 md:p-10 rounded-2xl bg-[#ebe8e3] shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+            className="text-center p-8 md:p-10 rounded-2xl bg-[#2a2a2a] border border-white/5"
           >
-            <h3 className="text-xl font-medium text-[#1a1a1a] mb-3">
+            <h3 className="text-xl font-medium text-white mb-3">
               ¿Tu sector requiere soluciones energéticas confiables?
             </h3>
-            <p className="text-[15px] text-[#6b6b6b] mb-6 max-w-2xl mx-auto">
+            <p className="text-[15px] text-white/70 mb-6 max-w-2xl mx-auto">
               Descubre cómo las microturbinas Capstone pueden transformar la eficiencia energética de tu operación
               industrial.
             </p>
@@ -207,7 +194,7 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
               </a>
               <a
                 href="/contacto"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3 text-[15px] font-medium bg-white text-[#1a1a1a] border-2 border-[#0d6832]/30 transition-all duration-200 hover:bg-[#0d6832]/5 hover:border-[#0d6832]/50"
+                className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3 text-[15px] font-medium bg-transparent text-white border-2 border-white/20 transition-all duration-200 hover:bg-white/10 hover:border-white/40"
               >
                 Solicitar Asesoría Técnica
               </a>

@@ -64,6 +64,13 @@ export function MissionVisionValues({ className }: MissionVisionValuesProps) {
   return (
     <section className={cn('py-12 md:py-16 lg:py-20 bg-[#1a1a1a]', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
+        {/* Section Label */}
+        <div className="max-w-6xl mx-auto mb-8">
+          <span className="text-sm uppercase tracking-wider font-medium text-white">
+            ◆ Misión y Visión
+          </span>
+        </div>
+
         {/* Misión y Visión */}
         <div className="max-w-6xl mx-auto mb-16">
           <div className="grid md:grid-cols-2 gap-8">
@@ -83,8 +90,8 @@ export function MissionVisionValues({ className }: MissionVisionValuesProps) {
                     <div className="inline-flex p-3 rounded-xl bg-marca-green/20 mb-4">
                       <Icon className="h-6 w-6 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
                     </div>
-                    <h3 className="text-2xl font-semibold text-white mb-4">{item.name}</h3>
-                    <p className="text-[15px] text-white/80 leading-relaxed">{item.description}</p>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{item.name}</h3>
+                    <p className="text-base md:text-lg text-white/80 leading-relaxed">{item.description}</p>
                   </div>
                 </motion.div>
               );
@@ -99,15 +106,19 @@ export function MissionVisionValues({ className }: MissionVisionValuesProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-10"
+            className="mb-10"
           >
-            <h2 className="text-3xl md:text-4xl font-normal text-white mb-3">
-              Valores
+            <span className="text-sm uppercase tracking-wider font-medium text-white mb-4 block">
+              ◆ Valores
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
+              Nuestros Valores.
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((value, idx) => {
+          {/* First row: 3 cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            {values.slice(0, 3).map((value, idx) => {
               const Icon = value.Icon;
               return (
                 <motion.div
@@ -121,11 +132,36 @@ export function MissionVisionValues({ className }: MissionVisionValuesProps) {
                   <div className="inline-flex p-2 rounded-lg bg-marca-green/20 mb-3">
                     <Icon className="h-5 w-5 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
                   </div>
-                  <h4 className="text-lg font-semibold text-white mb-2">{value.name}</h4>
-                  <p className="text-sm text-white/70 leading-relaxed">{value.description}</p>
+                  <h4 className="text-lg md:text-xl font-bold text-white mb-2">{value.name}</h4>
+                  <p className="text-base text-white/80 leading-relaxed">{value.description}</p>
                 </motion.div>
               );
             })}
+          </div>
+
+          {/* Second row: 2 cards centered */}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl w-full">
+              {values.slice(3).map((value, idx) => {
+                const Icon = value.Icon;
+                return (
+                  <motion.div
+                    key={idx + 3}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: (idx + 3) * 0.1 }}
+                    className="p-6 rounded-sm bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300"
+                  >
+                    <div className="inline-flex p-2 rounded-lg bg-marca-green/20 mb-3">
+                      <Icon className="h-5 w-5 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-white mb-2">{value.name}</h4>
+                    <p className="text-sm text-white/70 leading-relaxed">{value.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

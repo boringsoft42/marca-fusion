@@ -4,16 +4,16 @@ import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Zap, Recycle, Settings, TrendingDown } from 'lucide-react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 /**
- * Microturbine Technology Explanation Section
+ * Microturbine Technology Explanation Section - Dark Theme
  *
  * Features:
- * - Technology description and explanation
- * - Key benefits with icons
- * - Technical highlights
+ * - Dark background (#1a1a1a) for contrast with Parallax Hero
+ * - White text and styled components
  * - Responsive grid layout
- * - Follows STYLE-GUIDE.md design patterns
+ * - Z-index handling for parallax overlap effect
  */
 
 interface MicroturbineExplanationProps {
@@ -47,20 +47,44 @@ export function MicroturbineExplanation({ className }: MicroturbineExplanationPr
   ];
 
   return (
-    <section className={cn('py-16 md:py-24 bg-white', className)}>
+    <section className={cn('py-20 md:py-24 lg:py-32 bg-[#1a1a1a] relative z-10', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Title */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary">
-              Microturbinas para una energía eficiente y sostenible
-            </h2>
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-left mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-6"
+            >
+              <span className="text-sm uppercase tracking-wider font-medium text-white/80">
+                ◆ Tecnología Eficiente
+              </span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+            >
+              Microturbinas para una energía <span className="block text-white/60">eficiente y sostenible.</span>
+            </motion.h2>
           </div>
 
           {/* Two Column Layout */}
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
             {/* Left: Image */}
-            <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+            >
               <Image
                 src="/images/ROTATING GROUPS, REAR, SANITIZED.jpg"
                 alt="Rotating Groups Capstone Microturbine"
@@ -68,25 +92,42 @@ export function MicroturbineExplanation({ className }: MicroturbineExplanationPr
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+            </motion.div>
 
             {/* Right: Text Content */}
-            <div className="space-y-6">
-              <p className="text-[15px] md:text-base text-sierra-text-secondary leading-relaxed">
-                Las <span className="text-[#2D5F3F] font-semibold">microturbinas Capstone</span> son sistemas compactos de generación distribuida que utilizan turbinas de gas de alta velocidad para producir electricidad y calor para cogeneración (CHP) con altos niveles de eficiencia. Gracias a su diseño con una sola pieza móvil, ofrecen mayor confiabilidad, libre de lubricantes y refrigerantes, menos desgaste y costos de mantenimiento significativamente reducidos frente a los generadores tradicionales.
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-8"
+            >
+              <p className="text-lg text-white/80 leading-relaxed">
+                Las <span className="text-marca-green font-bold">microturbinas Capstone</span> son sistemas compactos de generación distribuida que utilizan turbinas de gas de alta velocidad para producir electricidad y calor para cogeneración (CHP) con altos niveles de eficiencia.
               </p>
 
-              <p className="text-[15px] md:text-base text-sierra-text-secondary leading-relaxed">
-                Estas unidades destacan por su capacidad de operar con múltiples combustibles —gas natural, biogás, GLP, diésel, propano y gases de vertedero— lo que brinda una flexibilidad operativa excepcional y las convierte en una solución ideal para aplicaciones industriales, comerciales y proyectos de energías renovables.
+              <p className="text-lg text-white/70 leading-relaxed">
+                Gracias a su diseño con una sola pieza móvil, ofrecen mayor confiabilidad, libre de lubricantes y refrigerantes, menos desgaste y costos de mantenimiento significativamente reducidos frente a los generadores tradicionales.
               </p>
-            </div>
+              
+              <p className="text-lg text-white/70 leading-relaxed">
+                Estas unidades destacan por su capacidad de operar con múltiples combustibles —gas natural, biogás, GLP, diésel, propano y gases de vertedero.
+              </p>
+            </motion.div>
           </div>
 
           {/* Benefits Section */}
-          <div className="mt-16">
-            <h3 className="text-2xl md:text-3xl font-bold text-sierra-text-primary text-center mb-12">
-              Beneficios Clave
-            </h3>
+          <div className="mt-24">
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl md:text-4xl font-bold text-white mb-12"
+            >
+              Beneficios Clave.
+            </motion.h3>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit, index) => {
@@ -94,54 +135,43 @@ export function MicroturbineExplanation({ className }: MicroturbineExplanationPr
                 const isHovered = hoveredBenefit === index;
 
                 return (
-                  <div
+                  <motion.div
                     key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
                     onMouseEnter={() => setHoveredBenefit(index)}
                     onMouseLeave={() => setHoveredBenefit(null)}
-                    className="relative cursor-pointer"
+                    className="relative cursor-pointer group"
                   >
-                    <div className="pb-6">
+                    <div className="pb-8 border-b border-white/10 group-hover:border-marca-green/50 transition-colors duration-300 min-h-[200px]">
                       {/* Icon */}
-                      <div className="mb-4">
-                        <div className={cn(
-                          'inline-flex p-4 rounded-full transition-all duration-300',
-                          isHovered ? 'bg-[#2D5F3F]' : 'bg-[#2D5F3F]/10'
-                        )}>
-                          <Icon
-                            className={cn(
-                              'h-7 w-7 transition-colors duration-300',
-                              isHovered ? 'text-white' : 'text-[#2D5F3F]'
-                            )}
-                            aria-hidden="true"
-                          />
-                        </div>
+                      <div className="mb-6">
+                        <Icon
+                          className={cn(
+                            'h-10 w-10 transition-colors duration-300',
+                            isHovered ? 'text-marca-green' : 'text-white'
+                          )}
+                          strokeWidth={1.5}
+                          aria-hidden="true"
+                        />
                       </div>
 
                       {/* Title */}
                       <h4 className={cn(
-                        'text-lg font-bold mb-3 transition-colors duration-300',
-                        isHovered ? 'text-[#2D5F3F]' : 'text-sierra-text-primary'
+                        'text-xl font-bold mb-4 transition-colors duration-300',
+                        isHovered ? 'text-marca-green' : 'text-white'
                       )}>
                         {benefit.title}
                       </h4>
 
-                      {/* Bottom line under title */}
-                      <div className={cn(
-                        'h-1 w-full mb-4 transition-all duration-300',
-                        isHovered ? 'bg-[#2D5F3F]' : 'bg-gray-200'
-                      )} />
-
-                      {/* Description - Expandable */}
-                      <div className={cn(
-                        'overflow-hidden transition-all duration-500 ease-in-out',
-                        isHovered ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
-                      )}>
-                        <p className="text-sm text-sierra-text-secondary leading-relaxed">
-                          {benefit.description}
-                        </p>
-                      </div>
+                      {/* Description - Always visible now for cleaner layout in dark mode */}
+                      <p className="text-sm text-white/60 leading-relaxed group-hover:text-white/80 transition-colors duration-300">
+                        {benefit.description}
+                      </p>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>

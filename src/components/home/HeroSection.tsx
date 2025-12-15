@@ -4,8 +4,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Header } from '@/components/layout/Header';
+import { useRef } from 'react';
 
 /**
  * Marca Fusión Home Hero Section - Left-aligned Layout with Logo
@@ -16,6 +17,7 @@ import { Header } from '@/components/layout/Header';
  * - Background video with dark overlay
  * - Bold typography hierarchy in hero title
  * - Framer Motion animations
+ * - Parallax scroll effect - next section scrolls over hero
  * - Responsive design with mobile-first approach
  */
 
@@ -24,10 +26,24 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ className }: HeroSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  // Parallax scroll animation
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  // Transform for parallax effect - background moves slower
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.3]);
+
   return (
     <section
+      ref={sectionRef}
       className={cn(
-        'relative bg-sierra-cream py-20 md:py-32 lg:py-40 overflow-hidden min-h-screen flex items-center',
+        'relative bg-sierra-cream py-20 md:py-32 lg:py-40 overflow-hidden min-h-screen flex items-center sticky top-0 z-10',
         className
       )}
     >
@@ -36,8 +52,11 @@ export function HeroSection({ className }: HeroSectionProps) {
         <Header />
       </div>
 
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Video with parallax */}
+      <motion.div 
+        className="absolute inset-0 z-0"
+        style={{ y: backgroundY }}
+      >
         <video
           autoPlay
           loop
@@ -49,11 +68,17 @@ export function HeroSection({ className }: HeroSectionProps) {
         >
           <source src="/images/YPFB Transporte - CAIGUA (1).mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+        {/* Dark overlay for text readability with opacity transition */}
+        <motion.div 
+          className="absolute inset-0 bg-black/50" 
+          style={{ opacity }}
+        />
+      </motion.div>
 
-      <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20 pt-24">
+      <motion.div 
+        className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20 pt-24"
+        style={{ y: contentY }}
+      >
         <div className="max-w-3xl">
           {/* Logo - Above title */}
           <motion.div
@@ -117,7 +142,7 @@ export function HeroSection({ className }: HeroSectionProps) {
             </Link>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

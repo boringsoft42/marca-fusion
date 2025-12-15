@@ -66,14 +66,14 @@ export function AboutHero({ className }: AboutHeroProps) {
             />
           </motion.div>
 
-          {/* Hero Title - Left aligned */}
+          {/* Hero Title - Large, bold */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight tracking-tight text-white mb-8"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white mb-8"
           >
-            ¿QUIÉNES SOMOS?
+            ¿Quiénes somos?
           </motion.h1>
 
           {/* Subtitle */}
@@ -81,7 +81,7 @@ export function AboutHero({ className }: AboutHeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-base md:text-lg text-white/90 leading-relaxed mb-12 font-light"
+            className="text-base md:text-lg text-white/90 leading-relaxed mb-12 font-normal"
           >
             Conectamos Bolivia con el mundo a través de representaciones estratégicas que impulsan innovación, sostenibilidad y desarrollo.
           </motion.p>

@@ -76,20 +76,21 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
   ];
 
   return (
-    <section className={cn('bg-[#ebe8e3] py-16 md:py-20 lg:py-24', className)}>
+    <section className={cn('bg-white py-16 md:py-20 lg:py-24', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12">
+          <div className="mb-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-3xl bg-white/80 border border-[#6b6b6b]/20 mb-6"
+              className="mb-6"
             >
-              <Home className="h-5 w-5 text-[#6b6b6b]" strokeWidth={1.5} aria-hidden="true" />
-              <span className="text-[15px] font-medium text-[#6b6b6b]">Tablú Bolivia</span>
+              <span className="text-sm uppercase tracking-wider font-medium text-[#1a1a1a]">
+                ◆ Perfiles Personales
+              </span>
             </motion.div>
 
             <motion.h2
@@ -97,9 +98,9 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-[48px] font-normal text-[#1a1a1a] mb-4"
+              className="text-4xl md:text-5xl font-bold text-[#1a1a1a] mb-6"
             >
-              Perfiles Personales
+              Perfiles Personales.
             </motion.h2>
 
             <motion.p
@@ -107,7 +108,7 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-[15px] text-[#6b6b6b] max-w-3xl mx-auto leading-relaxed"
+              className="text-base md:text-lg text-[#666] max-w-3xl leading-relaxed"
             >
               Planificadores digitales diseñados para cada estilo de vida. Organiza tu día, tu semana y tus metas
               con herramientas visuales que se adaptan a ti.
@@ -129,45 +130,30 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
                   transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
                   onMouseEnter={() => setHoveredProfile(index)}
                   onMouseLeave={() => setHoveredProfile(null)}
-                  className="relative cursor-pointer"
+                  className="relative cursor-pointer group"
                 >
-                  <div className="pb-6">
+                  <div className="pb-6 border-b border-gray-200 group-hover:border-[#4A5BA8] transition-colors duration-300">
                     {/* Icon */}
                     <div className="mb-4">
-                      <div
+                      <Icon
                         className={cn(
-                          'inline-flex p-4 rounded-full transition-all duration-300',
-                          isHovered ? 'bg-[#4A5BA8]' : 'bg-[#4A5BA8]/10'
+                          'h-8 w-8 transition-colors duration-300',
+                          isHovered ? 'text-[#4A5BA8]' : 'text-[#4A5BA8]'
                         )}
-                      >
-                        <Icon
-                          className={cn(
-                            'h-7 w-7 transition-colors duration-300',
-                            isHovered ? 'text-white' : 'text-[#4A5BA8]'
-                          )}
-                          strokeWidth={1.5}
-                          aria-hidden="true"
-                        />
-                      </div>
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
                     </div>
 
                     {/* Title */}
                     <h4
                       className={cn(
                         'text-lg font-bold mb-3 transition-colors duration-300',
-                        isHovered ? 'text-[#4A5BA8]' : 'text-sierra-text-primary'
+                        isHovered ? 'text-[#4A5BA8]' : 'text-[#1a1a1a]'
                       )}
                     >
                       {profile.title}
                     </h4>
-
-                    {/* Bottom Line Indicator */}
-                    <div
-                      className={cn(
-                        'h-1 w-full mb-4 transition-all duration-300',
-                        isHovered ? 'bg-[#4A5BA8]' : 'bg-gray-200'
-                      )}
-                    />
 
                     {/* Expandable Content */}
                     <div
@@ -208,7 +194,7 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-center p-8 md:p-10 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+            className="text-center p-8 md:p-10 rounded-2xl bg-[#f5f5f5] border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
           >
             <h3 className="text-xl font-medium text-[#1a1a1a] mb-3">
               ¿Listo para organizar tu vida con estilo?

@@ -122,15 +122,19 @@ export default {
   			'8xl': '88rem',
   			'9xl': '96rem'
   		},
-  		animation: {
-  			'shiny-text': 'shiny-text 8s infinite',
-  			shine: 'shine var(--duration) infinite linear',
-  			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
-  			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
-  			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out',
-  			wave: 'wave 1.2s ease-in-out infinite'
-  		},
+		animation: {
+			'shiny-text': 'shiny-text 8s infinite',
+			shine: 'shine var(--duration) infinite linear',
+			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
+			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
+			'accordion-down': 'accordion-down 0.2s ease-out',
+			'accordion-up': 'accordion-up 0.2s ease-out',
+			wave: 'wave 1.2s ease-in-out infinite',
+			scroll: 'scroll 30s linear infinite',
+			'scroll-slow': 'scroll 45s linear infinite',
+			'scroll-fast': 'scroll 20s linear infinite',
+			'scroll-reverse': 'scroll-reverse 30s linear infinite'
+		},
   		keyframes: {
   			wave: {
   				'0%, 100%': {
@@ -186,15 +190,31 @@ export default {
   					height: 'var(--radix-accordion-content-height)'
   				}
   			},
-  			'accordion-up': {
-  				from: {
-  					height: 'var(--radix-accordion-content-height)'
-  				},
-  				to: {
-  					height: '0'
-  				}
-  			}
-  		}
+			'accordion-up': {
+				from: {
+					height: 'var(--radix-accordion-content-height)'
+				},
+				to: {
+					height: '0'
+				}
+			},
+			scroll: {
+				'0%': {
+					transform: 'translateX(0)'
+				},
+				'100%': {
+					transform: 'translateX(calc(-100% - 2rem))'
+				}
+			},
+			'scroll-reverse': {
+				'0%': {
+					transform: 'translateX(calc(-100% - 2rem))'
+				},
+				'100%': {
+					transform: 'translateX(0)'
+				}
+			}
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],

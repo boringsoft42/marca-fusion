@@ -7,16 +7,15 @@ import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 /**
- * Marca Fusión Representations Block
+ * Marca Fusión Representations Block - Dark Theme
  *
  * Features:
+ * - Dark background design matching reference
  * - Split visual layout (Capstone left, Tablú right)
- * - Brand-specific styling (green for Capstone, beige for Tablú)
- * - Individual CTAs for each representation
- * - Hover effects with smooth transitions
- * - Responsive design with mobile stacking
- * - Icon integration for visual interest
- * - Follows STYLE-GUIDE.md design patterns
+ * - Minimalist card style with dark background
+ * - White text/icons for contrast
+ * - Subtle hover effects
+ * - Responsive design
  */
 
 interface RepresentacionesBlockProps {
@@ -25,134 +24,105 @@ interface RepresentacionesBlockProps {
 
 export function RepresentacionesBlock({ className }: RepresentacionesBlockProps) {
   return (
-    <section className={cn('bg-white py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
+    <section className={cn('bg-[#111111] py-20 md:py-24 lg:py-32 overflow-hidden relative z-20', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
-        {/* Section Title - Sierra Style */}
+        {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-sierra-text-primary">
-            Nuestras <span className="font-bold">Representaciones</span>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xs font-bold text-white uppercase tracking-widest">◆ Representaciones</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight tracking-tight">
+            Nuestras Representaciones.
           </h2>
         </motion.div>
 
-        {/* Split Layout - Sierra Style Cards */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          {/* Capstone Block - Left - Sierra Style */}
+        {/* Split Layout - Dark Cards */}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-7xl mx-auto">
+          {/* Capstone Block - Dark Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] p-10 md:p-12 lg:p-16 flex flex-col justify-between min-h-[400px] transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+            className="group bg-[#1a1a1a] rounded-xl p-8 md:p-10 lg:p-12 flex flex-col min-h-[400px] border border-white/5 hover:border-white/10 transition-colors duration-300"
           >
             {/* Logo */}
-            <div className="flex items-start justify-between mb-6">
-              <div className="relative w-32 h-16">
+            <div className="mb-8">
+              <div className="relative w-40 h-12 mb-2">
                 <Image
                   src="/images/color_image.png"
                   alt="Capstone Green Energy"
                   fill
-                  className="object-contain object-left"
+                  className="object-contain object-left brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
                 />
               </div>
-              {/* Brand location */}
-              <div className="text-right">
-                <span className="text-sm font-medium text-sierra-text-primary uppercase tracking-wider">
-                  CAPSTONE
-                </span>
-                <p className="text-xs text-sierra-text-secondary mt-1">
-                  Green Energy
-                </p>
-              </div>
+              <div className="h-1 w-12 bg-white/20 rounded-full mt-4"></div>
             </div>
 
             {/* Content */}
             <div className="flex-1 mb-8">
-              <h3 className="text-xl md:text-2xl font-medium text-sierra-text-primary mb-4">
+              <h3 className="text-2xl font-bold text-white mb-3">
                 Capstone Green Energy (EE. UU.)
               </h3>
-              <p className="text-[15px] text-sierra-text-secondary leading-relaxed">
+              <p className="text-white/60 text-lg leading-relaxed">
                 Microturbinas y soluciones energéticas limpias.
               </p>
             </div>
 
-            {/* CTA - Sierra Style */}
+            {/* CTA */}
             <Link
               href="/capstone"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                'inline-flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold tracking-wide uppercase w-fit',
-                'bg-sierra-green text-white',
-                'transition-all duration-300',
-                'hover:bg-sierra-green-hover',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sierra-green focus-visible:ring-offset-2'
-              )}
+              className="inline-flex items-center gap-2 text-white font-medium hover:gap-3 transition-all duration-300 group-hover:text-marca-green"
             >
               Conocer Capstone
-              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+              <ArrowRight className="h-5 w-5" strokeWidth={2} />
             </Link>
           </motion.div>
 
-          {/* Tablú Block - Right - Sierra Style */}
+          {/* Tablú Block - Dark Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] p-10 md:p-12 lg:p-16 flex flex-col justify-between min-h-[400px] transition-shadow duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+            className="group bg-[#1a1a1a] rounded-xl p-8 md:p-10 lg:p-12 flex flex-col min-h-[400px] border border-white/5 hover:border-white/10 transition-colors duration-300"
           >
             {/* Logo */}
-            <div className="flex items-start justify-between mb-6">
-              <div className="relative w-32 h-16">
+            <div className="mb-8">
+              <div className="relative w-28 h-12 mb-2">
                 <Image
                   src="/images/Logo Tablu.png"
                   alt="Tablú"
                   fill
-                  className="object-contain object-left"
+                  className="object-contain object-left brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
                 />
               </div>
-              {/* Brand location */}
-              <div className="text-right">
-                <span className="text-sm font-medium text-sierra-text-primary uppercase tracking-wider">
-                  TABLÚ
-                </span>
-                <p className="text-xs text-sierra-text-secondary mt-1">
-                  Perú / México
-                </p>
-              </div>
+              <div className="h-1 w-12 bg-white/20 rounded-full mt-4"></div>
             </div>
 
             {/* Content */}
             <div className="flex-1 mb-8">
-              <h3 className="text-xl md:text-2xl font-medium text-sierra-text-primary mb-4">
+              <h3 className="text-2xl font-bold text-white mb-3">
                 Tablú (Perú / México)
               </h3>
-              <p className="text-[15px] text-sierra-text-secondary leading-relaxed">
+              <p className="text-white/60 text-lg leading-relaxed">
                 Planners de acrílico personalizados para personas y empresas.
               </p>
             </div>
 
-            {/* CTA - Sierra Style */}
+            {/* CTA */}
             <Link
               href="/tablu"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                'inline-flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold tracking-wide uppercase w-fit',
-                'bg-[#DC2626] text-white',
-                'transition-all duration-300',
-                'hover:bg-[#B91C1C]',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#DC2626] focus-visible:ring-offset-2'
-              )}
+              className="inline-flex items-center gap-2 text-white font-medium hover:gap-3 transition-all duration-300 group-hover:text-[#e53935]"
             >
               Ver Catálogo Tablú
-              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+              <ArrowRight className="h-5 w-5" strokeWidth={2} />
             </Link>
           </motion.div>
         </div>

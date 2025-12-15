@@ -11,7 +11,7 @@ import { Header } from './Header';
  */
 export function ConditionalHeader() {
   const pathname = usePathname();
-  const pagesWithIntegratedHeader = ['/', '/nosotros', '/capstone', '/tablu', '/alianzas'];
+  const pagesWithIntegratedHeader = ['/', '/nosotros', '/capstone', '/tablu'];
   const hasIntegratedHeader = pagesWithIntegratedHeader.includes(pathname);
 
   if (hasIntegratedHeader) {

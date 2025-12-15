@@ -195,16 +195,16 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
                         {/* Icon */}
                         <div
                           className={cn(
-                            'p-3 rounded-sm transition-all duration-300',
+                            'p-3 rounded-sm transition-all duration-300 border',
                             hoveredIndex === index
-                              ? 'bg-sierra-green/20 shadow-[0_4px_12px_rgba(13,104,50,0.2)]'
-                              : 'bg-white/40'
+                              ? 'bg-black border-white shadow-[0_4px_12px_rgba(0,0,0,0.2)]'
+                              : 'bg-white border-transparent'
                           )}
                         >
                           <Icon
                             className={cn(
                               'h-6 w-6 transition-colors duration-300',
-                              hoveredIndex === index ? 'text-sierra-green' : 'text-sierra-text-secondary'
+                              hoveredIndex === index ? 'text-white' : 'text-sierra-text-secondary'
                             )}
                             strokeWidth={1.5}
                             aria-hidden="true"

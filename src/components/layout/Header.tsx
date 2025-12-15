@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Navigation } from './Navigation';
 import { MobileMenu } from './MobileMenu';
@@ -14,6 +15,7 @@ import { MobileMenu } from './MobileMenu';
  * - Navigation integration
  * - Mobile responsive with hamburger menu
  * - Spanish only (no i18n)
+ * - Dark text variant for /sectores and /alianzas pages
  */
 
 interface HeaderProps {
@@ -22,6 +24,9 @@ interface HeaderProps {
 
 export function Header({ className }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  // Pages that need dark text on white background (Light Pages)
+  const isLightPage = pathname === '/sectores' || pathname === '/alianzas';
 
   // Close mobile menu when window is resized to desktop
   useEffect(() => {
@@ -51,19 +56,25 @@ export function Header({ className }: HeaderProps) {
     <header
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
+        isLightPage ? 'bg-white' : '',
         className
       )}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-center relative">
           {/* Desktop Navigation - Centered */}
-          <Navigation className="hidden md:flex" onLinkClick={() => setIsMobileMenuOpen(false)} />
+          <Navigation className="hidden md:flex" onLinkClick={() => setIsMobileMenuOpen(false)} textDark={isLightPage} />
 
           {/* Mobile menu button - Absolute positioned */}
           <div className="absolute right-0 flex items-center md:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-white hover:text-white/80 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+              className={cn(
+                "inline-flex items-center justify-center rounded-md p-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2",
+                isLightPage 
+                  ? "text-[#1a1a1a] hover:text-[#1a1a1a]/80 focus:ring-[#1a1a1a]" 
+                  : "text-white hover:text-white/80 focus:ring-white"
+              )}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
               aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
@@ -100,6 +111,7 @@ export function Header({ className }: HeaderProps) {
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onLinkClick={() => setIsMobileMenuOpen(false)}
+        textDark={isLightPage}
       />
     </header>
   );

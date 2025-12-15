@@ -1,20 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 /**
- * Sectors Hero Section
+ * Sectors Hero Section - Two Column Layout
  *
  * Features:
- * - Split collage visual (Industry left, Home right)
- * - Dual focus: Industrial energy solutions + Personal organization
- * - Real product images carousel
- * - Brand logos (Capstone & Tablú)
- * - Responsive split layout
- * - Follows STYLE-GUIDE-SIERRA.md design patterns
+ * - Two-column layout (text left, logos right)
+ * - Sub-heading with diamond symbol
+ * - Large bold title split across two lines
+ * - Descriptive paragraph in grey
+ * - Right card visual with image top and black content bottom
+ * - Clean white background
+ * - Follows provided visual reference
  */
 
 interface SectorsHeroProps {
@@ -22,163 +22,95 @@ interface SectorsHeroProps {
 }
 
 export function SectorsHero({ className }: SectorsHeroProps) {
-  const [industrialIndex, setIndustrialIndex] = useState(0);
-  const [personalIndex, setPersonalIndex] = useState(0);
-
-  // Industrial sector images - Capstone microturbines
-  const industrialImages = [
-    '/images/C800S (6).png',
-    '/images/C600S (4).png',
-    '/images/C200S (7).png',
-  ];
-
-  // Personal/home sector images - Tablú planners
-  const personalImages = [
-    '/images/ta1.jpg',
-    '/images/ta2.jpg',
-    '/images/ta3.png',
-  ];
-
-  // Auto-rotate images every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndustrialIndex((prev) => (prev + 1) % industrialImages.length);
-      setPersonalIndex((prev) => (prev + 1) % personalImages.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [industrialImages.length, personalImages.length]);
-
   return (
-    <section className={cn('relative bg-[#ebe8e3] py-16 md:py-20 lg:py-24 overflow-hidden', className)}>
-      <div className="container mx-auto px-6 md:px-10 lg:px-20">
+    <section className={cn('relative bg-white pt-8 pb-6 md:pt-12 md:pb-8 lg:pt-16 lg:pb-10 overflow-hidden min-h-screen flex items-center', className)}>
+      <div className="container mx-auto px-6 md:px-10 lg:px-20 relative z-10">
         <div className="max-w-7xl mx-auto">
-          {/* Main Content Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] overflow-hidden"
-          >
-            <div className="grid lg:grid-cols-2 gap-0">
-              {/* Left Side - Industrial Images Carousel (Capstone) */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="relative h-64 lg:h-auto min-h-[500px] overflow-hidden bg-white"
-              >
-                <AnimatePresence initial={false} mode="wait">
-                  <motion.div
-                    key={industrialIndex}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5, ease: 'easeInOut' }}
-                    className="absolute inset-0 flex items-center justify-center p-8"
-                  >
-                    <Image
-                      src={industrialImages[industrialIndex]}
-                      alt={`Capstone Microturbine ${industrialIndex + 1}`}
-                      fill
-                      className="object-contain"
-                      priority={industrialIndex === 0}
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                  </motion.div>
-                </AnimatePresence>
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+            {/* Left Column - Text Content */}
+            <div className="space-y-8">
+              {/* Sub-heading with diamond symbol */}
+              <div className="mb-6">
+                <span className="text-sm uppercase tracking-wider font-medium text-[#1a1a1a]">
+                  ◆ Nuestros Sectores
+                </span>
+              </div>
 
-                {/* Capstone Logo Badge */}
-                <div className="absolute top-6 left-6 px-6 py-3 rounded-xl bg-white shadow-xl border-2 border-[#2D5F3F]">
-                  <div className="relative h-8 w-32">
-                    <Image
-                      src="/images/color_image.png"
-                      alt="Capstone Green Energy"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="text-xs text-[#2D5F3F] font-bold mt-1">Energía Industrial</div>
-                </div>
-              </motion.div>
+              {/* Main Title - Large, bold, split across two lines */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a1a1a] leading-tight tracking-tight">
+                Soluciones para cada{' '}
+                <span className="block">sector.</span>
+              </h1>
 
-              {/* Right Side - Personal Images Carousel (Tablú) */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative h-64 lg:h-auto min-h-[500px] overflow-hidden bg-white"
-              >
-                <AnimatePresence initial={false} mode="wait">
-                  <motion.div
-                    key={personalIndex}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5, ease: 'easeInOut' }}
-                    className="absolute inset-0 flex items-center justify-center p-8"
-                  >
-                    <Image
-                      src={personalImages[personalIndex]}
-                      alt={`Tablú Planner ${personalIndex + 1}`}
-                      fill
-                      className="object-contain"
-                      priority={personalIndex === 0}
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-
-                {/* Tablú Logo Badge */}
-                <div className="absolute top-6 right-6 px-6 py-3 rounded-xl bg-white shadow-xl border-2 border-[#4A5BA8]">
-                  <div className="relative h-8 w-32">
-                    <Image
-                      src="/images/Logo Tablu.png"
-                      alt="Tablú"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="text-xs text-[#4A5BA8] font-bold mt-1">Organización Personal</div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Content Section */}
-            <div className="px-6 md:px-10 lg:px-20 py-12 md:py-16 text-center">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-[48px] font-normal text-[#1a1a1a] mb-4 leading-tight"
-              >
-                Soluciones para Cada Sector
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-[15px] text-[#6b6b6b] max-w-2xl mx-auto leading-relaxed mb-8"
-              >
+              {/* Description - medium size, normal weight, grey */}
+              <p className="text-base md:text-lg leading-relaxed text-[#666] max-w-xl">
                 Desde grandes industrias hasta espacios personales, conectamos tecnología y organización
                 para impulsar el éxito en cada ámbito.
-              </motion.p>
+              </p>
+            </div>
 
-              {/* CTA Button - Less curved */}
-              <motion.div
+            {/* Right Column - Visual Card */}
+            <div className="lg:pl-8 flex justify-center lg:justify-end">
+              <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                transition={{ duration: 0.8 }}
+                className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-2xl bg-[#1a1a1a]"
               >
-                <a
-                  href="#sectors"
-                  className="inline-block px-7 py-3 rounded-xl bg-[#0d6832] text-white text-[15px] font-medium transition-all duration-200 hover:bg-[#0a5528] shadow-lg hover:shadow-xl hover:scale-105"
-                >
-                  Explorar Sectores
-                </a>
+                {/* Top Image Section */}
+                <div className="relative h-72 w-full bg-gray-100">
+                  <Image
+                    src="/images/Santa Cruz (1).jpg"
+                    alt="Sectores Marca Fusión"
+                    fill
+                    className="object-cover"
+                  />
+                  {/* Subtle overlay gradient to blend with black bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent opacity-60"></div>
+                </div>
+                
+                {/* Bottom Black Section */}
+                <div className="bg-[#1a1a1a] p-8 text-white relative z-10 -mt-2">
+                  <p className="text-lg font-medium leading-relaxed mb-8 text-white/90 italic">
+                    "Innovación energética y organización personal. Dos mundos, un compromiso de calidad."
+                  </p>
+                  
+                  {/* Logos Row */}
+                  <div className="flex items-center justify-between border-t border-white/20 pt-6">
+                    {/* Capstone Logo - White/Inverted */}
+                    <div className="relative h-10 w-32 opacity-90 hover:opacity-100 transition-opacity">
+                      <Image
+                        src="/images/color_image.png"
+                        alt="Capstone"
+                        fill
+                        className="object-contain brightness-0 invert"
+                      />
+                    </div>
+                    
+                    {/* Divider */}
+                    <div className="h-8 w-px bg-white/20 mx-2"></div>
+
+                    {/* Tablu Logo - White/Inverted */}
+                    <div className="relative h-10 w-24 opacity-90 hover:opacity-100 transition-opacity">
+                      <Image
+                        src="/images/Logo Tablu.png"
+                        alt="Tablú"
+                        fill
+                        className="object-contain brightness-0 invert"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 text-right">
+                    <span className="text-[10px] uppercase tracking-widest text-white/50 font-bold">
+                      MARCA FUSIÓN SRL
+                    </span>
+                  </div>
+                </div>
               </motion.div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
