@@ -206,16 +206,16 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/tablu"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3 text-[15px] font-medium bg-[#4A5BA8] text-white shadow-lg transition-all duration-200 hover:bg-[#3d4a8f] hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide bg-[#0D6832] text-white transition-all duration-200 hover:bg-[#0a5528] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2"
               >
                 Ver Catálogo Tablú
-                <ArrowRight className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
+                <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
               </a>
               <a
                 href="https://wa.me/59167710595?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20planificadores%20Tablú"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3 text-[15px] font-medium bg-white text-[#1a1a1a] border-2 border-[#4A5BA8]/30 transition-all duration-200 hover:bg-[#4A5BA8]/5 hover:border-[#4A5BA8]/50"
+                className="inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide bg-white text-[#1a1a1a] border-2 border-[#1a1a1a]/20 transition-all duration-200 hover:bg-gray-50 hover:border-[#1a1a1a]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1a1a1a] focus-visible:ring-offset-2"
               >
                 Consultar por WhatsApp
               </a>

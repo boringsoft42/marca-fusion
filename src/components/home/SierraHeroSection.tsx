@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { ArrowRight } from 'lucide-react';
 import { SierraWaveform } from './SierraWaveform';
 import { SierraFeatureList } from './SierraFeatureList';
 
@@ -42,18 +43,19 @@ export function SierraHeroSection({ className }: SierraHeroSectionProps) {
           <Link
             href="/contacto"
             className={cn(
-              'inline-flex items-center justify-center',
-              'bg-sierra-green text-white',
-              'px-7 py-3',
-              'rounded-3xl',
-              'text-[15px] font-medium',
+              'inline-flex items-center justify-center gap-2',
+              'bg-[#0D6832] text-white',
+              'px-6 py-3',
+              'rounded-sm',
+              'text-sm font-semibold uppercase tracking-wide',
               'transition-colors duration-200',
-              'hover:bg-sierra-green-hover',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sierra-green focus-visible:ring-offset-2',
+              'hover:bg-[#0a5528]',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2',
               'self-start md:self-auto'
             )}
           >
             Learn more
+            <ArrowRight className="h-4 w-4" strokeWidth={2} />
           </Link>
         </div>
 

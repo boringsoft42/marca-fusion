@@ -44,7 +44,7 @@ export function InstitutionalText({ className }: InstitutionalTextProps) {
               {/* Title - large, bold, black */}
               <h2 className="relative mb-6">
                 <span className="block text-4xl md:text-5xl font-bold text-[#1a1a1a]">
-                  Nuestra Historia.
+                  Nuestra Historia
                 </span>
               </h2>
 

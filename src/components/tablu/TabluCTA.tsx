@@ -87,15 +87,15 @@ export function TabluCTA({ className }: TabluCTAProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  'inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium',
-                  'bg-white text-[#0d6832] shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
+                  'inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide',
+                  'bg-white text-[#0d6832]',
                   'transition-all duration-200',
                   'hover:bg-white/95',
                   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d6832]'
                 )}
               >
-                <ExternalLink className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
                 Explorar Catálogo Completo
+                <ExternalLink className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
               </a>
 
               {/* Secondary CTA - WhatsApp */}
@@ -104,15 +104,15 @@ export function TabluCTA({ className }: TabluCTAProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  'inline-flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium',
-                  'bg-white/10 text-white border-2 border-white/30 backdrop-blur-sm shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
+                  'inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide',
+                  'bg-white/10 text-white border-2 border-white/30 backdrop-blur-sm',
                   'transition-all duration-200',
                   'hover:bg-white/20 hover:border-white/50',
                   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2'
                 )}
               >
-                <MessageCircle className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
                 Consultar por WhatsApp
+                <MessageCircle className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
               </a>
             </motion.div>
           </motion.div>

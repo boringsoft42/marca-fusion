@@ -98,7 +98,7 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                 style={{ color: titleColor }}
                 className="text-4xl md:text-5xl font-bold leading-tight"
               >
-                Un grupo, una visión: conectar Bolivia con el mundo.
+                Un grupo, una visión: conectar Bolivia con el mundo
               </motion.h2>
 
               {/* Subtitle with Scroll Animation */}

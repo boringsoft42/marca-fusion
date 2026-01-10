@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Header } from '@/components/layout/Header';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
 /**
  * Marca Fusión Home Hero Section - Left-aligned Layout with Logo
@@ -27,7 +27,8 @@ interface HeroSectionProps {
 
 export function HeroSection({ className }: HeroSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
-  
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   // Parallax scroll animation
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -38,6 +39,42 @@ export function HeroSection({ className }: HeroSectionProps) {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.3]);
+
+  // Force video to play on mount - fixes autoplay issues on mobile/iOS
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const playVideo = async () => {
+      try {
+        // Try to play the video
+        await video.play();
+      } catch (error) {
+        // If autoplay fails (common on mobile), retry on user interaction
+        console.log('Video autoplay prevented, will retry on user interaction');
+
+        const handleInteraction = async () => {
+          try {
+            await video.play();
+            document.removeEventListener('touchstart', handleInteraction);
+            document.removeEventListener('click', handleInteraction);
+          } catch (e) {
+            console.error('Failed to play video:', e);
+          }
+        };
+
+        document.addEventListener('touchstart', handleInteraction, { once: true });
+        document.addEventListener('click', handleInteraction, { once: true });
+      }
+    };
+
+    // Small delay to ensure video element is ready
+    const timer = setTimeout(() => {
+      playVideo();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section
@@ -53,24 +90,30 @@ export function HeroSection({ className }: HeroSectionProps) {
       </div>
 
       {/* Background Video with parallax */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 z-0"
         style={{ y: backgroundY }}
       >
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           poster="/images/1.png"
+          controls={false}
+          disablePictureInPicture
+          disableRemotePlayback
+          x-webkit-airplay="deny"
         >
           <source src="/images/YPFB Transporte - CAIGUA (1).mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
         {/* Dark overlay for text readability with opacity transition */}
-        <motion.div 
-          className="absolute inset-0 bg-black/50" 
+        <motion.div
+          className="absolute inset-0 bg-black/50"
           style={{ opacity }}
         />
       </motion.div>
@@ -90,9 +133,9 @@ export function HeroSection({ className }: HeroSectionProps) {
             <Image
               src="/images/Logo_Marca_Fusión_Transparente.png"
               alt="Marca Fusión Logo"
-              width={60}
-              height={60}
-              className="h-14 w-auto brightness-0 invert"
+              width={120}
+              height={120}
+              className="h-28 md:h-32 w-auto brightness-0 invert"
               priority
             />
           </motion.div>
@@ -131,10 +174,10 @@ export function HeroSection({ className }: HeroSectionProps) {
               className={cn(
                 'group inline-flex items-center justify-center gap-2',
                 'px-6 py-3 rounded-sm text-sm font-semibold tracking-wide uppercase',
-                'bg-transparent text-white border border-white',
-                'transition-all duration-300',
-                'hover:bg-white hover:text-[#1a1a1a]',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent'
+                'bg-[#0D6832] text-white',
+                'transition-all duration-200',
+                'hover:bg-[#0a5528]',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent'
               )}
             >
               <ArrowUpRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />

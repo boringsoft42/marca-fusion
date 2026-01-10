@@ -54,12 +54,12 @@ export function UnifyingMessage({ className }: UnifyingMessageProps) {
              transition={{ duration: 0.5, delay: 0.2 }}
              className="mt-8"
           >
-             <Link 
+             <Link
               href="/contacto"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-[#1a1a1a] text-[#1a1a1a] font-medium hover:bg-[#1a1a1a] hover:text-white transition-all duration-300 uppercase text-sm tracking-wide"
+              className="inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide bg-[#0D6832] text-white transition-all duration-200 hover:bg-[#0a5528] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2"
             >
-              <ArrowRight className="h-4 w-4" />
               Comenzar tu proyecto
+              <ArrowRight className="h-4 w-4" strokeWidth={2} />
             </Link>
           </motion.div>
         </div>

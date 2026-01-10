@@ -187,14 +187,14 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/capstone"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3 text-[15px] font-medium bg-[#0d6832] text-white shadow-lg transition-all duration-200 hover:bg-[#0a5528] hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide bg-[#0D6832] text-white transition-all duration-200 hover:bg-[#0a5528] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2"
               >
                 Explorar Soluciones Capstone
-                <ArrowRight className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
+                <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
               </a>
               <a
                 href="/contacto"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3 text-[15px] font-medium bg-transparent text-white border-2 border-white/20 transition-all duration-200 hover:bg-white/10 hover:border-white/40"
+                className="inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide bg-transparent text-white border-2 border-white/20 transition-all duration-200 hover:bg-white/10 hover:border-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
               >
                 Solicitar Asesoría Técnica
               </a>

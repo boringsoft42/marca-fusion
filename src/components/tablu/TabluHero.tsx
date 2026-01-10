@@ -187,7 +187,7 @@ export function TabluHero({ className }: TabluHeroProps) {
                   {/* Ver Catálogo */}
                   <a
                     href="#catalogo"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-[#4A5BA8] text-white shadow-lg hover:bg-[#3d4a8f] hover:shadow-xl transition-all duration-200 hover:scale-105"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold uppercase tracking-wide bg-[#0D6832] text-white hover:bg-[#0a5528] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
                   >
                     📋 Ver catálogo de planners
                   </a>
@@ -197,7 +197,7 @@ export function TabluHero({ className }: TabluHeroProps) {
                     href={process.env.NEXT_PUBLIC_WHATSAPP_TABLU || 'https://wa.me/59178885533'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-[#25D366] text-white shadow-lg hover:bg-[#20ba5a] hover:shadow-xl transition-all duration-200 hover:scale-105"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold uppercase tracking-wide bg-[#25D366] text-white hover:bg-[#20ba5a] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
                   >
                     💬 Consultar vía WhatsApp
                   </a>

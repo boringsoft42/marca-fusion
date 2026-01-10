@@ -298,12 +298,12 @@ export function ContactForm({ className }: ContactFormProps) {
             type="submit"
             disabled={formState.isSubmitting}
             className={cn(
-              'w-full inline-flex items-center justify-center gap-2 rounded-md px-8 py-4 text-base font-semibold',
-              'bg-marca-green text-white shadow-lg',
+              'w-full inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide',
+              'bg-[#0D6832] text-white',
               'transition-all duration-200',
-              'hover:bg-marca-green/90 hover:shadow-xl hover:scale-105',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2',
-              'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100'
+              'hover:bg-[#0a5528]',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2',
+              'disabled:opacity-50 disabled:cursor-not-allowed'
             )}
           >
             {formState.isSubmitting ? (

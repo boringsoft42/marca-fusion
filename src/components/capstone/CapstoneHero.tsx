@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -85,7 +84,7 @@ export function CapstoneHero({ className }: CapstoneHeroProps) {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl md:text-5xl lg:text-[48px] font-bold leading-tight tracking-tight text-white mb-8 text-left"
           >
-            <span className="text-[#2D5F3F]">Capstone</span> Green Energy en Bolivia.
+            <span className="text-[#2D5F3F]">Capstone</span> Green Energy en Bolivia
           </motion.h1>
 
           {/* Subtitle - Left aligned */}
@@ -111,10 +110,10 @@ export function CapstoneHero({ className }: CapstoneHeroProps) {
               href="/contacto"
               className={cn(
                 'group inline-flex items-center justify-center gap-2',
-                'px-8 py-4 rounded-sm text-sm font-bold tracking-wide uppercase',
-                'bg-[#2D5F3F] text-white border border-[#2D5F3F]',
-                'transition-all duration-300',
-                'hover:bg-transparent hover:text-white hover:border-white',
+                'px-6 py-3 rounded-sm text-sm font-semibold tracking-wide uppercase',
+                'bg-[#0D6832] text-white',
+                'transition-all duration-200',
+                'hover:bg-[#0a5528]',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent'
               )}
             >

@@ -52,12 +52,6 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
     ['rgb(255, 255, 255)', 'rgb(180, 180, 180)', 'rgb(80, 80, 80)', 'rgb(0, 0, 0)']
   );
 
-  const ctaColor = useTransform(
-    scrollYProgress,
-    [0, 0.4, 0.6, 1],
-    ['rgb(255, 255, 255)', 'rgb(180, 180, 180)', 'rgb(80, 80, 80)', 'rgb(0, 0, 0)']
-  );
-
   const bgColor = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
@@ -103,26 +97,59 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
               </motion.h2>
 
               {/* Subtitle with Scroll Animation */}
-              <motion.p 
+              <motion.p
+                style={{ color: subtitleColor }}
+                className="text-base md:text-lg leading-relaxed max-w-2xl mb-6"
+              >
+                <span className="font-semibold">Marca Fusión</span> forma parte de un grupo corporativo con presencia internacional, junto a <span className="font-semibold">Altrix Solutions (EE. UU.)</span>, empresa dedicada al comercio exterior y la representación técnica de equipos energéticos bajo modalidad <span className="font-semibold">EXW</span>.
+              </motion.p>
+
+              {/* Additional synergy text */}
+              <motion.p
                 style={{ color: subtitleColor }}
                 className="text-base md:text-lg leading-relaxed max-w-2xl"
               >
-                <span className="font-semibold">Marca Fusión (Bolivia)</span> forma parte del grupo corporativo junto a empresa especializada en comercio internacional y representación técnica de equipos energéticos bajo modalidad <span className="font-semibold">EXW USA</span> con destino final a Bolivia.
+                Esta sinergia nos permite conectar directamente con fabricantes internacionales, optimizando tiempos de entrega y garantizando soporte técnico de primer nivel.
               </motion.p>
 
-              {/* CTA Link */}
-              <motion.div 
-                className="pt-4"
-                style={{ color: ctaColor }}
+              {/* World Map with Flags */}
+              <motion.div
+                style={{ color: subtitleColor }}
+                className="flex items-center gap-3 mt-6"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <span className="text-base md:text-lg">Incluir fondo: Mapa mundial con banderas pequeñas:</span>
+                <span className="text-2xl">🇺🇸</span>
+                <span className="text-base">(Altrix) →</span>
+                <span className="text-2xl">🇧🇴</span>
+                <span className="text-base">(Marca Fusión).</span>
+              </motion.div>
+
+              {/* CTA Button */}
+              <motion.div
+                className="pt-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <a
                   href={altrixUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-marca-green transition-colors duration-200 group"
+                  className={cn(
+                    'inline-flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold uppercase tracking-wide',
+                    'bg-[#0D6832] text-white',
+                    'transition-all duration-200',
+                    'hover:bg-[#0a5528]',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2'
+                  )}
                 >
-                  <span className="font-medium">Conocer Altrix Solutions</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  Conocer Altrix Solutions
+                  <ArrowRight className="w-4 h-4" strokeWidth={2} aria-hidden="true" />
                 </a>
               </motion.div>
             </div>

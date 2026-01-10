@@ -197,7 +197,7 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
                           className={cn(
                             'p-3 rounded-sm transition-all duration-300 border',
                             hoveredIndex === index
-                              ? 'bg-black border-white shadow-[0_4px_12px_rgba(0,0,0,0.2)]'
+                              ? 'bg-[#0D6832] border-white shadow-[0_4px_12px_rgba(13,104,50,0.3)]'
                               : 'bg-white border-transparent'
                           )}
                         >
@@ -272,10 +272,10 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
             href="/sectores"
             className={cn(
               'inline-flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold tracking-wide uppercase',
-              'bg-sierra-green text-white',
-              'transition-all duration-300',
-              'hover:bg-sierra-green-hover',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sierra-green focus-visible:ring-offset-2'
+              'bg-[#0D6832] text-white',
+              'transition-all duration-200',
+              'hover:bg-[#0a5528]',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2'
             )}
           >
             Ver todos los sectores

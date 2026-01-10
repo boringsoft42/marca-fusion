@@ -59,7 +59,7 @@ export function ClientShowcase({ className }: ClientShowcaseProps) {
             <span className="text-xs font-bold text-[#1a1a1a] uppercase tracking-widest">◆ Nuestros Clientes</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[48px] font-normal text-[#1a1a1a] mb-3">
-            Empresas líderes que <span className="font-bold">confían</span> en nosotros.
+            Empresas líderes que <span className="font-bold">confían</span> en nosotros
           </h2>
           <p className="text-sm md:text-[15px] text-[#716F6C] max-w-2xl leading-relaxed">
             Desde el sector energético hasta el corporativo, brindamos soluciones que generan valor.

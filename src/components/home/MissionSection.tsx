@@ -141,16 +141,15 @@ export function MissionSection({ className }: MissionSectionProps) {
           <Link
             href="/nosotros"
             className={cn(
-              'inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold',
-              'bg-marca-green text-white',
-              'shadow-[0_4px_14px_rgba(45,95,63,0.4)]',
+              'inline-flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold uppercase tracking-wide',
+              'bg-[#0D6832] text-white',
               'transition-all duration-200',
-              'hover:bg-marca-green/90 hover:shadow-[0_6px_20px_rgba(45,95,63,0.6)] hover:scale-105',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2 focus-visible:ring-offset-transparent'
+              'hover:bg-[#0a5528]',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent'
             )}
           >
             Conócenos más
-            <ArrowRight className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
+            <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
           </Link>
         </motion.div>
       </div>
