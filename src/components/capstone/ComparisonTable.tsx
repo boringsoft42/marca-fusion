@@ -99,7 +99,7 @@ export function ComparisonTable({ className }: ComparisonTableProps) {
                         scope="col"
                         className="px-6 py-4 text-left text-sm font-bold text-foreground uppercase tracking-wider"
                       >
-                        Eficiencia
+                        Eficiencia Eléctrica
                       </th>
                       <th
                         scope="col"

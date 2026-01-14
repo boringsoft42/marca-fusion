@@ -1,22 +1,24 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Fuel, Factory, Heart, Building2, ArrowRight } from 'lucide-react';
+import { Fuel, Factory, Leaf, Zap, Activity, Network, BatteryCharging, Building2, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Image from 'next/image';
 
 /**
  * Industrial Sectors Block (Capstone)
  *
+ * "Adaptable a la Industria"
+ *
  * Features:
  * - Dark theme background for contrast
- * - 4 industrial sector cards with hover-expand functionality
- * - Oil & Gas, Industrial, Hospitalario, Comercial
+ * - 7 industrial sector cards with hover-expand functionality
+ * - Updated sectors including Renewables, Microgrids, EV Charging
  * - Icon-based visual hierarchy
  * - Expandable applications on hover
  * - CTA to Capstone page
- * - Green branding adapted for dark mode
- * - Follows STYLE-GUIDE-SIERRA.md design patterns
+ * - Top right Capstone logo
  */
 
 interface IndustrialBlockProps {
@@ -25,34 +27,50 @@ interface IndustrialBlockProps {
 
 export function IndustrialBlock({ className }: IndustrialBlockProps) {
   const [hoveredSector, setHoveredSector] = useState<number | null>(null);
+  
+  // Updated sectors list based on user request
   const industrialSectors = [
     {
       icon: Fuel,
-      title: 'Oil & Gas',
-      description:
-        'Generación de energía eficiente en sitios de extracción y procesamiento. Soluciones para operaciones remotas y ambientes exigentes.',
-      applications: ['Extracción petrolera', 'Procesamiento de gas', 'Operaciones offshore', 'Compresión de gas'],
+      title: 'Petróleo & Gas',
+      description: 'Soluciones para generación distribuida y operaciones en ambientes remotos con alta exigencia operativa.',
+      applications: ['Sitios de extracción', 'Operaciones remotas', 'Alta exigencia'],
     },
     {
-      icon: Factory,
-      title: 'Industrial',
-      description:
-        'Energía confiable para manufactura y procesos industriales. Cogeneración para maximizar eficiencia energética.',
-      applications: ['Manufactura', 'Procesamiento de alimentos', 'Plantas químicas', 'Cogeneración CHP'],
+      icon: Leaf,
+      title: 'Energías Renovables',
+      description: 'Generación limpia a partir de biogás, gases residuales y energía renovable, optimizando recursos con impacto ambiental positivo.',
+      applications: ['Biogás', 'Gases residuales', 'Energía renovable'],
     },
     {
-      icon: Heart,
-      title: 'Hospitalario',
-      description:
-        'Respaldo energético crítico para hospitales y centros médicos. Operación silenciosa y emisiones ultra bajas.',
-      applications: ['Hospitales', 'Clínicas', 'Centros médicos', 'Laboratorios'],
+      icon: Zap, // Using Zap for Efficiency/Power
+      title: 'Eficiencia Energética & Cogeneración (CHP/CCHP)',
+      description: 'Integración de generación eléctrica y térmica para maximizar eficiencia en procesos industriales y comerciales.',
+      applications: ['Generación eléctrica', 'Generación térmica', 'Procesos industriales'],
+    },
+    {
+      icon: Activity, // Using Activity for Critical/Health
+      title: 'Fuente de Alimentación Crítica',
+      description: 'Respaldo energético confiable para centros de datos, telecomunicaciones, salud y operaciones esenciales.',
+      applications: ['Data centers', 'Telecomunicaciones', 'Salud', 'Operaciones esenciales'],
+    },
+    {
+      icon: Network, // Using Network for Microgrids
+      title: 'Microrredes (Microgrid)',
+      description: 'Diseño de sistemas energéticos híbridos con integración de energías renovables y almacenamiento.',
+      applications: ['Sistemas híbridos', 'Almacenamiento', 'Integración renovable'],
+    },
+    {
+      icon: BatteryCharging, // Using BatteryCharging for EV
+      title: 'Carga de Vehículos Eléctricos (EV Charging)',
+      description: 'Soluciones modulares que apoyan la infraestructura de movilidad eléctrica con generación local eficiente.',
+      applications: ['Movilidad eléctrica', 'Generación local', 'Infraestructura'],
     },
     {
       icon: Building2,
-      title: 'Comercial',
-      description:
-        'Soluciones energéticas para edificios comerciales, hoteles y centros de datos. Eficiencia operativa y reducción de costos.',
-      applications: ['Centros comerciales', 'Hoteles', 'Data centers', 'Edificios corporativos'],
+      title: 'Comercial e Industrial',
+      description: 'Energía eficiente para plantas, manufactura, centros comerciales, hoteles y más.',
+      applications: ['Plantas', 'Manufactura', 'Hoteles', 'Centros comerciales'],
     },
   ];
 
@@ -60,40 +78,60 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
     <section id="sectors" className={cn('bg-[#1a1a1a] py-16 md:py-20 lg:py-24', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="mb-6"
+          {/* Section Header with Logo */}
+          <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6">
+            <div className="max-w-3xl">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="mb-6"
+              >
+                <span className="text-sm uppercase tracking-wider font-medium text-white/80">
+                  ◆ Adaptable a la Industria
+                </span>
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-4xl md:text-5xl font-bold text-white mb-6"
+              >
+                Adaptable a la Industria.
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-base md:text-lg text-white/70 leading-relaxed"
+              >
+                Microturbinas de alta eficiencia para generación de energía distribuida, cogeneración y respaldo crítico
+                en los sectores más exigentes.
+              </motion.p>
+            </div>
+
+            {/* Capstone Logo - Top Right */}
+            <motion.div 
+               initial={{ opacity: 0, x: 20 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.5 }}
+               className="bg-white rounded-lg p-3 hidden md:block" // Flexible sizing
             >
-              <span className="text-sm uppercase tracking-wider font-medium text-white/80">
-                ◆ Sectores Industriales
-              </span>
+                <div className="relative h-10 w-32 lg:h-12 lg:w-40">
+                  <Image
+                    src="/images/color_image.png"
+                    alt="Capstone Green Energy"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
             </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold text-white mb-6"
-            >
-              Sectores Industriales.
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-base md:text-lg text-white/70 max-w-3xl leading-relaxed"
-            >
-              Microturbinas de alta eficiencia para generación de energía distribuida, cogeneración y respaldo crítico
-              en los sectores más exigentes.
-            </motion.p>
           </div>
 
           {/* Sectors Grid */}
@@ -113,7 +151,8 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
                   onMouseLeave={() => setHoveredSector(null)}
                   className="relative cursor-pointer group"
                 >
-                  <div className="pb-6 border-b border-white/10 group-hover:border-marca-green/50 transition-colors duration-300">
+                  <div className="pb-6 border-b border-white/10 group-hover:border-marca-green/50 transition-colors duration-300 h-full flex flex-col justify-between">
+                   <div>
                     {/* Icon */}
                     <div className="mb-4">
                       <Icon
@@ -163,6 +202,9 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
                         </ul>
                       </div>
                     </div>
+                    
+                    {/* Simplified Description for non-hover state (optional, or just keep expanding behavior) */}
+                   </div>
                   </div>
                 </motion.div>
               );

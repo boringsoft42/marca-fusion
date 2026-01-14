@@ -28,7 +28,7 @@ interface ProductCardProps {
 export function ProductCard({ product, className, index = 0 }: ProductCardProps) {
   const whatsappNumber = '59167710595';
   const whatsappMessage = encodeURIComponent(
-    `Hola! Me interesa el producto: ${product.name}. ¿Podrías darme más información sobre precios y disponibilidad?`
+    `Hola, quiero realizar un pedido de ${product.name}, tamaño [XX], cantidad [X]. ¿Podrían confirmarme disponibilidad?`
   );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
@@ -161,7 +161,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
             )}
           >
             <MessageCircle className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-            Consultar Disponibilidad
+            Pedir por WhatsApp
           </a>
         </div>
 

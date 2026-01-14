@@ -4,9 +4,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { cn } from '@/lib/utils';
-import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { CheckCircle2, AlertCircle } from 'lucide-react';
 import { contactSchema, motivoOptions, type ContactFormData } from '@/lib/validations/contact-schema';
-import type { ContactFormResponse } from '@/types/contact';
 
 /**
  * Contact Form Component
@@ -14,10 +13,9 @@ import type { ContactFormResponse } from '@/types/contact';
  * Features:
  * - React Hook Form with Zod validation
  * - Dropdown for "Motivo del contacto"
- * - Conditional email routing (cotización → ventas@, else → info@)
+ * - Sends form data directly to WhatsApp (no email integration needed)
  * - Inline error messages
- * - Success/error toast
- * - Loading spinner
+ * - Success message
  * - Honeypot anti-spam field
  * - Follows STYLE-GUIDE.md design patterns
  */
@@ -28,10 +26,7 @@ interface ContactFormProps {
 
 export function ContactForm({ className }: ContactFormProps) {
   const [formState, setFormState] = useState({
-    isSubmitting: false,
     isSuccess: false,
-    isError: false,
-    errorMessage: '',
   });
 
   const {
@@ -54,40 +49,56 @@ export function ContactForm({ className }: ContactFormProps) {
     },
   });
 
-  const onSubmit = async (data: ContactFormData) => {
-    setFormState({ isSubmitting: true, isSuccess: false, isError: false, errorMessage: '' });
+  const motivoLabels: Record<string, string> = {
+    cliente: 'Soy cliente y deseo atención o información',
+    informacion: 'Deseo información sobre productos',
+    cotizacion: 'Deseo una cotización',
+    otro: 'Otro motivo',
+  };
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result: ContactFormResponse = await response.json();
-
-      if (!response.ok || !result.success) {
-        throw new Error(result.error || 'Error al enviar el formulario');
-      }
-
-      setFormState({ isSubmitting: false, isSuccess: true, isError: false, errorMessage: '' });
-      reset();
-
-      // Auto-hide success message after 5 seconds
-      setTimeout(() => {
-        setFormState((prev) => ({ ...prev, isSuccess: false }));
-      }, 5000);
-    } catch (error) {
-      console.error('Contact form error:', error);
-      setFormState({
-        isSubmitting: false,
-        isSuccess: false,
-        isError: true,
-        errorMessage: error instanceof Error ? error.message : 'Error desconocido. Por favor intente nuevamente.',
-      });
+  const onSubmit = (data: ContactFormData) => {
+    // Check honeypot
+    if (data._honeypot) {
+      return;
     }
+
+    // Build WhatsApp message
+    const motivoText = motivoLabels[data.motivo] || data.motivo;
+    const message = `*CONTACTO DESDE WEB - MARCA FUSIÓN*
+
+👤 *Nombre:* ${data.nombre}
+📧 *Email:* ${data.email}
+📱 *Teléfono:* ${data.telefono}
+${data.empresa ? `🏢 *Empresa:* ${data.empresa}` : ''}
+🌆 *Ciudad:* ${data.ciudad}
+🌍 *País:* ${data.pais}
+
+📋 *Motivo:* ${motivoText}
+
+💬 *Mensaje:*
+${data.mensaje}`;
+
+    // Determine WhatsApp number based on motivo
+    const whatsappNumber = data.motivo === 'cotizacion'
+      ? process.env.NEXT_PUBLIC_WHATSAPP_GENERAL || '59172136767'
+      : process.env.NEXT_PUBLIC_WHATSAPP_GENERAL || '59172136767';
+
+    // Build WhatsApp URL
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    // Show success message
+    setFormState({ isSuccess: true });
+    reset();
+
+    // Open WhatsApp in new tab after a short delay
+    setTimeout(() => {
+      window.open(whatsappUrl, '_blank');
+    }, 500);
+
+    // Auto-hide success message after 5 seconds
+    setTimeout(() => {
+      setFormState({ isSuccess: false });
+    }, 5000);
   };
 
   return (
@@ -97,21 +108,10 @@ export function ContactForm({ className }: ContactFormProps) {
         <div className="mb-6 p-4 rounded-lg bg-marca-green/10 border border-marca-green/30 flex items-start gap-3">
           <CheckCircle2 className="h-5 w-5 text-marca-green flex-shrink-0 mt-0.5" aria-hidden="true" />
           <div>
-            <h4 className="font-semibold text-marca-green mb-1">¡Gracias por contactarte!</h4>
+            <h4 className="font-semibold text-marca-green mb-1">✅ Abriendo WhatsApp...</h4>
             <p className="text-sm text-muted-foreground">
-              Hemos recibido tu mensaje. Nuestro equipo te responderá a la brevedad.
+              Tu mensaje será enviado por WhatsApp a nuestro equipo. Si no se abre automáticamente, por favor verifica tu navegador.
             </p>
-          </div>
-        </div>
-      )}
-
-      {/* Error Message */}
-      {formState.isError && (
-        <div className="mb-6 p-4 rounded-lg bg-red-50 border border-red-200 flex items-start gap-3">
-          <AlertCircle className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" aria-hidden="true" />
-          <div>
-            <h4 className="font-semibold text-red-700 mb-1">Error al enviar</h4>
-            <p className="text-sm text-red-600">{formState.errorMessage}</p>
           </div>
         </div>
       )}
@@ -170,18 +170,29 @@ export function ContactForm({ className }: ContactFormProps) {
             )}
           </div>
 
-          {/* Teléfono */}
+          {/* Teléfono / WhatsApp */}
           <div>
             <label htmlFor="telefono" className="block text-sm font-semibold text-foreground mb-2">
-              Teléfono
+              Teléfono / WhatsApp <span className="text-red-500">*</span>
             </label>
             <input
               id="telefono"
               type="tel"
               {...register('telefono')}
-              className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-marca-green focus:border-transparent transition-colors duration-200"
+              className={cn(
+                'w-full px-4 py-3 rounded-md border bg-background text-foreground',
+                'transition-colors duration-200',
+                'focus:outline-none focus:ring-2 focus:ring-marca-green focus:border-transparent',
+                errors.telefono ? 'border-red-500' : 'border-border'
+              )}
               placeholder="+591 72136767"
             />
+            {errors.telefono && (
+              <p className="mt-1.5 text-sm text-red-500 flex items-center gap-1">
+                <AlertCircle className="h-3.5 w-3.5" aria-hidden="true" />
+                {errors.telefono.message}
+              </p>
+            )}
           </div>
 
           {/* Empresa */}
@@ -201,29 +212,51 @@ export function ContactForm({ className }: ContactFormProps) {
           {/* Ciudad */}
           <div>
             <label htmlFor="ciudad" className="block text-sm font-semibold text-foreground mb-2">
-              Ciudad
+              Ciudad <span className="text-red-500">*</span>
             </label>
             <input
               id="ciudad"
               type="text"
               {...register('ciudad')}
-              className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-marca-green focus:border-transparent transition-colors duration-200"
+              className={cn(
+                'w-full px-4 py-3 rounded-md border bg-background text-foreground',
+                'transition-colors duration-200',
+                'focus:outline-none focus:ring-2 focus:ring-marca-green focus:border-transparent',
+                errors.ciudad ? 'border-red-500' : 'border-border'
+              )}
               placeholder="Santa Cruz"
             />
+            {errors.ciudad && (
+              <p className="mt-1.5 text-sm text-red-500 flex items-center gap-1">
+                <AlertCircle className="h-3.5 w-3.5" aria-hidden="true" />
+                {errors.ciudad.message}
+              </p>
+            )}
           </div>
 
           {/* País */}
           <div>
             <label htmlFor="pais" className="block text-sm font-semibold text-foreground mb-2">
-              País
+              País <span className="text-red-500">*</span>
             </label>
             <input
               id="pais"
               type="text"
               {...register('pais')}
-              className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-marca-green focus:border-transparent transition-colors duration-200"
+              className={cn(
+                'w-full px-4 py-3 rounded-md border bg-background text-foreground',
+                'transition-colors duration-200',
+                'focus:outline-none focus:ring-2 focus:ring-marca-green focus:border-transparent',
+                errors.pais ? 'border-red-500' : 'border-border'
+              )}
               placeholder="Bolivia"
             />
+            {errors.pais && (
+              <p className="mt-1.5 text-sm text-red-500 flex items-center gap-1">
+                <AlertCircle className="h-3.5 w-3.5" aria-hidden="true" />
+                {errors.pais.message}
+              </p>
+            )}
           </div>
         </div>
 
@@ -296,24 +329,15 @@ export function ContactForm({ className }: ContactFormProps) {
         <div className="pt-2">
           <button
             type="submit"
-            disabled={formState.isSubmitting}
             className={cn(
               'w-full inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide',
               'bg-[#0D6832] text-white',
               'transition-all duration-200',
               'hover:bg-[#0a5528]',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2',
-              'disabled:opacity-50 disabled:cursor-not-allowed'
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2'
             )}
           >
-            {formState.isSubmitting ? (
-              <>
-                <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
-                Enviando...
-              </>
-            ) : (
-              'Enviar Mensaje'
-            )}
+            💬 Enviar por WhatsApp
           </button>
         </div>
 

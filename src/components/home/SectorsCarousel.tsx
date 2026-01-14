@@ -157,11 +157,15 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
                   src={sector.image}
                   alt={sector.alt}
                   fill
-                  className="object-cover transition-all duration-500 ease-out"
+                  className={cn(
+                    'object-cover transition-all duration-500 ease-out',
+                    sector.key === 'home' ? '' : 'object-center'
+                  )}
                   style={{
                     opacity: hoveredIndex === index ? 1 : 0,
-                    scale: hoveredIndex === index ? 1 : 1.1,
+                    scale: hoveredIndex === index ? (sector.key === 'home' ? 1 : 1) : 1.1,
                     filter: hoveredIndex === index ? 'none' : 'blur(10px)',
+                    objectPosition: sector.key === 'home' ? 'center 30%' : 'center',
                   }}
                 />
               ))}

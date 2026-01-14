@@ -45,26 +45,15 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
 
               {/* Description - medium size, normal weight, grey */}
               <p className="text-base md:text-lg leading-relaxed text-[#666] max-w-xl">
-                En Marca Fusión valoramos las alianzas estratégicas que generan valor mutuo. 
-                Si compartes nuestra visión de innovación y excelencia, conversemos.
+                Creemos en las alianzas estratégicas como el motor del progreso.
+                <br />
+                En Marca Fusión, unimos la solidez empresarial boliviana con la innovación de partners nacionales e internacionales.
               </p>
-
-              {/* Value Pills */}
-              <div className="flex flex-wrap gap-3">
-                {['Confianza', 'Innovación', 'Resultados', 'Crecimiento Mutuo'].map((value, index) => (
-                  <span 
-                    key={index}
-                    className="px-4 py-2 rounded-full bg-gray-100 text-sm font-medium text-[#1a1a1a]"
-                  >
-                    {value}
-                  </span>
-                ))}
-              </div>
 
               {/* CTA */}
               <div className="pt-4">
-                <a
-                  href="/contacto"
+                <button
+                  onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
                   className={cn(
                     'inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-medium',
                     'bg-[#1a1a1a] text-white',
@@ -74,8 +63,8 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
                   )}
                 >
                   <Handshake className="h-4 w-4" strokeWidth={1.5} />
-                  Proponer Alianza
-                </a>
+                  Conocer más
+                </button>
               </div>
             </div>
 

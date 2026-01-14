@@ -1,7 +1,5 @@
 import { BlurFade } from '@/components/magicui/blur-fade';
 import { PartnershipsHero } from '@/components/partnerships/PartnershipsHero';
-import { WhyChooseUs } from '@/components/partnerships/WhyChooseUs';
-import { WhatWeSeek } from '@/components/partnerships/WhatWeSeek';
 import { AltrixCollaboration } from '@/components/partnerships/AltrixCollaboration';
 import { ClosingQuote } from '@/components/partnerships/ClosingQuote';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
@@ -26,23 +24,13 @@ export default function AlianzasPage() {
       {/* Hero Section - No animation for immediate impact */}
       <PartnershipsHero />
 
-      {/* Why Choose Us - Animated */}
-      <BlurFade delay={0.2} inView>
-        <WhyChooseUs />
-      </BlurFade>
-
-      {/* What We Seek - Animated */}
-      <BlurFade delay={0.4} inView>
-        <WhatWeSeek />
-      </BlurFade>
-
       {/* Altrix Collaboration - Animated */}
-      <BlurFade delay={0.6} inView>
+      <BlurFade delay={0.2} inView>
         <AltrixCollaboration />
       </BlurFade>
 
       {/* Closing Quote - Animated */}
-      <BlurFade delay={0.8} inView>
+      <BlurFade delay={0.4} inView>
         <ClosingQuote />
       </BlurFade>
     </div>

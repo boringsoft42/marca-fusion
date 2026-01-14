@@ -16,11 +16,10 @@ import { z } from 'zod';
  */
 
 export const motivoOptions = [
-  { value: 'cliente', label: 'Soy Cliente' },
-  { value: 'informacion', label: 'Solicitar Información' },
-  { value: 'cotizacion', label: 'Solicitar Cotización' },
-  { value: 'aliado', label: 'Propuesta de Alianza' },
-  { value: 'otro', label: 'Otro' },
+  { value: 'cliente', label: 'Soy cliente y deseo atención o información' },
+  { value: 'informacion', label: 'Deseo información sobre productos' },
+  { value: 'cotizacion', label: 'Deseo una cotización' },
+  { value: 'otro', label: 'Otro motivo' },
 ] as const;
 
 export type MotivoValue = (typeof motivoOptions)[number]['value'];
@@ -40,8 +39,8 @@ export const contactSchema = z.object({
 
   telefono: z
     .string()
-    .optional()
-    .transform((val) => val?.trim()),
+    .min(1, 'El teléfono/WhatsApp es requerido')
+    .trim(),
 
   empresa: z
     .string()
@@ -50,15 +49,15 @@ export const contactSchema = z.object({
 
   ciudad: z
     .string()
-    .optional()
-    .transform((val) => val?.trim()),
+    .min(1, 'La ciudad es requerida')
+    .trim(),
 
   pais: z
     .string()
-    .optional()
-    .transform((val) => val?.trim()),
+    .min(1, 'El país es requerido')
+    .trim(),
 
-  motivo: z.enum(['cliente', 'informacion', 'cotizacion', 'aliado', 'otro'], {
+  motivo: z.enum(['cliente', 'informacion', 'cotizacion', 'otro'], {
     errorMap: () => ({ message: 'Seleccione un motivo de contacto' }),
   }),
 

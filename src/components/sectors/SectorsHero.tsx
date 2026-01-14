@@ -33,20 +33,20 @@ export function SectorsHero({ className }: SectorsHeroProps) {
               {/* Sub-heading with diamond symbol */}
               <div className="mb-6">
                 <span className="text-sm uppercase tracking-wider font-medium text-[#1a1a1a]">
-                  ◆ Nuestros Sectores
+                  ◆ NUESTROS SECTORES
                 </span>
               </div>
 
               {/* Main Title - Large, bold, split across two lines */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a1a1a] leading-tight tracking-tight">
                 Soluciones para cada{' '}
-                <span className="block">sector.</span>
+                <span className="block">sector</span>
               </h1>
 
               {/* Description - medium size, normal weight, grey */}
               <p className="text-base md:text-lg leading-relaxed text-[#666] max-w-xl">
-                Desde grandes industrias hasta espacios personales, conectamos tecnología y organización
-                para impulsar el éxito en cada ámbito.
+                Desde grandes industrias hasta espacios personales, conectamos{' '}
+                <span className="block">tecnología y organización para impulsar el éxito en cada ámbito.</span>
               </p>
             </div>
 
@@ -61,7 +61,7 @@ export function SectorsHero({ className }: SectorsHeroProps) {
                 {/* Top Image Section */}
                 <div className="relative h-72 w-full bg-gray-100">
                   <Image
-                    src="/images/Santa Cruz (1).jpg"
+                    src="/images/Santa Cruz.jpg"
                     alt="Sectores Marca Fusión"
                     fill
                     className="object-cover"
@@ -77,28 +77,32 @@ export function SectorsHero({ className }: SectorsHeroProps) {
                   </p>
                   
                   {/* Logos Row */}
-                  <div className="flex items-center justify-between border-t border-white/20 pt-6">
-                    {/* Capstone Logo - White/Inverted */}
-                    <div className="relative h-10 w-32 opacity-90 hover:opacity-100 transition-opacity">
-                      <Image
-                        src="/images/color_image.png"
-                        alt="Capstone"
-                        fill
-                        className="object-contain brightness-0 invert"
-                      />
+                  <div className="flex items-center justify-center gap-6 border-t border-white/20 pt-6">
+                    {/* Capstone Logo - Color con fondo blanco */}
+                    <div className="bg-white rounded-lg p-3 flex items-center justify-center">
+                      <div className="relative h-12 w-36">
+                        <Image
+                          src="/images/color_image.png"
+                          alt="Capstone"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
-                    
-                    {/* Divider */}
-                    <div className="h-8 w-px bg-white/20 mx-2"></div>
 
-                    {/* Tablu Logo - White/Inverted */}
-                    <div className="relative h-10 w-24 opacity-90 hover:opacity-100 transition-opacity">
-                      <Image
-                        src="/images/Logo Tablu.png"
-                        alt="Tablú"
-                        fill
-                        className="object-contain brightness-0 invert"
-                      />
+                    {/* Divider */}
+                    <div className="h-12 w-px bg-white/20"></div>
+
+                    {/* Tablu Logo - Color con fondo blanco, tamaño incrementado */}
+                    <div className="bg-white rounded-lg p-3 flex items-center justify-center">
+                      <div className="relative h-14 w-40">
+                        <Image
+                          src="/images/Logo Tablu.png"
+                          alt="Tablú"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
                   </div>
                   

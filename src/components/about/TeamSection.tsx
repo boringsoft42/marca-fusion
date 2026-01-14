@@ -116,25 +116,37 @@ export function TeamSection({ className }: TeamSectionProps) {
               }}
             >
               {/* Image container - responsive sizing */}
-              <div className="relative h-[320px] w-full max-w-[320px] overflow-hidden md:h-[380px] md:w-[380px] lg:h-[450px] lg:w-[450px]">
-                <Image
-                  src="/images/Equipo Marca Fusión.jpg"
-                  alt="Equipo Marca Fusión"
-                  fill
-                  className="object-cover transition-all duration-1000 rounded-sm"
-                  style={{
-                    transform: isHovered ? 'scale(1.03)' : 'scale(1)',
-                    transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                  }}
+              <div className="relative h-[320px] w-full max-w-[320px] md:h-[380px] md:w-[380px] lg:h-[450px] lg:w-[450px]">
+                {/* Decorative offset frame */}
+                <div 
+                    className="absolute inset-0 border-2 border-[#1a1a1a]/10 rounded-[2rem] translate-x-4 translate-y-4 z-0"
+                    style={{
+                        transition: 'transform 0.5s ease-out',
+                        transform: isHovered ? 'translate(24px, 24px)' : 'translate(16px, 16px)'
+                    }}
                 />
+                
+                {/* Main Image Container */}
+                <div className="relative h-full w-full overflow-hidden rounded-[2rem] shadow-2xl z-10 bg-white">
+                  <Image
+                    src="/images/Equipo Marca Fusión.jpg"
+                    alt="Equipo Marca Fusión"
+                    fill
+                    className="object-cover transition-all duration-1000"
+                    style={{
+                      transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+                      transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                    }}
+                  />
 
-                <div
-                  className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent transition-opacity duration-700"
-                  style={{
-                    opacity: isHovered ? 1 : 0,
-                    transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                  }}
-                />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent transition-opacity duration-700"
+                    style={{
+                      opacity: isHovered ? 1 : 0,
+                      transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>

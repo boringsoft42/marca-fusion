@@ -149,13 +149,22 @@ export function DirectContact({ className }: DirectContactProps) {
                   <h3 className="text-lg font-bold text-foreground mb-3">Correos Electrónicos</h3>
                   <div className="space-y-2">
                     {contactInfo.emails.map((email, index) => (
-                      <div key={index}>
-                        <p className="text-xs text-muted-foreground">{email.label}</p>
+                      <div key={index} className="flex items-center justify-between">
+                        <div>
+                          <p className="text-xs text-muted-foreground">{email.label}</p>
+                          <a
+                            href={`mailto:${email.address}`}
+                            className="text-sm font-medium text-foreground hover:text-marca-green transition-colors break-all"
+                          >
+                            {email.address}
+                          </a>
+                        </div>
                         <a
                           href={`mailto:${email.address}`}
-                          className="text-sm font-medium text-foreground hover:text-marca-green transition-colors break-all"
+                          className="text-marca-green hover:text-marca-green/80 transition-colors flex-shrink-0"
+                          title="Enviar correo"
                         >
-                          {email.address}
+                          <Mail className="h-5 w-5" aria-hidden="true" />
                         </a>
                       </div>
                     ))}

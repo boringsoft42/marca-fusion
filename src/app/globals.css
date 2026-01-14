@@ -132,6 +132,9 @@
 
 /* Marca Fusión Utility Classes */
 @layer utilities {
+  .font-handwriting {
+    font-family: var(--font-kaushan), cursive;
+  }
   /* Brand color utilities */
   .bg-marca-green-light {
     background-color: hsl(var(--marca-green-light));

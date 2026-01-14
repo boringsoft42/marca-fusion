@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Kaushan_Script } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/lib/providers/QueryProvider";
 import { Toaster } from "@/components/ui/toaster";
@@ -60,6 +60,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const kaushanScript = Kaushan_Script({
+  variable: "--font-kaushan",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+
 export default function RootLayout({
   children,
 }: {
@@ -79,7 +86,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-sierra-cream`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${kaushanScript.variable} antialiased bg-sierra-cream`}>
         <ThemeProvider defaultTheme="light" storageKey="marca-fusion-theme">
           <QueryProvider>
             <ScrollSmootherProvider>

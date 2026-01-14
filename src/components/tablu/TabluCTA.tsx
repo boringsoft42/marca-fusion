@@ -2,18 +2,13 @@
 
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { ExternalLink, MessageCircle, Sparkles } from 'lucide-react';
+import { ShoppingBag, MessageCircle, Sparkles, Star } from 'lucide-react';
 
 /**
- * Tablú Final CTA Section
+ * Tablú Final Call to Action
  *
- * Features:
- * - Dual CTAs (External Catalog + WhatsApp)
- * - Link to https://tablu.com.pe
- * - Conversion-focused design
- * - Sierra-green background with white text (good contrast)
- * - Responsive layout
- * - Follows STYLE-GUIDE-SIERRA.md design patterns
+ * "Invitación a compra" - Encourages final conversion.
+ * Redesigned to match the Tablú aesthetic (Teal/Purple/Cream colors + Handwriting).
  */
 
 interface TabluCTAProps {
@@ -21,102 +16,80 @@ interface TabluCTAProps {
 }
 
 export function TabluCTA({ className }: TabluCTAProps) {
-  const tabluUrl = process.env.NEXT_PUBLIC_TABLU_URL || 'https://tablu.com.pe';
-  const whatsappNumber = '59167710595';
-  const whatsappMessage = encodeURIComponent('Hola! Me interesa conocer más sobre los planificadores Tablú');
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+  const whatsappUrl = "https://wa.me/59167710595?text=Hola,%20quiero%20realizar%20un%20pedido%20de%20[modelo],%20tama%C3%B1o%20[XX],%20cantidad%20[X].%20%C2%BFPodr%C3%ADan%20confirmarme%20disponibilidad?";
 
   return (
-    <section className={cn('py-16 md:py-20 lg:py-24 bg-white', className)}>
-      <div className="container mx-auto px-6 md:px-10 lg:px-20">
-        <div className="max-w-5xl mx-auto">
-          {/* Main CTA Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="p-8 md:p-12 rounded-2xl bg-[#2ECC71] text-white shadow-2xl mb-8"
-          >
-            <div className="text-center mb-8">
-              {/* Icon Badge */}
+    <section className={cn('py-24 bg-white relative overflow-hidden', className)}>
+      {/* Background decoration for the section itself to blend with previous/next sections */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-30">
+          <div className="absolute top-[10%] left-[5%] text-[#2d8d7b]/10 rotate-12">
+            <Star className="w-12 h-12" />
+          </div>
+          <div className="absolute bottom-[10%] right-[5%] text-[#5762A2]/10 -rotate-12">
+            <Star className="w-16 h-16" />
+          </div>
+      </div>
+
+      <div className="container mx-auto px-6 md:px-10 lg:px-20 relative z-10">
+        <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.6 }}
+           className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-[#2d8d7b] to-[#1e6f60] text-white p-10 md:p-24 shadow-2xl text-center isolate"
+        >
+           {/* Detailed Card Decor */}
+           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+               {/* Large soft glow top-left */}
+               <div className="absolute top-[-30%] left-[-20%] w-[70%] h-[70%] bg-[#5762A2] rounded-full blur-[100px] opacity-40 mix-blend-overlay" />
+               {/* Warm accent bottom-right */}
+               <div className="absolute bottom-[-30%] right-[-20%] w-[70%] h-[70%] bg-[#FFD700] rounded-full blur-[100px] opacity-20 mix-blend-soft-light" />
+               
+               {/* Pattern overlay */}
+               <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay" />
+           </div>
+
+           <div className="relative z-10 max-w-4xl mx-auto space-y-10">
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-3xl bg-white/20 backdrop-blur-sm border border-white/30 mb-6"
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-inner mb-2"
               >
-                <Sparkles className="h-4 w-4 text-white" strokeWidth={1.5} aria-hidden="true" />
-                <span className="text-sm font-medium text-white">Tablú Bolivia</span>
+                  <Sparkles className="h-5 w-5 text-yellow-200" />
+                  <span className="font-handwriting text-xl tracking-wide pt-1">Tu organización empieza aquí</span>
               </motion.div>
 
-              {/* Heading */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-[48px] font-normal mb-4"
-              >
-                ¡Empieza a Organizar tu Vida Hoy!
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-[15px] text-white/90 max-w-3xl mx-auto leading-relaxed"
-              >
-                Descubre nuestra colección completa de planificadores en acrílico y magnéticos.
-                Diseños únicos para cada momento de tu vida.
-              </motion.p>
-            </div>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight drop-shadow-sm">
+                Organizá tu vida <span className="text-[#FFFDE7] italic font-handwriting">con estilo</span>
+              </h2>
+              
+              <div className="space-y-4 text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto">
+                 <p>Tablú Bolivia te acompaña en cada meta, proyecto o idea. Diseños prácticos, elegantes y 100% personalizables.</p>
+              </div>
 
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              {/* Primary CTA - External Catalog */}
-              <a
-                href={tabluUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  'inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide',
-                  'bg-white text-[#0d6832]',
-                  'transition-all duration-200',
-                  'hover:bg-white/95',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d6832]'
-                )}
-              >
-                Explorar Catálogo Completo
-                <ExternalLink className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-              </a>
-
-              {/* Secondary CTA - WhatsApp */}
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  'inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide',
-                  'bg-white/10 text-white border-2 border-white/30 backdrop-blur-sm',
-                  'transition-all duration-200',
-                  'hover:bg-white/20 hover:border-white/50',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2'
-                )}
-              >
-                Consultar por WhatsApp
-                <MessageCircle className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
+              <div className="flex flex-col sm:flex-row gap-5 justify-center mt-12 items-center">
+                <a
+                    href="#catalogo"
+                    className="inline-flex items-center justify-center gap-3 bg-[#FFFDE7] text-[#2d8d7b] px-10 py-5 rounded-full font-bold text-lg hover:bg-white transition-all shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] hover:-translate-y-1 group"
+                >
+                    <ShoppingBag className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    Ver catálogo completo
+                </a>
+                
+                <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm border border-white/30 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/20 transition-all shadow-lg hover:-translate-y-1 group"
+                >
+                    <MessageCircle className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                    Contactar ventas
+                </a>
+              </div>
+           </div>
+        </motion.div>
       </div>
     </section>
   );

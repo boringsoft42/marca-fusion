@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { Building2, Briefcase, Home, Rocket, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Image from 'next/image';
 
 /**
  * Personal Sectors Block (Tablú)
@@ -80,39 +81,46 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="mb-12">
+          <div className="mb-12 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+            <div className="flex-1">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="text-4xl md:text-5xl font-bold text-[#1a1a1a] mb-6"
+              >
+                Soluciones por Segmento
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-base md:text-lg text-[#666] max-w-3xl leading-relaxed"
+              >
+                Planificadores diseñados para adaptarse a diferentes formas de trabajo, organización y vida diaria. Encuentra la solución ideal según tu necesidad.
+              </motion.p>
+            </div>
+
+            {/* Tablú Logo */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="mb-6"
-            >
-              <span className="text-sm uppercase tracking-wider font-medium text-[#1a1a1a]">
-                ◆ Perfiles Personales
-              </span>
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold text-[#1a1a1a] mb-6"
-            >
-              Perfiles Personales.
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-base md:text-lg text-[#666] max-w-3xl leading-relaxed"
+              className="flex-shrink-0"
             >
-              Planificadores digitales diseñados para cada estilo de vida. Organiza tu día, tu semana y tus metas
-              con herramientas visuales que se adaptan a ti.
-            </motion.p>
+              <div className="relative w-32 h-20 md:w-36 md:h-24 rounded-lg bg-white shadow-lg border-2 border-gray-100 flex items-center justify-center p-4">
+                <Image
+                  src="/images/Logo Tablu.png"
+                  alt="Tablú"
+                  fill
+                  className="object-contain p-3"
+                />
+              </div>
+            </motion.div>
           </div>
 
           {/* Profiles Grid */}
