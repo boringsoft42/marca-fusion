@@ -112,7 +112,7 @@ export function MissionVisionValues({ className }: MissionVisionValuesProps) {
               ◆ Valores
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white">
-              Nuestros Valores.
+              Nuestros Valores
             </h2>
           </motion.div>
 

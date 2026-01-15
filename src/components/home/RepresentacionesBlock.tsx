@@ -38,7 +38,7 @@ export function RepresentacionesBlock({ className }: RepresentacionesBlockProps)
             <span className="text-xs font-bold text-white uppercase tracking-widest">◆ Representaciones</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight tracking-tight">
-            Nuestras Representaciones.
+            Nuestras Representaciones
           </h2>
         </motion.div>
 
@@ -54,18 +54,15 @@ export function RepresentacionesBlock({ className }: RepresentacionesBlockProps)
           >
             {/* Logo */}
             <div className="mb-8">
-              {/* White background container for logo visibility */}
-              <div className="inline-block bg-white rounded-lg p-6 shadow-md mb-4">
-                <div className="relative w-52 h-20">
-                  <Image
-                    src="/images/color_image.png"
-                    alt="Capstone Green Energy"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+              <div className="relative w-40 h-12 mb-2">
+                <Image
+                  src="/images/color_image.png"
+                  alt="Capstone Green Energy"
+                  fill
+                  className="object-contain object-left brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
+                />
               </div>
-              <div className="h-1 w-12 bg-marca-green rounded-full"></div>
+              <div className="h-1 w-12 bg-white/20 rounded-full mt-4"></div>
             </div>
 
             {/* Content */}
@@ -98,18 +95,15 @@ export function RepresentacionesBlock({ className }: RepresentacionesBlockProps)
           >
             {/* Logo */}
             <div className="mb-8">
-              {/* White background container for logo visibility */}
-              <div className="inline-block bg-white rounded-lg p-6 shadow-md mb-4">
-                <div className="relative w-44 h-20">
-                  <Image
-                    src="/images/Logo Tablu.png"
-                    alt="Tablú"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+              <div className="relative w-28 h-12 mb-2">
+                <Image
+                  src="/images/Logo Tablu.png"
+                  alt="Tablú"
+                  fill
+                  className="object-contain object-left brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
+                />
               </div>
-              <div className="h-1 w-12 bg-[#FF7777] rounded-full"></div>
+              <div className="h-1 w-12 bg-white/20 rounded-full mt-4"></div>
             </div>
 
             {/* Content */}

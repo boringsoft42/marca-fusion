@@ -15,6 +15,7 @@ import { Header } from '@/components/layout/Header';
  * - Clean typography following Sierra guidelines
  * - Follows STYLE-GUIDE-SIERRA.md
  */
+// comentario
 
 interface AboutHeroProps {
   className?: string;
