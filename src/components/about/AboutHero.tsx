@@ -8,7 +8,7 @@ import { Header } from '@/components/layout/Header';
 /**
  * Marca Fusión About Hero Section - Sierra Style with Animations
  *
- * Features:
+ * Features:aaa
  * - Sierra cream background
  * - Professional Santa Cruz cityscape image from Unsplash
  * - Framer Motion fade-in animations
