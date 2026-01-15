@@ -58,16 +58,37 @@ export function SectorsHero({ className }: SectorsHeroProps) {
                 transition={{ duration: 0.8 }}
                 className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-2xl bg-[#1a1a1a]"
               >
-                {/* Top Image Section */}
-                <div className="relative h-72 w-full bg-gray-100">
-                  <Image
-                    src="/images/Santa Cruz.jpg"
-                    alt="Sectores Marca Fusión"
-                    fill
-                    className="object-cover"
-                  />
+                {/* Top Image Section - Split Image: Energy Innovation + Personal Organization */}
+                <div className="relative h-72 w-full bg-[#1a1a1a]">
+                  {/* Left half - Capstone (Innovación energética) with padding */}
+                  <div className="absolute left-0 top-0 w-1/2 h-full p-3">
+                    <div className="relative w-full h-full rounded-lg overflow-hidden">
+                      <Image
+                        src="/images/C1000S (2).png"
+                        alt="Innovación Energética - Capstone"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Center divider line */}
+                  <div className="absolute left-1/2 top-8 bottom-8 w-px bg-white/20 transform -translate-x-1/2"></div>
+
+                  {/* Right half - Tablú (Organización personal) with padding */}
+                  <div className="absolute right-0 top-0 w-1/2 h-full p-3">
+                    <div className="relative w-full h-full rounded-lg overflow-hidden">
+                      <Image
+                        src="/images/ta2.jpg"
+                        alt="Organización Personal - Tablú"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+
                   {/* Subtle overlay gradient to blend with black bottom */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent opacity-60"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent opacity-40"></div>
                 </div>
                 
                 {/* Bottom Black Section */}
