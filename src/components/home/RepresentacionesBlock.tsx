@@ -54,13 +54,15 @@ export function RepresentacionesBlock({ className }: RepresentacionesBlockProps)
           >
             {/* Logo */}
             <div className="mb-8">
-              <div className="relative w-40 h-12 mb-2">
-                <Image
-                  src="/images/color_image.png"
-                  alt="Capstone Green Energy"
-                  fill
-                  className="object-contain object-left brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
-                />
+              <div className="bg-white rounded-lg inline-block w-full max-w-xs h-20 p-4 flex items-center justify-center">
+                <div className="relative w-32 h-10">
+                  <Image
+                    src="/images/color_image.png"
+                    alt="Capstone Green Energy"
+                    fill
+                    className="object-contain object-center"
+                  />
+                </div>
               </div>
               <div className="h-1 w-12 bg-white/20 rounded-full mt-4"></div>
             </div>
@@ -95,13 +97,15 @@ export function RepresentacionesBlock({ className }: RepresentacionesBlockProps)
           >
             {/* Logo */}
             <div className="mb-8">
-              <div className="relative w-28 h-12 mb-2">
-                <Image
-                  src="/images/Logo Tablu.png"
-                  alt="Tablú"
-                  fill
-                  className="object-contain object-left brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
-                />
+              <div className="bg-white rounded-lg overflow-hidden inline-block w-full max-w-xs">
+                <div className="relative w-full h-20">
+                  <Image
+                    src="/images/Logo Tablu.png"
+                    alt="Tablú"
+                    fill
+                    className="object-contain object-center"
+                  />
+                </div>
               </div>
               <div className="h-1 w-12 bg-white/20 rounded-full mt-4"></div>
             </div>

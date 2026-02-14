@@ -92,8 +92,8 @@ export function InstitutionalText({ className }: InstitutionalTextProps) {
                   }}
                 />
                 <Image
-                  src="/images/Santa Cruz (1).jpg"
-                  alt="Santa Cruz de la Sierra, Bolivia"
+                  src="/images/Nuestra Historia.jpg"
+                  alt="Nuestra Historia - Marca Fusión"
                   fill
                   className="object-cover transition-all duration-1000"
                   style={{

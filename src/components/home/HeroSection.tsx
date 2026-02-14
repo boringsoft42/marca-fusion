@@ -100,7 +100,7 @@ export function HeroSection({ className }: HeroSectionProps) {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
           poster="/images/1.png"
           controls={false}
@@ -108,8 +108,15 @@ export function HeroSection({ className }: HeroSectionProps) {
           disableRemotePlayback
           x-webkit-airplay="deny"
         >
-          <source src="/images/YPFB Transporte - CAIGUA (1).mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+          <source src="/images/YPFB-optimized.mp4" type="video/mp4" />
+          {/* Fallback image for devices that cannot play video */}
+          <Image
+            src="/images/1.png"
+            alt="Marca Fusión Background"
+            fill
+            className="object-cover"
+            priority
+          />
         </video>
         {/* Dark overlay for text readability with opacity transition */}
         <motion.div

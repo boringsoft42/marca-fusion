@@ -147,8 +147,8 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                 {/* World Map Background */}
                 <div className="absolute inset-0 bg-[#0f1115]">
                   <Image
-                    src="/images/world_map_bg.png"
-                    alt="World Map Background"
+                    src="/images/Grupo Altrix - Marca Fusión.png"
+                    alt="Grupo Altrix - Marca Fusión"
                     fill
                     className="object-cover opacity-60 transition-transform duration-[20s] ease-linear group-hover:scale-110"
                     priority

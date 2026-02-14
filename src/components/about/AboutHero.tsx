@@ -42,10 +42,11 @@ export function AboutHero({ className }: AboutHeroProps) {
           alt="Santa Cruz de la Sierra, Bolivia"
           fill
           className="object-cover"
+          style={{ filter: 'blur(1px)' }}
           priority
         />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/50" />
+        {/* Dark overlay for text readability - 60% opacity */}
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20 pt-24">
@@ -60,9 +61,9 @@ export function AboutHero({ className }: AboutHeroProps) {
             <Image
               src="/images/Logo_Marca_Fusión_Transparente.png"
               alt="Marca Fusión Logo"
-              width={60}
-              height={60}
-              className="h-14 w-auto brightness-0 invert"
+              width={144}
+              height={128}
+              className="w-36 h-32 brightness-0 invert"
               priority
             />
           </motion.div>
@@ -72,20 +73,10 @@ export function AboutHero({ className }: AboutHeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white mb-8"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white"
           >
-            ¿Quiénes somos?
+            Conectamos tecnología, energía e industria
           </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-base md:text-lg text-white/90 leading-relaxed mb-12 font-normal"
-          >
-            Conectamos Bolivia con el mundo a través de representaciones estratégicas que impulsan innovación, sostenibilidad y desarrollo.
-          </motion.p>
         </div>
       </div>
     </section>

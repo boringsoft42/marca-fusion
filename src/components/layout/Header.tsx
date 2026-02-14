@@ -26,7 +26,7 @@ export function Header({ className }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   // Pages that need dark text on white background (Light Pages)
-  const isLightPage = pathname === '/sectores' || pathname === '/alianzas';
+  const isLightPage = pathname === '/sectores' || pathname === '/alianzas' || pathname === '/tablu';
 
   // Close mobile menu when window is resized to desktop
   useEffect(() => {

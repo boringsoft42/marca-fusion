@@ -140,10 +140,10 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
         >
           {/* Floating Image Preview - Hidden on mobile */}
           <div
-            className="pointer-events-none fixed z-50 overflow-hidden rounded-xl shadow-2xl hidden lg:block"
+            className="pointer-events-none absolute z-10 overflow-hidden rounded-xl shadow-2xl hidden lg:block"
             style={{
-              left: containerRef.current?.getBoundingClientRect().left ?? 0,
-              top: containerRef.current?.getBoundingClientRect().top ?? 0,
+              left: 0,
+              top: 0,
               transform: `translate3d(${smoothPosition.x + 20}px, ${smoothPosition.y - 100}px, 0)`,
               opacity: isVisible ? 1 : 0,
               scale: isVisible ? 1 : 0.8,
@@ -158,14 +158,13 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
                   alt={sector.alt}
                   fill
                   className={cn(
-                    'object-cover transition-all duration-500 ease-out',
-                    sector.key === 'home' ? '' : 'object-center'
+                    'transition-all duration-500 ease-out',
+                    sector.key === 'home' ? 'object-contain' : 'object-cover object-center'
                   )}
                   style={{
                     opacity: hoveredIndex === index ? 1 : 0,
-                    scale: hoveredIndex === index ? (sector.key === 'home' ? 1 : 1) : 1.1,
+                    scale: hoveredIndex === index ? 1 : 1.1,
                     filter: hoveredIndex === index ? 'none' : 'blur(10px)',
-                    objectPosition: sector.key === 'home' ? 'center 30%' : 'center',
                   }}
                 />
               ))}

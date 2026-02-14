@@ -1,5 +1,5 @@
 import { BlurFade } from '@/components/magicui/blur-fade';
-import { TabluHero } from '@/components/tablu/TabluHero';
+import { TabluHero, TabluInfoSection } from '@/components/tablu/TabluHero';
 import { CategoryCarousel } from '@/components/tablu/CategoryCarousel';
 import { PricingTables } from '@/components/tablu/PricingTables';
 import { ProductCatalog } from '@/components/tablu/ProductCatalog';
@@ -42,6 +42,9 @@ export default function TabluPage() {
       <div className="flex flex-col">
         {/* Hero Section - No animation for immediate impact */}
         <TabluHero />
+
+        {/* Info Section - Text and CTA below hero */}
+        <TabluInfoSection />
 
       {/* Category Carousel - Animated */}
       <BlurFade delay={0.1} inView>
