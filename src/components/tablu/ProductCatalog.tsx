@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { ProductCard } from './ProductCard';
-import { tabluCatalog, filterCategories } from '@/data/tablu-catalog';
+import { categoriasConImagenes } from '@/data/categorias-imagenes';
+import Link from 'next/link';
+import Image from 'next/image';
 
 /**
  * Tablú Product Catalog
@@ -25,29 +26,14 @@ interface ProductCatalogProps {
 
 export function ProductCatalog({ className }: ProductCatalogProps) {
   const [activeFilter, setActiveFilter] = useState('all');
-  const [visibleCount, setVisibleCount] = useState(6);
 
-  // Filter products based on active filter
-  const filteredProducts = tabluCatalog.filter((product) => {
-    if (activeFilter === 'all') return true;
-
-    // Check if product belongs to the selected category
-    if (activeFilter === 'dark') {
-      return product.tags.includes('dark');
-    }
-
-    return product.categories.includes(activeFilter);
-  });
-
-  const displayedProducts = filteredProducts.slice(0, visibleCount);
+  // Filter categories based on active filter
+  const filteredCategorias = activeFilter === 'all'
+    ? categoriasConImagenes
+    : categoriasConImagenes.filter((cat) => cat.slug === activeFilter);
 
   const handleFilterChange = (filterId: string) => {
     setActiveFilter(filterId);
-    setVisibleCount(6); // Reset visible count on filter change
-  };
-
-  const handleShowMore = () => {
-    setVisibleCount((prev) => prev + 6);
   };
 
   return (
@@ -62,10 +48,10 @@ export function ProductCatalog({ className }: ProductCatalogProps) {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-[48px] font-normal text-[#1a1a1a] mb-4">
-              Catálogo de Productos
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[#1a1a1a] mb-6 leading-[1.1] tracking-tight">
+              Catálogo de <span className="font-kaushan text-[#0D6832] lowercase text-[0.85em] font-normal tracking-normal">diseños exclusivos</span>
             </h2>
-            <p className="text-[15px] text-[#6b6b6b] max-w-3xl mx-auto leading-relaxed mb-8">
+            <p className="text-base md:text-lg text-[#555] max-w-3xl mx-auto leading-relaxed mb-8">
               Elegí tu modelo, tamaño y estilo favorito del catálogo y realizá tu pedido directamente por WhatsApp.
             </p>
             
@@ -96,129 +82,109 @@ export function ProductCatalog({ className }: ProductCatalogProps) {
             className="mb-10"
           >
             <div className="flex flex-wrap justify-center gap-3">
-              {filterCategories.map((filter, index) => (
+              <motion.button
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3 }}
+                onClick={() => handleFilterChange('all')}
+                className={cn(
+                  'px-7 py-3 rounded-3xl text-[15px] font-medium',
+                  'transition-all duration-200',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5762A2] focus-visible:ring-offset-2',
+                  activeFilter === 'all'
+                    ? 'bg-[#5762A2] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]'
+                    : 'bg-[#ebe8e3] text-[#1a1a1a] hover:bg-[#5762A2] hover:text-white'
+                )}
+              >
+                Ver Todo
+              </motion.button>
+              {categoriasConImagenes.map((categoria, index) => (
                 <motion.button
-                  key={filter.id}
+                  key={categoria.id}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  onClick={() => handleFilterChange(filter.id)}
+                  transition={{ duration: 0.3, delay: (index + 1) * 0.05 }}
+                  onClick={() => handleFilterChange(categoria.slug)}
                   className={cn(
                     'px-7 py-3 rounded-3xl text-[15px] font-medium',
                     'transition-all duration-200',
                     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5762A2] focus-visible:ring-offset-2',
-                    activeFilter === filter.id
+                    activeFilter === categoria.slug
                       ? 'bg-[#5762A2] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]'
                       : 'bg-[#ebe8e3] text-[#1a1a1a] hover:bg-[#5762A2] hover:text-white'
                   )}
                 >
-                  {filter.label}
+                  {categoria.nombre}
                 </motion.button>
               ))}
             </div>
           </motion.div>
 
-          {/* Product Count */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-8 text-center"
-          >
-            <p className="text-[15px] text-[#6b6b6b]">
-              Mostrando{' '}
-              <span className="font-medium text-[#1a1a1a]">{displayedProducts.length}</span>
-              {' '}de{' '}
-              <span className="font-medium text-[#1a1a1a]">{filteredProducts.length}</span>{' '}
-              {filteredProducts.length === 1 ? 'producto' : 'productos'}
-              {activeFilter !== 'all' && (
-                <>
-                  {' '}en{' '}
-                  <span className="font-medium text-[#5762A2]">
-                    {filterCategories.find((f) => f.id === activeFilter)?.label}
-                  </span>
-                </>
-              )}
-            </p>
-          </motion.div>
-
-          {/* Products Grid */}
-          {filteredProducts.length > 0 ? (
-            <>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
-                {displayedProducts.map((product, index) => (
-                  <ProductCard key={product.id} product={product} index={index} />
-                ))}
-              </div>
-
-              {/* Show More Button */}
-              {filteredProducts.length > visibleCount && (
-                <div className="text-center">
-                  <motion.button
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    onClick={handleShowMore}
-                    className={cn(
-                      'inline-flex items-center gap-2 rounded-3xl px-8 py-3 text-[15px] font-medium',
-                      'bg-white text-[#5762A2] border-2 border-[#5762A2]',
-                      'transition-all duration-200',
-                      'hover:bg-[#5762A2] hover:text-white hover:shadow-lg',
-                      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5762A2] focus-visible:ring-offset-2'
-                    )}
-                  >
-                    Ver todos los diseños
-                  </motion.button>
-                </div>
-              )}
-            </>
-          ) : (
-            /* Empty State */
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center py-16"
-            >
-              <div className="inline-flex p-6 rounded-full bg-[#ebe8e3] mb-4">
-                <svg
-                  className="h-16 w-16 text-[#6b6b6b]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-medium text-[#1a1a1a] mb-2">
-                No se encontraron productos
-              </h3>
-              <p className="text-[15px] text-[#6b6b6b] mb-6">
-                No hay productos disponibles en esta categoría en este momento.
-              </p>
-              <button
-                onClick={() => handleFilterChange('all')}
-                className={cn(
-                  'inline-flex items-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium',
-                  'bg-[#5762A2] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
-                  'transition-all duration-200',
-                  'hover:bg-[#4A5BA8]',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5762A2] focus-visible:ring-offset-2'
-                )}
+          {/* Categories Display */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+            {filteredCategorias.map((categoria, catIndex) => (
+              <motion.div
+                key={categoria.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: catIndex * 0.1 }}
               >
-                Ver Todos los Productos
-              </button>
-            </motion.div>
-          )}
+                <Link
+                  href={`/galeria/${categoria.slug}`}
+                  className="group block"
+                >
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    {/* Category Image Preview - Grid of 4 images */}
+                    <div className="relative aspect-square overflow-hidden bg-marca-beige/10">
+                      <div className="grid grid-cols-2 gap-0.5 h-full">
+                        {categoria.todasLasImagenes.slice(0, 4).map((imagen, imgIndex) => (
+                          <div key={imgIndex} className="relative">
+                            <Image
+                              src={imagen}
+                              alt={`${categoria.nombre} - Preview ${imgIndex + 1}`}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-110"
+                              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 12.5vw"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                      <div className="absolute inset-0 bg-marca-green/0 group-hover:bg-marca-green/10 transition-colors duration-300" />
+
+                      {/* Overlay con información */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <div className="text-white">
+                          <p className="font-bold text-lg">Ver Galería</p>
+                          <p className="text-sm">{categoria.todasLasImagenes.length} imágenes</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Category Info */}
+                    <div className="p-5">
+                      <h3 className="text-xl font-bold text-marca-steel mb-2 group-hover:text-marca-green transition-colors">
+                        {categoria.nombre}
+                      </h3>
+                      <p className="text-sm text-marca-steel/70 line-clamp-2 mb-3">
+                        {categoria.descripcion}
+                      </p>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-marca-steel/60">
+                          {categoria.todasLasImagenes.length} diseños
+                        </span>
+                        <span className="text-marca-green font-medium group-hover:underline">
+                          Ver galería →
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

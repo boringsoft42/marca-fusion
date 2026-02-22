@@ -1,5 +1,6 @@
 import { HeroSection } from '@/components/home/HeroSection';
 import { RepresentacionesBlock } from '@/components/home/RepresentacionesBlock';
+import { CategoriasSection } from '@/components/home/CategoriasSection';
 import { CorporateGroupSection } from '@/components/home/CorporateGroupSection';
 import { MissionSection } from '@/components/home/MissionSection';
 import { SectorsCarousel } from '@/components/home/SectorsCarousel';
@@ -13,6 +14,7 @@ import { metadata as metadataUtils } from '@/lib/seo/metadata';
  * Main landing page showcasing:
  * - Hero section with company tagline (Sierra style)
  * - Representations block (Capstone & Tablú)
+ * - Categorías de productos Tablú (planners)
  * - Corporate group section (Marca Fusión + Altrix)
  * - Mission and values
  * - Sectors carousel
@@ -32,6 +34,11 @@ export default function HomePage() {
       {/* Representations Block - Animated */}
       <BlurFade delay={0.2} inView>
         <RepresentacionesBlock />
+      </BlurFade>
+
+      {/* Categorías de Productos Tablú - Animated */}
+      <BlurFade delay={0.3} inView>
+        <CategoriasSection />
       </BlurFade>
 
       {/* Corporate Group Section - Animated */}

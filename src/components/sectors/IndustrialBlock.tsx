@@ -100,7 +100,7 @@ export function IndustrialBlock({ className }: IndustrialBlockProps) {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-4xl md:text-5xl font-bold text-white mb-6"
               >
-                Adaptable a la Industria.
+                Adaptable a la Industria
               </motion.h2>
 
               <motion.p

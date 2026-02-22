@@ -105,106 +105,87 @@ export function PricingTables({ className }: PricingTablesProps) {
     columns?: number;
   }) => {
     return (
-    <div className="space-y-8">
-      {/* Table Header */}
+    <div className="space-y-6">
+      {/* Table Header - Compact */}
       <div className="text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-3 mb-3 bg-white px-6 py-3 rounded-full shadow-lg"
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 mb-2 bg-white px-5 py-2 rounded-full shadow-md"
         >
-          <Icon className={cn('h-8 w-8', accentColor)} strokeWidth={1.5} aria-hidden="true" />
-          <h3 className="text-2xl font-bold text-[#1a1a1a]">{title}</h3>
+          <Icon className={cn('h-5 w-5', accentColor)} strokeWidth={1.5} aria-hidden="true" />
+          <h3 className="text-lg font-bold text-[#1a1a1a]">
+            {title.includes('Acrílico') ? (
+              <>Planificadores de <span className="font-kaushan text-[#2ECC71] lowercase font-normal">acrílico</span></>
+            ) : (
+              <>Planners <span className="font-kaushan text-[#5762A2] lowercase font-normal">imantados</span></>
+            )}
+          </h3>
         </motion.div>
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-sm text-white/90"
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-sm text-white/80"
         >
-          {title.includes('Acrílico') 
-            ? 'Elegante para cualquier espacio' 
+          {title.includes('Acrílico')
+            ? 'Elegante para cualquier espacio'
             : 'Uso para Refrigeradores, tableros o cocinas'}
         </motion.p>
       </div>
 
-      {/* Planners Grid */}
+      {/* Planners Grid - Compact */}
       <div className={cn(
-        "grid gap-4",
+        "grid gap-3",
         columns === 5
-          ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+          ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
           : planners.length === 2
-            ? "grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto"
-            : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            ? "grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto"
+            : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
       )}>
         {planners.map((planner, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: planner.delay || index * 0.1 }}
+            transition={{ duration: 0.4, delay: planner.delay || index * 0.08 }}
             className={cn(
-              'relative flex flex-col overflow-hidden rounded-3xl bg-white shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group',
-              planner.highlighted ? 'ring-4 ring-[#FFD166] ring-offset-2 ring-offset-[#5762A2]' : ''
+              'relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl group',
+              planner.highlighted ? 'ring-2 ring-[#FFD166]' : ''
             )}
           >
-            {/* Header / Top Bar */}
-            <div className={cn("h-3 w-full", planner.color || 'bg-gray-200')} />
+            {/* Header / Top Bar - Thinner */}
+            <div className={cn("h-2 w-full", planner.color || 'bg-gray-200')} />
 
-            <div className="p-6 flex flex-col h-full">
-                {/* Badge */}
+            <div className="p-4 flex flex-col h-full">
+                {/* Badge - Smaller */}
                 {planner.highlighted && (
-                <div className="absolute top-6 right-6">
-                    <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white bg-[#FFD166] rounded-full shadow-md">
+                <div className="absolute top-3 right-3">
+                    <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-white bg-[#FFD166] rounded-full">
                     {planner.tag || 'Popular'}
                     </span>
                 </div>
                 )}
 
-                {/* Size - Main Title */}
-                <div className="mb-4">
-                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Tamaño</p>
-                    <h4 className="text-3xl font-black text-[#1a1a1a] tracking-tight">{planner.size}</h4>
-                </div>
-                
-                {/* Divider with circle */}
-                <div className="relative h-px w-full bg-gray-100 my-4">
-                    <div className={cn("absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 rounded-full", planner.color)} />
+                {/* Size - Compact */}
+                <div className="mb-3">
+                    <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide mb-0.5">Tamaño</p>
+                    <h4 className="text-xl font-bold text-[#1a1a1a]">{planner.size}</h4>
                 </div>
 
-                {/* Format / Content */}
-                <div className="flex-grow mb-6">
-                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Formato</p>
-                     <p className="text-[#5762A2] font-medium leading-relaxed">
-                        {planner.format}
-                     </p>
-                     
-                     {/* Features List for magnetic or if present */}
-                     {planner.features && (
-                        <ul className="mt-3 space-y-1.5">
-                            {planner.features.map((feature: string, idx: number) => (
-                                <li key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                                    <div className={cn("h-1.5 w-1.5 rounded-full", planner.color)} />
-                                    {feature}
-                                </li>
-                            ))}
-                        </ul>
-                     )}
-                </div>
+                {/* Spacer */}
+                <div className="flex-grow"></div>
 
-                {/* Price */}
+                {/* Price - Compact */}
                 {planner.price && (
                     <div className="mt-auto">
-                        <div className={cn(
-                            "rounded-2xl py-3 px-4 text-center transition-transform duration-300 group-hover:scale-105", 
-                            "bg-gray-50 group-hover:bg-[#f0f0f0]"
-                        )}>
-                            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Precio</p>
-                            <p className={cn("text-2xl font-black", "text-[#1a1a1a]")}>
+                        <div className="rounded-xl py-2 px-3 text-center bg-gray-50">
+                            <p className="text-[10px] text-gray-500 uppercase font-semibold mb-0.5">Precio</p>
+                            <p className="text-lg font-bold text-[#1a1a1a]">
                                 {planner.price}
                             </p>
                         </div>
@@ -219,30 +200,30 @@ export function PricingTables({ className }: PricingTablesProps) {
   };
 
   return (
-    <section className={cn('py-16 md:py-20 lg:py-24 bg-[#5762A2] relative overflow-hidden', className)}>
+    <section className={cn('py-12 md:py-16 bg-[#5762A2] relative overflow-hidden', className)}>
       {/* Decorative Background Circles */}
-      <div className="absolute top-20 left-10 w-72 h-72 rounded-full bg-[#FFD166]/30 blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-[#2ECC71]/20 blur-3xl" />
+      <div className="absolute top-10 left-10 w-48 h-48 rounded-full bg-[#FFD166]/20 blur-3xl" />
+      <div className="absolute bottom-10 right-10 w-64 h-64 rounded-full bg-[#2ECC71]/15 blur-3xl" />
 
       <div className="container mx-auto px-6 md:px-10 lg:px-20 relative z-10">
-        <div className="max-w-7xl mx-auto space-y-16">
-          {/* Section Header */}
+        <div className="max-w-7xl mx-auto space-y-10">
+          {/* Section Header - Compact */}
           <div className="text-center">
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-bold text-white mb-4"
+              transition={{ duration: 0.5 }}
+              className="text-3xl md:text-4xl font-bold text-white mb-3"
             >
-              Encuentra tu Tamaño Ideal
+              Encuentra tu <span className="font-kaushan text-[#FFD166] lowercase font-normal">tamaño ideal</span>
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-base md:text-lg text-white/90 max-w-3xl mx-auto"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-sm md:text-base text-white/80 max-w-2xl mx-auto"
             >
               Ofrecemos planificadores en acrílico y magnéticos en diversos tamaños para adaptarse a tus necesidades
             </motion.p>

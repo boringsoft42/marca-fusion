@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 /**
@@ -54,11 +54,6 @@ const categories: Category[] = [
     image: '/images/homeofiice.png',
     badgeColor: 'bg-teal-500',
   },
-  {
-    title: 'CORPORATIVO',
-    image: '/images/Grupo Corporativo.png',
-    badgeColor: 'bg-gray-700',
-  },
 ];
 
 interface CategoryCarouselProps {
@@ -66,24 +61,38 @@ interface CategoryCarouselProps {
 }
 
 export function CategoryCarousel({ className }: CategoryCarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [offset, setOffset] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % categories.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + categories.length) % categories.length);
-  };
-
-  // Calculate visible categories (show 4 on desktop, 2 on tablet, 1 on mobile)
-  const getVisibleCategories = () => {
-    const visible = [];
-    for (let i = 0; i < 4; i++) {
-      visible.push(categories[(currentIndex + i) % categories.length]);
+  // Scroll to catalog section
+  const scrollToCatalog = () => {
+    const catalogSection = document.getElementById('catalogo');
+    if (catalogSection) {
+      catalogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    return visible;
   };
+
+  // Continuous auto-scroll animation - smooth horizontal scroll
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setOffset((prev) => {
+        // Move by small increments for smooth animation
+        const newOffset = prev + 0.5;
+        // Reset when we've scrolled past one full category width
+        if (newOffset >= 100) {
+          return 0;
+        }
+        return newOffset;
+      });
+    }, 30); // Update every 30ms for smooth animation
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  // Duplicate categories array for infinite loop effect
+  const duplicatedCategories = [...categories, ...categories, ...categories];
 
   return (
     <section className={cn('py-16 md:py-20 bg-white overflow-hidden', className)}>
@@ -94,79 +103,61 @@ export function CategoryCarousel({ className }: CategoryCarouselProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 max-w-3xl mx-auto"
+          className="text-center mb-12 max-w-4xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#4A5BA8] mb-4">
-            Encuentra tu planner ideal según tu estilo de vida
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-tight">
+            Encuentra tu <span className="font-kaushan text-[#4A5BA8] lowercase text-[0.85em] font-normal tracking-normal">planner ideal</span> <br className="hidden md:block" />
+            según tu estilo de vida
           </h2>
           <p className="text-base md:text-lg text-[#666] leading-relaxed">
             Porque cada persona, hogar o empresa tiene una forma única de organizarse, diseñamos planners pensados para cada etapa y necesidad.
           </p>
         </motion.div>
 
-        {/* Category Subtitle */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center mb-8"
-        >
-          <p className="text-lg md:text-xl font-bold text-[#0D6832] uppercase tracking-wide">
-            Cada carpeta es una categoría, dentro se encuentra la subcategoría
-          </p>
-        </motion.div>
-
         {/* Carousel Container */}
-        <div className="relative">
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-200 -ml-4 md:-ml-6"
-            aria-label="Previous category"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-800" strokeWidth={2.5} />
-          </button>
+        <div
+          className="relative -mx-6 md:-mx-10 lg:-mx-20"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Infinite scrolling container */}
+          <div className="overflow-hidden">
+            <div
+              className="flex gap-4 md:gap-6 transition-transform duration-100 ease-linear"
+              style={{
+                transform: `translateX(-${offset}%)`,
+              }}
+            >
+              {duplicatedCategories.map((category, index) => (
+                <div
+                  key={`${category.title}-${index}`}
+                  onClick={scrollToCatalog}
+                  className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer group flex-shrink-0"
+                  style={{ width: 'calc(25% - 18px)' }} // 4 items visible at once (25% width minus gap)
+                >
+                  {/* Category Image */}
+                  <Image
+                    src={category.image}
+                    alt={category.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="25vw"
+                  />
 
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-200 -mr-4 md:-mr-6"
-            aria-label="Next category"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-800" strokeWidth={2.5} />
-          </button>
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-          {/* Category Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {getVisibleCategories().map((category, index) => (
-              <motion.div
-                key={`${category.title}-${index}`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer group"
-              >
-                {/* Category Image */}
-                <Image
-                  src={category.image}
-                  alt={category.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                {/* Category Badge */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%]">
-                  <div className={cn('px-4 py-2 rounded-lg text-center', category.badgeColor)}>
-                    <p className="text-white font-bold text-sm md:text-base uppercase tracking-wide">
-                      {category.title}
-                    </p>
+                  {/* Category Badge */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%]">
+                    <div className={cn('px-4 py-2 rounded-lg text-center', category.badgeColor)}>
+                      <p className="text-white font-bold text-sm md:text-base uppercase tracking-wide">
+                        {category.title}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 

@@ -96,88 +96,13 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
       </div>
 
       {/* Product Info */}
-      <div className="flex flex-col flex-1 p-6 space-y-4">
-        {/* Name and Description */}
-        <div>
-          <h3 className="text-xl font-medium text-[#1a1a1a] mb-2 line-clamp-2 group-hover:text-[#5762A2] transition-colors">
+      <div className="flex flex-col flex-1 p-6">
+        {/* Name Only */}
+        <div className="flex items-center justify-center h-full">
+          <h3 className="text-xl font-medium text-[#1a1a1a] text-center group-hover:text-[#5762A2] transition-colors">
             {product.name}
           </h3>
-          <p className="text-[15px] text-[#6b6b6b] leading-relaxed line-clamp-2">
-            {product.description}
-          </p>
         </div>
-
-        {/* Price Range */}
-        <div className="pt-3 border-t border-[#e0e0e0]">
-          <p className="text-[15px] font-medium text-[#6b6b6b] mb-1">Precio:</p>
-          <p className="text-xl font-medium text-[#5762A2]">{product.priceRange}</p>
-        </div>
-
-        {/* Available Sizes */}
-        <div>
-          <p className="text-[15px] font-medium text-[#6b6b6b] mb-2">Tamaños disponibles:</p>
-          <div className="flex flex-wrap gap-2">
-            {product.sizes.map((size, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 text-[15px] font-normal rounded-full bg-[#ebe8e3] text-[#1a1a1a]"
-              >
-                {size}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Features */}
-        <div>
-          <p className="text-[15px] font-medium text-[#6b6b6b] mb-2">Características:</p>
-          <ul className="space-y-2">
-            {product.features.slice(0, 3).map((feature, index) => (
-              <li key={index} className="flex items-start gap-2 text-[15px]">
-                <Check className="h-4 w-4 text-[#5762A2] flex-shrink-0 mt-0.5" strokeWidth={1.5} aria-hidden="true" />
-                <span className="text-[#6b6b6b]">{feature}</span>
-              </li>
-            ))}
-          </ul>
-          {product.features.length > 3 && (
-            <p className="text-[15px] text-[#6b6b6b] mt-2 italic">
-              +{product.features.length - 3} características más
-            </p>
-          )}
-        </div>
-
-        {/* WhatsApp CTA */}
-        <div className="mt-auto pt-4">
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              'flex items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium w-full',
-              'bg-[#5762A2] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
-              'transition-all duration-200',
-              'hover:bg-[#4A5BA8] hover:shadow-lg',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5762A2] focus-visible:ring-offset-2'
-            )}
-          >
-            <MessageCircle className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-            Pedir por WhatsApp
-          </a>
-        </div>
-
-        {/* Tags */}
-        {product.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 pt-2">
-            {product.tags.slice(0, 3).map((tag, index) => (
-              <span
-                key={index}
-                className="px-2 py-0.5 text-xs font-medium rounded-full bg-[#5762A2]/10 text-[#5762A2]"
-              >
-                #{tag}
-              </span>
-            ))}
-          </div>
-        )}
       </div>
     </motion.div>
   );

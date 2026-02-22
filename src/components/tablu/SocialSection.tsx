@@ -52,14 +52,14 @@ export function SocialSection({ className }: SocialSectionProps) {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto space-y-8"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Seguinos en nuestras redes
+          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white mb-6 leading-[1.1] tracking-tight">
+            Seguinos en nuestras <span className="font-kaushan text-[#FFD166] lowercase text-[0.85em] font-normal tracking-normal">redes</span>
           </h2>
-          <p className="text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto mb-12">
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-12 leading-relaxed">
             Descubrí nuevos diseños, promociones y tips de organización cada semana.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-4 mt-12">
+          <div className="grid md:grid-cols-3 gap-8 md:gap-4 mt-12 mb-16">
             {socials.map((social, index) => (
               <motion.a
                 key={social.name}
@@ -82,6 +82,21 @@ export function SocialSection({ className }: SocialSectionProps) {
               </motion.a>
             ))}
           </div>
+
+          {/* Quality & Representation Note */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="pt-8 border-t border-white/10"
+          >
+            <p className="text-sm md:text-base text-white/70 leading-relaxed max-w-2xl mx-auto italic">
+              Los productos Tablú Bolivia mantienen los mismos estándares de fabricación y garantía que en Perú y México.
+              <br />
+              <span className="font-bold text-white/90 focus:not-italic">Distribuido oficialmente por Marca Fusión SRL – Representante exclusivo para Bolivia</span>
+            </p>
+          </motion.div>
           
         </motion.div>
       </div>

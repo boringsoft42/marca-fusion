@@ -52,7 +52,7 @@ export function IconRibbon({ className }: IconRibbonProps) {
   ];
 
   return (
-    <section className={cn('py-16 md:py-20 lg:py-24 bg-[#ebe8e3]', className)}>
+    <section className={cn('py-16 md:py-20 lg:py-24 bg-white', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
         <div className="max-w-6xl mx-auto">
           {/* Features Grid */}

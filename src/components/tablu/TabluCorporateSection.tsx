@@ -43,7 +43,8 @@ export function TabluCorporateSection({ className }: TabluCorporateSectionProps)
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[#1a1a1a] mb-6 leading-[1.1] tracking-tight">
-                Planners personalizados para <span className="text-[#5762A2]">empresas y equipos</span>
+                Planners para <br className="hidden md:block" />
+                <span className="font-kaushan text-[#5762A2] lowercase text-[0.85em] font-normal tracking-normal">empresas y equipos</span>
               </h2>
               <p className="text-lg md:text-xl text-[#555] leading-relaxed mb-8 max-w-lg">
                 Ofrecemos soluciones corporativas elementales para oficinas, eventos o regalos institucionales.
@@ -90,28 +91,15 @@ export function TabluCorporateSection({ className }: TabluCorporateSectionProps)
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex-1 w-full relative"
           >
-            {/* Main Image Container */}
-            <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl bg-white border-8 border-white ring-1 ring-black/5">
+            {/* Main Image Container - Ensuring 100% visibility */}
+            <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl bg-white border-8 border-white ring-1 ring-black/5 p-8 md:p-14">
               
               <Image
-                src="/images/Captura de pantalla 2026-01-06 163430 (1).png"
+                src="/images/Tablú MF.jpeg"
                 alt="Oficina Corporativa Tablú"
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
+                className="object-contain transition-all duration-700 group-hover:scale-105"
               />
-              
-
-
-              {/* Refined Overlay Card - Compact Horizontal Rectangle */}
-              <div className="absolute bottom-8 right-8 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-4 z-10">
-                 <div className="w-14 h-14 bg-[#1a1a1a] rounded-xl flex items-center justify-center shadow-md flex-shrink-0 transform transition-transform duration-300 hover:scale-105">
-                    <span className="text-white font-bold text-sm tracking-wide">Logo</span>
-                 </div>
-                 <div className="flex flex-col">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#9ca3af]">Espacio para</p>
-                    <p className="text-xs font-black uppercase tracking-wider text-[#1a1a1a]">Tu Marca Aquí</p>
-                 </div>
-              </div>
             </div>
             
             {/* Decorative Element */}

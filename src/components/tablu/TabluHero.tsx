@@ -5,19 +5,17 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Header } from '@/components/layout/Header';
+import { ArrowRight, MessageSquare, ChevronRight } from 'lucide-react';
 
 /**
- * Tablú Hero Section - Image Carousel Only
+ * Tablú Hero Section - Redesigned for Premium Look
  *
  * Features:
- * - Full-width image carousel
- * - Smooth transitions between images
- * - Header overlay
+ * - Full-bleed image carousel (Improved "formato completo")
+ * - Integrated glassmorphism text card
+ * - Scroll-triggered animations
+ * - Professional typography and spacing
  */
-
-interface TabluHeroProps {
-  className?: string;
-}
 
 // Background Carousel Component
 function TabluBackgroundCarousel() {
@@ -32,129 +30,137 @@ function TabluBackgroundCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000); // Change image every 4 seconds
+    }, 5000); // Slightly slower for better readability
 
     return () => clearInterval(interval);
   }, [images.length]);
 
   return (
-    <>
+    <div className="absolute inset-0 w-full h-full bg-white">
       {images.map((image, index) => (
         <motion.div
           key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: currentIndex === index ? 1 : 0 }}
-          transition={{ duration: 1.5 }}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ 
+            opacity: currentIndex === index ? 1 : 0,
+            scale: currentIndex === index ? 1 : 1.05
+          }}
+          transition={{ 
+            duration: 1.5,
+            ease: "easeInOut"
+          }}
           className="absolute inset-0"
         >
           <Image
             src={image}
             alt={`Tablú Planners ${index + 1}`}
             fill
-            className="object-contain"
+            className="object-cover md:object-contain" // Cover on mobile, contain on desktop to avoid cutting banner text
             sizes="100vw"
             priority={index === 0}
           />
+          {/* Subtle overlay to enhance text readability if needed */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white/40" />
         </motion.div>
       ))}
-    </>
+      
+      {/* Progress Indicators */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {images.map((_, index) => (
+          <div 
+            key={index}
+            className={cn(
+              "h-1 transition-all duration-500 rounded-full",
+              currentIndex === index ? "w-8 bg-[#0D6832]" : "w-2 bg-gray-300"
+            )}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
-export function TabluHero({ className }: TabluHeroProps) {
+export function TabluHero({ className }: { className?: string }) {
   return (
-    <section className={cn('relative py-0 overflow-hidden bg-white', className)}>
-      {/* White background */}
-      <div className="absolute inset-0 bg-white" />
-
-      {/* Background Image Carousel - centered with reduced height */}
-      <div className="relative z-10 py-8 md:py-12">
-        <div className="container mx-auto px-6 md:px-10 lg:px-20">
-          <div className="relative h-[50vh] md:h-[60vh] max-h-[600px] rounded-lg overflow-hidden shadow-xl">
-            <TabluBackgroundCarousel />
-          </div>
-        </div>
-      </div>
-
-      {/* Header positioned absolutely over background with dark text */}
+    <section className={cn('relative min-h-[85vh] flex flex-col overflow-hidden bg-white', className)}>
+      {/* Header positioned absolutely */}
       <div className="absolute top-0 left-0 right-0 z-50">
         <Header />
       </div>
-    </section>
-  );
-}
 
-/**
- * Tablú Info Section - Text and CTA below hero
- *
- * Features:
- * - Clean white background
- * - Centered content
- * - CTA buttons for catalog and WhatsApp
- */
+      {/* Main Hero Content Area */}
+      <div className="relative flex-1 flex flex-col">
+        {/* Full-width Carousel Background */}
+        <div className="relative h-[65vh] md:h-[75vh] w-full">
+          <TabluBackgroundCarousel />
+        </div>
 
-interface TabluInfoSectionProps {
-  className?: string;
-}
+        {/* Floating Text Card - Overlapping the image */}
+        <div className="container mx-auto px-6 relative z-30 -mt-20 md:-mt-32 pb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="bg-white rounded-[2.5rem] p-8 md:p-14 shadow-[0_32px_64px_-16px_rgba(13,104,50,0.15)] border border-white/60 text-center">
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="inline-flex items-center gap-2 px-6 py-2 mb-8 rounded-full bg-[#0D6832]/5 border border-[#0D6832]/10"
+              >
+                <span className="text-[#0D6832] text-lg">✨</span>
+                <span className="font-kaushan text-[#0D6832] text-xl md:text-2xl lowercase">
+                  Tu organización empieza aquí
+                </span>
+              </motion.div>
 
-export function TabluInfoSection({ className }: TabluInfoSectionProps) {
-  return (
-    <section className={cn('relative pt-8 pb-12 md:pt-10 md:pb-16 bg-white', className)}>
-      <div className="container mx-auto px-6 md:px-10 lg:px-20">
-        <div className="max-w-4xl mx-auto">
-          <div className="backdrop-blur-sm bg-gray-50/80 rounded-xl p-6 md:p-10 shadow-lg border border-gray-200">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-5 leading-tight text-center"
-            >
-              Planners personalizados que inspiran productividad y organización con estilo
-            </motion.h1>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#1a1a1a] mb-6 leading-[1.1] tracking-tight">
+                Organizá <span className="text-[#0D6832]">tu vida</span> <br className="hidden md:block" />
+                <span className="font-kaushan text-[#0D6832] text-[0.9em] font-normal lowercase tracking-normal">con estilo</span>
+              </h1>
 
-            {/* Description Text */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-black text-base md:text-lg leading-relaxed mb-6 text-center"
-            >
-              <p>
-                Tablú es una marca con presencia en Perú y México que llega a Bolivia de la mano de Marca Fusión
+              <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
+                Tablú Bolivia te acompaña en cada meta, proyecto o idea. <br />
+                <span className="text-gray-400">Diseños prácticos, elegantes y 100% personalizables.</span>
               </p>
-            </motion.div>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              {/* Ver Catálogo */}
-              <a
-                href="#catalogo"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold uppercase tracking-wide bg-[#0D6832] text-white hover:bg-[#0a5528] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2 shadow-lg hover:shadow-xl"
-              >
-                📋 Ver catálogo de planners
-              </a>
+              {/* CTA Buttons - Professional Styling */}
+              <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+                <a
+                  href="#catalogo"
+                  className={cn(
+                    "group relative inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full",
+                    "bg-[#FFFDF0] text-[#0D6832] text-base font-bold transition-all duration-300",
+                    "hover:bg-white hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
+                  )}
+                >
+                  <div className="p-1 rounded-full bg-[#0D6832]/5">
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <span>Ver catálogo completo</span>
+                </a>
 
-              {/* WhatsApp */}
-              <a
-                href="https://wa.me/59167710595?text=Hola,%20quiero%20realizar%20un%20pedido%20de%20[modelo],%20tama%C3%B1o%20[XX],%20cantidad%20[X].%20%C2%BFPodr%C3%ADan%20confirmarme%20disponibilidad?"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold uppercase tracking-wide bg-[#25D366] text-white hover:bg-[#20ba5a] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 shadow-lg hover:shadow-xl"
-              >
-                💬 Consultar vía WhatsApp
-              </a>
-            </motion.div>
-          </div>
+                <a
+                  href="https://wa.me/59167710595"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "group inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full",
+                    "bg-white/10 text-[#1a1a1a] text-base font-bold border-2 border-white/40 backdrop-blur-sm transition-all duration-300",
+                    "hover:bg-white/20 hover:border-white/60 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+                  )}
+                >
+                  <MessageSquare className="w-5 h-5 opacity-70" />
+                  <span>Contactar ventas</span>
+                </a>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
+

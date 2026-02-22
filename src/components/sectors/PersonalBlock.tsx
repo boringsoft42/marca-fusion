@@ -112,12 +112,12 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex-shrink-0"
             >
-              <div className="relative w-32 h-20 md:w-36 md:h-24 rounded-lg bg-white shadow-lg border-2 border-gray-100 flex items-center justify-center p-4">
+              <div className="relative w-48 h-28 md:w-64 md:h-40 rounded-2xl bg-white shadow-xl border-2 border-gray-50 flex items-center justify-center p-6">
                 <Image
                   src="/images/Logo Tablu.png"
                   alt="Tablú"
                   fill
-                  className="object-contain p-3"
+                  className="object-contain p-2"
                 />
               </div>
             </motion.div>

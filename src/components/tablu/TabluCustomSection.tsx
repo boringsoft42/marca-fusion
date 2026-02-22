@@ -97,30 +97,21 @@ export function TabluCustomSection({ className }: TabluCustomSectionProps) {
           <div className="flex-1 space-y-8 max-w-xl relative pt-10 md:pt-0">
             
             {/* Main Title with Heavy Text Shadow */}
-            <motion.h2 
+            <motion.h2
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="text-5xl md:text-6xl lg:text-[5rem] font-bold leading-[1.1] text-white"
+                className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight text-white"
                 style={{
                     textShadow: '4px 4px 8px rgba(0,0,0,0.4), 0 0 20px rgba(0,0,0,0.1)'
                 }}
             >
-              Aquí<br/>
-              puedes<br/>
-              personalizar<br/>
+              Aquí puedes<br/>
+              <span className="font-kaushan text-[#FF7777] lowercase text-[0.85em] font-normal block my-4 tracking-normal">personalizar</span>
               tu tablú
             </motion.h2>
 
-            <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-lg md:text-xl text-white font-medium max-w-md"
-                style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
-            >
-              (Los tablús personalizados no aplican al descuento de 10%)
-            </motion.p>
+
             
             <motion.div
                 initial={{ opacity: 0, y: 20 }}

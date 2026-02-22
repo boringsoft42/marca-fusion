@@ -25,8 +25,12 @@ interface HeaderProps {
 export function Header({ className }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  // Pages with transparent header and white text (Hero with background image)
+  const isTransparentHeader = pathname === '/sectores';
+
   // Pages that need dark text on white background (Light Pages)
-  const isLightPage = pathname === '/sectores' || pathname === '/alianzas' || pathname === '/tablu';
+  const isLightPage = pathname === '/alianzas' || pathname === '/tablu' || pathname.startsWith('/galeria/');
 
   // Close mobile menu when window is resized to desktop
   useEffect(() => {
@@ -57,13 +61,18 @@ export function Header({ className }: HeaderProps) {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         isLightPage ? 'bg-white' : '',
+        isTransparentHeader ? 'bg-transparent' : '',
         className
       )}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-center relative">
           {/* Desktop Navigation - Centered */}
-          <Navigation className="hidden md:flex" onLinkClick={() => setIsMobileMenuOpen(false)} textDark={isLightPage} />
+          <Navigation
+            className="hidden md:flex"
+            onLinkClick={() => setIsMobileMenuOpen(false)}
+            textDark={isLightPage}
+          />
 
           {/* Mobile menu button - Absolute positioned */}
           <div className="absolute right-0 flex items-center md:hidden">
@@ -71,8 +80,8 @@ export function Header({ className }: HeaderProps) {
               type="button"
               className={cn(
                 "inline-flex items-center justify-center rounded-md p-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2",
-                isLightPage 
-                  ? "text-[#1a1a1a] hover:text-[#1a1a1a]/80 focus:ring-[#1a1a1a]" 
+                isLightPage
+                  ? "text-[#1a1a1a] hover:text-[#1a1a1a]/80 focus:ring-[#1a1a1a]"
                   : "text-white hover:text-white/80 focus:ring-white"
               )}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
