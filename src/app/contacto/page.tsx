@@ -40,11 +40,11 @@ export default function ContactoPage() {
           <div className="container mx-auto px-6">
             <div className="max-w-3xl mx-auto">
               <BlurFade delay={0.2} inView>
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                <div className="mb-8">
+                  <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
                     Envíanos un Mensaje
                   </h2>
-                  <p className="text-base md:text-lg text-muted-foreground">
+                  <p className="text-base md:text-lg text-muted-foreground max-w-xl">
                     Completa el formulario y nos pondremos en contacto contigo a la brevedad
                   </p>
                 </div>

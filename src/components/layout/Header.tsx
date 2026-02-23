@@ -27,10 +27,13 @@ export function Header({ className }: HeaderProps) {
   const pathname = usePathname();
 
   // Pages with transparent header and white text (Hero with background image)
-  const isTransparentHeader = pathname === '/sectores';
+  const isTransparentHeaderWhiteText = pathname === '/sectores' || pathname === '/alianzas' || pathname === '/contacto';
+
+  // Pages with transparent header and dark text (Removed /contacto)
+  const isTransparentHeaderDarkText = false;
 
   // Pages that need dark text on white background (Light Pages)
-  const isLightPage = pathname === '/alianzas' || pathname === '/tablu' || pathname.startsWith('/galeria/');
+  const isLightPage = pathname === '/tablu' || pathname.startsWith('/galeria/');
 
   // Close mobile menu when window is resized to desktop
   useEffect(() => {
@@ -61,7 +64,7 @@ export function Header({ className }: HeaderProps) {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         isLightPage ? 'bg-white' : '',
-        isTransparentHeader ? 'bg-transparent' : '',
+        isTransparentHeaderWhiteText || isTransparentHeaderDarkText ? 'bg-transparent' : '',
         className
       )}
     >
@@ -71,7 +74,7 @@ export function Header({ className }: HeaderProps) {
           <Navigation
             className="hidden md:flex"
             onLinkClick={() => setIsMobileMenuOpen(false)}
-            textDark={isLightPage}
+            textDark={isLightPage || isTransparentHeaderDarkText}
           />
 
           {/* Mobile menu button - Absolute positioned */}
@@ -80,7 +83,7 @@ export function Header({ className }: HeaderProps) {
               type="button"
               className={cn(
                 "inline-flex items-center justify-center rounded-md p-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2",
-                isLightPage
+                isLightPage || isTransparentHeaderDarkText
                   ? "text-[#1a1a1a] hover:text-[#1a1a1a]/80 focus:ring-[#1a1a1a]"
                   : "text-white hover:text-white/80 focus:ring-white"
               )}
@@ -120,7 +123,7 @@ export function Header({ className }: HeaderProps) {
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onLinkClick={() => setIsMobileMenuOpen(false)}
-        textDark={isLightPage}
+        textDark={isLightPage || isTransparentHeaderDarkText}
       />
     </header>
   );

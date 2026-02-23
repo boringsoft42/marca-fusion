@@ -72,26 +72,36 @@ export function CategoryCarousel({ className }: CategoryCarouselProps) {
     }
   };
 
-  // Continuous auto-scroll animation - smooth horizontal scroll
+  // True infinite scroll - CSS animation approach
   useEffect(() => {
     if (isPaused) return;
 
-    const interval = setInterval(() => {
+    let animationFrame: number;
+    let startTime: number | null = null;
+    const speed = 0.02; // Pixels per millisecond
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+
       setOffset((prev) => {
-        // Move by small increments for smooth animation
-        const newOffset = prev + 0.5;
-        // Reset when we've scrolled past one full category width
-        if (newOffset >= 100) {
-          return 0;
+        const newOffset = prev + speed * 16.67; // ~60fps
+        // Reset seamlessly when scrolled one full set
+        const resetPoint = 100 / 3; // One third of total width (since we have 3 sets)
+        if (newOffset >= resetPoint) {
+          return newOffset - resetPoint;
         }
         return newOffset;
       });
-    }, 30); // Update every 30ms for smooth animation
 
-    return () => clearInterval(interval);
+      animationFrame = requestAnimationFrame(animate);
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
   }, [isPaused]);
 
-  // Duplicate categories array for infinite loop effect
+  // Triple the categories for seamless infinite loop
   const duplicatedCategories = [...categories, ...categories, ...categories];
 
   return (
@@ -123,9 +133,10 @@ export function CategoryCarousel({ className }: CategoryCarouselProps) {
           {/* Infinite scrolling container */}
           <div className="overflow-hidden">
             <div
-              className="flex gap-4 md:gap-6 transition-transform duration-100 ease-linear"
+              className="flex gap-4 md:gap-6"
               style={{
                 transform: `translateX(-${offset}%)`,
+                transition: 'transform 0.03s linear',
               }}
             >
               {duplicatedCategories.map((category, index) => (

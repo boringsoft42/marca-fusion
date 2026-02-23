@@ -56,63 +56,64 @@ export function ContactForm({ className }: ContactFormProps) {
     otro: 'Otro motivo',
   };
 
-  const onSubmit = (data: ContactFormData) => {
+  const onSubmit = async (data: ContactFormData) => {
     // Check honeypot
     if (data._honeypot) {
       return;
     }
 
-    // Build WhatsApp message
-    const motivoText = motivoLabels[data.motivo] || data.motivo;
-    const message = `*CONTACTO DESDE WEB - MARCA FUSIÓN*
+    try {
+      // Send data to the API to handle the Email
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-👤 *Nombre:* ${data.nombre}
-📧 *Email:* ${data.email}
-📱 *Teléfono:* ${data.telefono}
-${data.empresa ? `🏢 *Empresa:* ${data.empresa}` : ''}
-🌆 *Ciudad:* ${data.ciudad}
-🌍 *País:* ${data.pais}
+      const result = await response.json();
 
-📋 *Motivo:* ${motivoText}
+      if (!response.ok) {
+        throw new Error(result.error || 'Error al enviar el mensaje');
+      }
 
-💬 *Mensaje:*
-${data.mensaje}`;
+      // Show success message
+      setFormState({ isSuccess: true });
+      reset();
 
-    // Determine WhatsApp number based on motivo
-    const whatsappNumber = data.motivo === 'cotizacion'
-      ? process.env.NEXT_PUBLIC_WHATSAPP_GENERAL || '59172136767'
-      : process.env.NEXT_PUBLIC_WHATSAPP_GENERAL || '59172136767';
-
-    // Build WhatsApp URL
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-    // Show success message
-    setFormState({ isSuccess: true });
-    reset();
-
-    // Open WhatsApp in new tab after a short delay
-    setTimeout(() => {
-      window.open(whatsappUrl, '_blank');
-    }, 500);
-
-    // Auto-hide success message after 5 seconds
-    setTimeout(() => {
-      setFormState({ isSuccess: false });
-    }, 5000);
+      // Auto-hide success message after 10 seconds
+      setTimeout(() => {
+        setFormState({ isSuccess: false });
+      }, 10000);
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Hubo un problema al procesar tu solicitud. Por favor intenta nuevamente más tarde.');
+    }
   };
 
   return (
     <div className={cn('', className)}>
       {/* Success Message */}
       {formState.isSuccess && (
-        <div className="mb-6 p-4 rounded-lg bg-marca-green/10 border border-marca-green/30 flex items-start gap-3">
-          <CheckCircle2 className="h-5 w-5 text-marca-green flex-shrink-0 mt-0.5" aria-hidden="true" />
+        <div className="mb-6 p-4 rounded-lg bg-emerald-50 border border-emerald-200 flex items-start gap-3 animate-in fade-in slide-in-from-top-2 duration-500">
+          <CheckCircle2 className="h-5 w-5 text-[#0D6832] flex-shrink-0 mt-0.5" aria-hidden="true" />
           <div>
-            <h4 className="font-semibold text-marca-green mb-1">✅ Abriendo WhatsApp...</h4>
-            <p className="text-sm text-muted-foreground">
-              Tu mensaje será enviado por WhatsApp a nuestro equipo. Si no se abre automáticamente, por favor verifica tu navegador.
+            <h4 className="font-semibold text-[#0D6832] mb-1">✅ Gracias por contactarte con Marca Fusión.</h4>
+            <p className="text-sm text-[#0D6832]/80">
+              Hemos recibido tu mensaje y un miembro de nuestro equipo se pondrá en contacto contigo en breve.
             </p>
           </div>
+        </div>
+      )}
+
+      {/* Error Message (Global) */}
+      {Object.keys(errors).length > 0 && (
+        <div className="mb-6 p-4 rounded-lg bg-red-50 border border-red-200 flex items-start gap-3 animate-in fade-in slide-in-from-top-2 duration-300">
+          <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+          <p className="text-sm text-red-800 font-medium">
+            ⚠️ Por favor, completa todos los campos requeridos para poder procesar tu solicitud.
+          </p>
         </div>
       )}
 
@@ -337,7 +338,7 @@ ${data.mensaje}`;
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2'
             )}
           >
-            💬 Enviar por WhatsApp
+            💬 Enviar Mensaje
           </button>
         </div>
 

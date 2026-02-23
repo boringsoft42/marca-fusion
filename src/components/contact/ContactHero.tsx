@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Mail, Phone, MapPin } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Header } from '@/components/layout/Header';
 
 /**
  * Contact Hero Section - Sierra Style with Animations
@@ -21,127 +21,92 @@ interface ContactHeroProps {
 }
 
 export function ContactHero({ className }: ContactHeroProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const contactInfo = [
     { icon: Phone, text: '+591 72136767', href: 'tel:+59172136767' },
     { icon: Mail, text: 'info@marcafusion.com.bo', href: 'mailto:info@marcafusion.com.bo' },
     { icon: MapPin, text: 'Santa Cruz, Bolivia', href: null },
   ];
 
-  // Background images related to contact and communication
-  const backgroundImages = [
-    {
-      src: 'https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Servicio al cliente y comunicación',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Atención al cliente profesional',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Oficina de contacto y atención',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Comunicación empresarial efectiva',
-    },
-  ];
-
-  // Auto-rotate images every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [backgroundImages.length]);
-
   return (
-    <section
-      className={cn(
-        'relative min-h-[500px] md:min-h-[600px] flex items-center overflow-hidden bg-sierra-cream',
-        className
-      )}
-    >
-      {/* Background Image Carousel */}
-      <div className="absolute inset-0 z-0">
-        <AnimatePresence initial={false}>
-          <motion.div
-            key={currentImageIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={backgroundImages[currentImageIndex].src}
-              alt={backgroundImages[currentImageIndex].alt}
-              fill
-              className="object-cover brightness-110 contrast-110"
-              priority={currentImageIndex === 0}
-            />
-          </motion.div>
-        </AnimatePresence>
-        {/* Green tinted overlay for brand color */}
-        <div className="absolute inset-0 bg-sierra-green/15" />
-        {/* Gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-sierra-cream/85 via-sierra-cream/70 to-sierra-cream/85" />
+    <section className={cn('relative min-h-[70vh] flex items-center overflow-hidden', className)}>
+      {/* Header positioned absolutely over video */}
+      <div className="absolute top-0 left-0 right-0 z-50">
+        <Header />
       </div>
 
-      {/* Content */}
-      <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20 py-20 md:py-32">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Headline - Animated */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-normal text-sierra-text-primary leading-tight tracking-tight mb-6"
-          >
-            Hablemos de tu Proyecto
-          </motion.h1>
+      {/* Background Image - Full Bleed */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/contact-hero.png"
+          alt="Contacto Marca Fusión"
+          fill
+          className="object-cover"
+          priority
+          quality={100}
+        />
+        {/* Dark Overlay for text readability */}
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
 
-          {/* Subtitle - Animated */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-base md:text-lg text-sierra-text-secondary leading-relaxed max-w-2xl mx-auto mb-10"
-          >
-            Estamos listos para ayudarte a encontrar la solución perfecta. Contáctanos y descubre cómo podemos impulsar tu negocio.
-          </motion.p>
-
-          {/* Quick Contact Info - Animated */}
+      {/* Content - Left Aligned */}
+      <div className="container relative z-10 mx-auto px-6 md:px-10 lg:px-20 pt-32 pb-20">
+        <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-4"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-8"
           >
-            {contactInfo.map((info, index) => (
-              info.href ? (
-                <a
+            {/* Sub-heading */}
+            <div className="mb-4">
+              <span className="text-sm uppercase tracking-widest font-semibold text-white/90 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                ◆ CONTÁCTANOS
+              </span>
+            </div>
+
+            {/* Main Title - Standard styling as /sectores or /alianzas */}
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
+              Hablemos de tu <span className="block">Proyecto</span>
+            </h1>
+
+            {/* Subtitle - Standard styling */}
+            <p className="text-lg md:text-xl leading-relaxed text-white/90 max-w-xl font-light">
+              Estamos listos para ayudarte a encontrar la solución perfecta. 
+              Contáctanos y descubre cómo podemos impulsar tu negocio juntos.
+            </p>
+
+            {/* Quick Contact Info - Professional Styling */}
+            <div className="flex flex-wrap gap-4 pt-4">
+              {contactInfo.map((info, index) => (
+                <motion.div
                   key={index}
-                  href={info.href}
-                  className="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-shadow duration-200"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                 >
-                  <info.icon className="h-4 w-4 text-sierra-green" strokeWidth={1.5} />
-                  <span className="text-sm font-medium text-sierra-text-primary">{info.text}</span>
-                </a>
-              ) : (
-                <div
-                  key={index}
-                  className="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
-                >
-                  <info.icon className="h-4 w-4 text-sierra-green" strokeWidth={1.5} />
-                  <span className="text-sm font-medium text-sierra-text-primary">{info.text}</span>
-                </div>
-              )
-            ))}
+                  {info.href ? (
+                    <a
+                      href={info.href}
+                      className="group inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+                    >
+                      <info.icon className="h-5 w-5 text-white opacity-70 group-hover:opacity-100 transition-opacity" strokeWidth={1.5} />
+                      <span className="text-sm md:text-base font-semibold text-white tracking-wide">{info.text}</span>
+                    </a>
+                  ) : (
+                    <div className="inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10">
+                      <info.icon className="h-5 w-5 text-white/50" strokeWidth={1.5} />
+                      <span className="text-sm md:text-base font-semibold text-white/80 tracking-wide">{info.text}</span>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
+      
+      {/* Decorative Blur at bottom */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }

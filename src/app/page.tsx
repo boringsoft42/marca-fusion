@@ -1,6 +1,5 @@
 import { HeroSection } from '@/components/home/HeroSection';
 import { RepresentacionesBlock } from '@/components/home/RepresentacionesBlock';
-import { CategoriasSection } from '@/components/home/CategoriasSection';
 import { CorporateGroupSection } from '@/components/home/CorporateGroupSection';
 import { MissionSection } from '@/components/home/MissionSection';
 import { SectorsCarousel } from '@/components/home/SectorsCarousel';
@@ -14,7 +13,6 @@ import { metadata as metadataUtils } from '@/lib/seo/metadata';
  * Main landing page showcasing:
  * - Hero section with company tagline (Sierra style)
  * - Representations block (Capstone & Tablú)
- * - Categorías de productos Tablú (planners)
  * - Corporate group section (Marca Fusión + Altrix)
  * - Mission and values
  * - Sectors carousel
@@ -36,28 +34,23 @@ export default function HomePage() {
         <RepresentacionesBlock />
       </BlurFade>
 
-      {/* Categorías de Productos Tablú - Animated */}
-      <BlurFade delay={0.3} inView>
-        <CategoriasSection />
-      </BlurFade>
-
       {/* Corporate Group Section - Animated */}
-      <BlurFade delay={0.4} inView>
+      <BlurFade delay={0.3} inView>
         <CorporateGroupSection />
       </BlurFade>
 
       {/* Mission Section - Animated */}
-      <BlurFade delay={0.6} inView>
+      <BlurFade delay={0.4} inView>
         <MissionSection />
       </BlurFade>
 
       {/* Sectors Carousel - Animated */}
-      <BlurFade delay={0.8} inView>
+      <BlurFade delay={0.6} inView>
         <SectorsCarousel />
       </BlurFade>
 
       {/* Client Showcase - Animated */}
-      <BlurFade delay={1.0} inView>
+      <BlurFade delay={0.8} inView>
         <ClientShowcase />
       </BlurFade>
     </div>

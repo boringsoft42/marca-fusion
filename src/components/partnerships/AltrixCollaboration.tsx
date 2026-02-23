@@ -40,7 +40,7 @@ export function AltrixCollaboration({ className }: AltrixCollaborationProps) {
               </div>
 
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Altrix Solutions LLC — Nuestro partner internacional en EE. UU.
+                Altrix Solutions LLC Nuestro partner internacional en EE. UU.
               </h2>
 
               <div className="space-y-4 text-base md:text-lg text-white/70 leading-relaxed mb-8">

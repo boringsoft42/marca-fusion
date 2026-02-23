@@ -23,7 +23,7 @@ export function ClosingQuote({ className }: ClosingQuoteProps) {
   return (
     <section className={cn('bg-white py-20 md:py-24 lg:py-32', className)}>
       <div className="container mx-auto px-6 md:px-10 lg:px-20">
-        
+
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2
@@ -33,7 +33,7 @@ export function ClosingQuote({ className }: ClosingQuoteProps) {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a1a1a] tracking-tight mb-6"
           >
-            Hablemos de negocios.
+            Hablemos de negocios
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -71,7 +71,7 @@ export function ClosingQuote({ className }: ClosingQuoteProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="bg-[#1a1a1a] rounded-2xl p-8 flex flex-col justify-center relative overflow-hidden"
+            className="bg-[#2D5F3F] rounded-2xl p-8 flex flex-col justify-center relative overflow-hidden"
           >
             <div className="flex items-center gap-2 mb-4">
               <span className="text-xs font-bold text-white uppercase tracking-widest">◆ Contacto Directo</span>
@@ -79,7 +79,7 @@ export function ClosingQuote({ className }: ClosingQuoteProps) {
             <h4 className="text-xl font-bold text-white mb-2">
               Email
             </h4>
-            <a href="mailto:info@marcafusion.com.bo" className="text-white/70 hover:text-white transition-colors text-lg break-all">
+            <a href="mailto:info@marcafusion.com.bo" className="text-white/90 hover:text-white transition-colors text-lg break-all">
               info@marcafusion.com.bo
             </a>
           </motion.div>
@@ -90,7 +90,7 @@ export function ClosingQuote({ className }: ClosingQuoteProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="bg-[#1a1a1a] rounded-2xl p-8 flex flex-col justify-center relative overflow-hidden"
+            className="bg-[#2D5F3F] rounded-2xl p-8 flex flex-col justify-center relative overflow-hidden"
           >
             <div className="flex items-center gap-2 mb-4">
               <span className="text-xs font-bold text-white uppercase tracking-widest">◆ Mensajería</span>
@@ -98,7 +98,7 @@ export function ClosingQuote({ className }: ClosingQuoteProps) {
             <h4 className="text-xl font-bold text-white mb-2">
               WhatsApp
             </h4>
-            <a href="https://wa.me/59172136767" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors text-lg">
+            <a href="https://wa.me/59172136767" target="_blank" rel="noopener noreferrer" className="text-white/90 hover:text-white transition-colors text-lg">
               +591 72136767
             </a>
           </motion.div>

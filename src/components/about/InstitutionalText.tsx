@@ -72,16 +72,6 @@ export function InstitutionalText({ className }: InstitutionalTextProps) {
                 transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
               }}
             >
-              {/* Frame outline */}
-              <div
-                className="absolute -inset-3 border transition-all duration-700 md:-inset-4"
-                style={{
-                  borderColor: isHovered ? 'hsl(var(--foreground) / 0.15)' : 'transparent',
-                  transform: isHovered ? 'scale(1.01)' : 'scale(1)',
-                  transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                }}
-              />
-
               {/* Image container - responsive sizing */}
               <div className="relative h-[320px] w-full max-w-[320px] overflow-hidden md:h-[400px] lg:h-[480px]">
                 <div

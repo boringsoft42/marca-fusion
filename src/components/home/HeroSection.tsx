@@ -108,7 +108,7 @@ export function HeroSection({ className }: HeroSectionProps) {
           disableRemotePlayback
           x-webkit-airplay="deny"
         >
-          <source src="/images/YPFB-optimized.mp4" type="video/mp4" />
+          <source src="/images/YPFB-web-optimized.mp4" type="video/mp4" />
           {/* Fallback image for devices that cannot play video */}
           <Image
             src="/images/1.png"
