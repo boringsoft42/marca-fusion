@@ -18,6 +18,8 @@ This project includes multiple authentication methods using Supabase:
    NEXT_PUBLIC_SITE_URL=http://localhost:3000
    ```
 
+   además de eso, debes agregar las variables de entorno en el archivo .env.local
+
 ### 2. Configure Authentication Settings in Supabase
 
 1. In your Supabase dashboard, go to **Authentication** > **Providers**
