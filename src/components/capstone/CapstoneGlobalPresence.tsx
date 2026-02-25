@@ -228,8 +228,8 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                 </div>
 
                 {/* Cards Container */}
-                <div className="relative z-20 h-full flex flex-col justify-center items-center p-6 md:p-12">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-2xl">
+                <div className="relative z-20 h-full flex flex-col justify-center items-end p-6 md:p-8">
+                  <div className="flex flex-col gap-4 w-48 md:w-56">
                     {/* Altrix Solutions (USA) */}
                     <motion.div
                       initial={{ y: 20, opacity: 0 }}
@@ -241,12 +241,12 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                         href={altrixUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block relative p-6 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
+                        className="block relative p-5 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
                       >
-                        <div className="absolute top-0 right-0 p-3 opacity-50 group-hover/card:opacity-100 transition-opacity">
-                          <span className="text-xl">🇺🇸</span>
+                        <div className="absolute top-0 right-0 p-2.5 opacity-50 group-hover/card:opacity-100 transition-opacity">
+                          <span className="text-lg">🇺🇸</span>
                         </div>
-                        <div className="h-16 w-full relative mb-4">
+                        <div className="h-12 w-full relative mb-3">
                           <Image
                             src="/images/Imagotipo_color.png"
                             alt="Altrix Solutions"
@@ -255,8 +255,8 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                           />
                         </div>
                         <div className="text-center">
-                          <h3 className="text-white font-bold text-lg mb-1">Altrix Solutions</h3>
-                          <p className="text-white/60 text-xs uppercase tracking-wider">USA Headquarters</p>
+                          <h3 className="text-white font-bold text-base mb-0.5">Altrix Solutions</h3>
+                          <p className="text-white/60 text-[10px] uppercase tracking-wider">USA Headquarters</p>
                         </div>
                       </a>
                     </motion.div>
@@ -268,11 +268,11 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                       transition={{ delay: 0.4 }}
                       className="group/card"
                     >
-                      <div className="block relative p-6 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
-                        <div className="absolute top-0 right-0 p-3 opacity-50 group-hover/card:opacity-100 transition-opacity">
-                          <span className="text-xl">🇧🇴</span>
+                      <div className="block relative p-5 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+                        <div className="absolute top-0 right-0 p-2.5 opacity-50 group-hover/card:opacity-100 transition-opacity">
+                          <span className="text-lg">🇧🇴</span>
                         </div>
-                        <div className="h-16 w-full relative mb-4">
+                        <div className="h-12 w-full relative mb-3">
                           <Image
                             src="/images/Logo_Marca_Fusión_Transparente.png"
                             alt="Marca Fusión"
@@ -281,8 +281,8 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                           />
                         </div>
                         <div className="text-center">
-                          <h3 className="text-white font-bold text-lg mb-1">Marca Fusión</h3>
-                          <p className="text-white/60 text-xs uppercase tracking-wider">Bolivia Operations</p>
+                          <h3 className="text-white font-bold text-base mb-0.5">Marca Fusión</h3>
+                          <p className="text-white/60 text-[10px] uppercase tracking-wider">Bolivia Operations</p>
                         </div>
                       </div>
                     </motion.div>

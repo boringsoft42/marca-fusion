@@ -48,13 +48,13 @@ function TabluBackgroundCarousel() {
             duration: 1.5,
             ease: "easeInOut"
           }}
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 pt-20 md:pt-28 w-full h-full"
         >
           <Image
             src={image}
             alt={`Tablú Planners ${index + 1}`}
             fill
-            className="object-contain"
+            className="object-cover"
             sizes="100vw"
             priority={index === 0}
           />
@@ -110,9 +110,7 @@ export function TabluHero({ className }: { className?: string }) {
                 className="inline-flex items-center gap-2 px-6 py-2 mb-8 rounded-full bg-[#0D6832]/5 border border-[#0D6832]/10"
               >
                 <span className="text-[#0D6832] text-lg">✨</span>
-                <span className="font-kaushan text-[#0D6832] text-xl md:text-2xl lowercase">
-                  Tu organización empieza aquí
-                </span>
+                
               </motion.div>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#1a1a1a] mb-6 leading-[1.1] tracking-tight">

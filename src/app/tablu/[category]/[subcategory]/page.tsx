@@ -1,18 +1,15 @@
-'use client';
-
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import catalogData from '@/data/catalog-data.json';
-import { useEffect } from 'react';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     category: string;
     subcategory: string;
-  };
+  }>;
 }
 
 interface Subcategory {
@@ -33,22 +30,18 @@ interface Category {
   totalImages: number;
 }
 
-export default function SubcategoryGalleryPage({ params }: PageProps) {
+export default async function SubcategoryGalleryPage({ params }: PageProps) {
+  const { category: categorySlug, subcategory: subcategoryId } = await params;
   const categories = catalogData as Category[];
 
-  // Scroll to top on mount
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   // Find category
-  const category = categories.find(cat => cat.slug === params.category);
+  const category = categories.find(cat => cat.slug === categorySlug);
   if (!category) {
     notFound();
   }
 
   // Find subcategory
-  const subcategory = category.subcategories.find(sub => sub.id === params.subcategory);
+  const subcategory = category.subcategories.find(sub => sub.id === subcategoryId);
   if (!subcategory) {
     notFound();
   }

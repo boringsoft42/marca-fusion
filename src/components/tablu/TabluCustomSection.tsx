@@ -89,20 +89,6 @@ export function TabluCustomSection({ className }: TabluCustomSectionProps) {
               tu tablú
             </motion.h2>
 
-            <motion.p
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-white text-lg font-medium pr-8"
-              style={{
-                textShadow: '1px 1px 3px rgba(0,0,0,0.3)'
-              }}
-            >
-              (Los tablús personalizados no aplican al descuento de 10%)
-            </motion.p>
-
-
 
             
             <motion.div
