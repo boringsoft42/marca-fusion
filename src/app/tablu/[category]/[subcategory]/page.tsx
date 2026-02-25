@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import catalogData from '@/data/catalog-data.json';
+import { ScrollToTop } from '@/components/tablu/ScrollToTop';
 
 interface PageProps {
   params: Promise<{
@@ -48,8 +49,9 @@ export default async function SubcategoryGalleryPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header with transparent background */}
-      <div className="bg-transparent sticky top-0 z-10 backdrop-blur-sm">
+      <ScrollToTop />
+      {/* Header with white background and black text */}
+      <div className="bg-white sticky top-0 z-10 shadow-sm">
         <div className="container mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
