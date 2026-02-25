@@ -5,6 +5,7 @@ import { Building2, Briefcase, Home, Rocket, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 /**
  * Personal Sectors Block (Tablú)
@@ -212,13 +213,13 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
               específicamente para tu perfil.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <Link
                 href="/tablu"
                 className="inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide bg-[#0D6832] text-white transition-all duration-200 hover:bg-[#0a5528] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2"
               >
                 Ver Catálogo Tablú
                 <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-              </a>
+              </Link>
               <a
                 href="https://wa.me/59167710595?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20planificadores%20Tablú"
                 target="_blank"
