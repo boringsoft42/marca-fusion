@@ -54,6 +54,16 @@ const categories: Category[] = [
     image: '/images/homeofiice.png',
     badgeColor: 'bg-teal-500',
   },
+  {
+    title: 'PACKS',
+    image: '/Productos para Catálogo/PACKS/WhatsApp Image 2026-01-07 at 14.47.06 (1).jpeg',
+    badgeColor: 'bg-orange-600',
+  },
+  {
+    title: 'ACCESORIOS',
+    image: '/Productos para Catálogo/ACCESORIOS/Marcador Tablú (2).jpeg',
+    badgeColor: 'bg-stone-700',
+  },
 ];
 
 interface CategoryCarouselProps {
