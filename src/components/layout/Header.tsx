@@ -33,7 +33,7 @@ export function Header({ className }: HeaderProps) {
   const isTransparentHeaderDarkText = false;
 
   // Pages that need dark text on white background (Light Pages)
-  const isLightPage = pathname === '/tablu' || pathname.startsWith('/galeria/');
+  const isLightPage = pathname === '/tablu' || pathname.startsWith('/tablu/') || pathname.startsWith('/galeria/');
 
   // Close mobile menu when window is resized to desktop
   useEffect(() => {
