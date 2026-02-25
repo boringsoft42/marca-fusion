@@ -244,7 +244,7 @@ export function ProductCatalog({ className }: ProductCatalogProps) {
                 ))}
               </motion.div>
             ) : (
-              /* Subcategories Grid */
+              /* Subcategories or Direct Images Grid */
               <motion.div
                 key="subcategories"
                 initial={{ opacity: 0 }}
@@ -261,9 +261,31 @@ export function ProductCatalog({ className }: ProductCatalogProps) {
                       categorySlug={selectedCategory.slug}
                     />
                   ))
+                ) : selectedCategory.directImages.length > 0 ? (
+                  selectedCategory.directImages.map((image, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      className="group relative aspect-square bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                    >
+                      <Image
+                        src={image}
+                        alt={`${selectedCategory.name} - Diseño ${index + 1}`}
+                        fill
+                        className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded-full">
+                        {index + 1}
+                      </div>
+                    </motion.div>
+                  ))
                 ) : (
                   <div className="col-span-full text-center py-12">
-                    <p className="text-marca-steel/60">No hay subcategorías disponibles en esta categoría.</p>
+                    <p className="text-marca-steel/60">No hay diseños disponibles en esta categoría.</p>
                   </div>
                 )}
               </motion.div>
