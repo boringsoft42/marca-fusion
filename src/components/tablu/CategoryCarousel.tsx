@@ -61,7 +61,7 @@ const categories: Category[] = [
   },
   {
     title: 'ACCESORIOS',
-    image: '/Productos para Catálogo/ACCESORIOS/Marcador Tablú (2).jpeg',
+    image: '/Productos para Catálogo/ACCESORIOS/Marcador Tablú (2).jpeg',
     badgeColor: 'bg-stone-700',
   },
 ];
