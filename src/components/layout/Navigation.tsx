@@ -30,8 +30,8 @@ export function Navigation({ className, onLinkClick, textDark = false }: Navigat
   
   // Text color classes based on textDark prop
   const textColorClass = textDark ? 'text-[#1a1a1a]' : 'text-white';
-  const hoverColorClass = textDark ? 'hover:text-[#2D5F3F]' : 'hover:text-[#2D5F3F]';
-  const activeColorClass = 'text-[#2D5F3F] font-bold';
+  const hoverColorClass = textDark ? 'hover:text-[#0D6832]' : 'hover:text-[#0D6832]';
+  const activeColorClass = 'text-[#0D6832] font-bold';
 
   // Navigation items configuration (Spanish only)
   const navItems = [
@@ -115,7 +115,7 @@ export function Navigation({ className, onLinkClick, textDark = false }: Navigat
                           'block rounded-md px-4 py-2 text-[14px] transition-colors',
                           'hover:bg-[#f5f5f5] hover:text-[#1a1a1a]',
                           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-                          isActive(subItem.href) ? 'bg-[#f5f5f5] text-[#2D5F3F] font-bold' : 'text-[#716F6C]'
+                          isActive(subItem.href) ? 'bg-[#f5f5f5] text-[#0D6832] font-bold' : 'text-[#716F6C]'
                         )}
                         onClick={onLinkClick}
                         role="menuitem"
@@ -155,12 +155,15 @@ export function Navigation({ className, onLinkClick, textDark = false }: Navigat
         href="/contacto"
         className={cn(
           'inline-flex items-center justify-center px-6 py-2 ml-2',
-          'text-[14px] font-medium text-white',
-          'bg-[#2D5F3F] rounded-sm',
-          'transition-all duration-200',
-          'hover:bg-[#234830]',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-          textDark ? 'focus-visible:ring-[#1a1a1a]' : 'focus-visible:ring-white'
+          'text-[14px] font-medium transition-all duration-200',
+          'rounded-sm',
+          isActive('/contacto') 
+            ? 'bg-[#0D6832] text-white' 
+            : cn(
+                'bg-[#0D6832] text-white hover:bg-[#0a5528]',
+                textDark ? 'focus-visible:ring-[#1a1a1a]' : 'focus-visible:ring-white'
+              ),
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2'
         )}
         onClick={onLinkClick}
       >

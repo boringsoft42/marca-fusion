@@ -63,7 +63,7 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
             {/* Main Title - Standard styling */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
               Crezcamos <br />
-              <span>Juntos.</span>
+              <span>Juntos</span>
             </h1>
 
             {/* Description - Standard styling */}
@@ -79,7 +79,7 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
                 onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
                 className={cn(
                   'inline-flex items-center justify-center gap-2 px-5 py-1.5 rounded-lg text-sm font-medium',
-                  'bg-[#2D5F3F] text-white',
+                  'bg-[#0D6832] text-white',
                   'transition-all duration-200',
                   'hover:bg-[#234d32]'
                 )}

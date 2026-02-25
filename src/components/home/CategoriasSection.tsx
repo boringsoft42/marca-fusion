@@ -1,13 +1,25 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-import { categoriasConImagenes } from '@/data/categorias-imagenes';
+import catalogData from '@/data/catalog-data.json';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  folder: string;
+  coverImage?: string;
+  subcategories: unknown[];
+  directImages: string[];
+  totalImages: number;
+}
 
 export function CategoriasSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const categorias = catalogData as Category[];
 
   // Configuración del carrusel - mostrar 4 items en desktop, 2 en tablet, 1 en mobile
   const itemsPerView = {
@@ -18,18 +30,18 @@ export function CategoriasSection() {
 
   const siguiente = () => {
     setCurrentIndex((prev) =>
-      prev + itemsPerView.desktop >= categoriasConImagenes.length ? 0 : prev + 1
+      prev + itemsPerView.desktop >= categorias.length ? 0 : prev + 1
     );
   };
 
   const anterior = () => {
     setCurrentIndex((prev) =>
-      prev === 0 ? Math.max(0, categoriasConImagenes.length - itemsPerView.desktop) : prev - 1
+      prev === 0 ? Math.max(0, categorias.length - itemsPerView.desktop) : prev - 1
     );
   };
 
   // Obtener las categorías visibles
-  const categoriasVisibles = categoriasConImagenes.slice(
+  const categoriasVisibles = categorias.slice(
     currentIndex,
     currentIndex + itemsPerView.desktop
   );
@@ -71,17 +83,31 @@ export function CategoriasSection() {
           {/* Grid de Categorías */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {categoriasVisibles.map((categoria) => (
-              <Link
+              <a
                 key={categoria.id}
-                href={`/galeria/${categoria.slug}`}
-                className="group"
+                href={`#catalogo`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const catalogSection = document.getElementById('catalogo');
+                  if (catalogSection) {
+                    catalogSection.scrollIntoView({ behavior: 'smooth' });
+                    // Trigger category click after scroll
+                    setTimeout(() => {
+                      const categoryButton = document.querySelector(`[data-category-id="${categoria.id}"]`) as HTMLButtonElement;
+                      if (categoryButton) {
+                        categoryButton.click();
+                      }
+                    }, 500);
+                  }
+                }}
+                className="group cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
                   {/* Imagen de Categoría */}
                   <div className="relative aspect-[4/5] overflow-hidden">
                     <Image
-                      src={categoria.imagenPortada}
-                      alt={categoria.nombre}
+                      src={categoria.coverImage || '/placeholder.jpg'}
+                      alt={categoria.name}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -93,18 +119,18 @@ export function CategoriasSection() {
                   {/* Botón de categoría superpuesto */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <div
-                      className={`${categoria.color} text-white px-6 py-3 rounded-xl font-bold text-lg text-center shadow-lg transition-all group-hover:scale-105 uppercase tracking-wide`}
+                      className="bg-marca-green text-white px-6 py-3 rounded-xl font-bold text-lg text-center shadow-lg transition-all group-hover:scale-105 uppercase tracking-wide"
                     >
-                      {categoria.nombre}
+                      {categoria.name}
                     </div>
                   </div>
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
 
           {/* Botón Siguiente */}
-          {currentIndex + itemsPerView.desktop < categoriasConImagenes.length && (
+          {currentIndex + itemsPerView.desktop < categorias.length && (
             <button
               onClick={siguiente}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white shadow-xl rounded-full p-3 hover:bg-marca-green hover:text-white transition-all hover:scale-110"
@@ -118,7 +144,7 @@ export function CategoriasSection() {
         {/* Indicadores de paginación */}
         <div className="flex justify-center items-center gap-2 mt-8">
           {Array.from({
-            length: Math.ceil(categoriasConImagenes.length / itemsPerView.desktop),
+            length: Math.ceil(categorias.length / itemsPerView.desktop),
           }).map((_, index) => (
             <button
               key={index}

@@ -71,7 +71,7 @@ export function MicroturbineExplanation({ className }: MicroturbineExplanationPr
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
             >
-              Microturbinas para una energía <span className="block text-white/60">eficiente y sostenible.</span>
+              Microturbinas para una energía <span className="block text-white/60">eficiente y sostenible</span>
             </motion.h2>
           </div>
 
@@ -126,7 +126,7 @@ export function MicroturbineExplanation({ className }: MicroturbineExplanationPr
               transition={{ duration: 0.5 }}
               className="text-3xl md:text-4xl font-bold text-white mb-12"
             >
-              Beneficios Clave.
+              Beneficios Clave
             </motion.h3>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">

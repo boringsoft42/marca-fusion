@@ -59,9 +59,8 @@ export function CapstoneHero({ className }: CapstoneHeroProps) {
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/1.png"
         >
           <source src="/images/YPFB Transporte - CAIGUA (1).mp4" type="video/mp4" />
         </video>
@@ -84,7 +83,7 @@ export function CapstoneHero({ className }: CapstoneHeroProps) {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl md:text-5xl lg:text-[48px] font-bold leading-tight tracking-tight text-white mb-8 text-left"
           >
-            <span className="text-[#2D5F3F]" style={{ WebkitTextStroke: '0.5px white' }}>Capstone</span> Green Energy en Bolivia
+            <span className="text-[#0D6832]" style={{ WebkitTextStroke: '0.5px white' }}>Capstone</span> Green Energy en Bolivia
           </motion.h1>
 
           {/* Subtitle - Left aligned */}

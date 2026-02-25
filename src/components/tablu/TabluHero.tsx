@@ -22,7 +22,6 @@ function TabluBackgroundCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    '/images/Captura de pantalla 2026-01-06 163430.png',
     '/images/Captura de pantalla 2026-01-06 163550.png',
     '/images/Captura de pantalla 2026-01-06 163630.png',
   ];
@@ -36,26 +35,26 @@ function TabluBackgroundCarousel() {
   }, [images.length]);
 
   return (
-    <div className="absolute inset-0 w-full h-full bg-white">
+    <div className="absolute inset-0 w-screen h-full bg-white left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
       {images.map((image, index) => (
         <motion.div
           key={index}
           initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ 
+          animate={{
             opacity: currentIndex === index ? 1 : 0,
             scale: currentIndex === index ? 1 : 1.05
           }}
-          transition={{ 
+          transition={{
             duration: 1.5,
             ease: "easeInOut"
           }}
-          className="absolute inset-0"
+          className="absolute inset-0 w-full h-full"
         >
           <Image
             src={image}
             alt={`Tablú Planners ${index + 1}`}
             fill
-            className="object-cover md:object-contain" // Cover on mobile, contain on desktop to avoid cutting banner text
+            className="object-contain"
             sizes="100vw"
             priority={index === 0}
           />
@@ -82,21 +81,21 @@ function TabluBackgroundCarousel() {
 
 export function TabluHero({ className }: { className?: string }) {
   return (
-    <section className={cn('relative min-h-[85vh] flex flex-col overflow-hidden bg-white', className)}>
+    <section className={cn('relative min-h-screen flex flex-col overflow-hidden bg-white', className)}>
       {/* Header positioned absolutely */}
       <div className="absolute top-0 left-0 right-0 z-50">
         <Header />
       </div>
 
-      {/* Main Hero Content Area */}
-      <div className="relative flex-1 flex flex-col">
-        {/* Full-width Carousel Background */}
-        <div className="relative h-[65vh] md:h-[75vh] w-full">
+      {/* Main Hero Content Area - Full Width */}
+      <div className="relative flex-1 flex flex-col w-full">
+        {/* Full-width Carousel Background - Edge to Edge */}
+        <div className="relative h-[70vh] md:h-[80vh] w-full">
           <TabluBackgroundCarousel />
         </div>
 
         {/* Floating Text Card - Overlapping the image */}
-        <div className="container mx-auto px-6 relative z-30 -mt-20 md:-mt-32 pb-16">
+        <div className="w-full px-4 sm:px-6 md:px-8 relative z-30 -mt-20 md:-mt-32 pb-16 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -132,11 +131,11 @@ export function TabluHero({ className }: { className?: string }) {
                   href="#catalogo"
                   className={cn(
                     "group relative inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full",
-                    "bg-[#FFFDF0] text-[#0D6832] text-base font-bold transition-all duration-300",
-                    "hover:bg-white hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
+                    "bg-[#0D6832] text-white text-base font-bold transition-all duration-300",
+                    "hover:bg-[#0a5528] hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
                   )}
                 >
-                  <div className="p-1 rounded-full bg-[#0D6832]/5">
+                  <div className="p-1 rounded-full bg-white/20">
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </div>
                   <span>Ver catálogo completo</span>
@@ -148,11 +147,11 @@ export function TabluHero({ className }: { className?: string }) {
                   rel="noopener noreferrer"
                   className={cn(
                     "group inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full",
-                    "bg-white/10 text-[#1a1a1a] text-base font-bold border-2 border-white/40 backdrop-blur-sm transition-all duration-300",
-                    "hover:bg-white/20 hover:border-white/60 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+                    "bg-[#0D6832] text-white text-base font-bold transition-all duration-300",
+                    "hover:bg-[#0a5528] hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
                   )}
                 >
-                  <MessageSquare className="w-5 h-5 opacity-70" />
+                  <MessageSquare className="w-5 h-5" />
                   <span>Contactar ventas</span>
                 </a>
               </div>

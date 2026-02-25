@@ -217,7 +217,7 @@ export function PublicFooter() {
             {/* Social Media Links */}
             <div className="flex space-x-6">
               <a
-                href="#"
+                href="https://www.facebook.com/share/14JB8uTEPY4/?mibextid=wwXIfr"
                 className="text-[#a0a0a0] hover:text-marca-green"
               >
                 <span className="sr-only">Facebook</span>
@@ -231,7 +231,7 @@ export function PublicFooter() {
                 <Twitter className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/marcafusionsrl/"
                 className="text-[#a0a0a0] hover:text-marca-green"
               >
                 <span className="sr-only">LinkedIn</span>
@@ -245,7 +245,7 @@ export function PublicFooter() {
                 <Youtube className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/marcafusion?igsh=ZHNkZDF3bGtzZTN0"
                 className="text-[#a0a0a0] hover:text-marca-green"
               >
                 <span className="sr-only">Instagram</span>

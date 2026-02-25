@@ -35,7 +35,7 @@ export function UnifyingMessage({ className }: UnifyingMessageProps) {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a1a1a] tracking-tight mb-6"
           >
-            Impacto real, resultados duraderos.
+            Impacto real, resultados duraderos
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

@@ -1,6 +1,6 @@
 import { HeroSection } from '@/components/home/HeroSection';
 import { RepresentacionesBlock } from '@/components/home/RepresentacionesBlock';
-import { CorporateGroupSection } from '@/components/home/CorporateGroupSection';
+import { CapstoneGlobalPresence } from '@/components/capstone/CapstoneGlobalPresence';
 import { MissionSection } from '@/components/home/MissionSection';
 import { SectorsCarousel } from '@/components/home/SectorsCarousel';
 import { ClientShowcase } from '@/components/home/ClientShowcase';
@@ -34,9 +34,9 @@ export default function HomePage() {
         <RepresentacionesBlock />
       </BlurFade>
 
-      {/* Corporate Group Section - Animated */}
+      {/* Global Presence - Animated */}
       <BlurFade delay={0.3} inView>
-        <CorporateGroupSection />
+        <CapstoneGlobalPresence />
       </BlurFade>
 
       {/* Mission Section - Animated */}

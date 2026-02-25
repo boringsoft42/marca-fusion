@@ -84,7 +84,7 @@ export function CapstoneCTA({ className }: CapstoneCTAProps) {
           {/* Optional Title outside the metric bar */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-[42px] font-normal text-[#1a1a1a] leading-tight max-w-4xl mx-auto">
-              La tecnología <span className="text-[#2D5F3F] font-semibold">Capstone</span> está presente en Bolivia impulsando la eficiencia energética.
+              La tecnología <span className="text-[#0D6832] font-semibold">Capstone</span> está presente en Bolivia impulsando la eficiencia energética
             </h2>
           </div>
 

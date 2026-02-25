@@ -288,17 +288,6 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                     </motion.div>
                   </div>
 
-                  {/* Central Text */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.6 }}
-                    className="mt-12 text-center"
-                  >
-                    <p className="text-white/80 text-sm font-light tracking-wide max-w-md mx-auto">
-                      <span className="text-blue-400 font-medium">Conexión Global</span> • Infraestructura compartida y logística integrada
-                    </p>
-                  </motion.div>
                 </div>
               </motion.div>
             </div>

@@ -1,39 +1,64 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { categoriasConImagenes } from '@/data/categorias-imagenes';
-import Link from 'next/link';
+import { SubcategoryCard } from './SubcategoryCard';
+import catalogData from '@/data/catalog-data.json';
+import { ChevronLeft } from 'lucide-react';
 import Image from 'next/image';
 
 /**
- * Tablú Product Catalog
+ * Tablú Product Catalog - Hierarchical Version
  *
  * Features:
+ * - Three-level hierarchy: Catalog → Categories → Subcategories → Images
  * - Interactive category filters
- * - Dynamic product grid
- * - Filter by category (Ver Todo, Home Office, Niños, etc.)
- * - Smooth transitions
+ * - Subcategory cards with image carousels
+ * - Full gallery modal for each subcategory
+ * - Breadcrumb navigation
  * - Responsive grid layout
- * - Product count display
- * - Follows Sierra style guide
  */
 
 interface ProductCatalogProps {
   className?: string;
 }
 
+interface Subcategory {
+  id: string;
+  name: string;
+  folderPath: string;
+  images: string[];
+}
+
+interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  coverImage?: string;
+  subcategories: Subcategory[];
+  directImages: string[];
+  totalImages: number;
+}
+
 export function ProductCatalog({ className }: ProductCatalogProps) {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const categories = catalogData as Category[];
 
-  // Filter categories based on active filter
-  const filteredCategorias = activeFilter === 'all'
-    ? categoriasConImagenes
-    : categoriasConImagenes.filter((cat) => cat.slug === activeFilter);
+  // Get active category data
+  const selectedCategory = activeCategory
+    ? categories.find((cat) => cat.id === activeCategory)
+    : null;
 
-  const handleFilterChange = (filterId: string) => {
-    setActiveFilter(filterId);
+  // Handle category selection
+  const handleCategoryClick = (categoryId: string) => {
+    setActiveCategory(categoryId);
+  };
+
+  // Handle back to all categories
+  const handleBackToCategories = () => {
+    setActiveCategory(null);
   };
 
   return (
@@ -54,7 +79,7 @@ export function ProductCatalog({ className }: ProductCatalogProps) {
             <p className="text-base md:text-lg text-[#555] max-w-3xl mx-auto leading-relaxed mb-8">
               Elegí tu modelo, tamaño y estilo favorito del catálogo y realizá tu pedido directamente por WhatsApp.
             </p>
-            
+
             <a
               href="https://wa.me/59167710595"
               target="_blank"
@@ -73,118 +98,177 @@ export function ProductCatalog({ className }: ProductCatalogProps) {
             </a>
           </motion.div>
 
-          {/* Filter Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mb-10"
-          >
-            <div className="flex flex-wrap justify-center gap-3">
-              <motion.button
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+          {/* Breadcrumb Navigation */}
+          <AnimatePresence mode="wait">
+            {selectedCategory && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => handleFilterChange('all')}
-                className={cn(
-                  'px-7 py-3 rounded-3xl text-[15px] font-medium',
-                  'transition-all duration-200',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5762A2] focus-visible:ring-offset-2',
-                  activeFilter === 'all'
-                    ? 'bg-[#5762A2] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]'
-                    : 'bg-[#ebe8e3] text-[#1a1a1a] hover:bg-[#5762A2] hover:text-white'
-                )}
+                className="mb-8"
               >
-                Ver Todo
-              </motion.button>
-              {categoriasConImagenes.map((categoria, index) => (
-                <motion.button
-                  key={categoria.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: (index + 1) * 0.05 }}
-                  onClick={() => handleFilterChange(categoria.slug)}
+                <button
+                  onClick={handleBackToCategories}
                   className={cn(
-                    'px-7 py-3 rounded-3xl text-[15px] font-medium',
-                    'transition-all duration-200',
-                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5762A2] focus-visible:ring-offset-2',
-                    activeFilter === categoria.slug
-                      ? 'bg-[#5762A2] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]'
-                      : 'bg-[#ebe8e3] text-[#1a1a1a] hover:bg-[#5762A2] hover:text-white'
+                    'inline-flex items-center gap-2 text-marca-green hover:text-marca-green/80',
+                    'font-medium transition-colors',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marca-green focus-visible:ring-offset-2 rounded-md px-2 py-1'
                   )}
                 >
-                  {categoria.nombre}
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
+                  <ChevronLeft className="w-5 h-5" />
+                  Volver a categorías
+                </button>
+                <div className="mt-4">
+                  <h3 className="text-3xl font-bold text-marca-steel mb-2">{selectedCategory.name}</h3>
+                  <p className="text-marca-steel/70">{selectedCategory.description}</p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-          {/* Categories Display */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-            {filteredCategorias.map((categoria, catIndex) => (
+          {/* Category Filter Buttons (shown when no category is selected) */}
+          <AnimatePresence mode="wait">
+            {!selectedCategory && (
               <motion.div
-                key={categoria.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: catIndex * 0.1 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="mb-10"
               >
-                <Link
-                  href={`/galeria/${categoria.slug}`}
-                  className="group block"
-                >
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                    {/* Category Image Preview - Grid of 4 images */}
-                    <div className="relative aspect-square overflow-hidden bg-marca-beige/10">
-                      <div className="grid grid-cols-2 gap-0.5 h-full">
-                        {categoria.todasLasImagenes.slice(0, 4).map((imagen, imgIndex) => (
-                          <div key={imgIndex} className="relative">
+                <div className="flex flex-wrap justify-center gap-3">
+                  <motion.button
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3 }}
+                    className={cn(
+                      'px-7 py-3 rounded-3xl text-[15px] font-medium',
+                      'transition-all duration-200',
+                      'bg-[#5762A2] text-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]',
+                      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5762A2] focus-visible:ring-offset-2'
+                    )}
+                  >
+                    Ver Todo
+                  </motion.button>
+                  {categories.map((category, index) => (
+                    <motion.button
+                      key={category.id}
+                      data-category-id={category.id}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: (index + 1) * 0.05 }}
+                      onClick={() => handleCategoryClick(category.id)}
+                      className={cn(
+                        'px-7 py-3 rounded-3xl text-[15px] font-medium',
+                        'transition-all duration-200',
+                        'bg-[#ebe8e3] text-[#1a1a1a] hover:bg-[#5762A2] hover:text-white',
+                        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5762A2] focus-visible:ring-offset-2'
+                      )}
+                    >
+                      {category.name}
+                    </motion.button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Content Area */}
+          <AnimatePresence mode="wait">
+            {!selectedCategory ? (
+              /* All Categories Grid */
+              <motion.div
+                key="categories"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8"
+              >
+                {categories.map((category, index) => (
+                  <motion.button
+                    key={category.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    onClick={() => handleCategoryClick(category.id)}
+                    className="group text-left"
+                  >
+                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                      <div className="relative aspect-square bg-marca-beige/10 overflow-hidden">
+                        {category.coverImage ? (
+                          <>
                             <Image
-                              src={imagen}
-                              alt={`${categoria.nombre} - Preview ${imgIndex + 1}`}
+                              src={category.coverImage}
+                              alt={category.name}
                               fill
                               className="object-cover transition-transform duration-500 group-hover:scale-110"
-                              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 12.5vw"
+                              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                             />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                            <div className="absolute bottom-4 left-4 right-4">
+                              <h3 className="text-xl font-bold text-white drop-shadow-lg">
+                                {category.name}
+                              </h3>
+                            </div>
+                          </>
+                        ) : (
+                          <div className="flex items-center justify-center h-full bg-gradient-to-br from-marca-beige/20 to-marca-green/10">
+                            <div className="text-center px-6">
+                              <div className="text-5xl mb-4">📂</div>
+                              <h3 className="text-xl font-bold text-marca-steel group-hover:text-marca-green transition-colors">
+                                {category.name}
+                              </h3>
+                            </div>
                           </div>
-                        ))}
+                        )}
+                        <div className="absolute inset-0 bg-marca-green/0 group-hover:bg-marca-green/10 transition-colors duration-300" />
                       </div>
-                      <div className="absolute inset-0 bg-marca-green/0 group-hover:bg-marca-green/10 transition-colors duration-300" />
-
-                      {/* Overlay con información */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <div className="text-white">
-                          <p className="font-bold text-lg">Ver Galería</p>
-                          <p className="text-sm">{categoria.todasLasImagenes.length} imágenes</p>
+                      <div className="p-5">
+                        <p className="text-sm text-marca-steel/70 line-clamp-2 mb-3">{category.description}</p>
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-marca-steel/60">
+                            {category.totalImages} diseños
+                          </span>
+                          <span className="text-marca-green font-medium group-hover:underline">
+                            Ver categoría →
+                          </span>
                         </div>
                       </div>
                     </div>
-
-                    {/* Category Info */}
-                    <div className="p-5">
-                      <h3 className="text-xl font-bold text-marca-steel mb-2 group-hover:text-marca-green transition-colors">
-                        {categoria.nombre}
-                      </h3>
-                      <p className="text-sm text-marca-steel/70 line-clamp-2 mb-3">
-                        {categoria.descripcion}
-                      </p>
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-marca-steel/60">
-                          {categoria.todasLasImagenes.length} diseños
-                        </span>
-                        <span className="text-marca-green font-medium group-hover:underline">
-                          Ver galería →
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
+                  </motion.button>
+                ))}
               </motion.div>
-            ))}
-          </div>
+            ) : (
+              /* Subcategories Grid */
+              <motion.div
+                key="subcategories"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8"
+              >
+                {selectedCategory.subcategories.length > 0 ? (
+                  selectedCategory.subcategories.map((subcategory) => (
+                    <SubcategoryCard
+                      key={subcategory.id}
+                      subcategory={subcategory}
+                      categorySlug={selectedCategory.slug}
+                    />
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-12">
+                    <p className="text-marca-steel/60">No hay subcategorías disponibles en esta categoría.</p>
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </section>

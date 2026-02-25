@@ -56,19 +56,19 @@ export function Footer({ className }: FooterProps) {
     {
       icon: Facebook,
       label: 'Facebook',
-      href: process.env.NEXT_PUBLIC_FACEBOOK_URL || '#',
+      href: process.env.NEXT_PUBLIC_FACEBOOK_URL || 'https://www.facebook.com/share/14JB8uTEPY4/?mibextid=wwXIfr',
       ariaLabel: 'Visitar Facebook',
     },
     {
       icon: Instagram,
       label: 'Instagram',
-      href: process.env.NEXT_PUBLIC_INSTAGRAM_URL || '#',
+      href: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/marcafusion?igsh=ZHNkZDF3bGtzZTN0',
       ariaLabel: 'Visitar Instagram',
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: process.env.NEXT_PUBLIC_LINKEDIN_URL || '#',
+      href: process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/company/marcafusionsrl/',
       ariaLabel: 'Visitar LinkedIn',
     },
   ];
@@ -87,7 +87,7 @@ export function Footer({ className }: FooterProps) {
   return (
     <footer
       className={cn(
-        'w-full bg-[#2D5F3F] text-white',
+        'w-full bg-[#0D6832] text-white',
         className
       )}
     >

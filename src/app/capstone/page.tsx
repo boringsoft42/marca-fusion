@@ -5,7 +5,7 @@ import { ProductGrid } from '@/components/capstone/ProductGrid';
 import { ComparisonTable } from '@/components/capstone/ComparisonTable';
 import { BenefitsSection } from '@/components/capstone/BenefitsSection';
 import { CapstoneCTA } from '@/components/capstone/CapstoneCTA';
-import { CapstoneGlobalPresence } from '@/components/capstone/CapstoneGlobalPresence';
+import { CorporateGroupSection } from '@/components/home/CorporateGroupSection';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
@@ -51,9 +51,9 @@ export default function CapstonePage() {
         <CapstoneCTA />
       </BlurFade>
 
-      {/* Global Presence - Animated */}
+      {/* Corporate Group Section - Animated */}
       <BlurFade delay={1.2} inView>
-        <CapstoneGlobalPresence />
+        <CorporateGroupSection />
       </BlurFade>
     </div>
   );
