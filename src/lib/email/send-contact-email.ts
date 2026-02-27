@@ -29,10 +29,8 @@ export interface SendContactEmailResult {
 }
 
 const motivoLabels: Record<string, string> = {
-  cliente: 'Soy cliente y deseo atención o información',
-  informacion: 'Deseo información sobre productos',
   cotizacion: 'Deseo una cotización',
-  otro: 'Otro motivo',
+  informacion: 'Deseo información sobre productos',
 };
 
 export async function sendContactEmail({

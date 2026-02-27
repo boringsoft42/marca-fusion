@@ -16,10 +16,8 @@ import { z } from 'zod';
  */
 
 export const motivoOptions = [
-  { value: 'cliente', label: 'Soy cliente y deseo atención o información' },
-  { value: 'informacion', label: 'Deseo información sobre productos' },
   { value: 'cotizacion', label: 'Deseo una cotización' },
-  { value: 'otro', label: 'Otro motivo' },
+  { value: 'informacion', label: 'Deseo información sobre productos' },
 ] as const;
 
 export type MotivoValue = (typeof motivoOptions)[number]['value'];
@@ -57,7 +55,7 @@ export const contactSchema = z.object({
     .min(1, 'El país es requerido')
     .trim(),
 
-  motivo: z.enum(['cliente', 'informacion', 'cotizacion', 'otro'], {
+  motivo: z.enum(['cotizacion', 'informacion'], {
     errorMap: () => ({ message: 'Seleccione un motivo de contacto' }),
   }),
 
@@ -76,10 +74,11 @@ export type ContactFormData = z.infer<typeof contactSchema>;
 /**
  * Determine email routing based on motivo
  * - cotizacion → ventas@marcafusion.com.bo
- * - default → info@marcafusion.com.bo
+ * - informacion → info@marcafusion.com.bo
  */
 export function getEmailRecipient(motivo: MotivoValue): string {
-  return motivo === 'cotizacion'
-    ? process.env.NEXT_PUBLIC_EMAIL_VENTAS || 'ventas@marcafusion.com.bo'
-    : process.env.NEXT_PUBLIC_EMAIL_INFO || 'info@marcafusion.com.bo';
+  if (motivo === 'cotizacion') {
+    return process.env.NEXT_PUBLIC_EMAIL_VENTAS || 'ventas@marcafusion.com.bo';
+  }
+  return process.env.NEXT_PUBLIC_EMAIL_INFO || 'info@marcafusion.com.bo';
 }

@@ -138,24 +138,11 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
               </motion.div>
             </div>
 
-            {/* Right Column - Corporate Group Image */}
+            {/* Right Column - Corporate Group Visual */}
             <div className="lg:pl-8">
-              <motion.div
-                className="relative w-full"
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-              >
-                <Image
-                  src="/images/Grupo Altrix - Marca Fusión.png"
-                  alt="Grupo Corporativo - Altrix Solutions y Marca Fusión"
-                  width={1200}
-                  height={900}
-                  className="w-full h-auto scale-110"
-                  priority
-                />
-              </motion.div>
+              <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg">
+                {/* Solo fondo oscuro, sin imagen */}
+              </div>
             </div>
           </div>
         </div>

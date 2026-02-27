@@ -126,7 +126,7 @@ export function MicroturbineExplanation({ className }: MicroturbineExplanationPr
               transition={{ duration: 0.5 }}
               className="text-3xl md:text-4xl font-bold text-white mb-12"
             >
-              Beneficios Clave
+              Beneficios Clave.
             </motion.h3>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">

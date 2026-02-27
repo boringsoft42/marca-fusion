@@ -50,10 +50,8 @@ export function ContactForm({ className }: ContactFormProps) {
   });
 
   const motivoLabels: Record<string, string> = {
-    cliente: 'Soy cliente y deseo atención o información',
-    informacion: 'Deseo información sobre productos',
     cotizacion: 'Deseo una cotización',
-    otro: 'Otro motivo',
+    informacion: 'Deseo información sobre productos',
   };
 
   const onSubmit = async (data: ContactFormData) => {
