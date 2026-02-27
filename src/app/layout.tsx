@@ -20,6 +20,19 @@ export const metadata: Metadata = {
     template: `%s | ${APP_NAME}`,
   },
   description: APP_DESCRIPTION,
+  keywords: [
+    "Capstone Green Energy Bolivia",
+    "Tablú Bolivia",
+    "microturbinas Bolivia",
+    "soluciones energéticas Bolivia",
+    "energía sostenible",
+    "Marca Fusión",
+    "planners personalizados",
+    "tecnología limpia",
+  ],
+  authors: [{ name: "Marca Fusión SRL" }],
+  creator: "Marca Fusión SRL",
+  publisher: "Marca Fusión SRL",
   openGraph: {
     title: APP_NAME,
     description: APP_DESCRIPTION,
@@ -27,6 +40,20 @@ export const metadata: Metadata = {
     siteName: APP_NAME,
     locale: "es_BO",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Marca Fusión SRL - Representantes de Capstone Green Energy y Tablú en Bolivia",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: APP_NAME,
+    description: APP_DESCRIPTION,
+    images: ["/opengraph-image.png"],
   },
   robots: {
     index: true,
@@ -40,13 +67,21 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/icon.png",
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
     shortcut: "/favicon.ico",
     apple: "/apple-icon.png",
-    other: {
-      rel: "apple-touch-icon",
-      url: "/apple-icon.png",
-    },
+    other: [
+      {
+        rel: "apple-touch-icon",
+        url: "/apple-icon.png",
+      },
+    ],
+  },
+  verification: {
+    google: "verification_token", // Reemplazar con el token real de Google Search Console
   },
 };
 

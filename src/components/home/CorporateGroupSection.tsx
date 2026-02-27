@@ -140,9 +140,22 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
 
             {/* Right Column - Corporate Group Visual */}
             <div className="lg:pl-8">
-              <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-lg">
-                {/* Solo fondo oscuro, sin imagen */}
-              </div>
+              <motion.div
+                className="relative w-full aspect-[4/3] rounded-lg overflow-hidden shadow-2xl bg-[#0f1115]"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <Image
+                  src="/images/Grupo Altrix - Marca Fusión.png"
+                  alt="Mapa mundial mostrando conexión entre Altrix Solutions en USA y Marca Fusión en Bolivia"
+                  fill
+                  className="object-contain"
+                  priority
+                  unoptimized
+                />
+              </motion.div>
             </div>
           </div>
         </div>

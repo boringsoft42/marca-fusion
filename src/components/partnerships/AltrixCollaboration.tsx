@@ -91,10 +91,11 @@ export function AltrixCollaboration({ className }: AltrixCollaborationProps) {
             >
               <div className="relative h-[500px] w-full rounded-2xl overflow-hidden bg-[#2a2a2a]">
                 <Image
-                  src="/images/ubicacion Altrix.png"
+                  src="/images/ubicacion Altrix (1).PNG"
                   alt="Altrix Solutions LLC - Miami, Florida"
                   fill
                   className="object-cover"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/90 via-transparent to-transparent" />
 
