@@ -106,7 +106,7 @@ export function CapstoneHero({ className }: CapstoneHeroProps) {
           disableRemotePlayback
           x-webkit-airplay="deny"
         >
-          <source src="/images/YPFB Transporte - CAIGUA (1).mp4" type="video/mp4" />
+          <source src="/images/YPFB-web-optimized.mp4" type="video/mp4" />
           {/* Fallback image for devices that cannot play video */}
           <Image
             src="/images/1.png"
