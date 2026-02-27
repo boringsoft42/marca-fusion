@@ -1,11 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Header } from '@/components/layout/Header';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
 /**
  * Capstone Hero Section - Full Page Parallax
@@ -24,7 +25,8 @@ interface CapstoneHeroProps {
 
 export function CapstoneHero({ className }: CapstoneHeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
-  
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   // Parallax scroll animation
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -35,6 +37,42 @@ export function CapstoneHero({ className }: CapstoneHeroProps) {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.3]);
+
+  // Force video to play on mount - fixes autoplay issues on mobile/iOS
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const playVideo = async () => {
+      try {
+        // Try to play the video
+        await video.play();
+      } catch (error) {
+        // If autoplay fails (common on mobile), retry on user interaction
+        console.log('Video autoplay prevented, will retry on user interaction');
+
+        const handleInteraction = async () => {
+          try {
+            await video.play();
+            document.removeEventListener('touchstart', handleInteraction);
+            document.removeEventListener('click', handleInteraction);
+          } catch (e) {
+            console.error('Failed to play video:', e);
+          }
+        };
+
+        document.addEventListener('touchstart', handleInteraction, { once: true });
+        document.addEventListener('click', handleInteraction, { once: true });
+      }
+    };
+
+    // Small delay to ensure video element is ready
+    const timer = setTimeout(() => {
+      playVideo();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section
@@ -50,23 +88,37 @@ export function CapstoneHero({ className }: CapstoneHeroProps) {
       </div>
 
       {/* Background Video with parallax */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 z-0"
         style={{ y: backgroundY }}
       >
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
+          poster="/images/1.png"
+          controls={false}
+          disablePictureInPicture
+          disableRemotePlayback
+          x-webkit-airplay="deny"
         >
           <source src="/images/YPFB Transporte - CAIGUA (1).mp4" type="video/mp4" />
+          {/* Fallback image for devices that cannot play video */}
+          <Image
+            src="/images/1.png"
+            alt="Capstone Green Energy Background"
+            fill
+            className="object-cover"
+            priority
+          />
         </video>
         {/* Dark overlay for text readability */}
-        <motion.div 
-          className="absolute inset-0 bg-black/60" 
+        <motion.div
+          className="absolute inset-0 bg-black/60"
           style={{ opacity }}
         />
       </motion.div>
