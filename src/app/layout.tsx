@@ -10,7 +10,7 @@ import { ScrollSmootherProvider } from '@/components/layout/ScrollSmootherProvid
 import { structuredData } from '@/lib/seo/structured-data';
 
 const APP_NAME = "Fusion Group";
-const APP_DESCRIPTION = "Representantes exclusivos de Capstone Green Energy y Tablú en Bolivia. Soluciones energéticas sostenibles y tecnología innovadora.";
+const APP_DESCRIPTION = "Representantes oficiales de Capstone Green Energy y Tablú en Bolivia. Soluciones energéticas sostenibles y tecnología innovadora.";
 const APP_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
