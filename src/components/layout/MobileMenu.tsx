@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
 
 /**
- * Marca Fusión Mobile Menu Component
+ * Fusion Group Mobile Menu Component
  *
  * Features:
  * - Vertical navigation for mobile devices
@@ -87,7 +87,7 @@ export function MobileMenu({ isOpen, onLinkClick, className, textDark = false }:
                     'flex w-full items-center justify-between rounded-md px-3 py-3 text-base font-medium transition-colors',
                     'hover:bg-accent hover:text-accent-foreground',
                     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-                    isDropdownItemActive && 'text-[#0D6832] font-semibold'
+                    isDropdownItemActive && 'text-[#0A3D1F] font-semibold'
                   )}
                   aria-expanded={isRepresentationsOpen}
                   aria-controls={`mobile-submenu-${index}`}
@@ -117,7 +117,7 @@ export function MobileMenu({ isOpen, onLinkClick, className, textDark = false }:
                           'hover:bg-accent hover:text-accent-foreground',
                           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
                           isActive(subItem.href)
-                            ? 'bg-accent text-[#0D6832] font-medium'
+                            ? 'bg-accent text-[#0A3D1F] font-medium'
                             : 'text-muted-foreground'
                         )}
                         onClick={onLinkClick}
@@ -141,7 +141,7 @@ export function MobileMenu({ isOpen, onLinkClick, className, textDark = false }:
                 'hover:bg-accent hover:text-accent-foreground',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
                 isActive(item.href!)
-                  ? 'text-[#0D6832] font-semibold'
+                  ? 'text-[#0A3D1F] font-semibold'
                   : 'text-foreground'
               )}
               onClick={onLinkClick}

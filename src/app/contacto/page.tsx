@@ -5,7 +5,7 @@ import { metadata as metadataUtils } from '@/lib/seo/metadata';
 import { structuredData } from '@/lib/seo/structured-data';
 
 /**
- * Marca Fusión Contacto (Contact) Page
+ * Fusion Group Contacto (Contact) Page
  *
  * Showcases:
  * - Contact hero with quick info

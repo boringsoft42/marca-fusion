@@ -70,7 +70,7 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
             <p className="text-base md:text-lg leading-relaxed text-white/90 max-w-xl">
               Creemos en las alianzas estratégicas como el motor del progreso.
               <br />
-              En Marca Fusión, unimos la solidez empresarial boliviana con la innovación de partners nacionales e internacionales.
+              En Fusion Group, unimos la solidez empresarial boliviana con la innovación de partners nacionales e internacionales.
             </p>
 
             {/* CTA */}
@@ -79,7 +79,7 @@ export function PartnershipsHero({ className }: PartnershipsHeroProps) {
                 onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
                 className={cn(
                   'inline-flex items-center justify-center gap-2 px-5 py-1.5 rounded-lg text-sm font-medium',
-                  'bg-[#0D6832] text-white',
+                  'bg-[#0A3D1F] text-white',
                   'transition-all duration-200',
                   'hover:bg-[#234d32]'
                 )}

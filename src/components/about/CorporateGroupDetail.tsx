@@ -7,7 +7,7 @@ import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 /**
- * Marca Fusión Corporate Group Detail Section
+ * Fusion Group Corporate Group Detail Section
  *
  * Features:
  * - Two-column layout (text left, logos right)
@@ -106,7 +106,7 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
                 style={{ color: subtitleColor }}
                 className="text-base md:text-lg leading-relaxed max-w-2xl font-normal"
               >
-                <span className="font-semibold">Marca Fusión (Bolivia)</span> forma parte del grupo corporativo junto a{' '}
+                <span className="font-semibold">Fusion Group (Bolivia)</span> forma parte del grupo corporativo junto a{' '}
                 <span className="font-semibold">empresa especializada en comercio internacional</span> y representación técnica de equipos energéticos bajo modalidad{' '}
                 <span className="font-semibold">EXW USA</span> con destino final a Bolivia.
               </motion.p>
@@ -139,7 +139,7 @@ export function CorporateGroupDetail({ className }: CorporateGroupDetailProps) {
               >
                 <Image
                   src="/images/Grupo Corporativo.png"
-                  alt="Grupo Corporativo - Altrix Solutions y Marca Fusión"
+                  alt="Grupo Corporativo - Altrix Solutions y Fusion Group"
                   width={1200}
                   height={900}
                   className="w-full h-auto scale-110"

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 /**
- * Marca Fusión Robots.txt Configuration
+ * Fusion Group Robots.txt Configuration
  *
  * Defines crawler rules for search engines
  *

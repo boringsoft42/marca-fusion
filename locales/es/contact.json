@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "Estamos aquí para ayudarte",
-    "subtitle": "En Marca Fusión, valoramos cada consulta y cada oportunidad de colaboración. Completa el formulario o escríbenos directamente: nuestro equipo responderá lo antes posible."
+    "subtitle": "En Fusion Group, valoramos cada consulta y cada oportunidad de colaboración. Completa el formulario o escríbenos directamente: nuestro equipo responderá lo antes posible."
   },
   "form": {
     "title": "Formulario de contacto",
@@ -23,7 +23,7 @@
     "submit": "Enviar mensaje",
     "sending": "Enviando...",
     "errorRequired": "Por favor, completa todos los campos requeridos para poder procesar tu solicitud.",
-    "successMessage": "Gracias por contactarte con Marca Fusión. Hemos recibido tu mensaje y un miembro de nuestro equipo se pondrá en contacto contigo en breve."
+    "successMessage": "Gracias por contactarte con Fusion Group. Hemos recibido tu mensaje y un miembro de nuestro equipo se pondrá en contacto contigo en breve."
   },
   "directContact": {
     "title": "También puedes comunicarte con nosotros directamente:",
@@ -43,6 +43,6 @@
     "description": "Nuestras oficinas están ubicadas en Santa Cruz de la Sierra."
   },
   "closing": {
-    "message": "En Marca Fusión, cada mensaje representa una oportunidad de conectar innovación, confianza y nuevas alianzas. ¡Gracias por comunicarte con nosotros!"
+    "message": "En Fusion Group, cada mensaje representa una oportunidad de conectar innovación, confianza y nuevas alianzas. ¡Gracias por comunicarte con nosotros!"
   }
 }

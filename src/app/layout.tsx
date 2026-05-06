@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Kaushan_Script } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/lib/providers/QueryProvider";
 import { Toaster } from "@/components/ui/toaster";
@@ -9,7 +9,7 @@ import { Footer } from '@/components/layout/Footer';
 import { ScrollSmootherProvider } from '@/components/layout/ScrollSmootherProvider';
 import { structuredData } from '@/lib/seo/structured-data';
 
-const APP_NAME = "Marca Fusión SRL";
+const APP_NAME = "Fusion Group";
 const APP_DESCRIPTION = "Representantes exclusivos de Capstone Green Energy y Tablú en Bolivia. Soluciones energéticas sostenibles y tecnología innovadora.";
 const APP_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -23,16 +23,16 @@ export const metadata: Metadata = {
   keywords: [
     "Capstone Green Energy Bolivia",
     "Tablú Bolivia",
-    "microturbinas Bolivia",
+    "microturbinas Bolivia, Perú",
     "soluciones energéticas Bolivia",
-    "energía sostenible",
-    "Marca Fusión",
-    "planners personalizados",
+    "energía industrial, Oil Gas",
+    "Fusion Group",
+    "representación comercial B2B",
     "tecnología limpia",
   ],
-  authors: [{ name: "Marca Fusión SRL" }],
-  creator: "Marca Fusión SRL",
-  publisher: "Marca Fusión SRL",
+  authors: [{ name: "Fusion Group" }],
+  creator: "Fusion Group",
+  publisher: "Fusion Group",
   openGraph: {
     title: APP_NAME,
     description: APP_DESCRIPTION,
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Marca Fusión SRL - Representantes de Capstone Green Energy y Tablú en Bolivia",
+        alt: "Fusion Group - Representantes de Capstone Green Energy y Tablú en Bolivia",
       },
     ],
   },
@@ -85,21 +85,12 @@ export const metadata: Metadata = {
   },
 };
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
-const kaushanScript = Kaushan_Script({
-  variable: "--font-kaushan",
-  subsets: ["latin"],
-  weight: "400",
-});
 
 
 export default function RootLayout({
@@ -121,8 +112,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${kaushanScript.variable} antialiased bg-sierra-cream`}>
-        <ThemeProvider defaultTheme="light" storageKey="marca-fusion-theme">
+      <body className={`${outfit.variable} antialiased bg-white`}>
+        <ThemeProvider defaultTheme="light" storageKey="fusion-group-theme">
           <QueryProvider>
             <ScrollSmootherProvider>
               {/* ScrollSmoother wrapper structure */}

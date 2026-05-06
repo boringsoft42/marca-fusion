@@ -6,7 +6,7 @@ import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 
 /**
- * Marca Fusión Institutional Text Section - Feature Spotlight Style
+ * Fusion Group Institutional Text Section - Feature Spotlight Style
  *
  * Features:
  * - Feature spotlight design from 21st.dev
@@ -51,7 +51,7 @@ export function InstitutionalText({ className }: InstitutionalTextProps) {
               {/* Description - medium size, normal weight, grey */}
               <div className="mt-6 text-base md:text-lg leading-relaxed text-[#666] space-y-4 max-w-2xl md:mt-8 lg:mt-10">
                 <p>
-                  Marca Fusión, nació con un propósito claro: conectar personas, empresas e industrias con marcas nacionales e internacionales de prestigio.
+                  Fusion Group, nació con un propósito claro: conectar personas, empresas e industrias con marcas nacionales e internacionales de prestigio.
                 </p>
 
                 <p>
@@ -83,7 +83,7 @@ export function InstitutionalText({ className }: InstitutionalTextProps) {
                 />
                 <Image
                   src="/images/Nuestra Historia.jpg"
-                  alt="Nuestra Historia - Marca Fusión"
+                  alt="Nuestra Historia - Fusion Group"
                   fill
                   className="object-cover transition-all duration-1000"
                   style={{

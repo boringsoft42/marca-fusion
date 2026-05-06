@@ -10,7 +10,7 @@ import { ArrowRight } from 'lucide-react';
  * Capstone Global Presence Section
  *
  * Features:
- * - Explains Marca Fusión and Altrix Solutions partnership
+ * - Explains Fusion Group and Altrix Solutions partnership
  * - World map background with animated connection
  * - Company logos with flags
  * - Scroll-based color animation (white to black)
@@ -80,7 +80,7 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                 style={{ color: labelColor }}
               >
                 <span className="text-sm uppercase tracking-wider font-medium">
-                  ◆ Grupo Corporativo Marca Fusión – Altrix Solutions
+                  ◆ Grupo Corporativo Fusion Group – Altrix Solutions
                 </span>
               </motion.div>
 
@@ -98,7 +98,7 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                 style={{ color: subtitleColor }}
                 className="text-base md:text-lg leading-relaxed max-w-2xl"
               >
-                En Bolivia, <span className="font-semibold">Marca Fusión</span> gestiona la representación, comercialización y soporte técnico de <span className="font-semibold">Capstone Green Energy</span>, en colaboración con su socio comercial en Estados Unidos <span className="font-semibold">Altrix Solutions</span>, autorizado para la venta y despacho <span className="font-semibold">EXW USA</span> de equipos y repuestos con destino final a Bolivia.
+                En Bolivia, <span className="font-semibold">Fusion Group</span> gestiona la representación, comercialización y soporte técnico de <span className="font-semibold">Capstone Green Energy</span>, en colaboración con su socio comercial en Estados Unidos <span className="font-semibold">Altrix Solutions</span>, autorizado para la venta y despacho <span className="font-semibold">EXW USA</span> de equipos y repuestos con destino final a Bolivia.
               </motion.p>
 
               {/* Additional text */}
@@ -123,10 +123,10 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                   rel="noopener noreferrer"
                   className={cn(
                     'inline-flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold uppercase tracking-wide',
-                    'bg-[#0D6832] text-white',
+                    'bg-[#0A3D1F] text-white',
                     'transition-all duration-200',
-                    'hover:bg-[#0a5528]',
-                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2'
+                    'hover:bg-[#1A6B2E]',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A3D1F] focus-visible:ring-offset-2'
                   )}
                 >
                   Conocer Altrix Solutions
@@ -148,7 +148,7 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                 <div className="absolute inset-0 bg-[#0f1115]">
                   <Image
                     src="/images/Fondo INICIO GRUPO CORP.png"
-                    alt="Grupo Altrix - Marca Fusión"
+                    alt="Grupo Altrix - Fusion Group"
                     fill
                     className="object-cover opacity-60 transition-transform duration-[20s] ease-linear group-hover:scale-110"
                     priority
@@ -193,7 +193,7 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                       </a>
                     </motion.div>
 
-                    {/* Marca Fusión (Bolivia) */}
+                    {/* Fusion Group (Bolivia) */}
                     <motion.div
                       initial={{ y: 20, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
@@ -206,14 +206,14 @@ export function CapstoneGlobalPresence({ className }: CapstoneGlobalPresenceProp
                         </div>
                         <div className="h-12 w-full relative mb-3">
                           <Image
-                            src="/images/Logo_Marca_Fusión_Transparente.png"
-                            alt="Marca Fusión"
+                            src="/images/fusion-logo-blanco.svg"
+                            alt="Fusion Group"
                             fill
-                            className="object-contain brightness-0 invert opacity-90 group-hover/card:opacity-100 transition-all"
+                            className="object-contain opacity-90 group-hover/card:opacity-100 transition-all"
                           />
                         </div>
                         <div className="text-center">
-                          <h3 className="text-white font-bold text-base mb-0.5">Marca Fusión</h3>
+                          <h3 className="text-white font-bold text-base mb-0.5">Fusion Group</h3>
                           <p className="text-white/60 text-[10px] uppercase tracking-wider">Bolivia Operations</p>
                         </div>
                       </div>

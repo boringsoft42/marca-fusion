@@ -61,7 +61,7 @@ export function BenefitsSection({ className }: BenefitsSectionProps) {
               Soluciones integrales de energía limpia en Bolivia
             </h2>
             <p className="text-base md:text-lg text-sierra-text-secondary max-w-3xl mx-auto leading-relaxed">
-              En Marca Fusión, representamos a Capstone en Bolivia ofreciendo un servicio integral que cubre todo el ciclo de vida de sus equipos:
+              En Fusion Group, representamos a Capstone en Bolivia ofreciendo un servicio integral que cubre todo el ciclo de vida de sus equipos:
             </p>
           </div>
 

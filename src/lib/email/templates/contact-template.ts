@@ -22,7 +22,7 @@ export function contactEmailTemplate(data: ContactFormData): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuevo Contacto - Marca Fusión</title>
+  <title>Nuevo Contacto - Fusion Group</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -117,7 +117,7 @@ export function contactEmailTemplate(data: ContactFormData): string {
     <!-- Header -->
     <div class="header">
       <h1>🔔 Nuevo Contacto</h1>
-      <p style="margin: 8px 0 0; opacity: 0.9;">Marca Fusión - Formulario de Contacto</p>
+      <p style="margin: 8px 0 0; opacity: 0.9;">Fusion Group - Formulario de Contacto</p>
     </div>
 
     <!-- Content -->
@@ -198,7 +198,7 @@ export function contactEmailTemplate(data: ContactFormData): string {
     <!-- Footer -->
     <div class="footer">
       <p style="margin: 0 0 8px;">
-        <strong>Marca Fusión SRL</strong>
+        <strong>Fusion Group</strong>
       </p>
       <p style="margin: 0;">
         Santa Cruz de la Sierra, Bolivia

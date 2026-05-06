@@ -9,7 +9,7 @@ import { CorporateGroupSection } from '@/components/home/CorporateGroupSection';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
- * Marca Fusión Capstone Green Energy Page
+ * Fusion Group Capstone Green Energy Page
  *
  * Showcases:
  * - Microturbine technology and benefits

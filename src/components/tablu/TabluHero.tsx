@@ -70,7 +70,7 @@ function TabluBackgroundCarousel() {
             key={index}
             className={cn(
               "h-1 transition-all duration-500 rounded-full",
-              currentIndex === index ? "w-8 bg-[#0D6832]" : "w-2 bg-gray-300"
+              currentIndex === index ? "w-8 bg-[#0A3D1F]" : "w-2 bg-gray-300"
             )}
           />
         ))}
@@ -107,15 +107,15 @@ export function TabluHero({ className }: { className?: string }) {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="inline-flex items-center gap-2 px-6 py-2 mb-8 rounded-full bg-[#0D6832]/5 border border-[#0D6832]/10"
+                className="inline-flex items-center gap-2 px-6 py-2 mb-8 rounded-full bg-[#0A3D1F]/5 border border-[#0A3D1F]/10"
               >
-                <span className="text-[#0D6832] text-lg">✨</span>
+                <span className="text-[#0A3D1F] text-lg">✨</span>
                 
               </motion.div>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#1a1a1a] mb-6 leading-[1.1] tracking-tight">
-                Organizá <span className="text-[#0D6832]">tu vida</span> <br className="hidden md:block" />
-                <span className="font-kaushan text-[#0D6832] text-[0.9em] font-normal lowercase tracking-normal">con estilo</span>
+                Organizá <span className="text-[#0A3D1F]">tu vida</span> <br className="hidden md:block" />
+                <span className="font-kaushan text-[#0A3D1F] text-[0.9em] font-normal lowercase tracking-normal">con estilo</span>
               </h1>
 
               <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
@@ -129,8 +129,8 @@ export function TabluHero({ className }: { className?: string }) {
                   href="#catalogo"
                   className={cn(
                     "group relative inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full",
-                    "bg-[#0D6832] text-white text-base font-bold transition-all duration-300",
-                    "hover:bg-[#0a5528] hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
+                    "bg-[#0A3D1F] text-white text-base font-bold transition-all duration-300",
+                    "hover:bg-[#1A6B2E] hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
                   )}
                 >
                   <div className="p-1 rounded-full bg-white/20">
@@ -145,8 +145,8 @@ export function TabluHero({ className }: { className?: string }) {
                   rel="noopener noreferrer"
                   className={cn(
                     "group inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full",
-                    "bg-[#0D6832] text-white text-base font-bold transition-all duration-300",
-                    "hover:bg-[#0a5528] hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
+                    "bg-[#0A3D1F] text-white text-base font-bold transition-all duration-300",
+                    "hover:bg-[#1A6B2E] hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
                   )}
                 >
                   <MessageSquare className="w-5 h-5" />

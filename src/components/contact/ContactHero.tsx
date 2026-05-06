@@ -38,7 +38,7 @@ export function ContactHero({ className }: ContactHeroProps) {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/contact-hero.png"
-          alt="Contacto Marca Fusión"
+          alt="Contacto Fusion Group"
           fill
           className="object-cover"
           priority

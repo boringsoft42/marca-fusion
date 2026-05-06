@@ -5,7 +5,7 @@ import { ClosingQuote } from '@/components/partnerships/ClosingQuote';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
- * Marca Fusión Alianzas (Partnerships) Page
+ * Fusion Group Alianzas (Partnerships) Page
  *
  * Showcases:
  * - Partnership opportunities

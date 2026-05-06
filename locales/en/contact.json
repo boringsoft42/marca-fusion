@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "We're here to help",
-    "subtitle": "At Marca Fusión, we value every inquiry and every collaboration opportunity. Complete the form or write to us directly: our team will respond as soon as possible."
+    "subtitle": "At Fusion Group, we value every inquiry and every collaboration opportunity. Complete the form or write to us directly: our team will respond as soon as possible."
   },
   "form": {
     "title": "Contact form",
@@ -23,7 +23,7 @@
     "submit": "Send message",
     "sending": "Sending...",
     "errorRequired": "Please complete all required fields to process your request.",
-    "successMessage": "Thank you for contacting Marca Fusión. We have received your message and a member of our team will contact you shortly."
+    "successMessage": "Thank you for contacting Fusion Group. We have received your message and a member of our team will contact you shortly."
   },
   "directContact": {
     "title": "You can also reach us directly:",
@@ -43,6 +43,6 @@
     "description": "Our offices are located in Santa Cruz de la Sierra."
   },
   "closing": {
-    "message": "At Marca Fusión, every message represents an opportunity to connect innovation, trust and new partnerships. Thank you for contacting us!"
+    "message": "At Fusion Group, every message represents an opportunity to connect innovation, trust and new partnerships. Thank you for contacting us!"
   }
 }

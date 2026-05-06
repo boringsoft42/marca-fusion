@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Header } from '@/components/layout/Header';
 
 /**
- * Marca Fusión About Hero Section - Sierra Style with Animations
+ * Fusion Group About Hero Section - Sierra Style with Animations
  *
  * Features:aaa
  * - Sierra cream background
@@ -59,11 +59,11 @@ export function AboutHero({ className }: AboutHeroProps) {
             className="mb-12"
           >
             <Image
-              src="/images/Logo_Marca_Fusión_Transparente.png"
-              alt="Marca Fusión Logo"
+              src="/images/fusion-logo-blanco.svg"
+              alt="Fusion Group Logo"
               width={144}
-              height={128}
-              className="w-36 h-32 brightness-0 invert"
+              height={70}
+              className="w-56 h-auto"
               priority
             />
           </motion.div>

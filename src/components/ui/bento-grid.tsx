@@ -55,7 +55,7 @@ const BentoCard = ({
     <div>{background}</div>
     <div className="p-5">
       <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1.5">
-        <Icon className="h-8 w-8 text-marca-green mb-1" strokeWidth={1.5} />
+        <Icon className="h-8 w-8 text-[#3CB83D] mb-1" strokeWidth={1.5} />
         <h3 className="text-lg font-medium text-white">
           {name}
         </h3>

@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
 
 /**
- * Marca Fusión Navigation Component
+ * Fusion Group Navigation Component
  *
  * Features:
  * - Desktop horizontal navigation
@@ -30,8 +30,8 @@ export function Navigation({ className, onLinkClick, textDark = false }: Navigat
   
   // Text color classes based on textDark prop
   const textColorClass = textDark ? 'text-[#1a1a1a]' : 'text-white';
-  const hoverColorClass = textDark ? 'hover:text-[#0D6832]' : 'hover:text-[#0D6832]';
-  const activeColorClass = 'text-[#0D6832] font-bold';
+  const hoverColorClass = textDark ? 'hover:text-[#3CB83D]' : 'hover:text-[#3CB83D]';
+  const activeColorClass = 'text-[#0A3D1F] font-bold';
 
   // Navigation items configuration (Spanish only)
   const navItems = [
@@ -41,7 +41,7 @@ export function Navigation({ className, onLinkClick, textDark = false }: Navigat
       label: 'Representaciones',
       isDropdown: true,
       subItems: [
-        { href: `/capstone`, label: 'Capstone' },
+        { href: `/capstone`, label: 'Capstone Bolivia & Perú' },
         { href: `/tablu`, label: 'Tablú' },
       ],
     },
@@ -115,7 +115,7 @@ export function Navigation({ className, onLinkClick, textDark = false }: Navigat
                           'block rounded-md px-4 py-2 text-[14px] transition-colors',
                           'hover:bg-[#f5f5f5] hover:text-[#1a1a1a]',
                           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-                          isActive(subItem.href) ? 'bg-[#f5f5f5] text-[#0D6832] font-bold' : 'text-[#716F6C]'
+                          isActive(subItem.href) ? 'bg-[#f5f5f5] text-[#0A3D1F] font-bold' : 'text-[#716F6C]'
                         )}
                         onClick={onLinkClick}
                         role="menuitem"
@@ -158,9 +158,9 @@ export function Navigation({ className, onLinkClick, textDark = false }: Navigat
           'text-[14px] font-medium transition-all duration-200',
           'rounded-sm',
           isActive('/contacto') 
-            ? 'bg-[#0D6832] text-white' 
+            ? 'bg-[#0A3D1F] text-white' 
             : cn(
-                'bg-[#0D6832] text-white hover:bg-[#0a5528]',
+                'bg-[#0A3D1F] text-white hover:bg-[#1A6B2E]',
                 textDark ? 'focus-visible:ring-[#1a1a1a]' : 'focus-visible:ring-white'
               ),
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2'

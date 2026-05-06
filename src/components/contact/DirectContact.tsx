@@ -30,10 +30,10 @@ export function DirectContact({ className }: DirectContactProps) {
       { label: 'Tablú', number: '+591 67710595', whatsapp: true },
     ],
     emails: [
-      { label: 'Información', address: 'info@marcafusion.com.bo' },
-      { label: 'Ventas', address: 'ventas@marcafusion.com.bo' },
+      { label: 'Información', address: 'info@fusiongroup.bo' },
+      { label: 'Ventas', address: 'ventas@fusiongroup.bo' },
     ],
-    website: 'www.marcafusion.com.bo',
+    website: 'www.fusiongroup.bo',
     hours: 'Lunes a Viernes: 8:30 - 18:00',
   };
 

@@ -135,7 +135,7 @@ export function CapstoneHero({ className }: CapstoneHeroProps) {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl md:text-5xl lg:text-[48px] font-bold leading-tight tracking-tight text-white mb-8 text-left"
           >
-            <span className="text-[#0D6832]" style={{ WebkitTextStroke: '0.5px white' }}>Capstone</span> Green Energy en Bolivia
+            <span className="text-[#0A3D1F]" style={{ WebkitTextStroke: '0.5px white' }}>Capstone</span> Green Energy en Bolivia
           </motion.h1>
 
           {/* Subtitle - Left aligned */}
@@ -162,9 +162,9 @@ export function CapstoneHero({ className }: CapstoneHeroProps) {
               className={cn(
                 'group inline-flex items-center justify-center gap-2',
                 'px-6 py-3 rounded-sm text-sm font-semibold tracking-wide uppercase',
-                'bg-[#0D6832] text-white',
+                'bg-[#0A3D1F] text-white',
                 'transition-all duration-200',
-                'hover:bg-[#0a5528]',
+                'hover:bg-[#1A6B2E]',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent'
               )}
             >

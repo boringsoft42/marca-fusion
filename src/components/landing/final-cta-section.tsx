@@ -103,7 +103,7 @@ export function FinalCTASection() {
                 cta_type: "primary",
                 destination_url: "/sign-up"
               })}
-              className="inline-flex items-center gap-2 bg-[#0d6832] text-white px-7 py-3 rounded-3xl text-[15px] font-medium hover:bg-[#0a5528] transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-[#0d6832] text-white px-7 py-3 rounded-3xl text-[15px] font-medium hover:bg-[#1A6B2E] transition-colors duration-200"
             >
               Get Started Free
               <ArrowRight className="w-4 h-4" strokeWidth={1.5} />

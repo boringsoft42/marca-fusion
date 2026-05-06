@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 /**
- * Marca Fusión Representations Block - Dark Theme
+ * Fusion Group Representations Block - Dark Theme
  *
  * Features:
  * - Dark background design matching reference

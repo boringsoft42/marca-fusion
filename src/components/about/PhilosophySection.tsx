@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 /**
- * Marca Fusión Philosophy Section
+ * Fusion Group Philosophy Section
  *
  * Features:
  * - Closing philosophical statement
@@ -40,7 +40,7 @@ export function PhilosophySection({ className }: PhilosophySectionProps) {
 
             <div className="space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed">
               <p>
-                En Marca Fusión, creemos que cada proyecto es una oportunidad para generar un impacto positivo duradero. No solo conectamos empresas con tecnologías; conectamos visiones con realidades, desafíos con soluciones, y aspiraciones con logros concretos.
+                En Fusion Group, creemos que cada proyecto es una oportunidad para generar un impacto positivo duradero. No solo conectamos empresas con tecnologías; conectamos visiones con realidades, desafíos con soluciones, y aspiraciones con logros concretos.
               </p>
 
               <p className="text-foreground font-medium text-lg md:text-xl">

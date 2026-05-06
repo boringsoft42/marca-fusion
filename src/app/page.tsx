@@ -8,12 +8,12 @@ import { BlurFade } from '@/components/magicui/blur-fade';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
- * Marca Fusión Home Page - Sierra Style
+ * Fusion Group Home Page - Sierra Style
  *
  * Main landing page showcasing:
  * - Hero section with company tagline (Sierra style)
  * - Representations block (Capstone & Tablú)
- * - Corporate group section (Marca Fusión + Altrix)
+ * - Corporate group section (Fusion Group + Altrix)
  * - Mission and values
  * - Sectors carousel
  * - Client showcase

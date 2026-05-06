@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 
 /**
- * Marca Fusión Team Section - Feature Spotlight Style
+ * Fusion Group Team Section - Feature Spotlight Style
  *
  * Features:
  * - Feature spotlight design with hover animations
@@ -44,14 +44,14 @@ export function TeamSection({ className }: TeamSectionProps) {
               {/* Title - large, bold, black */}
               <h2 className="relative mb-6">
                 <span className="block text-4xl md:text-5xl font-bold text-[#1a1a1a]">
-                  El Talento Detrás de Marca Fusión
+                  El Talento Detrás de Fusion Group
                 </span>
               </h2>
 
               {/* Description - medium size, normal weight, grey */}
               <div className="mt-6 text-base md:text-lg leading-relaxed text-[#666] space-y-4 md:mt-8 lg:mt-10">
                 <p>
-                  En Marca Fusión creemos que las marcas no se representan solo con contratos, sino con personas que comparten una misma visión de crecimiento y excelencia.
+                  En Fusion Group creemos que las marcas no se representan solo con contratos, sino con personas que comparten una misma visión de crecimiento y excelencia.
                 </p>
 
                 <p>
@@ -129,8 +129,8 @@ export function TeamSection({ className }: TeamSectionProps) {
                 {/* Main Image Container */}
                 <div className="relative h-full w-full overflow-hidden rounded-[2rem] shadow-2xl z-10 bg-white">
                   <Image
-                    src="/images/Equipo Marca Fusión.jpg"
-                    alt="Equipo Marca Fusión"
+                    src="/images/Equipo Fusion Group.jpg"
+                    alt="Equipo Fusion Group"
                     fill
                     className="object-cover transition-all duration-1000"
                     style={{

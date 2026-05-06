@@ -44,13 +44,13 @@ export function SierraHeroSection({ className }: SierraHeroSectionProps) {
             href="/contacto"
             className={cn(
               'inline-flex items-center justify-center gap-2',
-              'bg-[#0D6832] text-white',
+              'bg-[#0A3D1F] text-white',
               'px-6 py-3',
               'rounded-sm',
               'text-sm font-semibold uppercase tracking-wide',
               'transition-colors duration-200',
-              'hover:bg-[#0a5528]',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2',
+              'hover:bg-[#1A6B2E]',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A3D1F] focus-visible:ring-offset-2',
               'self-start md:self-auto'
             )}
           >

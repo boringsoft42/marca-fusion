@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 
 /**
- * Marca Fusión Footer Component
+ * Fusion Group Footer Component
  *
  * Features:
  * - Multi-column layout (desktop) / stacked (mobile)
@@ -56,13 +56,13 @@ export function Footer({ className }: FooterProps) {
     {
       icon: Facebook,
       label: 'Facebook',
-      href: process.env.NEXT_PUBLIC_FACEBOOK_URL || 'https://www.facebook.com/share/14JB8uTEPY4/?mibextid=wwXIfr',
+      href: process.env.NEXT_PUBLIC_FACEBOOK_URL || 'https://www.facebook.com/MarcaFusionSRL',
       ariaLabel: 'Visitar Facebook',
     },
     {
       icon: Instagram,
       label: 'Instagram',
-      href: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/marcafusion?igsh=ZHNkZDF3bGtzZTN0',
+      href: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/marcafusion/',
       ariaLabel: 'Visitar Instagram',
     },
     {
@@ -87,7 +87,7 @@ export function Footer({ className }: FooterProps) {
   return (
     <footer
       className={cn(
-        'w-full bg-[#0D6832] text-white',
+        'w-full bg-[#0A3D1F] text-white',
         className
       )}
     >
@@ -96,22 +96,18 @@ export function Footer({ className }: FooterProps) {
         <div className="grid gap-8 py-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Company info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="relative h-10 w-10 flex-shrink-0">
+            <div className="flex flex-col space-y-2">
+              <div className="relative h-12 w-48 flex-shrink-0">
                 <Image
-                  src="/images/Logo_Marca_Fusión_Transparente.png"
-                  alt="Marca Fusión"
+                  src="/images/fusion-logo-blanco.svg"
+                  alt="Fusion Group"
                   fill
-                  className="object-contain brightness-0 invert"
+                  className="object-contain object-left"
                 />
-              </div>
-              <div>
-                <div className="text-base font-bold tracking-tight text-white">Marca Fusión</div>
-                <p className="text-xs text-white/70">Bolivia</p>
               </div>
             </div>
             <p className="text-sm text-white/80 leading-relaxed">
-              Representantes exclusivos de Capstone Green Energy y Tablú en Bolivia.
+              Representantes exclusivos de Capstone Green Energy en Bolivia y Perú. Soluciones energéticas e industriales de clase mundial.
             </p>
           </div>
 
@@ -125,7 +121,7 @@ export function Footer({ className }: FooterProps) {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/80 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-marca-green rounded-sm"
+                    className="text-sm text-white/80 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A3D1F] rounded-sm"
                   >
                     {link.label}
                   </Link>
@@ -182,7 +178,7 @@ export function Footer({ className }: FooterProps) {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-md border border-white/20 bg-white/10 text-white transition-all hover:bg-white hover:text-marca-green hover:border-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-marca-green"
+                  className="flex h-10 w-10 items-center justify-center rounded-md border border-white/20 bg-white/10 text-white transition-all hover:bg-white hover:text-[#3CB83D] hover:border-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A3D1F]"
                   aria-label={social.ariaLabel}
                 >
                   <social.icon className="h-5 w-5" aria-hidden="true" />
@@ -196,7 +192,7 @@ export function Footer({ className }: FooterProps) {
         <div className="border-t border-white/20 py-6">
           <div className="flex flex-col items-center justify-center text-center">
             <p className="text-xs text-white/90 max-w-3xl leading-relaxed">
-              © {currentYear} Marca Fusión SRL – Todos los derechos reservados. Parte del grupo corporativo <span className="font-semibold text-white">Marca Fusión SRL – Bolivia</span> | <span className="font-semibold text-white">Altrix Solutions LLC – USA</span>
+              © {currentYear} Fusion Group – Todos los derechos reservados. Parte del grupo corporativo <span className="font-semibold text-white">Fusion Group – Bolivia</span> | <span className="font-semibold text-white">Altrix Solutions LLC – USA</span>
             </p>
           </div>
         </div>

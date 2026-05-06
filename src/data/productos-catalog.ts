@@ -1,4 +1,4 @@
-// Catálogo completo de productos Marca Fusión
+// Catálogo completo de productos Fusion Group
 // Basado en la estructura de /public/Productos para Catálogo
 
 export interface Producto {

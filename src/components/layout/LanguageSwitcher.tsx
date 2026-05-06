@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import { Globe } from 'lucide-react';
 
 /**
- * Marca Fusión Language Switcher Component
+ * Fusion Group Language Switcher Component
  *
  * Features:
  * - Toggle between Spanish (ES) and English (EN)

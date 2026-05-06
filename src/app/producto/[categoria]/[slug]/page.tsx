@@ -206,12 +206,12 @@ export async function generateMetadata({ params }: ProductoPageProps) {
   }
 
   return {
-    title: `${producto.nombre} - ${categoria.nombre} - Marca Fusión Tablú`,
+    title: `${producto.nombre} - ${categoria.nombre} - Fusion Group Tablú`,
     description:
       producto.descripcion ||
       `${producto.nombre} disponible en tamaños: ${producto.tamaños.join(', ')}`,
     openGraph: {
-      title: `${producto.nombre} - Marca Fusión Tablú`,
+      title: `${producto.nombre} - Fusion Group Tablú`,
       description: producto.descripcion,
       images: [producto.imagenes[0]],
     },

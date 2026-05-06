@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 /**
- * Marca Fusión Middleware
+ * Fusion Group Middleware
  *
  * Basic middleware for handling requests.
  * No i18n - site is Spanish only.

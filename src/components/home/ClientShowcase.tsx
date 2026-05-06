@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { InfiniteScrollLogos } from '@/components/ui/infinite-scroll-logos';
 
 /**
- * Marca Fusión Client Showcase - Infinite Scroll Logo Carousel
+ * Fusion Group Client Showcase - Infinite Scroll Logo Carousel
  *
  * Features:
  * - Infinite horizontal scrolling logos

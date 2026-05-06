@@ -100,7 +100,7 @@ export async function generateMetadata({ params }: GaleriaPageProps) {
   }
 
   return {
-    title: `${categoria.nombre} - Galería Tablú - Marca Fusión`,
+    title: `${categoria.nombre} - Galería Tablú - Fusion Group`,
     description: categoria.descripcion,
     openGraph: {
       title: `${categoria.nombre} - Galería Tablú`,

@@ -11,25 +11,26 @@ export default {
   	extend: {
   		colors: {
   			'marca-green': {
+  				DEFAULT: '#3CB83D',
   				'50': '#f0fdf4',
   				'100': '#dcfce7',
   				'200': '#bbf7d0',
   				'300': '#86efac',
   				'400': '#4ade80',
-  				'500': '#22c55e',
-  				'600': '#16a34a',
-  				'700': '#15803d',
+  				'500': '#3CB83D',
+  				'600': '#1A6B2E',
+  				'700': '#0A3D1F',
   				'800': '#166534',
   				'900': '#14532d',
   				'950': '#052e16'
   			},
   			sierra: {
-  				cream: '#ebe8e3',
-  				green: '#0d6832',
-  				'green-hover': '#0a5528',
+  				cream: '#f7f8f6',
+  				green: '#0A3D1F',
+  				'green-hover': '#1A6B2E',
   				'text-primary': '#1a1a1a',
-  				'text-secondary': '#6b6b6b',
-  				'gray-light': '#e0e0e0'
+  				'text-secondary': '#5A6B61',
+  				'gray-light': '#E5E9E6'
   			},
   			'marca-steel': {
   				'50': '#f8fafc',

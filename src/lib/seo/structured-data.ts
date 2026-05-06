@@ -2,7 +2,7 @@ import type { Organization, LocalBusiness, Product, WithContext } from 'schema-d
 import type { TabluProduct } from '@/data/tablu-catalog';
 
 /**
- * Marca Fusión Structured Data (JSON-LD) Generators
+ * Fusion Group Structured Data (JSON-LD) Generators
  *
  * Implements Schema.org structured data for SEO enhancement
  *
@@ -16,7 +16,7 @@ import type { TabluProduct } from '@/data/tablu-catalog';
  */
 
 // Base URL configuration
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.marcafusion.com.bo';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fusiongroup.bo';
 
 /**
  * Organization Schema
@@ -27,15 +27,15 @@ export function generateOrganizationSchema(): WithContext<Organization> {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${SITE_URL}/#organization`,
-    name: 'Marca Fusión SRL',
-    legalName: 'Marca Fusión Sociedad de Responsabilidad Limitada',
-    alternateName: 'Marca Fusión',
+    name: 'Fusion Group',
+    legalName: 'Fusion Group Sociedad de Responsabilidad Limitada',
+    alternateName: 'Fusion Group',
     url: SITE_URL,
     logo: `${SITE_URL}/images/logos/marca-fusion-logo.svg`,
     description:
       'Representantes oficiales de Capstone Green Energy y Tablú Bolivia. Soluciones de energía eficiente y organización profesional en Santa Cruz de la Sierra.',
     foundingDate: '2012',
-    email: 'info@marcafusion.com.bo',
+    email: 'info@fusiongroup.bo',
     telephone: '+591-72136767',
     address: {
       '@type': 'PostalAddress',
@@ -93,11 +93,11 @@ export function generateLocalBusinessSchema(): WithContext<LocalBusiness> {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': `${SITE_URL}/#localbusiness`,
-    name: 'Marca Fusión SRL',
+    name: 'Fusion Group',
     image: `${SITE_URL}/images/hero/about-hero.jpg`,
     url: SITE_URL,
     telephone: '+591-72136767',
-    email: 'info@marcafusion.com.bo',
+    email: 'info@fusiongroup.bo',
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
@@ -162,7 +162,7 @@ export function generateProductSchema(product: TabluProduct): WithContext<Produc
       availability: 'https://schema.org/InStock',
       seller: {
         '@type': 'Organization',
-        name: 'Marca Fusión SRL',
+        name: 'Fusion Group',
       },
     },
     material: product.material === 'acrylic' ? 'Acrílico' : 'Magnético',
@@ -195,7 +195,7 @@ export function generateProductCatalogSchema(products: TabluProduct[]): WithCont
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${SITE_URL}/tablu#catalog`,
-    name: 'Tablú Bolivia - Marca Fusión',
+    name: 'Tablú Bolivia - Fusion Group',
     url: `${SITE_URL}/tablu`,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',

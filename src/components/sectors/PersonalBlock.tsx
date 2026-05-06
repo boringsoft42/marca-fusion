@@ -215,7 +215,7 @@ export function PersonalBlock({ className }: PersonalBlockProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/tablu"
-                className="inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide bg-[#0D6832] text-white transition-all duration-200 hover:bg-[#0a5528] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide bg-[#0A3D1F] text-white transition-all duration-200 hover:bg-[#1A6B2E] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A3D1F] focus-visible:ring-offset-2"
               >
                 Ver Catálogo Tablú
                 <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />

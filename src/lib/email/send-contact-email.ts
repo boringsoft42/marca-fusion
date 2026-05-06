@@ -74,20 +74,20 @@ export async function sendContactEmail({
   <style>
     body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
     .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { background-color: #0D6832; color: white; padding: 20px; text-align: center; border-radius: 5px 5px 0 0; }
+    .header { background-color: #0A3D1F; color: white; padding: 20px; text-align: center; border-radius: 5px 5px 0 0; }
     .content { background-color: #f9f9f9; padding: 30px; border: 1px solid #ddd; }
     .field { margin-bottom: 15px; }
-    .label { font-weight: bold; color: #0D6832; }
+    .label { font-weight: bold; color: #0A3D1F; }
     .value { margin-top: 5px; }
     .footer { background-color: #f1f1f1; padding: 15px; text-align: center; font-size: 12px; color: #666; border-radius: 0 0 5px 5px; }
-    .divider { border-top: 2px solid #0D6832; margin: 20px 0; }
+    .divider { border-top: 2px solid #0A3D1F; margin: 20px 0; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <h1 style="margin: 0;">Nuevo Mensaje de Contacto</h1>
-      <p style="margin: 5px 0 0 0;">Formulario Web - Marca Fusión</p>
+      <p style="margin: 5px 0 0 0;">Formulario Web - Fusion Group</p>
     </div>
 
     <div class="content">
@@ -147,13 +147,13 @@ export async function sendContactEmail({
 
     // Send email
     const info = await transporter.sendMail({
-      from: `"Formulario Web Marca Fusión" <${smtpUser}>`,
+      from: `"Formulario Web Fusion Group" <${smtpUser}>`,
       to: recipient,
       replyTo: data.email,
       subject: `Nuevo Contacto - ${motivoLabels[data.motivo]} - ${data.nombre}`,
       html: htmlContent,
       text: `
-Nuevo mensaje de contacto desde Marca Fusión
+Nuevo mensaje de contacto desde Fusion Group
 
 Nombre: ${data.nombre}
 Email: ${data.email}

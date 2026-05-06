@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 /**
- * Marca Fusión Metadata Utilities
+ * Fusion Group Metadata Utilities
  *
  * Generates SEO-optimized metadata for all pages
  *
@@ -15,13 +15,13 @@ import type { Metadata } from 'next';
 
 // Base URL configuration
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.marcafusion.com.bo';
-const SITE_NAME = 'Marca Fusión SRL';
+const SITE_NAME = 'Fusion Group';
 const SITE_LOCALE = 'es_BO';
 const TWITTER_HANDLE = '@MarcaFusion'; // Update if Twitter/X exists
 
 // Default metadata for fallback (reserved for future use)
 // const DEFAULT_METADATA = {
-//   title: 'Marca Fusión - Soluciones Energéticas y Planificación',
+//   title: 'Fusion Group - Soluciones Energéticas y Planificación',
 //   description:
 //     'Representantes oficiales de Capstone Green Energy y Tablú Bolivia. Microturbinas de cogeneración y planificadores digitales en Santa Cruz de la Sierra.',
 // };
@@ -74,11 +74,11 @@ export function getBaseMetadata(): Metadata {
  */
 export function getHomeMetadata(): Metadata {
   return {
-    title: 'Marca Fusión - Energía Eficiente y Organización Bolivia',
+    title: 'Fusion Group - Energía Eficiente y Organización Bolivia',
     description:
       'Representantes de Capstone Green Energy y Tablú Bolivia. Microturbinas de cogeneración de alta eficiencia y planificadores digitales para hogares y empresas en Santa Cruz.',
     keywords: [
-      'Marca Fusión',
+      'Fusion Group',
       'Capstone Bolivia',
       'Tablú Bolivia',
       'microturbinas',
@@ -88,7 +88,7 @@ export function getHomeMetadata(): Metadata {
       'energía eficiente',
     ],
     openGraph: {
-      title: 'Marca Fusión - Energía Eficiente y Organización Bolivia',
+      title: 'Fusion Group - Energía Eficiente y Organización Bolivia',
       description:
         'Representación oficial de Capstone Green Energy y Tablú en Santa Cruz de la Sierra. Soluciones de energía limpia y organización profesional.',
       url: SITE_URL,
@@ -98,7 +98,7 @@ export function getHomeMetadata(): Metadata {
           url: `${SITE_URL}/images/og/home-og.jpg`,
           width: 1200,
           height: 630,
-          alt: 'Marca Fusión - Representaciones en Bolivia',
+          alt: 'Fusion Group - Representaciones en Bolivia',
         },
       ],
     },
@@ -110,11 +110,11 @@ export function getHomeMetadata(): Metadata {
  */
 export function getAboutMetadata(): Metadata {
   return {
-    title: 'Nosotros - Marca Fusión | Quiénes Somos',
+    title: 'Nosotros - Fusion Group | Quiénes Somos',
     description:
-      'Conozca a Marca Fusión SRL: empresa boliviana representante de Capstone Green Energy y Tablú. Más de una década conectando tecnología global con el mercado local en Santa Cruz.',
+      'Conozca a Fusion Group: empresa boliviana representante de Capstone Green Energy y Tablú. Más de una década conectando tecnología global con el mercado local en Santa Cruz.',
     keywords: [
-      'Marca Fusión',
+      'Fusion Group',
       'empresa boliviana',
       'representantes Capstone',
       'representantes Tablú',
@@ -122,7 +122,7 @@ export function getAboutMetadata(): Metadata {
       'Altrix Solutions',
     ],
     openGraph: {
-      title: 'Nosotros - Marca Fusión | Quiénes Somos',
+      title: 'Nosotros - Fusion Group | Quiénes Somos',
       description:
         'Empresa boliviana con visión global. Representamos marcas internacionales en energía y organización. Parte del grupo corporativo Altrix Solutions.',
       url: `${SITE_URL}/nosotros`,
@@ -132,7 +132,7 @@ export function getAboutMetadata(): Metadata {
           url: `${SITE_URL}/images/og/about-og.jpg`,
           width: 1200,
           height: 630,
-          alt: 'Equipo Marca Fusión',
+          alt: 'Equipo Fusion Group',
         },
       ],
     },
@@ -144,7 +144,7 @@ export function getAboutMetadata(): Metadata {
  */
 export function getCapstoneMetadata(): Metadata {
   return {
-    title: 'Capstone Green Energy - Microturbinas Bolivia | Marca Fusión',
+    title: 'Capstone Green Energy - Microturbinas Bolivia | Fusion Group',
     description:
       'Representantes oficiales de Capstone Green Energy en Bolivia. Microturbinas de cogeneración C65, C200S, C600S, C800S, C1000S. Eficiencia energética, 0 emisiones, mantenimiento local.',
     keywords: [
@@ -182,7 +182,7 @@ export function getCapstoneMetadata(): Metadata {
  */
 export function getTabluMetadata(): Metadata {
   return {
-    title: 'Tablú Bolivia - Planificadores Digitales Acrílicos | Marca Fusión',
+    title: 'Tablú Bolivia - Planificadores Digitales Acrílicos | Fusion Group',
     description:
       'Distribuidores oficiales de Tablú en Bolivia. Planificadores digitales acrílicos y magnéticos personalizables. Catálogo completo: home, corporativo, niños, emprendedores. Envíos a domicilio.',
     keywords: [
@@ -218,7 +218,7 @@ export function getTabluMetadata(): Metadata {
  */
 export function getSectorsMetadata(): Metadata {
   return {
-    title: 'Sectores - Soluciones para Industria y Hogares | Marca Fusión',
+    title: 'Sectores - Soluciones para Industria y Hogares | Fusion Group',
     description:
       'Soluciones energéticas para Oil & Gas, industria, hospitales y comercios con Capstone. Planificadores para corporativos, profesionales y hogares con Tablú. Santa Cruz, Bolivia.',
     keywords: [
@@ -247,20 +247,20 @@ export function getSectorsMetadata(): Metadata {
  */
 export function getPartnershipsMetadata(): Metadata {
   return {
-    title: 'Alianzas Estratégicas - Únete a Marca Fusión',
+    title: 'Alianzas Estratégicas - Únete a Fusion Group',
     description:
-      'Construye alianzas comerciales con Marca Fusión. Buscamos distribuidores, partners técnicos y aliados estratégicos en Bolivia. Respaldo de Capstone Green Energy y Tablú.',
+      'Construye alianzas comerciales con Fusion Group. Buscamos distribuidores, partners técnicos y aliados estratégicos en Bolivia. Respaldo de Capstone Green Energy y Tablú.',
     keywords: [
       'alianzas estratégicas',
       'partnerships',
       'distribuidores',
       'representaciones',
-      'Marca Fusión',
+      'Fusion Group',
       'Bolivia',
       'Altrix Solutions',
     ],
     openGraph: {
-      title: 'Alianzas Estratégicas - Únete a Marca Fusión',
+      title: 'Alianzas Estratégicas - Únete a Fusion Group',
       description:
         'Creamos relaciones de largo plazo. Confianza, conexión internacional y resultados comprobados. Únete a nuestra red comercial.',
       url: `${SITE_URL}/alianzas`,
@@ -274,19 +274,19 @@ export function getPartnershipsMetadata(): Metadata {
  */
 export function getContactMetadata(): Metadata {
   return {
-    title: 'Contacto - Conversemos | Marca Fusión',
+    title: 'Contacto - Conversemos | Fusion Group',
     description: `Contáctanos para asesoría técnica, cotizaciones o alianzas. Email: ${CONTACT_INFO.email}, Tel: ${CONTACT_INFO.phone}. Oficina en ${CONTACT_INFO.address}.`,
     keywords: [
       'contacto',
       'cotización',
       'asesoría técnica',
-      'Marca Fusión',
+      'Fusion Group',
       'Santa Cruz',
       'Bolivia',
       'info@marcafusion.com.bo',
     ],
     openGraph: {
-      title: 'Contacto - Conversemos | Marca Fusión',
+      title: 'Contacto - Conversemos | Fusion Group',
       description:
         'Estamos aquí para responder tus preguntas y ayudarte a encontrar la solución perfecta. Múltiples canales de contacto disponibles.',
       url: `${SITE_URL}/contacto`,
@@ -300,7 +300,7 @@ export function getContactMetadata(): Metadata {
  */
 export function getNotFoundMetadata(): Metadata {
   return {
-    title: 'Página No Encontrada - Marca Fusión',
+    title: 'Página No Encontrada - Fusion Group',
     description: 'La página que buscas no existe. Vuelve al inicio para explorar nuestras soluciones.',
     robots: {
       index: false,
@@ -314,7 +314,7 @@ export function getNotFoundMetadata(): Metadata {
  */
 export function getErrorMetadata(): Metadata {
   return {
-    title: 'Error - Marca Fusión',
+    title: 'Error - Fusion Group',
     description: 'Ocurrió un error inesperado. Por favor intenta nuevamente o contáctanos para asistencia.',
     robots: {
       index: false,
@@ -332,7 +332,7 @@ export function generateProductMetadata(
   imageUrl?: string
 ): Metadata {
   return {
-    title: `${productName} | Marca Fusión`,
+    title: `${productName} | Fusion Group`,
     description: description.substring(0, 160),
     openGraph: {
       title: productName,

@@ -5,7 +5,7 @@ import { ShieldCheck, Lightbulb, Eye, Repeat, Award, Target, Rocket } from 'luci
 import { motion } from 'framer-motion';
 
 /**
- * Marca Fusión Mission, Vision & Values Section - Bento Grid Dark Theme
+ * Fusion Group Mission, Vision & Values Section - Bento Grid Dark Theme
  *
  * Features:
  * - Bento Grid layout with Mission, Vision, and Values
@@ -88,7 +88,7 @@ export function MissionVisionValues({ className }: MissionVisionValuesProps) {
                   <div className="absolute inset-0 bg-gradient-to-br from-marca-green/10 to-transparent rounded-sm" />
                   <div className="relative">
                     <div className="inline-flex p-3 rounded-xl bg-marca-green/20 mb-4">
-                      <Icon className="h-6 w-6 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
+                      <Icon className="h-6 w-6 text-[#3CB83D]" strokeWidth={1.5} aria-hidden="true" />
                     </div>
                     <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{item.name}</h3>
                     <p className="text-base md:text-lg text-white/80 leading-relaxed">{item.description}</p>
@@ -130,7 +130,7 @@ export function MissionVisionValues({ className }: MissionVisionValuesProps) {
                   className="p-6 rounded-sm bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300"
                 >
                   <div className="inline-flex p-2 rounded-lg bg-marca-green/20 mb-3">
-                    <Icon className="h-5 w-5 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
+                    <Icon className="h-5 w-5 text-[#3CB83D]" strokeWidth={1.5} aria-hidden="true" />
                   </div>
                   <h4 className="text-lg md:text-xl font-bold text-white mb-2">{value.name}</h4>
                   <p className="text-base text-white/80 leading-relaxed">{value.description}</p>
@@ -154,7 +154,7 @@ export function MissionVisionValues({ className }: MissionVisionValuesProps) {
                     className="p-6 rounded-sm bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)] hover:border-white/30 transition-all duration-300"
                   >
                     <div className="inline-flex p-2 rounded-lg bg-marca-green/20 mb-3">
-                      <Icon className="h-5 w-5 text-marca-green" strokeWidth={1.5} aria-hidden="true" />
+                      <Icon className="h-5 w-5 text-[#3CB83D]" strokeWidth={1.5} aria-hidden="true" />
                     </div>
                     <h4 className="text-lg font-semibold text-white mb-2">{value.name}</h4>
                     <p className="text-sm text-white/70 leading-relaxed">{value.description}</p>

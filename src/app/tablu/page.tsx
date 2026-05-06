@@ -11,7 +11,7 @@ import { structuredData } from '@/lib/seo/structured-data';
 import { tabluCatalog } from '@/data/tablu-catalog';
 
 /**
- * Marca Fusión Tablú Bolivia Page
+ * Fusion Group Tablú Bolivia Page
  *
  * Showcases:
  * - Digital planners (acrylic and magnetic)

@@ -7,7 +7,7 @@ import { Navigation } from './Navigation';
 import { MobileMenu } from './MobileMenu';
 
 /**
- * Marca Fusión Header Component
+ * Fusion Group Header Component
  *
  * Features:
  * - Sticky header with scroll behavior

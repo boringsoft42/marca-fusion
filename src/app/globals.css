@@ -3,21 +3,34 @@
 @tailwind utilities;
 
 /**
- * Marca Fusión Global Styles
- * Design System: Shadcn UI (New York variant) + Brand Colors
- * Fonts: Geist Sans (primary), Geist Mono (code)
- * Colors: Institutional Green, Steel Blue, Beige
+ * Fusion Group Global Styles
+ * Design System: Shadcn UI (New York variant) + Fusion Group Brand Colors
+ * Fonts: Zen Dots (headings/brand), Outfit (body)
+ * Colors: Verde Corporativo #0A3D1F, Verde Energético #3CB83D
  */
+
+/* ── ZEN DOTS FONT ── */
+@font-face {
+  font-family: 'Zen Dots';
+  src: url('/fonts/ZenDots-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @layer base {
   :root {
-    /* Marca Fusión Brand Colors */
-    --marca-green: 142 71% 45%;         /* #22c55e - Institutional green */
-    --marca-green-light: 142 71% 85%;   /* Light green for backgrounds */
-    --marca-steel: 215 16% 47%;         /* #64748b - Steel blue (Altrix) */
-    --marca-steel-light: 215 16% 90%;   /* Light steel for backgrounds */
-    --marca-beige: 20 6% 45%;           /* #78716c - Beige (Tablú) */
-    --marca-beige-light: 20 6% 95%;     /* Light beige for backgrounds */
+    /* Fusion Group Brand Colors */
+    --fg-verde-corp: 150 74% 14%;       /* #0A3D1F - Verde Corporativo */
+    --fg-verde-mid: 142 61% 26%;        /* #1A6B2E - Verde Intermedio */
+    --fg-verde-energy: 121 51% 48%;     /* #3CB83D - Verde Energético */
+    --fg-verde-bright: 104 100% 44%;    /* #4ADE00 - Verde Brillante */
+    --marca-green: 150 74% 14%;
+    --marca-green-light: 121 51% 85%;
+    --marca-steel: 215 16% 47%;
+    --marca-steel-light: 215 16% 90%;
+    --marca-beige: 20 6% 45%;
+    --marca-beige-light: 20 6% 95%;
 
     /* Shadcn UI System Colors - Light Mode */
     --background: 0 0% 100%;
@@ -27,8 +40,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
 
-    /* Primary: Use Marca Fusión Green */
-    --primary: 142 71% 45%;             /* Marca green as primary */
+    /* Primary: Fusion Group Verde Corporativo */
+    --primary: 150 74% 14%;             /* #0A3D1F */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96.1%;
@@ -208,4 +221,111 @@
     height: 0;
     }
   }
+}
+/* ── FUSION GROUP BRAND TYPOGRAPHY ── */
+.font-brand {
+  font-family: 'Zen Dots', sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em;
+}
+
+/* Headings principales usan Zen Dots */
+h1, h2 {
+  font-family: 'Zen Dots', sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em;
+}
+
+/* ── FUSION GROUP BRAND COLORS ── */
+.text-fg-corp    { color: #0A3D1F; }
+.text-fg-energy  { color: #3CB83D; }
+.bg-fg-corp      { background-color: #0A3D1F; }
+.bg-fg-energy    { background-color: #3CB83D; }
+.border-fg-corp  { border-color: #0A3D1F; }
+.border-fg-energy { border-color: #3CB83D; }
+
+/* ── FUSION GROUP COLOR UTILITIES ── */
+.text-sierra-green { color: #0A3D1F !important; }
+.bg-sierra-green   { background-color: #0A3D1F !important; }
+
+/* Acento verde energético para highlights */
+.accent-energy { color: #3CB83D; }
+.bg-accent-energy { background-color: #3CB83D; }
+
+/* ── FORZAR ZEN DOTS REGULAR EN TODOS LOS HEADINGS ── */
+/* Zen Dots solo tiene weight 400 - neutralizar cualquier bold de Tailwind */
+h1, h2 {
+  font-weight: 400 !important;
+}
+h1[class*="font-"], h2[class*="font-"] {
+  font-weight: 400 !important;
+}
+
+
+/* ══════════════════════════════════════════════
+   FUSION GROUP — TIPOGRAFÍA Y CONTRASTE FINAL
+   ══════════════════════════════════════════════ */
+
+/* 1. ZEN DOTS solo en h1 y h2 — weight 400 siempre */
+h1, h2 {
+  font-family: 'Zen Dots', sans-serif !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em;
+}
+
+/* h3 usa Outfit bold para diferenciar jerarquía */
+h3 {
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+}
+
+/* Cuerpo de texto — interlineado amplio */
+p, li, span:not([class*="uppercase"]):not([class*="tracking"]) {
+  line-height: 1.75;
+}
+
+/* 2. CONTRASTE — textos sobre fondos oscuros o imágenes */
+
+/* Verde oscuro sobre imagen → blanco legible */
+[class*="bg-black"] h1,
+[class*="bg-black"] h2,
+[class*="bg-zinc-900"] h1,
+[class*="bg-zinc-900"] h2,
+[class*="bg-gray-900"] h1,
+[class*="bg-gray-900"] h2,
+[class*="bg-neutral-900"] h1,
+[class*="bg-neutral-900"] h2 {
+  color: #ffffff !important;
+}
+
+/* Palabras en verde sobre fondo oscuro → verde energético #3CB83D */
+[class*="bg-black"] [class*="text-sierra-green"],
+[class*="bg-black"] [class*="text-green"],
+[class*="bg-zinc-900"] [class*="text-sierra-green"],
+[class*="bg-zinc-900"] [class*="text-green"],
+[class*="bg-gray-900"] [class*="text-sierra-green"],
+[class*="bg-neutral-900"] [class*="text-sierra-green"] {
+  color: #3CB83D !important;
+}
+
+/* Palabras en verde sobre imagen (overlay oscuro) */
+[class*="bg-black/"] [class*="text-sierra-green"],
+[class*="bg-black/"] [class*="text-\[#0A3D1F\]"],
+[class*="bg-black/"] .text-green-800,
+[class*="bg-black/"] .text-green-900 {
+  color: #3CB83D !important;
+}
+
+/* 3. Texto sobre imagen con overlay — siempre blanco */
+.relative .absolute + div h1,
+.relative .absolute + div h2,
+.relative .absolute + div p {
+  color: #ffffff;
+}
+
+/* Sombra de texto para máxima legibilidad sobre fotos */
+[class*="text-white"] {
+  text-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }

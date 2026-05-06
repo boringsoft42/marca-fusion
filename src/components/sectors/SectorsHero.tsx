@@ -31,7 +31,7 @@ export function SectorsHero({ className }: SectorsHeroProps) {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/Fondo Sectores.png"
-          alt="Sectores Marca Fusión"
+          alt="Sectores Fusion Group"
           fill
           className="object-cover"
           priority

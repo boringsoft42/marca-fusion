@@ -26,11 +26,11 @@ export function ClosingMessage({ className }: ClosingMessageProps) {
           {/* Message */}
           <div className="mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Gracias por tu Interés en Marca Fusión
+              Gracias por tu Interés en Fusion Group
             </h2>
             <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
               <p>
-                En <span className="font-bold text-foreground">Marca Fusión</span>, creemos que cada
+                En <span className="font-bold text-foreground">Fusion Group</span>, creemos que cada
                 conversación es el inicio de una gran alianza. Ya sea que busques soluciones energéticas
                 con <span className="font-semibold">Capstone Green Energy</span> o herramientas de
                 organización con <span className="font-semibold">Tablú Bolivia</span>, estamos aquí
@@ -76,7 +76,7 @@ export function ClosingMessage({ className }: ClosingMessageProps) {
           {/* Trust Indicator */}
           <div className="mt-12 pt-8 border-t border-border">
             <p className="text-sm text-muted-foreground">
-              <span className="font-bold text-foreground">Marca Fusión SRL</span> • Santa Cruz de la Sierra, Bolivia
+              <span className="font-bold text-foreground">Fusion Group</span> • Santa Cruz de la Sierra, Bolivia
               <br />
               Representantes oficiales de Capstone Green Energy y Tablú Bolivia
             </p>

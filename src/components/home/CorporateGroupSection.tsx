@@ -7,7 +7,7 @@ import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 /**
- * Marca Fusión Corporate Group Section
+ * Fusion Group Corporate Group Section
  *
  * Features:
  * - Two-column layout (text left, logos right)
@@ -101,7 +101,7 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
                 style={{ color: subtitleColor }}
                 className="text-base md:text-lg leading-relaxed max-w-2xl mb-6"
               >
-                <span className="font-semibold">Marca Fusión</span> forma parte de un grupo corporativo con presencia internacional, junto a <span className="font-semibold">Altrix Solutions (EE. UU.)</span>, empresa dedicada al comercio exterior y la representación técnica de equipos energéticos bajo modalidad <span className="font-semibold">EXW</span>.
+                <span className="font-semibold">Fusion Group</span> forma parte de un grupo corporativo con presencia internacional, junto a <span className="font-semibold">Altrix Solutions (EE. UU.)</span>, empresa dedicada al comercio exterior y la representación técnica de equipos energéticos bajo modalidad <span className="font-semibold">EXW</span>.
               </motion.p>
 
               {/* Additional synergy text */}
@@ -126,10 +126,10 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
                   rel="noopener noreferrer"
                   className={cn(
                     'inline-flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold uppercase tracking-wide',
-                    'bg-[#0D6832] text-white',
+                    'bg-[#0A3D1F] text-white',
                     'transition-all duration-200',
-                    'hover:bg-[#0a5528]',
-                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2'
+                    'hover:bg-[#1A6B2E]',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A3D1F] focus-visible:ring-offset-2'
                   )}
                 >
                   Conocer Altrix Solutions
@@ -148,8 +148,8 @@ export function CorporateGroupSection({ className }: CorporateGroupSectionProps)
                 transition={{ duration: 0.8 }}
               >
                 <Image
-                  src="/images/Grupo Altrix - Marca Fusión.png"
-                  alt="Mapa mundial mostrando conexión entre Altrix Solutions en USA y Marca Fusión en Bolivia"
+                  src="/images/Grupo Altrix - Fusion Group.png"
+                  alt="Mapa mundial mostrando conexión entre Altrix Solutions en USA y Fusion Group en Bolivia"
                   fill
                   className="object-contain"
                   priority

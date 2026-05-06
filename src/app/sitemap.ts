@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 /**
- * Marca Fusión Dynamic Sitemap
+ * Fusion Group Dynamic Sitemap
  *
  * Generates sitemap.xml for all static pages
  *

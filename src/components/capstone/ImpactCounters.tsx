@@ -161,7 +161,7 @@ export function ImpactCounters({ className }: ImpactCountersProps) {
           {/* Additional Context */}
           <div className="mt-12 text-center">
             <p className="text-base md:text-lg text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Desde 2010, Marca Fusión ha liderado la implementación de tecnología Capstone en Bolivia,
+              Desde 2010, Fusion Group ha liderado la implementación de tecnología Capstone en Bolivia,
               contribuyendo significativamente a la generación de energía limpia y eficiente en diversos sectores industriales.
             </p>
           </div>

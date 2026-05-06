@@ -48,7 +48,7 @@ export function GoogleMapsEmbed({ className }: GoogleMapsEmbedProps) {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación de Marca Fusión en Santa Cruz de la Sierra, Bolivia"
+                title="Ubicación de Fusion Group en Santa Cruz de la Sierra, Bolivia"
               />
             </div>
           </div>

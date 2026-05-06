@@ -9,7 +9,7 @@ import { Header } from '@/components/layout/Header';
 import { useRef, useEffect } from 'react';
 
 /**
- * Marca Fusión Home Hero Section - Left-aligned Layout with Logo
+ * Fusion Group Home Hero Section - Left-aligned Layout with Logo
  *
  * Features:
  * - Left-aligned text layout
@@ -112,7 +112,7 @@ export function HeroSection({ className }: HeroSectionProps) {
           {/* Fallback image for devices that cannot play video */}
           <Image
             src="/images/1.png"
-            alt="Marca Fusión Background"
+            alt="Fusion Group Background"
             fill
             className="object-cover"
             priority
@@ -138,11 +138,11 @@ export function HeroSection({ className }: HeroSectionProps) {
             className="mb-12"
           >
             <Image
-              src="/images/Logo_Marca_Fusión_Transparente.png"
-              alt="Marca Fusión Logo"
-              width={120}
-              height={120}
-              className="h-28 md:h-32 w-auto brightness-0 invert"
+              src="/images/fusion-logo-blanco.svg"
+              alt="Fusion Group Logo"
+              width={220}
+              height={75}
+              className="h-16 md:h-20 w-auto"
               priority
             />
           </motion.div>
@@ -154,7 +154,7 @@ export function HeroSection({ className }: HeroSectionProps) {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight tracking-tight text-white mb-8"
           >
-            Conectamos <span className="font-bold">Bolivia</span> con marcas nacionales e internacionales que impulsan <span className="font-bold">innovación</span>, <span className="font-bold">sostenibilidad</span> y <span className="font-bold">confianza</span>
+            Soluciones Energéticas e Industriales en <span className="text-[#3CB83D]">Bolivia</span> y <span className="text-[#3CB83D]">Perú</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -164,9 +164,9 @@ export function HeroSection({ className }: HeroSectionProps) {
             transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="text-base md:text-lg text-white/90 leading-relaxed mb-12 font-light"
           >
-            Representantes exclusivos de{' '}
+            Representantes exclusivos de 
             <span className="font-medium text-white">Capstone Green Energy</span> y{' '}
-            <span className="font-medium text-white">Tablú</span> para Bolivia
+            <span className="font-medium text-white">Tablú</span> en Bolivia y Perú
           </motion.p>
 
           {/* CTA Button - Left aligned */}
@@ -181,10 +181,10 @@ export function HeroSection({ className }: HeroSectionProps) {
               className={cn(
                 'group inline-flex items-center justify-center gap-2',
                 'px-6 py-3 rounded-sm text-sm font-semibold tracking-wide uppercase',
-                'bg-[#0D6832] text-white',
+                'bg-[#0A3D1F] text-white',
                 'transition-all duration-200',
-                'hover:bg-[#0a5528]',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent'
+                'hover:bg-[#1A6B2E]',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A3D1F] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent'
               )}
             >
               <ArrowUpRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />

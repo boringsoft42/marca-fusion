@@ -94,7 +94,7 @@ export function SocialSection({ className }: SocialSectionProps) {
             <p className="text-sm md:text-base text-white/70 leading-relaxed max-w-2xl mx-auto italic">
               Los productos Tablú Bolivia mantienen los mismos estándares de fabricación y garantía que en Perú y México.
               <br />
-              <span className="font-bold text-white/90 focus:not-italic">Distribuido oficialmente por Marca Fusión SRL – Representante exclusivo para Bolivia</span>
+              <span className="font-bold text-white/90 focus:not-italic">Distribuido oficialmente por Fusion Group – Representante exclusivo para Bolivia</span>
             </p>
           </motion.div>
           

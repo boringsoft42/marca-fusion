@@ -7,13 +7,13 @@ import { CorporateGroupDetail } from '@/components/about/CorporateGroupDetail';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
- * Marca Fusión About Us Page
+ * Fusion Group About Us Page
  *
  * Showcases:
  * - Company origin and history
  * - Mission, vision, and values
  * - Team introduction
- * - Corporate group details (Marca Fusión + Altrix)
+ * - Corporate group details (Fusion Group + Altrix)
  * - Company philosophy
  */
 

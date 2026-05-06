@@ -74,7 +74,7 @@ export function ProductCatalog({ className }: ProductCatalogProps) {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[#1a1a1a] mb-6 leading-[1.1] tracking-tight">
-              Catálogo de <span className="font-kaushan text-[#0D6832] lowercase text-[0.85em] font-normal tracking-normal">diseños exclusivos</span>
+              Catálogo de <span className="font-kaushan text-[#0A3D1F] lowercase text-[0.85em] font-normal tracking-normal">diseños exclusivos</span>
             </h2>
             <p className="text-base md:text-lg text-[#555] max-w-3xl mx-auto leading-relaxed mb-8">
               Elegí tu modelo, tamaño y estilo favorito del catálogo y realizá tu pedido directamente por WhatsApp.

@@ -9,7 +9,7 @@ import { ArrowRight, ArrowUpRight, Factory, Building2, Heart, Briefcase, Home } 
 import { motion } from 'framer-motion';
 
 /**
- * Marca Fusión Sectors Accordion - Sierra Style
+ * Fusion Group Sectors Accordion - Sierra Style
  *
  * Features:
  * - Sierra cream background
@@ -200,7 +200,7 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
                           className={cn(
                             'p-3 rounded-sm transition-all duration-300 border',
                             hoveredIndex === index
-                              ? 'bg-[#0D6832] border-white shadow-[0_4px_12px_rgba(13,104,50,0.3)]'
+                              ? 'bg-[#0A3D1F] border-white shadow-[0_4px_12px_rgba(13,104,50,0.3)]'
                               : 'bg-white border-transparent'
                           )}
                         >
@@ -275,10 +275,10 @@ export function SectorsCarousel({ className }: SectorsCarouselProps) {
             href="/sectores"
             className={cn(
               'inline-flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold tracking-wide uppercase',
-              'bg-[#0D6832] text-white',
+              'bg-[#0A3D1F] text-white',
               'transition-all duration-200',
-              'hover:bg-[#0a5528]',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2'
+              'hover:bg-[#1A6B2E]',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A3D1F] focus-visible:ring-offset-2'
             )}
           >
             Ver todos los sectores

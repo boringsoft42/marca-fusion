@@ -6,7 +6,7 @@ import { UnifyingMessage } from '@/components/sectors/UnifyingMessage';
 import { metadata as metadataUtils } from '@/lib/seo/metadata';
 
 /**
- * Marca Fusión Sectores Page
+ * Fusion Group Sectores Page
  *
  * Showcases:
  * - Industrial sectors (Capstone): Oil & Gas, Industrial, Hospitalario, Comercial

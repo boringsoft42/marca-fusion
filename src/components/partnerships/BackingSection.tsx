@@ -139,7 +139,7 @@ export function BackingSection({ className }: BackingSectionProps) {
                 'inline-flex items-center gap-2 rounded-3xl px-7 py-3 text-[15px] font-medium',
                 'bg-sierra-green text-white shadow-[0_2px_8px_rgba(0,0,0,0.08)]',
                 'transition-all duration-200',
-                'hover:bg-[#0a5528]',
+                'hover:bg-[#1A6B2E]',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sierra-green focus-visible:ring-offset-2'
               )}
             >

@@ -120,7 +120,7 @@ export function FAQSection() {
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center justify-center px-7 py-3 text-[15px] font-medium text-white bg-[#0d6832] rounded-3xl hover:bg-[#0a5528] transition-colors duration-200"
+              className="inline-flex items-center justify-center px-7 py-3 text-[15px] font-medium text-white bg-[#0d6832] rounded-3xl hover:bg-[#1A6B2E] transition-colors duration-200"
             >
               Contact Our Team
             </a>

@@ -95,10 +95,10 @@ export function ContactForm({ className }: ContactFormProps) {
       {/* Success Message */}
       {formState.isSuccess && (
         <div className="mb-6 p-4 rounded-lg bg-emerald-50 border border-emerald-200 flex items-start gap-3 animate-in fade-in slide-in-from-top-2 duration-500">
-          <CheckCircle2 className="h-5 w-5 text-[#0D6832] flex-shrink-0 mt-0.5" aria-hidden="true" />
+          <CheckCircle2 className="h-5 w-5 text-[#0A3D1F] flex-shrink-0 mt-0.5" aria-hidden="true" />
           <div>
-            <h4 className="font-semibold text-[#0D6832] mb-1">✅ Gracias por contactarte con Marca Fusión.</h4>
-            <p className="text-sm text-[#0D6832]/80">
+            <h4 className="font-semibold text-[#0A3D1F] mb-1">✅ Gracias por contactarte con Fusion Group.</h4>
+            <p className="text-sm text-[#0A3D1F]/80">
               Hemos recibido tu mensaje y un miembro de nuestro equipo se pondrá en contacto contigo en breve.
             </p>
           </div>
@@ -330,10 +330,10 @@ export function ContactForm({ className }: ContactFormProps) {
             type="submit"
             className={cn(
               'w-full inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold uppercase tracking-wide',
-              'bg-[#0D6832] text-white',
+              'bg-[#0A3D1F] text-white',
               'transition-all duration-200',
-              'hover:bg-[#0a5528]',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6832] focus-visible:ring-offset-2'
+              'hover:bg-[#1A6B2E]',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A3D1F] focus-visible:ring-offset-2'
             )}
           >
             💬 Enviar Mensaje

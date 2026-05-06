@@ -135,10 +135,10 @@ export async function generateMetadata({ params }: CategoriaPageProps) {
   }
 
   return {
-    title: `${categoria.nombre} - Marca Fusión Tablú`,
+    title: `${categoria.nombre} - Fusion Group Tablú`,
     description: categoria.descripcion,
     openGraph: {
-      title: `${categoria.nombre} - Marca Fusión Tablú`,
+      title: `${categoria.nombre} - Fusion Group Tablú`,
       description: categoria.descripcion,
       images: [categoria.imagen],
     },

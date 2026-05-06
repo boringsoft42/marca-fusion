@@ -17,7 +17,7 @@
     "salesEmail": "ventas@marcafusion.com.bo",
     "website": "www.marcafusion.com.bo",
     "socialTitle": "Síguenos",
-    "copyrightMarcaFusion": "© 2024 Marca Fusión SRL - Bolivia",
+    "copyrightMarcaFusion": "© 2024 Fusion Group - Bolivia",
     "copyrightAltrix": "Altrix Solutions LLC - USA",
     "ctaButton": "Contáctanos ahora"
   },
@@ -33,7 +33,7 @@
     "backToHome": "Volver al inicio"
   },
   "whatsapp": {
-    "generalInquiry": "Hola, deseo más información sobre Marca Fusión.",
+    "generalInquiry": "Hola, deseo más información sobre Fusion Group.",
     "capstoneAdvisory": "Hola, deseo asesoramiento técnico sobre microturbinas Capstone.",
     "capstoneQuote": "Hola, deseo solicitar una cotización para equipos Capstone Green Energy.",
     "tabluInquiry": "Hola, estoy interesado en los planners Tablú. ¿Podrían brindarme más información?",
@@ -50,7 +50,7 @@
     "english": "English"
   },
   "meta": {
-    "defaultTitle": "Marca Fusión SRL - Representantes de Capstone y Tablú en Bolivia",
+    "defaultTitle": "Fusion Group - Representantes de Capstone y Tablú en Bolivia",
     "defaultDescription": "Conectamos Bolivia con marcas nacionales e internacionales. Representantes exclusivos de Capstone Green Energy y Tablú para Bolivia."
   }
 }
