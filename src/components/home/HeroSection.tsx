@@ -164,7 +164,7 @@ export function HeroSection({ className }: HeroSectionProps) {
             transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="text-base md:text-lg text-white/90 leading-relaxed mb-12 font-light"
           >
-            Representantes exclusivos de 
+            Representantes oficiales de 
             <span className="font-medium text-white">Capstone Green Energy</span> y{' '}
             <span className="font-medium text-white">Tablú</span> en Bolivia y Perú
           </motion.p>
