@@ -107,7 +107,7 @@ export function Footer({ className }: FooterProps) {
               </div>
             </div>
             <p className="text-sm text-white/80 leading-relaxed">
-              Representantes exclusivos de Capstone Green Energy en Bolivia y Perú. Soluciones energéticas e industriales de clase mundial.
+              Representantes oficiales de Capstone Green Energy en Bolivia y Perú. Soluciones energéticas e industriales de clase mundial.
             </p>
           </div>
 
